@@ -50,6 +50,6 @@
   "review_status": "verified",
   "adjudication_notes": [
     "Retained as memory-adjacent because it evaluates embodied spatial intelligence broadly rather than a dedicated agent-memory architecture.",
-    "2026-09-17 scope review: Real UAV video tasks explicitly include memory alongside perception and reasoning about space and self. The full benchmark is broader than its memory tasks; detailed protocol claims remain to be rechecked. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: Real UAV video tasks explicitly include memory alongside perception and reasoning about space and self. The full benchmark is broader than its memory tasks; detailed protocol claims remain to be rechecked. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

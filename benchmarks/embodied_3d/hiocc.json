@@ -50,6 +50,6 @@
   "review_status": "verified",
   "adjudication_notes": [
     "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update.",
-    "2026-09-17 scope review: Online room and building occupancy settings evaluate accumulated spatial representations and revisiting consistency. Local occupancy prediction alone is a perception task. Memory relevance concerns online mapping; detailed protocol verification is limited to the abstract. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: Online room and building occupancy settings evaluate accumulated spatial representations and revisiting consistency. Local occupancy prediction alone is a perception task. Memory relevance concerns online mapping; detailed protocol verification is limited to the abstract. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

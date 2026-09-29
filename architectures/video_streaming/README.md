@@ -100,7 +100,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## Benchmark Papers
 
-Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) and [benchmark records](../../benchmarks/video_streaming/).
+Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [benchmark records](../../benchmarks/video_streaming/).
 
 - **EgoExoMem-CrossView** — EgoExoMem: Cross-View Memory Reasoning over Synchronized Egocentric and Exocentric Videos. [arXiv](https://arxiv.org/abs/2605.18734)
 - **EgoLifeQA** — EgoLife: Towards Egocentric Life Assistant. [arXiv](https://arxiv.org/abs/2503.03803)

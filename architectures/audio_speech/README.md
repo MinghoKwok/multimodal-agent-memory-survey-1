@@ -24,7 +24,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## Benchmark Papers
 
-Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) and [benchmark records](../../benchmarks/audio_speech/).
+Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [benchmark records](../../benchmarks/audio_speech/).
 
 - **Agentic ASR benchmark** — Towards Human-Like Interactive Speech Recognition With Agentic Correction and Semantic Evaluation. [arXiv](https://arxiv.org/abs/2605.29430)
 - **AudioMarathon** — AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs. [arXiv](https://arxiv.org/abs/2510.07293)

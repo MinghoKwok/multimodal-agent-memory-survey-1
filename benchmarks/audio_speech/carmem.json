@@ -55,6 +55,6 @@
   "adjudication_notes": [
     "Included as memory_adjacent because it is an explicitly named, public long-term-memory dataset used in the manuscript Table 1, but its examples are text conversations in a voice-assistant application setting rather than recorded speech.",
     "primary_modality follows the manuscript's Audio and speech memory grouping and the in-car voice-assistant deployment domain. The record must not be interpreted as evidence that CarMem evaluates speaker identity, prosody or other acoustic-memory capabilities.",
-    "2026-09-17 scope review: A synthetic text-conversation protocol directly measures preference extraction, retrieval and maintenance. Voice-assistant motivation does not make the evaluated inputs acoustic. Retained and explicitly labeled as a text-only comparison; it is not evidence of multimodal-memory performance. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: A synthetic text-conversation protocol directly measures preference extraction, retrieval and maintenance. Voice-assistant motivation does not make the evaluated inputs acoustic. Retained and explicitly labeled as a text-only comparison; it is not evidence of multimodal-memory performance. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

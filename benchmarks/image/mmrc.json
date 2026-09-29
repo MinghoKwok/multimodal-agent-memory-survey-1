@@ -60,6 +60,6 @@
   "review_status": "verified",
   "adjudication_notes": [
     "Retained as memory-adjacent because it evaluates conversational memory behavior rather than prescribing a persistent agent-memory architecture.",
-    "2026-09-17 scope review: History-conditioned probes explicitly test memory recall, image management and information updates, alongside cross-turn reasoning. The former dagger is not justified. Memory-related ability tracks; other MMRC tasks are broader dialogue tests. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: History-conditioned probes explicitly test memory recall, image management and information updates, alongside cross-turn reasoning. The former dagger is not justified. Memory-related ability tracks; other MMRC tasks are broader dialogue tests. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

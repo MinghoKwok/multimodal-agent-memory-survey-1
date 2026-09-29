@@ -116,7 +116,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## Benchmark Papers
 
-Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) and [benchmark records](../../benchmarks/embodied_3d/).
+Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [benchmark records](../../benchmarks/embodied_3d/).
 
 - **3DMem-Bench** — 3DLLM-Mem: Long-Term Spatial-Temporal Memory for Embodied 3D Large Language Model. [arXiv](https://arxiv.org/abs/2505.22657)
 - **APRS** — Seek to Segment: Active Perception for Panoramic Referring Segmentation. [arXiv](https://arxiv.org/abs/2607.02497)

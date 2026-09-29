@@ -79,6 +79,6 @@
   ],
   "review_status": "verified",
   "adjudication_notes": [
-    "2026-09-17 scope review: Embodied tasks evaluate an agent with memory through navigation, object search, dialogue and replanning in changing scenes. The task benchmark is broader than memory diagnosis; the paper's separate memory evaluation uses other datasets. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: Embodied tasks evaluate an agent with memory through navigation, object search, dialogue and replanning in changing scenes. The task benchmark is broader than memory diagnosis; the paper's separate memory evaluation uses other datasets. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

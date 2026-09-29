@@ -43,6 +43,6 @@
   "review_status": "verified",
   "adjudication_notes": [
     "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update.",
-    "2026-09-17 scope review: Task-state horizons explicitly vary retaining observed state, exploring hidden state and updating stale state; interventions and state-management metrics diagnose memory failures. Restrict multimodal inclusion to the visual simulation backend; the symbolic-only backend is not multimodal. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: Task-state horizons explicitly vary retaining observed state, exploring hidden state and updating stale state; interventions and state-management metrics diagnose memory failures. Restrict multimodal inclusion to the visual simulation backend; the symbolic-only backend is not multimodal. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }

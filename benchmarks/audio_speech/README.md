@@ -2,7 +2,7 @@
 
 [Survey README](../../README.md) · [Audio and Speech Architecture Papers](../../architectures/audio_speech/README.md#architecture-papers) · [Scope & Terminology](../../README.md#scope--terminology)
 
-**10 benchmark/evaluation resources**, grouped by the repository’s primary modality labels. These include dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) for qualifications and the [Table 2 manifest](../../data/table2_benchmarks.json) for manuscript panel groupings.
+**10 benchmark/evaluation resources**, grouped by the repository’s primary modality labels. These include dedicated memory tests, broader evaluations, and scoped comparisons. Scope qualifications are included in the individual records; manuscript Table 2 may group resources into different panels.
 
 Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
 

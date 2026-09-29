@@ -51,7 +51,7 @@
   ],
   "review_status": "verified",
   "adjudication_notes": [
-    "2026-09-17 scope review: Household event traces support questions and planning over temporally changing semantic states. The reviewed protocol uses semantic scene and event information; raw visual or audio inputs to the evaluated agent were not established. Retained as a stateful embodied-memory comparison. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json.",
+    "2026-09-17 scope review: Household event traces support questions and planning over temporally changing semantic states. The reviewed protocol uses semantic scene and event information; raw visual or audio inputs to the evaluated agent were not established. Retained as a stateful embodied-memory comparison. The legacy scope_status field is not a Table 2 exclusion rule.",
     "The v2 evaluation protocol uses semantic household traces. An image input to the evaluated memory system was not established; the unsupported image secondary-modality tag and Table 2 direct CE annotation were removed. Source: https://arxiv.org/html/2606.18847v2, Sections 3.1–3.3 and 8.1."
   ]
 }

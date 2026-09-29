@@ -79,7 +79,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## Benchmark Papers
 
-Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) and [benchmark records](../../benchmarks/image/).
+Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [benchmark records](../../benchmarks/image/).
 
 - **ATM-Bench** — According to Me: Long-Term Personalized Referential Memory QA. [arXiv](https://arxiv.org/abs/2603.01990)
 - **CamRoll** — Personal AI Agent for Camera Roll VQA. [arXiv](https://arxiv.org/abs/2606.05275)

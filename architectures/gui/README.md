@@ -57,7 +57,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## Benchmark Papers
 
-Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [scope review](../../data/benchmark_scope_review.md) and [benchmark records](../../benchmarks/gui/).
+Benchmark coverage includes dedicated memory tests, broader evaluations, and scoped comparisons. See the [benchmark records](../../benchmarks/gui/).
 
 - **DataScope** — What Memory Do GUI Agents Really Need? From Passive Records to Active Task-Driving States. [arXiv](https://arxiv.org/abs/2606.31612)
 - **DMV-Bench** — DMV-Bench: Diagnosing Long-Horizon Multimodal Agents' Visual Memory with Incidental Cue Injection. [arXiv](https://arxiv.org/abs/2606.27499)

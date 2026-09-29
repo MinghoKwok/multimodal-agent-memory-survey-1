@@ -41,7 +41,7 @@ The current inventory contains **296 architecture records** and **83 benchmark a
 | Memory management policy | The reusable rules, instructions, procedures, or learned components governing how memory is written, maintained, or retrieved. |
 | Benchmark / evaluation resource | A resource used to evaluate memory or a relevant task or component. A paper may contribute both an architecture and a benchmark. |
 
-The benchmark lists cover the **83 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. See the [benchmark scope review](data/benchmark_scope_review.md) for evidence and limitations. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
+The benchmark lists cover the **83 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
 
 Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
 
@@ -68,8 +68,6 @@ The two axes describe **how experience is represented** and **what changes durin
 | T3 | **Self-Evolving Memory** | Uses deployment feedback to persistently evolve a reusable memory management policy that affects later interactions or tasks. |
 
 T2 operations include **update**, **consolidation**, **revision and conflict resolution**, **reorganization**, and **forgetting**. T3 policy evolution can target **writing**, **maintenance**, or **retrieval**. Offline training alone does not establish T3; changes to stored content or statistics under a stable policy remain T2.
-
-See the [annotation guide](schema/annotation_guide.md), [controlled vocabulary](schema/controlled_vocabulary.json), and [counting rules](schema/counting_rules.md) for the operational definitions and machine-readable labels.
 
 ## Image
 
@@ -516,7 +514,5 @@ See the [annotation guide](schema/annotation_guide.md), [controlled vocabulary](
 | --- | --- |
 | [architectures/](architectures/) | Architecture records grouped by primary modality, with paper provenance and evidence for taxonomy annotations. |
 | [benchmarks/](benchmarks/) | Benchmark records grouped by primary modality, with evaluation capabilities and scope notes. |
-| [schema/](schema/) | Annotation rules, controlled vocabulary, counting rules, and record templates. |
-| [data/](data/) | Derived tables and analysis exports, including the [architecture index](data/architectures.csv), [benchmark index](data/benchmarks.csv), and [Table 2 membership manifest](data/table2_benchmarks.json). |
 
-Records identify the reviewed source version and retain evidence pointers and review status. Some annotations require adjudication; consult the record before treating a label as settled. The repository stores metadata and evidence pointers rather than paper PDFs. The [benchmark scope review](data/benchmark_scope_review.md) and [historical selection audit](data/benchmark_selection_audit.md) document the benchmark inventory.
+Records identify the reviewed source version and retain evidence pointers and review status. Some annotations require adjudication; consult the record before treating a label as settled. The repository stores metadata and evidence pointers rather than paper PDFs.

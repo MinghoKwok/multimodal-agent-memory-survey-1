@@ -51,6 +51,6 @@
   "review_status": "verified",
   "adjudication_notes": [
     "Retained as memory-adjacent because it evaluates streaming-context understanding without isolating a persistent agent-memory mechanism.",
-    "2026-09-17 scope review: Sequential Question Answering requires links to entities or events from previous question-answer turns; this is an explicit episodic-history test. Limit the row to SQA; current-frame and generic perception tasks do not establish memory coverage. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+    "2026-09-17 scope review: Sequential Question Answering requires links to entities or events from previous question-answer turns; this is an explicit episodic-history test. Limit the row to SQA; current-frame and generic perception tasks do not establish memory coverage. The legacy scope_status field is not a Table 2 exclusion rule."
   ]
 }
