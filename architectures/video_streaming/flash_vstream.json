@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "flash-vstream-2025",
+  "architecture_name": "Flash-VStream",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Flash-VStream: Efficient Real-Time Understanding for Long Video Streams",
+    "authors": [
+      "Haoji Zhang",
+      "Yiqin Wang",
+      "Yansong Tang",
+      "Yong Liu",
+      "Jiashi Feng",
+      "Xiaojie Jin"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1; later system paper",
+      "published_date": "2025-06-30",
+      "source_url": "https://arxiv.org/abs/2506.23825v1",
+      "pdf_url": "https://arxiv.org/pdf/2506.23825v1",
+      "doi": "10.48550/arXiv.2506.23825"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": [
+      "Flash-VStream: Memory-Based Real-Time Understanding for Long Video Streams (arXiv:2406.08085)"
+    ]
+  },
+  "representation_paths": [
+    {
+      "path_id": "context-synopsis-memory",
+      "memory_component": "Context Synopsis Memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. Model Architecture",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "A fixed-capacity context memory stores low-resolution visual-feature cluster centroids and temporal positions."
+        }
+      ]
+    },
+    {
+      "path_id": "detail-augmentation-memory",
+      "memory_component": "Detail Augmentation Memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: A. Implementation Details",
+          "page": "PDF p. 12",
+          "figure_or_table": "",
+          "paraphrase": "High-resolution visual features nearest to high-density context clusters are retained for detailed spatial augmentation and jointly activated in the language model."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. Model Architecture",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "A fixed K-means update incorporates each incoming low-resolution frame feature while maintaining a bounded centroid set. For Flash-VStream, this specifically supports fixed-rule insertion or replacement of Context Synopsis Memory."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Context Synopsis Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Semantically similar frames are consolidated into cluster centroids to remove temporal redundancy. For Flash-VStream, this specifically supports merging or deduplication of overlapping entries of Context Synopsis Memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Both memory levels store modality-native visual features; their multi-tier organization alone is not cross-representation hybrid memory.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (Context Synopsis Memory) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

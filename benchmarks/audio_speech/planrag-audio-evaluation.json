@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "planrag-audio-evaluation-2026",
+  "benchmark_name": "PlanRAG-Audio evaluation",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "PlanRAG-Audio: Planning and Retrieval Augmented Generation for Long-form Audio Understanding",
+    "authors": [
+      "Masao Someki",
+      "Chien-yu Huang",
+      "Siddhant Arora",
+      "Samuele Cornell",
+      "Markus Müller",
+      "Nathan Susanj",
+      "Rupak Vignesh Swaminathan",
+      "Grant Strimel",
+      "Jing Liu",
+      "Shinji Watanabe"
+    ],
+    "latest_version": {
+      "version_label": "Findings of ACL 2026 camera-ready, reviewed on 2026-08-31",
+      "published_date": "2026-07-02",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1304/",
+      "pdf_url": "https://aclanthology.org/2026.findings-acl.1304.pdf",
+      "doi": "10.18653/v1/2026.findings-acl.1304"
+    },
+    "reviewed_on": "2026-08-31"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_localization",
+    "temporal_order_and_change",
+    "cross_modal_evidence",
+    "multi_event_evidence_integration",
+    "entity_identity_tracking",
+    "unanswerable_query_handling"
+  ],
+  "tasks": [
+    "question_answering",
+    "memory_retrieval",
+    "temporal_localization"
+  ],
+  "evidence": [
+    {
+      "section": "4 Experimental Setup; 4.1 Datasets",
+      "page": "PDF pp. 5-6 (proceedings pp. 26171-26172)",
+      "figure_or_table": "Table 2 (base and advanced task examples)",
+      "paraphrase": "The paper constructs a reproducible evaluation suite from public audio corpora rather than merely reporting results on unchanged source datasets. Base tasks cover long-form QA, summarization, diarization, emotion recognition and sound-event detection; inputs span 10, 30, 60, 300 and 540 minutes, with 1,000 questions per task except 100 summaries."
+    },
+    {
+      "section": "4.1 Datasets - Advanced Tasks",
+      "page": "PDF p. 6 (proceedings p. 26172)",
+      "figure_or_table": "Table 2",
+      "paraphrase": "Advanced evaluation sets transform the base data into speaker counting, sound-event ordering and speaker-constrained QA. Speaker-constrained QA includes answerable and deliberately unanswerable cases, while event ordering and counting require evidence integration across long time spans and modality-specific streams."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Recorded separately from the PlanRAG-Audio architecture because the paper contributes both a memory architecture and a newly constructed multi-task evaluation suite.",
+    "The authors do not give the suite a separate benchmark brand; 'PlanRAG-Audio evaluation' follows the manuscript Table 1 label and the corpus precedent for named evaluation records.",
+    "Classified as memory_adjacent because it stresses retrieval and reasoning over retained long-form audio, but primarily evaluates long-audio understanding rather than isolating a persistent agent-memory lifecycle."
+  ]
+}

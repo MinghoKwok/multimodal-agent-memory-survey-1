@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "tame-personalization-2025",
+  "architecture_name": "TAME",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "TAMEing Long Contexts in Personalization: Towards Training-Free and State-Aware MLLM Personalized Assistant",
+    "authors": [
+      "Rongpei Hong",
+      "Jian Lang",
+      "Ting Zhong",
+      "Yong Wang",
+      "Fan Zhou"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-12-25",
+      "source_url": "https://arxiv.org/abs/2512.21616",
+      "pdf_url": "https://arxiv.org/pdf/2512.21616",
+      "doi": "10.48550/arXiv.2512.21616"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "concepts",
+      "memory_component": "dynamic and static concept attributes",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Augmented Generation",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Dynamic State and Static Personalized memories store concept-aligned transient and persistent attributes."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Stable attributes migrate to static memory. For TAME, this specifically supports migration between memory tiers of dynamic and static concept attributes."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Dynamic State Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The bounded dynamic tier removes outdated attributes. For TAME, this specifically supports explicit deletion or eviction of stored items of dynamic and static concept attributes."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Dynamic State Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A frozen multimodal language model chooses Add, Modify, or Remove actions over concept attributes. For TAME, this specifically supports LLM-mediated memory editing of dynamic and static concept attributes."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: Dynamic State Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The same fixed manager compares incoming concept evidence with stored attributes and resolves inconsistent or outdated entries through Modify or Remove. For TAME, this specifically supports LLM-based resolution of conflicting records of dynamic and static concept attributes."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (dynamic and static concept attributes) changes through migration between memory tiers, explicit deletion or eviction of stored items, LLM-mediated memory editing, LLM-based resolution of conflicting records; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

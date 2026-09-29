@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "robomemory-2026",
+  "architecture_name": "RoboMemory",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "RoboMemory: A Brain-inspired Multi-memory Agentic Framework for Interactive Environmental Learning in Physical Embodied Systems",
+    "authors": [
+      "Mingcong Lei",
+      "Honghao Cai",
+      "Yuyuan Yang",
+      "Yimou Wu",
+      "Jinke Ren",
+      "Zezhou Cui",
+      "Liangchen Tan",
+      "Junkun Hong",
+      "Gehan Hu",
+      "Shuangyu Zhu",
+      "Shaohan Jiang",
+      "Ge Wang",
+      "Junyuan Tan",
+      "Zhenglin Wan",
+      "Zheng Li",
+      "Zhen Li",
+      "Shuguang Cui",
+      "Yiming Zhao",
+      "Yatong Han"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-24",
+      "source_url": "https://arxiv.org/abs/2508.01415",
+      "pdf_url": "https://arxiv.org/pdf/2508.01415",
+      "doi": "10.48550/arXiv.2508.01415"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "spatial knowledge graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: B. Spatial Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A dynamic spatial knowledge graph supports consistent environmental updates and planning."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "temporal, episodic, and semantic memories",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Semantic Memory. In cognitive psychology, semantic",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Parallel memory modules retain temporal, episodic, and semantic experience for repeated tasks."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboMemory applies LLM-mediated memory editing to spatial knowledge graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboMemory applies episodic or hierarchical summarization to spatial knowledge graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Multi-Modal Memory in Embodied Agents. Contempo-",
+          "page": "PDF p. 17",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboMemory applies fixed-rule correction of stored state to spatial knowledge graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: B. Spatial Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Environmental changes are integrated into the dynamic knowledge graph. For RoboMemory, this specifically supports relinking or reindexing of stored items of spatial knowledge graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (spatial knowledge graph) changes through LLM-mediated memory editing, episodic or hierarchical summarization, fixed-rule correction of stored state, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

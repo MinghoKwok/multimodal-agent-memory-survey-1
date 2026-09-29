@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "stateful-streaming-asr-2026",
+  "architecture_name": "Stateful Streaming ASR (State Carry-over / State Rollback)",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Beyond Fresh Starts: Stateful Inference for Streaming ASR in Conversational Voice Agents",
+    "authors": [
+      "Sameep Chattopadhyay",
+      "Alexander Erdmann",
+      "Mari Ostendorf"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 (HTML full text) reviewed on 2026-08-30",
+      "published_date": "2026-08-22",
+      "source_url": "https://arxiv.org/abs/2608.22101",
+      "pdf_url": "https://arxiv.org/pdf/2608.22101",
+      "doi": "10.48550/arXiv.2608.22101"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "cross-utterance acoustic encoder state (attention key-value cache, per-layer convolution cache, valid cache length) of the cache-aware FastConformer-RNNT streaming encoder",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "3.1 Model state (with Appendix A.2)",
+          "page": "arXiv HTML full text, Section 3.1",
+          "figure_or_table": "Table 2 (per-component tensor shapes and memory footprint)",
+          "paraphrase": "The retained inference state includes the streaming encoder's attention key-value cache, a per-layer convolution cache and the corresponding valid cache length. These are audio-derived acoustic activations of the final frames of the previous utterance; they are carried across the turn boundary and re-activated as encoder context for the next utterance instead of being reset. Raw audio of the earlier turn is not retained, so the source signal is not recoverable from the cache."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "cross-utterance decoder state (RNNT prediction-network LSTM hidden/cell state, accumulated decoder hypothesis, last predicted token, number of tokens emitted)",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "3.1 Model state; 3.3 State-management strategies",
+          "page": "arXiv HTML full text, Sections 3.1 and 3.3",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "A deliberate recurrent memory state is threaded across turns: the LSTM hidden and cell states of the RNNT prediction network together with the accumulated hypothesis, the last predicted token and the emitted-token count are saved at the end of one utterance and restored as the initial decoder state of the next. Algorithm 1 writes S <- S_i after inference on each turn, so the latent state persists across the whole conversational recording rather than within a single utterance."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "3.3 State-management strategies (State Carry-over)",
+          "page": "arXiv HTML full text, Section 3.3",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "State Carry-over updates the persistent encoder/decoder memory at every turn boundary by a fixed deterministic rule (S <- S_i after decoding turn i), with no reset. The memory content changes continuously during deployment while the update policy itself is fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "3.3 State-management strategies (State Rollback)",
+          "page": "arXiv HTML full text, Section 3.3",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "State Rollback keeps a snapshot of the state at the end of the last substantial turn; when a turn emits fewer than k tokens (k in {1,5,10}, i.e. a backchannel), the accumulated state contributed by that turn is discarded and the saved snapshot is restored. This is an inference-time, fixed-threshold eviction of memory content that would otherwise persist."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The acoustic encoder cache and the decoder/prediction-network state are jointly saved, jointly restored and jointly consumed by the next turn's RNNT decoding step; neither alone constitutes the carried memory.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Tier judged T2, not T3: Section 2 states the methods 'do not require any training or fine-tuning' and treat state management as an inference-time decision problem. The rollback threshold k is empirically tuned offline and fixed at deployment; the paper explicitly leaves dynamic adaptation of the threshold to future work. No deployment feedback changes any reusable write/maintenance/retrieval policy, so the T3 four-link test fails at links (2) and (3).",
+    "State Rollback could alternatively be labelled rule_based_state_correction (restoring a prior snapshot). It is recorded as discrete_memory_eviction because the operative effect described in Algorithm 1 is discarding the short-turn contribution to the persistent state.",
+    "Evidence pointers were taken from the arXiv HTML full text (Sections 2, 3.1-3.3, Algorithm 1, Table 2). Page numbers of the PDF were not resolved.",
+    "Non-text-modality criterion is satisfied natively: the persistent artifact is itself an audio-encoder cache, so speech participates in memory formation, storage and downstream use."
+  ]
+}

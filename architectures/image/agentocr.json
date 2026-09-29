@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "agentocr-2026",
+  "architecture_name": "AgentOCR",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "AgentOCR: Optical Context Compression for Long-Horizon Multimodal Agents",
+    "authors": [
+      "Lang Feng",
+      "Fuchao Yang",
+      "Feng Chen",
+      "Xin Cheng",
+      "Haiyang Xu",
+      "Zhenglin Wan",
+      "Ming Yan",
+      "Bo An"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-08",
+      "source_url": "https://arxiv.org/abs/2601.04786",
+      "pdf_url": "https://arxiv.org/pdf/2601.04786",
+      "doi": "10.48550/arXiv.2601.04786"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "optically cached rendered interaction history",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Optical Memory Encoding",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Accumulated textual/action history is rendered into compact image segments and optically cached."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Optical Memory Encoding",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, AgentOCR applies fixed-rule insertion or replacement to optically cached rendered interaction history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Optical Memory Encoding",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, AgentOCR applies a trained but frozen update module to optically cached rendered interaction history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): RL trains the compression-rate controller before deployment. Inference appends and compresses the OCR buffer with fixed learned logic, yielding T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

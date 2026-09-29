@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "",
+  "benchmark_name": "",
+  "primary_modality": "",
+  "secondary_modalities": [],
+  "paper": {
+    "title": "",
+    "authors": [],
+    "latest_version": {
+      "version_label": "",
+      "published_date": "",
+      "source_url": "",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": ""
+  },
+  "evaluated_memory_capabilities": [],
+  "tasks": [],
+  "evidence": [
+    {
+      "section": "",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": ""
+    }
+  ],
+  "review_status": "needs_adjudication",
+  "adjudication_notes": []
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "context-as-memory-2025",
+  "architecture_name": "Context-as-Memory",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Context as Memory: Scene-Consistent Interactive Long Video Generation with Memory Retrieval",
+    "authors": [
+      "Jiwen Yu",
+      "Jianhong Bai",
+      "Yiran Qin",
+      "Quande Liu",
+      "Xintao Wang",
+      "Pengfei Wan",
+      "Di Zhang",
+      "Xihui Liu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-08-12",
+      "source_url": "https://arxiv.org/abs/2506.03141",
+      "pdf_url": "https://arxiv.org/pdf/2506.03141",
+      "doi": "10.48550/arXiv.2506.03141"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "historical generated frames",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical frames are stored without post-processing and retrieved by field-of-view overlap."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Each generated segment appends new frames to the historical context memory under a fixed rule. For Context-as-Memory, this specifically supports fixed-rule insertion or replacement of historical generated frames."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (historical generated frames) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

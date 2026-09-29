@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videogen-of-thought-2024",
+  "architecture_name": "VideoGen-of-Thought",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoGen-of-Thought: Step-by-step generating multi-shot video with minimal manual intervention",
+    "authors": [
+      "Mingzhe Zheng",
+      "Yongqi Xu",
+      "Haojian Huang",
+      "Xuran Ma",
+      "Yexin Liu",
+      "Wenjie Shu",
+      "Yatian Pang",
+      "Feilong Tang",
+      "Qifeng Chen",
+      "Harry Yang",
+      "Ser-Nam Lim"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-10-02",
+      "source_url": "https://arxiv.org/abs/2412.02259",
+      "pdf_url": "https://arxiv.org/pdf/2412.02259",
+      "doi": "10.48550/arXiv.2412.02259"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Identity-preserving (IPP) tokens",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "IPP identity tokens; Latent boundary blends (FIFO of previous shot's last frame). Identity tokens reused per shot; boundary latent blended from the previous shot's last frame."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Boundary latents are blended and reset across shots (mutation by a fixed rule). For VideoGen-of-Thought, this specifically supports fixed-rule insertion or replacement of Identity-preserving (IPP) tokens."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (Identity-preserving (IPP) tokens) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

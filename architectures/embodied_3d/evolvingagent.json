@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "evolvingagent-2025",
+  "architecture_name": "EvolvingAgent",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EvolvingAgent: Curriculum Self-evolving Agent with Continual World Model for Long-Horizon Tasks",
+    "authors": [
+      "Tongtong Feng",
+      "Xin Wang",
+      "Zekai Zhou",
+      "Ren Wang",
+      "Yuwei Zhan",
+      "Guangyao Li",
+      "Qing Li",
+      "Wenwu Zhu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-04-29",
+      "source_url": "https://arxiv.org/abs/2502.05907",
+      "pdf_url": "https://arxiv.org/pdf/2502.05907",
+      "doi": "10.48550/arXiv.2502.05907"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multimodal experience pool",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Continual World Model; multimodal experience updates; selected curriculum experiences. planner uses multimodal experiences and world knowledge to decompose tasks; controller uses world model for actions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, EvolvingAgent applies a fixed operational optimization objective to multimodal experience pool; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Central contribution: closed-loop continual world-model updates select and integrate multimodal experiences. For EvolvingAgent, this specifically supports abstraction of episodes into reusable experience of multimodal experience pool."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (multimodal experience pool) changes through a fixed operational optimization objective, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

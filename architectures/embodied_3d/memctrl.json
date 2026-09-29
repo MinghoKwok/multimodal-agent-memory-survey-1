@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memctrl-2026",
+  "architecture_name": "MemCtrl",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemCtrl: Using MLLMs as Active Memory Controllers on Embodied Agents",
+    "authors": [
+      "Vishnu Sashank Dorbala",
+      "Dinesh Manocha"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-28",
+      "source_url": "https://arxiv.org/abs/2601.20831",
+      "pdf_url": "https://arxiv.org/pdf/2601.20831",
+      "doi": "10.48550/arXiv.2601.20831"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "fragments",
+      "memory_component": "retained embodied observations",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented MLLM Agents",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A memory head gates which observations or reflections to retain, update, or discard."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The deployed fixed head controls writes. For MemCtrl, this specifically supports a trained but frozen update module of retained embodied observations."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): RL trains the memory controller offline. At test time the controller is frozen while recurrent memory state changes, so the highest strict tier is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "omni-simplemem-2026",
+  "architecture_name": "Omni-SimpleMem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Omni-SimpleMem: Autoresearch-Guided Discovery of Lifelong Multimodal Agent Memory",
+    "authors": [
+      "Jiaqi Liu",
+      "Zipeng Ling",
+      "Shi Qiu",
+      "Yanqing Liu",
+      "Siwei Han",
+      "Peng Xia",
+      "Haoqin Tu",
+      "Zeyu Zheng",
+      "Cihang Xie",
+      "Charles Fleming",
+      "Mingyu Ding",
+      "Huaxiu Yao"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-04-02",
+      "source_url": "https://arxiv.org/abs/2604.01007",
+      "pdf_url": "https://arxiv.org/pdf/2604.01007",
+      "doi": "10.48550/arXiv.2604.01007"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "unified multimodal memory system discovered through autonomous experiments",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Architectural components, prompts, retrieval strategies, and data-pipeline fixes selected by an autonomous research loop. retrieval and prompting are optimized by the discovered system for multimodal memory benchmarks."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "retrieved facts and memory-management prompts/pipelines",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Architectural components, prompts, retrieval strategies, and data-pipeline fixes selected by an autonomous research loop. retrieval and prompting are optimized by the discovered system for multimodal memory benchmarks."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Omni-SimpleMem applies fixed-rule insertion or replacement to unified multimodal memory system discovered through autonomous experiments; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Omni-SimpleMem applies merging or deduplication of overlapping entries to unified multimodal memory system discovered through autonomous experiments; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Omni-SimpleMem applies relinking or reindexing of stored items to unified multimodal memory system discovered through autonomous experiments; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (unified multimodal memory system discovered through autonomous experiments) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

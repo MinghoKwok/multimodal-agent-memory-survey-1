@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "mmdu-2024",
+  "benchmark_name": "MMDU",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs",
+    "authors": [
+      "Ziyu Liu",
+      "Tao Chu",
+      "Yuhang Zang",
+      "Xilin Wei",
+      "Xiaoyi Dong",
+      "Pan Zhang",
+      "Zijian Liang",
+      "Yuanjun Xiong",
+      "Yu Qiao",
+      "Dahua Lin",
+      "Jiaqi Wang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-29",
+      "published_date": "2024-10-29",
+      "source_url": "https://arxiv.org/abs/2406.11833",
+      "pdf_url": "https://arxiv.org/pdf/2406.11833",
+      "doi": "10.48550/arXiv.2406.11833"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "fine_grained_visual_detail_retention",
+    "entity_identity_tracking"
+  ],
+  "tasks": [
+    "question_answering",
+    "response_generation"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; MMDU benchmark construction and evaluation",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "Multi-turn dialogues with as many as 20 images and 27 turns test sustained multimodal-context understanding and long-form response generation."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory-adjacent because it evaluates long multimodal dialogue context without making agent memory architecture the central contribution."
+  ]
+}

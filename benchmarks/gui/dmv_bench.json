@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "dmv-bench-2026",
+  "benchmark_name": "DMV-Bench",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "DMV-Bench: Diagnosing Long-Horizon Multimodal Agents' Visual Memory with Incidental Cue Injection",
+    "authors": [
+      "Yujin Tang",
+      "Chenming Shang",
+      "Ruize Xu",
+      "Nikhil Singh"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-06-25",
+      "source_url": "https://arxiv.org/abs/2606.27499",
+      "pdf_url": "https://arxiv.org/pdf/2606.27499",
+      "doi": "10.48550/arXiv.2606.27499"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "source_evidence_recoverability",
+    "memory_mediated_action"
+  ],
+  "tasks": [
+    "agent_action",
+    "navigation_and_localization"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Pixel-only incidental cues across shopping sessions diagnose genuine visual memory without text leakage."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

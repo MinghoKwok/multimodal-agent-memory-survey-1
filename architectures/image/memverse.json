@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memverse-2025",
+  "architecture_name": "MemVerse",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemVerse: Multimodal Memory for Lifelong Learning Agents",
+    "authors": [
+      "Junming Liu",
+      "Yifei Sun",
+      "Weihua Cheng",
+      "Haodong Lei",
+      "Yirong Chen",
+      "Licheng Wen",
+      "Xuemeng Yang",
+      "Daocheng Fu",
+      "Pinlong Cai",
+      "Nianchen Deng",
+      "Yi Yu",
+      "Shuyue Hu",
+      "Botian Shi",
+      "Ding Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-12-03",
+      "source_url": "https://arxiv.org/abs/2512.03627",
+      "pdf_url": "https://arxiv.org/pdf/2512.03627",
+      "doi": "10.48550/arXiv.2512.03627"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "kg",
+      "memory_component": "hierarchical multimodal knowledge graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Raw multimodal experience becomes hierarchical long-term knowledge."
+        }
+      ]
+    },
+    {
+      "path_id": "params",
+      "memory_component": "distilled parametric memory",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Without Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Periodic distillation transfers essential knowledge into parameters."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed pipeline abstracts experience into hierarchical knowledge. For MemVerse, this specifically supports abstraction of episodes into reusable experience of hierarchical multimodal knowledge graph."
+        }
+      ]
+    },
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Dynamic Memory Expansion. Parametric mem-",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Periodic distillation writes external knowledge into parameters. For MemVerse, this specifically supports a fixed operational optimization objective of hierarchical multimodal knowledge graph."
+        }
+      ]
+    },
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Adaptive forgetting bounds memory growth under a fixed rule. For MemVerse, this specifically supports progressive decay of stored importance or retention of hierarchical multimodal knowledge graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): During inference, the operative memory component (hierarchical multimodal knowledge graph) changes through abstraction of episodes into reusable experience, a fixed operational optimization objective, progressive decay of stored importance or retention; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

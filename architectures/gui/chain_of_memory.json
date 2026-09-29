@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "chain-of-memory-gui-2025",
+  "architecture_name": "Chain-of-Memory",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Chain-of-Memory: Enhancing GUI Agents for Cross-Application Navigation",
+    "authors": [
+      "Xinzge Gao",
+      "Chuanrui Hu",
+      "Bin Chen",
+      "Teng Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2025-06-22",
+      "source_url": "https://arxiv.org/abs/2506.18158v1",
+      "pdf_url": "https://arxiv.org/pdf/2506.18158v1",
+      "doi": "10.48550/arXiv.2506.18158"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "short-and-long-text-memory",
+      "memory_component": "recent operation descriptions and persistent task-relevant screen information",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Information perception summarizes prior screens and actions; STM tracks recent task state and LTM preserves key screen information for action decisions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Long-term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "At every step the model updates STM and decides which extracted screen facts should be added to persistent LTM. For Chain-of-Memory, this specifically supports LLM-mediated memory editing of recent operation descriptions and persistent task-relevant screen information."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Long-term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Chain-of-Memory applies episodic or hierarchical summarization to recent operation descriptions and persistent task-relevant screen information; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Long-term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Chain-of-Memory applies explicit deletion or eviction of stored items to recent operation descriptions and persistent task-relevant screen information; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Both memory tiers are explicit textual records.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (recent operation descriptions and persistent task-relevant screen information) changes through LLM-mediated memory editing, episodic or hierarchical summarization, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

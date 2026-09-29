@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "movieagent-2025",
+  "architecture_name": "MovieAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "audio",
+    "gui"
+  ],
+  "provenance": {
+    "paper_title": "Automated Movie Generation via Multi-Agent CoT Planning",
+    "authors": [
+      "Weijia Wu",
+      "Zeyu Zhu",
+      "Mike Zheng Shou"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-03-10",
+      "source_url": "https://arxiv.org/abs/2503.07314",
+      "pdf_url": "https://arxiv.org/pdf/2503.07314",
+      "doi": "10.48550/arXiv.2503.07314"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Narrative chain-of-thought record",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Internal CoT records (text); Character portrait images; Audio clips. Character bank and CoT are consulted to keep identity and narrative consistent across shots."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): The full-paper lifecycle review found Narrative chain-of-thought record fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

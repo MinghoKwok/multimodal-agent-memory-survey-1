@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "agentic-asr-benchmark-2026",
+  "benchmark_name": "Agentic ASR benchmark",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "Towards Human-Like Interactive Speech Recognition With Agentic Correction and Semantic Evaluation",
+    "authors": [
+      "Zixuan Jiang",
+      "Yanqiao Zhu",
+      "Peng Wang",
+      "Qinyuan Chen",
+      "Xinjian Zhao",
+      "Xipeng Qiu",
+      "Wupeng Wang",
+      "Zhifu Gao",
+      "Xiangang Li",
+      "Kai Yu",
+      "Xie Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29430",
+      "pdf_url": "https://arxiv.org/pdf/2605.29430",
+      "doi": "10.48550/arXiv.2605.29430"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "fine_grained_visual_detail_retention",
+    "memory_update_and_staleness",
+    "memory_mediated_action"
+  ],
+  "tasks": [
+    "agent_action",
+    "continual_learning"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "Benchmark overview / main evaluation table",
+      "paraphrase": "audio-text memory benchmark/framework for stateful correction over speech interactions"
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17 scope review: Each episode iteratively corrects one speech transcription until semantic equivalence or a round limit. It tests interactive ASR repair, not persistence and later use of corrected agent memory.  The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

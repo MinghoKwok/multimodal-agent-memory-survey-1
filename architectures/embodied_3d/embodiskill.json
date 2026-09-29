@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "embodiskill-2026",
+  "architecture_name": "EmbodiSkill",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EmbodiSkill: Skill-Aware Reflection for Self-Evolving Embodied Agents",
+    "authors": [
+      "Ruofei Ju",
+      "Xinrui Wang",
+      "Xin Ding",
+      "Yifan Yang",
+      "Hao Wu",
+      "Shiqi Jiang",
+      "Qianxi Zhang",
+      "Hao Wen",
+      "Xiangyu Li",
+      "Weijun Wang",
+      "Kun Li",
+      "Yunxin Liu",
+      "Haipeng Dai",
+      "Wei Wang",
+      "Ting Cao"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-07-11",
+      "source_url": "https://arxiv.org/abs/2605.10332",
+      "pdf_url": "https://arxiv.org/pdf/2605.10332",
+      "doi": "10.48550/arXiv.2605.10332"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "evolved procedural skill document (skill body S_body plus skill appendix S_app)",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "unclear"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Section 3.1 (problem formulation)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "The persistent memory artifact is a single natural-language skill S^(n) = (S_body^(n), S_app^(n)), where S_body holds the prescriptive content reused in future task execution and S_app is an appendix marking which parts of the body are validated. It is a distilled textual record of prior execution experience, not retained observations: it specifies prerequisites, subgoal ordering, object affordances, visual-search strategies, action preconditions and recovery strategies. Raw trajectory frames are not stored, so the perceptual source is not recoverable from memory."
+        },
+        {
+          "section": "Full paper: Section 3.1 (executor definition)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "The skill reaches downstream control by being conditioned on directly in the executor policy a_t ~ pi_theta(. | I, S^(n), h_t), where h_t is the within-trajectory observation-action history. The executor parameters theta are kept fixed; all cross-task improvement is externalized into the skill text, so the skill document is the operative memory path."
+        },
+        {
+          "section": "Full paper: Section 3.2.1 (skill-aware reflection), Section 3.2.2 (skill revision)",
+          "page": "",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Skill content is produced by reflecting on executed trajectories from visual embodied environments: trajectories yield reflection records, records are consolidated, and skill-changing evidence rewrites S_body while execution-lapse evidence protects guidance that was valid but poorly executed. Visual-search strategies and object-affordance guidance in the skill derive from egocentric visual rollouts in EmbodiedBench-Habitat and EmbodiedBench-Navigation, so a non-text modality participates in memory formation."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review. The paper is titled and framed as 'self-evolving', but Section 4.1 states verbatim: 'During test evaluation, the evolved skill is fixed.' All ten skill-revision stages run over the ALFWorld and EmbodiedBench training task pools before evaluation. This is pre-deployment continual learning of a memory artifact, which the annotation guide explicitly excludes from T3, and there is no persistent inference-time write to the skill either, so the tier is T1 (a memory artifact constructed before downstream use and thereafter only read).",
+    "retrieval_activation is recorded as 'unclear': there is no library of skills and no selection step. EmbodiSkill maintains one evolving skill that is supplied unconditionally to the executor prompt at every step, so none of the retrieval leaves (similarity, metadata/spatiotemporal, structural traversal, planner/tool-assisted, latent-parametric) describes the access mechanism.",
+    "Modality assignment: ALFWorld is text-observation, but the EmbodiedBench-Habitat and EmbodiedBench-Navigation suites are visual 3D embodied settings and supply the visual-search and affordance content of the skill; embodied_3d is therefore the primary modality and image is recorded as secondary. If an adjudicator judges the ALFWorld text-only track to be the dominant evaluation, criterion (b) for this record would rest solely on the EmbodiedBench visual suites.",
+    "No benchmark record is created: the paper evaluates on existing ALFWorld and EmbodiedBench suites and introduces no new benchmark.",
+    "Full-text HTML (arXiv:2605.10332v2) was read for Sections 3.1, 3.2.1, 3.2.2 and 4.1; HTML rendering gives no stable page numbers, so section and figure pointers are recorded instead."
+  ]
+}

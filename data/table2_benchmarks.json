@@ -1,0 +1,769 @@
+{
+  "updated_on": "2026-09-17",
+  "source_repository": "QingyueJ-nd/Multimodal-Agent-Memory-Survey",
+  "source_branch": "main",
+  "source_table": "content/tables/multimodal_memory_benchmark_table.tex",
+  "counting_unit": "Selected evaluation resource or protocol, including explicitly scoped comparisons; not a count of dedicated multimodal-memory benchmark papers.",
+  "modality_note": "table_modality records the manuscript panel. Existing record primary_modality annotations are preserved where they differ; these are separate grouping conventions.",
+  "count": 83,
+  "records": [
+    {
+      "benchmark_id": "locomo-2024",
+      "citation_key": "maharana2024evaluating",
+      "table_name": "LoCoMo",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/locomo.json"
+    },
+    {
+      "benchmark_id": "mmdu-2024",
+      "citation_key": "liu2024mmdu",
+      "table_name": "MMDU",
+      "table_modality": "image",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/mmdu.json"
+    },
+    {
+      "benchmark_id": "mmrc-2025",
+      "citation_key": "xue2025mmrc",
+      "table_name": "MMRC",
+      "table_modality": "image",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/mmrc.json"
+    },
+    {
+      "benchmark_id": "memory-qa-2025",
+      "citation_key": "memoryqa2025",
+      "table_name": "Memory-QA",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/memory_qa.json"
+    },
+    {
+      "benchmark_id": "lcmp-2026",
+      "citation_key": "hong2026tame",
+      "table_name": "LCMP",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/lcmp.json"
+    },
+    {
+      "benchmark_id": "disbench-2026",
+      "citation_key": "deepimagesearch2026",
+      "table_name": "DISBench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/disbench.json"
+    },
+    {
+      "benchmark_id": "mma-bench-2026",
+      "citation_key": "mma2026",
+      "table_name": "MMA-Bench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/mma-bench.json"
+    },
+    {
+      "benchmark_id": "mem-gallery-2026",
+      "citation_key": "memgallery2026",
+      "table_name": "Mem-Gallery",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/mem-gallery.json"
+    },
+    {
+      "benchmark_id": "emembench-2026",
+      "citation_key": "emembench2026",
+      "table_name": "EMemBench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "official_project",
+      "record_path": "benchmarks/gui/emembench.json"
+    },
+    {
+      "benchmark_id": "atm-bench-2026",
+      "citation_key": "atmbench2026",
+      "table_name": "ATM-Bench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/atm-bench.json"
+    },
+    {
+      "benchmark_id": "persona-mme-2026",
+      "citation_key": "personavlm2026",
+      "table_name": "Persona-MME",
+      "table_modality": "image",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/persona-mme.json"
+    },
+    {
+      "benchmark_id": "memeye-2026",
+      "citation_key": "memeye2026",
+      "table_name": "MemEye",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/memeye.json"
+    },
+    {
+      "benchmark_id": "memlens-2026",
+      "citation_key": "memlens2026",
+      "table_name": "MemLens",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/memlens.json"
+    },
+    {
+      "benchmark_id": "smmbench-2026",
+      "citation_key": "smmbench2026",
+      "table_name": "SMMBench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/smmbench.json"
+    },
+    {
+      "benchmark_id": "visualmem-benchmark-2026",
+      "citation_key": "visualmem2026",
+      "table_name": "VisualMem",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/visualmem-benchmark.json"
+    },
+    {
+      "benchmark_id": "camroll-2026",
+      "citation_key": "camrollagent2026",
+      "table_name": "CamRoll",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/camroll.json"
+    },
+    {
+      "benchmark_id": "refmem-bench-2026",
+      "citation_key": "refmembench2026",
+      "table_name": "RefMem-Bench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/refmem_bench.json"
+    },
+    {
+      "benchmark_id": "m3exam-2026",
+      "citation_key": "m3exam2026",
+      "table_name": "M$^3$Exam",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/m3exam.json"
+    },
+    {
+      "benchmark_id": "h2hmem-2026",
+      "citation_key": "h2hmem2026",
+      "table_name": "H2HMem",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/h2hmem.json"
+    },
+    {
+      "benchmark_id": "m2ca-bench-2026",
+      "citation_key": "wang2026cma",
+      "table_name": "M2CA-Bench",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/m2ca-bench.json"
+    },
+    {
+      "benchmark_id": "memleak-2026",
+      "citation_key": "wang2026memleakdiagnosinginformationleaks",
+      "table_name": "MemLeak",
+      "table_modality": "image",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/image/memleak.json"
+    },
+    {
+      "benchmark_id": "vstream-qa-2024",
+      "citation_key": "flashvstream2024",
+      "table_name": "VStream-QA",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/vstream_qa.json"
+    },
+    {
+      "benchmark_id": "streamingbench-2024",
+      "citation_key": "streamingbench2024",
+      "table_name": "StreamingBench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/streamingbench.json"
+    },
+    {
+      "benchmark_id": "streambench-2025",
+      "citation_key": "xiong2025streamchat",
+      "table_name": "StreamBench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/streambench.json"
+    },
+    {
+      "benchmark_id": "egolifeqa-2025",
+      "citation_key": "egolife2025",
+      "table_name": "EgoLifeQA",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/egolifeqa.json"
+    },
+    {
+      "benchmark_id": "hippovlog-2025",
+      "citation_key": "hippomm2025",
+      "table_name": "HippoVlog",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/hippovlog.json"
+    },
+    {
+      "benchmark_id": "m3-bench-2025",
+      "citation_key": "long2025m3agent",
+      "table_name": "M3-Bench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/m3-bench.json"
+    },
+    {
+      "benchmark_id": "teleego-2025",
+      "citation_key": "teleego2025",
+      "table_name": "TeleEgo",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/teleego.json"
+    },
+    {
+      "benchmark_id": "elvim-2025",
+      "citation_key": "sun2026videosalmonnsmemoryenhancedstreaming",
+      "table_name": "ELViM",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/elvim.json"
+    },
+    {
+      "benchmark_id": "egomem-videolucy-2025",
+      "citation_key": "videolucy2025",
+      "table_name": "EgoMem (VideoLucy)",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/egomem-videolucy.json"
+    },
+    {
+      "benchmark_id": "river-bench-2026",
+      "citation_key": "riverbench2026",
+      "table_name": "RIVER Bench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/river-bench.json"
+    },
+    {
+      "benchmark_id": "ma-egoqa-2026",
+      "citation_key": "kim2026maegoqa",
+      "table_name": "MA-EgoQA",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/ma-egoqa.json"
+    },
+    {
+      "benchmark_id": "lvomnibench-2026",
+      "citation_key": "tao2026lvomnibench",
+      "table_name": "LVOmniBench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/lvomnibench.json"
+    },
+    {
+      "benchmark_id": "mm-lifelong-2026",
+      "citation_key": "chen2026mmlifelong",
+      "table_name": "MM-Lifelong",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/mm-lifelong.json"
+    },
+    {
+      "benchmark_id": "egomemreason-2026",
+      "citation_key": "egomemreason2026",
+      "table_name": "EgoMemReason",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/egomemreason.json"
+    },
+    {
+      "benchmark_id": "egoexomem-crossview-2026",
+      "citation_key": "egoexomem2026",
+      "table_name": "EgoExoMem",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/egoexomem_crossview.json"
+    },
+    {
+      "benchmark_id": "m3-eval-2026",
+      "citation_key": "m3eval2026",
+      "table_name": "M$^3$Eval",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/m3-eval.json"
+    },
+    {
+      "benchmark_id": "supermemory-vqa-2026",
+      "citation_key": "supermemoryvqa2026",
+      "table_name": "SuperMemory-VQA",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/supermemory_vqa.json"
+    },
+    {
+      "benchmark_id": "longspace-bench-2026",
+      "citation_key": "longspace2026",
+      "table_name": "LongSpace-Bench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/longspace-bench.json"
+    },
+    {
+      "benchmark_id": "streammembench-2026",
+      "citation_key": "streammembench2026",
+      "table_name": "StreamMemBench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/streammembench.json"
+    },
+    {
+      "benchmark_id": "s-ember-2026",
+      "citation_key": "sember2026",
+      "table_name": "S-EMBER",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/s_ember.json"
+    },
+    {
+      "benchmark_id": "slvmbench-2026",
+      "citation_key": "slvmbench2026",
+      "table_name": "SLVMBench",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/slvmbench.json"
+    },
+    {
+      "benchmark_id": "streamarena-2026",
+      "citation_key": "streamarena2026",
+      "table_name": "StreamArena",
+      "table_modality": "video_streaming",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/streamarena.json"
+    },
+    {
+      "benchmark_id": "egomonth-2026",
+      "citation_key": "egomonth2026",
+      "table_name": "EgoMonth",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/egomonth.json"
+    },
+    {
+      "benchmark_id": "videowebarena-2025",
+      "citation_key": "videowebarena2025",
+      "table_name": "VideoWebArena\\mmCrossDomain",
+      "table_modality": "video_streaming",
+      "evaluation_role": "memory_dependent_task",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/video_streaming/videowebarena.json"
+    },
+    {
+      "benchmark_id": "chatmem-bench-2026",
+      "citation_key": "voicemem2026",
+      "table_name": "ChatMem-Bench",
+      "table_modality": "audio_speech",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "published_protocol_summary",
+      "record_path": "benchmarks/audio_speech/chatmem-bench.json"
+    },
+    {
+      "benchmark_id": "mosaic-2026",
+      "citation_key": "mosaic2026",
+      "table_name": "MOSAIC",
+      "table_modality": "audio_speech",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "prior_review_not_reverified",
+      "record_path": "benchmarks/image/mosaic.json"
+    },
+    {
+      "benchmark_id": "planrag-audio-evaluation-2026",
+      "citation_key": "someki2026planragaudio",
+      "table_name": "PlanRAG-Audio",
+      "table_modality": "audio_speech",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/planrag-audio-evaluation.json"
+    },
+    {
+      "benchmark_id": "longaudioqa-2026",
+      "citation_key": "tang2026longaudioqa",
+      "table_name": "LongAudioQA",
+      "table_modality": "audio_speech",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/longaudioqa.json"
+    },
+    {
+      "benchmark_id": "chronosaudio-2026",
+      "citation_key": "chronosaudio2026",
+      "table_name": "ChronosAudio",
+      "table_modality": "audio_speech",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/chronosaudio.json"
+    },
+    {
+      "benchmark_id": "audiomarathon-2025",
+      "citation_key": "audiomarathon2025",
+      "table_name": "AudioMarathon",
+      "table_modality": "audio_speech",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/audiomarathon.json"
+    },
+    {
+      "benchmark_id": "agentic-asr-benchmark-2026",
+      "citation_key": "agenticasr2026",
+      "table_name": "Agentic ASR evaluation",
+      "table_modality": "audio_speech",
+      "evaluation_role": "component_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/agentic-asr-benchmark.json"
+    },
+    {
+      "benchmark_id": "stateful-streaming-asr-2026",
+      "citation_key": "statefulasr2026",
+      "table_name": "Stateful streaming ASR",
+      "table_modality": "audio_speech",
+      "evaluation_role": "component_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/stateful-streaming-asr.json"
+    },
+    {
+      "benchmark_id": "egomem-evaluation-2025",
+      "citation_key": "egomem2025",
+      "table_name": "EgoMem evaluation",
+      "table_modality": "audio_speech",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/egomem-evaluation.json"
+    },
+    {
+      "benchmark_id": "carmem-2025",
+      "citation_key": "kirmayr2025carmem",
+      "table_name": "CarMem (text-only)",
+      "table_modality": "audio_speech",
+      "evaluation_role": "text_only_comparator",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/audio_speech/carmem.json"
+    },
+    {
+      "benchmark_id": "memgui-bench-2026",
+      "citation_key": "memguibench2026",
+      "table_name": "MemGUI-Bench",
+      "table_modality": "gui",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/gui/memgui_bench.json"
+    },
+    {
+      "benchmark_id": "knowu-bench-2026",
+      "citation_key": "knowubench2026",
+      "table_name": "KnowU-Bench",
+      "table_modality": "gui",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/gui/knowu-bench.json"
+    },
+    {
+      "benchmark_id": "mementogui-bench-2026",
+      "citation_key": "mementogui2026",
+      "table_name": "MementoGUI-Bench",
+      "table_modality": "gui",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/gui/mementogui-bench.json"
+    },
+    {
+      "benchmark_id": "memory-world-2026",
+      "citation_key": "wang2026stamp",
+      "table_name": "Memory-World",
+      "table_modality": "gui",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/gui/memory-world.json"
+    },
+    {
+      "benchmark_id": "dmv-bench-2026",
+      "citation_key": "dmvbench2026",
+      "table_name": "DMV-Bench",
+      "table_modality": "gui",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "official_project",
+      "record_path": "benchmarks/gui/dmv_bench.json"
+    },
+    {
+      "benchmark_id": "datascope-2026",
+      "citation_key": "atmem2026",
+      "table_name": "DataScope",
+      "table_modality": "gui",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "abstract_only",
+      "record_path": "benchmarks/gui/datascope.json"
+    },
+    {
+      "benchmark_id": "findingdory-2025",
+      "citation_key": "findingdory2025",
+      "table_name": "FindingDory",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/findingdory.json"
+    },
+    {
+      "benchmark_id": "3dmem-bench-2025",
+      "citation_key": "threedllmmem2025",
+      "table_name": "3DMem-Bench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/3dmem_bench.json"
+    },
+    {
+      "benchmark_id": "seer-bench-2025",
+      "citation_key": "seerbench2025",
+      "table_name": "SEER-Bench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/seer-bench.json"
+    },
+    {
+      "benchmark_id": "lmee-bench-2026",
+      "citation_key": "lmeebench2026",
+      "table_name": "LMEE-Bench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/lmee-bench.json"
+    },
+    {
+      "benchmark_id": "rmbench-2026",
+      "citation_key": "rmbench2026",
+      "table_name": "RMBench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/rmbench.json"
+    },
+    {
+      "benchmark_id": "robomme-2026",
+      "citation_key": "robomme2026",
+      "table_name": "RoboMME",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/robomme.json"
+    },
+    {
+      "benchmark_id": "spamem-2026",
+      "citation_key": "spamem2026",
+      "table_name": "SpaMEM",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/spamem.json"
+    },
+    {
+      "benchmark_id": "robomemarena-2026",
+      "citation_key": "robomemarena2026",
+      "table_name": "RoboMemArena",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/robomemarena.json"
+    },
+    {
+      "benchmark_id": "worldmemarena-2026",
+      "citation_key": "worldmemarena2026",
+      "table_name": "WorldMemArena\\mmCrossDomain",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/worldmemarena.json"
+    },
+    {
+      "benchmark_id": "emem-bench-v1-2026",
+      "citation_key": "emembench_embodied2026",
+      "table_name": "eMEM-Bench v1",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/emem-bench-v1.json"
+    },
+    {
+      "benchmark_id": "remembench-2026",
+      "citation_key": "remembench2026",
+      "table_name": "ReMemBench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/remembench.json"
+    },
+    {
+      "benchmark_id": "worldlines-2026",
+      "citation_key": "worldlines2026",
+      "table_name": "WorldLines (semantic states)",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "semantic_state_comparator",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/worldlines.json"
+    },
+    {
+      "benchmark_id": "robomme-interference-2026",
+      "citation_key": "robommeinterference2026",
+      "table_name": "RoboMME-Interference",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/robomme_interference.json"
+    },
+    {
+      "benchmark_id": "memora-bench-2026",
+      "citation_key": "memora2026",
+      "table_name": "MEMORA-Bench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "abstract_only",
+      "record_path": "benchmarks/embodied_3d/memora_bench.json"
+    },
+    {
+      "benchmark_id": "aprs-2026",
+      "citation_key": "panoseeker2026",
+      "table_name": "APRS",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "abstract_only",
+      "record_path": "benchmarks/embodied_3d/aprs.json"
+    },
+    {
+      "benchmark_id": "sis-bench-2026",
+      "citation_key": "sisbench2026",
+      "table_name": "SIS-Bench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "abstract_only",
+      "record_path": "benchmarks/embodied_3d/sis-bench.json"
+    },
+    {
+      "benchmark_id": "embodiedworldbench-2026",
+      "citation_key": "tian2026abot",
+      "table_name": "EmbodiedWorldBench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "broader_evaluation",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/embodiedworldbench.json"
+    },
+    {
+      "benchmark_id": "robograph-tsh-2026",
+      "citation_key": "robograph2026",
+      "table_name": "RoboGraph benchmark",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/robograph_tsh.json"
+    },
+    {
+      "benchmark_id": "dunphybench-2026",
+      "citation_key": "li2026memento",
+      "table_name": "DunphyBench",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_dependent_task",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/dunphybench.json"
+    },
+    {
+      "benchmark_id": "hiocc-2026",
+      "citation_key": "hiocc2026",
+      "table_name": "HIOcc",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "mixed_memory_tracks",
+      "scope_evidence_level": "abstract_only",
+      "record_path": "benchmarks/embodied_3d/hiocc.json"
+    },
+    {
+      "benchmark_id": "libero-mem-2026",
+      "citation_key": "slotssm2026",
+      "table_name": "LIBERO-Mem",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/libero-mem.json"
+    },
+    {
+      "benchmark_id": "mikasa-robo-2026",
+      "citation_key": "cherepanov2025mikasa",
+      "table_name": "MIKASA-Robo (RGB+joints)",
+      "table_modality": "embodied_3d",
+      "evaluation_role": "memory_specific",
+      "scope_evidence_level": "full_protocol",
+      "record_path": "benchmarks/embodied_3d/mikasa-robo.json"
+    }
+  ],
+  "source_commit": "ce060f074ff67584ba3d299890b85c81f3a72577",
+  "scope_review": "data/benchmark_scope_review.json",
+  "evaluation_role_counts": {
+    "broader_evaluation": 9,
+    "mixed_memory_tracks": 12,
+    "memory_specific": 56,
+    "component_evaluation": 2,
+    "text_only_comparator": 1,
+    "semantic_state_comparator": 1,
+    "memory_dependent_task": 2
+  }
+}

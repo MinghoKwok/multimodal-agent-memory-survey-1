@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "visor-2026",
+  "architecture_name": "VISOR",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VISOR: Visual Evidence Space for Robust GUI and Visual Agent Reasoning",
+    "authors": [
+      "Yucheng Shen",
+      "Jiulong Wu",
+      "Jizhou Huang",
+      "Dawei Yin",
+      "Lingyong Yan",
+      "Min Cao"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-04-10",
+      "source_url": "https://arxiv.org/abs/2604.09508",
+      "pdf_url": "https://arxiv.org/pdf/2604.09508",
+      "doi": "10.48550/arXiv.2604.09508"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "recent visual trajectory window",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 2.1 Visual Retrieval-Augmented Generation",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A dynamic trajectory window preserves recent visual observations for action evaluation."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "structured Evidence Space",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3 Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Evidence Space organizes task-relevant observations and intents for grounded correction."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 3 Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VISOR applies fixed-rule insertion or replacement to recent visual trajectory window; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VISOR applies episodic or hierarchical summarization to recent visual trajectory window; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Training Pipeline",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A sliding trajectory window bounds retained visual history. For VISOR, this specifically supports explicit deletion or eviction of stored items of recent visual trajectory window."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (recent visual trajectory window) changes through fixed-rule insertion or replacement, episodic or hierarchical summarization, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videotree-2024",
+  "architecture_name": "VideoTree",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoTree: Adaptive Tree-based Video Representation for LLM Reasoning on Long Videos",
+    "authors": [
+      "Ziyang Wang",
+      "Shoubin Yu",
+      "Elias Stengel-Eskin",
+      "Jaehong Yoon",
+      "Feng Cheng",
+      "Gedas Bertasius",
+      "Mohit Bansal"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 reviewed on 2026-08-30",
+      "published_date": "2025-03-14",
+      "source_url": "https://arxiv.org/abs/2405.19209",
+      "pdf_url": "https://arxiv.org/pdf/2405.19209",
+      "doi": "10.48550/arXiv.2405.19209"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "query-adaptive-caption-tree",
+      "memory_component": "query-adaptive hierarchical tree over video clusters, whose nodes hold a representative keyframe and its VLM caption",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "3.1 Adaptive breadth expansion",
+          "page": "",
+          "figure_or_table": "Figure 2; Algorithm 1 lines 3-12",
+          "paraphrase": "Frames are encoded with EVA-CLIP-8B and K-Means clustered; the frame nearest each centroid becomes the cluster keyframe and is captioned by a VLM; the LLM scores each cluster caption for query relevance on a 1-3 scale, and the cluster count k is doubled and the loop repeated until enough high-relevance information is present or a breadth cap is hit."
+        },
+        {
+          "section": "3.2 Relevance-guided depth expansion",
+          "page": "",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "High-relevance first-level clusters are re-clustered into sub-clusters, giving the tree depth: 'somewhat relevant' clusters receive w sub-clusters and 'highly relevant' clusters receive a two-level subtree of branch width w, so keyframe budget is allocated hierarchically by relevance."
+        },
+        {
+          "section": "3.3 LLM reasoning over the tree",
+          "page": "",
+          "figure_or_table": "Algorithm 1 lines 17-18",
+          "paraphrase": "The tree is traversed to collect the selected node captions, which are re-ordered by their original timestamps and concatenated into a video description that is fed to the LLM for answering. Each caption stays tied to its source keyframe index, so the underlying frames remain recoverable from the node."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Borderline tier, resolved as T1. The tree is expanded iteratively using LLM relevance scores (Algorithm 1 lines 3-12), which superficially looks like an inference-time memory update. But the entire expansion loop is the formation of the memory artifact for a single query; once the tree is finalised it is only traversed and read to build the LLM prompt (lines 17-18), and it is not retained or reused for any later query. Under the guide's T1 clause, a structure built before downstream use and thereafter only queried remains T1, and query-conditioned construction does not raise the tier.",
+    "Frame embeddings from EVA-CLIP-8B are used for clustering and keyframe selection only; nothing latent is passed to downstream reasoning, so per the guide they do not constitute an independent latent representation path.",
+    "Training-free method: no learned or evolving memory policy exists at all, so T3 is not in question."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "reflective-dialogue-vqa-2026",
+  "architecture_name": "Reflective Dialogue VQA",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Reflective Dialogue between Teacher and Solver Agents for Video Question Answering",
+    "authors": [
+      "Takuya Murakawa",
+      "Toru Tamaki"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.27885",
+      "pdf_url": "https://arxiv.org/pdf/2605.27885",
+      "doi": "10.48550/arXiv.2605.27885"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Reflective Dialogue history containing support questions answers feedback and visual grounding reflections",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Natural-language multi-turn dialogue history used as inference-time context. the constructed dialogue history is injected as context at inference time instead of direct fine-tuning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found Reflective Dialogue history containing support questions answers feedback and visual grounding reflections fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

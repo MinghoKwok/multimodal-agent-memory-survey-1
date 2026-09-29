@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memento-embodied-2026",
+  "architecture_name": "MeMento",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Long-Horizon Embodied Decision-Making via Multimodal Memory Compression",
+    "authors": [
+      "Bingxuan Li",
+      "Rui Yang",
+      "Cheng Qian",
+      "Jiateng Liu",
+      "Jeonghwan Kim",
+      "Zhenhailong Wang",
+      "Manling Li",
+      "Tong Zhang",
+      "Heng Ji"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-08-02",
+      "source_url": "https://arxiv.org/abs/2608.01456",
+      "pdf_url": "https://arxiv.org/pdf/2608.01456",
+      "doi": "10.48550/arXiv.2608.01456"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "memory_tokens",
+      "memory_component": "preference-conditioned compressed multimodal history",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Multimodal Memory of Embodied Agent",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "A fixed number of memory tokens compress decision-relevant multimodal history conditioned on user preferences."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "The trained compressor continually replaces long raw history with compact memory tokens. For MeMento, this specifically supports a trained but frozen update module of preference-conditioned compressed multimodal history."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: No Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "Long-horizon evidence is abstracted into preference-relevant decision state. For MeMento, this specifically supports abstraction of episodes into reusable experience of preference-conditioned compressed multimodal history."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): During inference, the operative memory component (preference-conditioned compressed multimodal history) changes through a trained but frozen update module, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

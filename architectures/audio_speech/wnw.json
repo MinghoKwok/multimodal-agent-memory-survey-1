@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "wnw-2026",
+  "architecture_name": "WnW (Waxing-and-Waning KV Cache)",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "WnW: Waxing-and-Waning KV Cache for Long-Form Speech LLMs",
+    "authors": [
+      "Yiming Yao",
+      "Chenyang Lyu",
+      "Xuanfan Ni",
+      "Longyue Wang",
+      "Weihua Luo",
+      "Yazheng Yang",
+      "Jinsong Su"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2026-08-24",
+      "source_url": "https://arxiv.org/abs/2608.22704",
+      "pdf_url": "https://arxiv.org/pdf/2608.22704",
+      "doi": "10.48550/arXiv.2608.22704"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "audio-kv-two-tier-cache",
+      "memory_component": "chunked audio KV cache split across a GPU-resident working set and a CPU-resident recallable backing store",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Method: head triage and two-tier cache",
+          "page": "",
+          "figure_or_table": "Head-classification / cache-layout figure",
+          "paraphrase": "Audio key-value states for a ten-minute clip (7,500-15,000 KV positions at 12.5-25 audio tokens/s) are kept as an operative latent memory. Offline calibration classifies attention heads into ~5 anchor heads that retain the whole audio KV on GPU, tidal heads that keep part on GPU and offload the rest to CPU with recall, and fixed heads that keep only a static prefill-selected subset. Text-token KV is kept in full; only audio KV is compressed."
+        },
+        {
+          "section": "Method: decode-time chunk scoring and recall",
+          "page": "",
+          "figure_or_table": "Retention equation retention_i = min(s_i * lambda, 1.0); chunk-scoring algorithm",
+          "paraphrase": "The store is organised into 4-second chunks with 2-second stride, i.e. indexed by audio time. At each decode step the anchor heads' softmax weights over audio positions are aggregated into a per-position importance score, chunks are ranked, and the top-k (k=3) chunks are recalled from CPU into GPU if absent. Retrieval is therefore attention-score-based over temporally indexed chunks, and the recalled KV is consumed directly by attention rather than being decoded back to any surface form."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Method: online decode-time dynamics",
+          "page": "",
+          "figure_or_table": "Chunk swap procedure",
+          "paraphrase": "During generation, chunks selected by the anchor-head score are migrated from the CPU tier back into GPU residency and unselected chunks are demoted to CPU only. The GPU/CPU placement of the audio KV memory therefore changes continuously at inference time under a fixed top-k/decay rule."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Method: online decode-time dynamics",
+          "page": "",
+          "figure_or_table": "Eviction rule with delta = 3",
+          "paraphrase": "A chunk that is not selected for delta = 3 consecutive decode steps is evicted from the GPU working set (the CPU copy persists for tidal heads, while fixed heads have no recovery path, making eviction there permanent). Eviction is a deterministic inference-time deletion under a fixed threshold."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "T2, not T3. What changes at inference is the residency and membership of the audio KV memory (chunk recall and eviction), driven by decode-time anchor-head attention under fixed rules (top-k = 3, delta = 3, retention_i = min(s_i * lambda, 1.0)). The policy artifact itself - the head triage into anchor/tidal/fixed - is produced by offline calibration (Voice Score from WhisperX word alignment times Head Sensitivity from answer-token loss gradients) and is not revised by deployment feedback, so no policy evolution qualifies.",
+    "Included despite being an efficiency method: the KV cache is the paper's operative memory artifact and its retention policy is modality-specific to speech (word-aligned voice grounding, audio-time chunking), so the non-text modality genuinely participates in memory maintenance."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "uniwm-2026",
+  "architecture_name": "UniWM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Towards Unified World Models for Visual Navigation via Memory-Augmented Planning and Foresight",
+    "authors": [
+      "Yifei Dong",
+      "Fengyi Wu",
+      "Guangyu Chen",
+      "Lingdong Kong",
+      "Xu Zhu",
+      "Qiyu Hu",
+      "Yuxuan Zhou",
+      "Jingdong Sun",
+      "Jun-Yan He",
+      "Qi Dai",
+      "Alexander G. Hauptmann",
+      "Zhi-Qi Cheng"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://openreview.net/forum?id=qSJIz364pO",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Intra-step memory bank for short-term perceptual grounding",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The autoregressive backbone writes visual-planning context into hierarchical memory.; Intra-step memory stores local perceptual cues during rollout generation.; Cross-step memory carries trajectory context across extended horizons.. memory-augmented planning reads intra-/cross-step banks to align imagined future states."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Cross-step memory bank for longer trajectory context",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The autoregressive backbone writes visual-planning context into hierarchical memory.; Intra-step memory stores local perceptual cues during rollout generation.; Cross-step memory carries trajectory context across extended horizons.. memory-augmented planning reads intra-/cross-step banks to align imagined future states."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, UniWM applies fixed-rule insertion or replacement to Intra-step memory bank for short-term perceptual grounding; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (Intra-step memory bank for short-term perceptual grounding) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

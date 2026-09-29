@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "agent-s-2024",
+  "architecture_name": "Agent S",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Agent S: An Open Agentic Framework that Uses Computers Like a Human",
+    "authors": [
+      "Saaket Agashe",
+      "Jiuzhou Han",
+      "Shuyu Gan",
+      "Jiachen Yang",
+      "Ang Li",
+      "Xin Eric Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-10-10",
+      "source_url": "https://arxiv.org/abs/2410.08164",
+      "pdf_url": "https://arxiv.org/pdf/2410.08164",
+      "doi": "10.48550/arXiv.2410.08164"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic computer-use memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Specific GUI action sequences are summarized and retained as episodic experience."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "narrative task knowledge",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: System",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Patterns across experiences are distilled into higher-level narrative knowledge for hierarchical planning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: System",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Successful experiences are distilled into reusable narrative knowledge. For Agent S, this specifically supports abstraction of episodes into reusable experience of episodic computer-use memory."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Task executions are summarized before storage. For Agent S, this specifically supports episodic or hierarchical summarization of episodic computer-use memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (episodic computer-use memory) changes through abstraction of episodes into reusable experience, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

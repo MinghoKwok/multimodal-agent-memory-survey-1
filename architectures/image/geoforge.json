@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "geoforge-2026",
+  "architecture_name": "GeoForge",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GeoForge: Non-Parametric Self-Evolving Agents for Earth-Observation Reasoning",
+    "authors": [
+      "Xin Xiao",
+      "Jiang Zhong",
+      "Junnan Zhu",
+      "Yingchao Feng",
+      "Peijin Wang",
+      "Yidan Zhang",
+      "Kaiwen Wei"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-26",
+      "published_date": "2026-08-11",
+      "source_url": "https://arxiv.org/abs/2608.10494",
+      "pdf_url": "https://arxiv.org/pdf/2608.10494",
+      "doi": "10.48550/arXiv.2608.10494"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "workflow_graph",
+      "memory_component": "reliability-aware workflow graph memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Workflow Graph Memory",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "A reliability-aware directed graph stores Earth-observation workflow nodes, tool-transition edges, usage statistics, sensing dependencies, and operation order for task-conditioned traversal."
+        }
+      ]
+    },
+    {
+      "path_id": "action_experiences",
+      "memory_component": "action-level execution experiences",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Action-Level Experiences",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "Compact action lessons preserve local tool corrections and are retrieved as part of the task-conditioned inference context."
+        }
+      ]
+    },
+    {
+      "path_id": "adapted_sop",
+      "memory_component": "adapted skill standard operating procedure",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Adapted Skill SOP and Evidence-Grounded Execution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 13",
+          "paraphrase": "A persistent adapted SOP records reusable procedures, data requirements, and parameter constraints and is concatenated with graph and action memories at inference."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Safety-Gated Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 16",
+          "paraphrase": "After execution, a distiller converts the compacted grounded trajectory into reusable action lessons, a revised SOP, and workflow candidates while excluding sample-specific shortcuts."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Safety-Gated Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 16–18",
+          "paraphrase": "The distiller proposes textual and structured memory edits, and a safety gate controls whether the revised SOP replaces the persistent prior."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Safety-Gated Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 18",
+          "paraphrase": "Graph updates normalize and merge candidate workflows by tool-sequence and lexical similarity, while action experiences are inserted only after deduplication."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Safety-Gated Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 18",
+          "paraphrase": "The workflow-graph updater prunes stored structures using their accumulated reliability after merging new candidates."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: Evidence-Grounded Execution and Safety-Gated Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 13–18",
+          "paraphrase": "At inference, completed tool executions and their grounded outcomes generate a safety-gated revised SOP and workflow candidates; accepted artifacts persist in the nonparametric state and are retrieved to govern operation selection and composition on later Earth-observation tasks."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported because the update follows inference-time tool execution, changes reusable SOP/workflow policy artifacts rather than only logging the episode, persists them in the external state, and injects them into future execution contexts."
+  ]
+}

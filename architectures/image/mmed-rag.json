@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mmed-rag-2025",
+  "architecture_name": "MMed-RAG",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MMed-RAG: Versatile Multimodal RAG System for Medical Vision-Language Models",
+    "authors": [
+      "Peng Xia",
+      "Kangyu Zhu",
+      "Haoran Li",
+      "Tianze Wang",
+      "Weijia Shi",
+      "Sheng Wang",
+      "Linjun Zhang",
+      "James Zou",
+      "Huaxiu Yao"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 (ICLR 2025), reviewed 2026-08-30",
+      "published_date": "2025-03-03",
+      "source_url": "https://arxiv.org/abs/2410.13085",
+      "pdf_url": "https://arxiv.org/pdf/2410.13085",
+      "doi": "10.48550/arXiv.2410.13085"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "domain-partitioned clinical-report knowledge base (radiology, ophthalmology, pathology report corpora built from dataset training splits), indexed by an image-text contrastive multimodal retriever",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1 Domain-Aware Retrieval Mechanism; Sec. 3.2 Adaptive Retrieved Context Selection",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Algorithm 1 (retrieval step, line 23); Figure 2 system overview",
+          "paraphrase": "The persistent store is a corpus of medical reports drawn from the training splits of five datasets, partitioned by medical domain. A BiomedCLIP-based domain-identification module labels the incoming medical image, which selects the corresponding domain-specific multimodal retriever; that retriever (ResNet-50 image encoder + BioClinicalBERT text encoder trained contrastively to align an image with its own report) embeds the query image and does similarity search over the report embeddings, returning top-k reports that are appended verbatim as context for the Med-LVLM. The stored items are natural-language report text, retrieved directly and read verbatim by the generator."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full text read via arXiv HTML. Inclusion condition (a): the retrieval memory is the entire contribution, not an incidental context window. Condition (b): the non-text modality drives memory access -- the medical image is the retrieval query and also the signal for domain identification, and the retriever is trained on image-report alignment.",
+    "Tier: T1. The knowledge base, the domain classifier and the domain-specific retrievers are all frozen after construction; at inference the system only classifies the image and reads top-k. The adaptive retrieved-context selection (Sec. 3.2) varies how many retrieved contexts are used per query but is a query-conditioned read, not a persistent change to memory content, metadata, organization or policy, so it does not raise the tier.",
+    "Explicitly not T3: RAG-based preference fine-tuning (RAG-PT) constructs cross-modality and overall-alignment preference pairs and applies DPO to the Med-LVLM entirely offline before deployment (Algorithm 1). Per the guide, offline DPO never qualifies, and in any case it tunes the generator rather than a memory write/maintenance/retrieval policy.",
+    "No benchmark record: the paper evaluates on five pre-existing datasets (MIMIC-CXR, IU-Xray, Harvard-FairVLMed, PMC-OA, Quilt-1M; Table 8, Appendix A.2) and introduces no new benchmark."
+  ]
+}

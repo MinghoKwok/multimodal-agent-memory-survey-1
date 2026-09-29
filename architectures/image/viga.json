@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "viga-2026",
+  "architecture_name": "VIGA",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Vision-as-Inverse-Graphics Agent via Interleaved Multimodal Reasoning",
+    "authors": [
+      "Shaofeng Yin",
+      "Jiaxin Ge",
+      "Zora Zhiruo Wang",
+      "Xiuyu Li",
+      "Michael J. Black",
+      "Trevor Darrell",
+      "Angjoo Kanazawa",
+      "Haiwen Feng"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-16",
+      "source_url": "https://arxiv.org/abs/2601.11109",
+      "pdf_url": "https://arxiv.org/pdf/2601.11109",
+      "doi": "10.48550/arXiv.2601.11109"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "render and comparison history",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The write-run-render-compare loop retains rendered evidence across iterative inverse-graphics reasoning."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "plans, programs, and code-diff memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Plans, executable programs, diffs, and render history form an evolving context and skill library."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VIGA applies fixed-rule insertion or replacement to render and comparison history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Execution feedback triggers fixed-loop revision of plans and code. For VIGA, this specifically supports LLM-mediated memory editing of render and comparison history."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VIGA applies explicit deletion or eviction of stored items to render and comparison history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (render and comparison history) changes through fixed-rule insertion or replacement, LLM-mediated memory editing, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

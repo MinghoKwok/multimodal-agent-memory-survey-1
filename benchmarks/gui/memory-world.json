@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "memory-world-2026",
+  "benchmark_name": "Memory-World",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "STAMP: Training Explicit Memory for Mobile GUI Agents in Controllable and Scalable Virtual Environments",
+    "authors": [
+      "Junyang Wang",
+      "Haiyang Xu",
+      "Xi Zhang",
+      "Zhaoqing Zhu",
+      "Ming Yan",
+      "Jieping Ye",
+      "Jitao Sang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-29",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29324",
+      "pdf_url": "https://arxiv.org/pdf/2605.29324",
+      "doi": "10.48550/arXiv.2605.29324"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "memory_update_and_staleness",
+    "gui_state_tracking",
+    "action_outcome_tracking",
+    "memory_mediated_action",
+    "memory_fidelity"
+  ],
+  "tasks": [
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; Memory-World benchmark and metrics",
+      "page": "",
+      "figure_or_table": "Main Memory-World evaluation tables",
+      "paraphrase": "Controllable virtual environments isolate transient visual information that must be explicitly memorized and later retrieved, with separate memory-accuracy and task-success measurements."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

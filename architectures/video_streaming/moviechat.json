@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "moviechat-2023",
+  "architecture_name": "MovieChat",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MovieChat: From Dense Token to Sparse Memory for Long Video Understanding",
+    "authors": [
+      "Enxin Song",
+      "Wenhao Chai",
+      "Guanhong Wang",
+      "Yucheng Zhang",
+      "Haoyang Zhou",
+      "Feiyang Wu",
+      "Haozhe Chi",
+      "Xun Guo",
+      "Tian Ye",
+      "Yanting Zhang",
+      "Yan Lu",
+      "Jenq-Neng Hwang",
+      "Gaoang Wang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2023-07-31",
+      "source_url": "https://arxiv.org/abs/2307.16449",
+      "pdf_url": "https://arxiv.org/pdf/2307.16449",
+      "doi": "10.48550/arXiv.2307.16449"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "short-and-long-term-visual-tokens",
+      "memory_component": "short-term and long-term memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Memory Models in Vision Tasks",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2; Equation 2",
+          "paraphrase": "A bounded short-term buffer stores frame-level visual feature tokens and periodically transfers them for consolidation."
+        },
+        {
+          "section": "Full paper: 3.4. Long-term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Adjacent visual tokens are iteratively merged by similarity and the sparse result is appended to long-term memory."
+        },
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Equation 4",
+          "paraphrase": "Global and breakpoint modes activate the stored visual representation through projection into the language model; no source-frame lookup is defined."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3.4. Long-term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "A fixed, parameter-free consolidation rule repeatedly merges the most similar adjacent frame tokens. For MovieChat, this specifically supports merging or deduplication of overlapping entries of short-term and long-term memory."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Memory Models in Vision Tasks",
+          "page": "PDF p. 3",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Compressed short-term tokens are appended to long-term memory and initialize the next short-term segment, explicitly migrating state between tiers. For MovieChat, this specifically supports migration between memory tiers of short-term and long-term memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (short-term and long-term memory) changes through merging or deduplication of overlapping entries, migration between memory tiers; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

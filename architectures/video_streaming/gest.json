@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "gest-2026",
+  "architecture_name": "GEST",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Authoring for Living Worlds: Tool-Constrained LLM Agents for Executable Multi-Actor Scenarios",
+    "authors": [
+      "Nicolae Cudlenco",
+      "Mihai Masala",
+      "Marius Leordeanu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-07-29",
+      "source_url": "https://arxiv.org/abs/2604.10383",
+      "pdf_url": "https://arxiv.org/pdf/2604.10383",
+      "doi": "10.48550/arXiv.2604.10383"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Persistent simulated world state via the event graph (entities/state across events)",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Executable event-graph nodes; World state. The same entities and state are carried across events in the simulated world."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Approach",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GEST applies fixed-rule insertion or replacement to Persistent simulated world state via the event graph (entities/state across events); the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: The Agentic Architecture",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GEST applies fixed-rule correction of stored state to Persistent simulated world state via the event graph (entities/state across events); the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GEST applies relinking or reindexing of stored items to Persistent simulated world state via the event graph (entities/state across events); the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): During inference, the operative memory component (Persistent simulated world state via the event graph (entities/state across events)) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

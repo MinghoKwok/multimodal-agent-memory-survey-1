@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "atmem-2026",
+  "architecture_name": "ATMem",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "What Memory Do GUI Agents Really Need? From Passive Records to Active Task-Driving States",
+    "authors": [
+      "Chen Liu",
+      "Ling Chen",
+      "Hanzhang Zhou",
+      "Xu Zhang",
+      "Quyu Kong",
+      "Panrong Tong",
+      "Wenhao Wang",
+      "Xin Yu",
+      "Steven Hoi",
+      "Yue Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-02",
+      "source_url": "https://arxiv.org/abs/2606.31612",
+      "pdf_url": "https://arxiv.org/pdf/2606.31612",
+      "doi": "10.48550/arXiv.2606.31612"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "active task-driving execution state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Task values are continually linked to their workflow role and current use status to drive action selection."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A learned but fixed deployed mechanism continually updates value roles and workflow status. For ATMem, this specifically supports a trained but frozen update module of active task-driving execution state."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The active state replaces outdated or already-used workflow values. For ATMem, this specifically supports fixed-rule correction of stored state of active task-driving execution state."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): STR-GRPO updates the memory mechanism during training only; inference uses the trained updater to modify state under a fixed policy, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

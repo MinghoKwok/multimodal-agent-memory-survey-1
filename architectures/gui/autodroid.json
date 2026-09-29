@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "autodroid-2024",
+  "architecture_name": "AutoDroid",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "AutoDroid: LLM-powered Task Automation in Android",
+    "authors": [
+      "Hao Wen",
+      "Yuanchun Li",
+      "Guohong Liu",
+      "Shanhui Zhao",
+      "Tao Yu",
+      "Toby Jia-Jun Li",
+      "Shiqi Jiang",
+      "Yunhao Liu",
+      "Yaqin Zhang",
+      "Yunxin Liu"
+    ],
+    "latest_version": {
+      "version_label": "ACM MobiCom 2024 proceedings version",
+      "published_date": "2024-09-30",
+      "source_url": "https://doi.org/10.1145/3636534.3649379",
+      "pdf_url": "https://arxiv.org/pdf/2308.15272",
+      "doi": "10.1145/3636534.3649379"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "ui-transition-graph",
+      "memory_component": "UI Transition Graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "Offline exploration records UI states and actions in a directed transition graph used to synthesize app knowledge."
+        }
+      ]
+    },
+    {
+      "path_id": "app-memory-tables",
+      "memory_component": "App Memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: OUR APPROACH: AUTODROID",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "App Memory stores simulated-task entries linking textual functionality descriptions to UI-state and UI-element sequences."
+        },
+        {
+          "section": "Full paper: Exploration-based Memory Injection",
+          "page": "PDF p. 6",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "The online agent retrieves the most similar simulated tasks and injects their navigation guidance into the prompt."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Both operative paths are explicit structured/textual records; screenshots are not retained as a recoverable memory path.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): The full-paper lifecycle review found UI Transition Graph fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

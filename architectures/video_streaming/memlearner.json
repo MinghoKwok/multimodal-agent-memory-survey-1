@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memlearner-2026",
+  "architecture_name": "MemLearner",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemLearner: Learning to Query Context memory for Video World Models",
+    "authors": [
+      "Jiwen Yu",
+      "Jianxiong Gao",
+      "Jianhong Bai",
+      "Yiran Qin",
+      "Kaiyi Huang",
+      "Quande Liu",
+      "Xintao Wang",
+      "Pengfei Wan",
+      "Kun Gai",
+      "Xihui Liu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-06-30",
+      "source_url": "https://arxiv.org/abs/2606.31734",
+      "pdf_url": "https://arxiv.org/pdf/2606.31734",
+      "doi": "10.48550/arXiv.2606.31734"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "scene and object continuity needed for revisits under occlusion and dynamic objects",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Diffusion Model",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Context tokens (C) and query tokens (Q) inside a diffusion transformer; predicted video latent tokens (P). query tokens adaptively extract useful information from context tokens; P tokens condition on Q tokens during generation."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "scene and object continuity needed for revisits under occlusion and dynamic objects",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Diffusion Model",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Context tokens (C) and query tokens (Q) inside a diffusion transformer; predicted video latent tokens (P). query tokens adaptively extract useful information from context tokens; P tokens condition on Q tokens during generation."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Diffusion Model",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MemLearner applies fixed-rule insertion or replacement to scene and object continuity needed for revisits under occlusion and dynamic objects; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The carried memory grows chunk by chunk during long-video inference; the update rule is fixed, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

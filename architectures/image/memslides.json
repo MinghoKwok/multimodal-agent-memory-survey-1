@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memslides-2026",
+  "architecture_name": "MemSlides",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemSlides: A Hierarchical Memory Driven Agent Framework for Personalized Slide Generation with Multi-turn Local Revision",
+    "authors": [
+      "Ye Jin",
+      "Yangyang Xu",
+      "Jun Zhu",
+      "Yibo Yang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-31",
+      "published_date": "2026-06-15",
+      "source_url": "https://arxiv.org/abs/2606.17162v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17162v1",
+      "doi": "10.48550/arXiv.2606.17162"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "profile-and-working-slide-memory",
+      "memory_component": "persistent user profile plus evolving session and slide-edit working state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1 Stateful Multi-turn Slide Authoring; Sec. 3.2 Plan-Act-Guard",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The framework maintains a persistent user profile containing visual-style, layout, and template preferences together with an evolving session state. Working memory records temporary preferences, carryover constraints, edit targets, coverage, and snapshot hashes; the planner and actor read this state and the guard updates it after each local slide revision."
+        },
+        {
+          "section": "Full paper: Sec. 3.3 Hierarchical Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figure 3; Equations 3-6",
+          "paraphrase": "Profile memory persists across jobs while active working memory changes over revision rounds through append and supersede operations. At job completion, stable signals are consolidated into the long-term profile for use in later slide-generation jobs."
+        }
+      ]
+    },
+    {
+      "path_id": "reusable-tool-experience-memory",
+      "memory_component": "compact lessons, tool-error summaries, and reusable operation-context fragments",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.4 Experience Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figure 4; Equation 7",
+          "paraphrase": "Raw reasoning, tool-call, and observation chains are segmented into compact reusable fragments indexed by operation context. Relevant fragments are retrieved before similar future tool calls, while transferable round-level lessons and error patterns are consolidated into long-term experience memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.2 Plan-Act-Guard; Sec. 3.3 Hierarchical Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figures 2-3; Equations 3-6",
+          "paraphrase": "After each user feedback round, fixed append and supersede rules update the active preference, carryover, target, coverage, and snapshot state that will govern the next local revision."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.4 Experience Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figure 4; Equation 7",
+          "paraphrase": "The system transforms raw reasoning-tool-observation traces and round outcomes into reusable fragments, lessons, tool-error summaries, and operation patterns for later retrieval."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Hierarchical Memory; Sec. 3.4 Experience Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Figures 3-4; Equations 3-7",
+          "paraphrase": "At job completion, stable preference signals and transferable tool experience are consolidated from active working memory into persistent profile and long-term experience tiers for future slide-generation jobs."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Structured profile and slide-edit state is joined with compact tool-experience records: Plan-Act-Guard reads both paths when planning and executing personalized slide generation and local visual revisions.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included because memory directly controls non-text slide properties and operations: visual theme, layout, templates, local slide targets, and edits to the actual deck are persisted and reused, rather than memory serving only as textual background context.",
+    "Tier T2 applies because working, profile, and experience memory content changes across revision rounds and jobs under fixed procedures. The paper does not show deployment-time feedback modifying those management procedures, so T3 does not apply.",
+    "Full text was reviewed through the arXiv HTML rendering; it has stable section, figure, and equation anchors but no stable PDF page references were used."
+  ]
+}

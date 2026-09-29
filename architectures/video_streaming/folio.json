@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "folio-2026",
+  "architecture_name": "FOLIO",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "FOLIO: Focused Semantic Memory for Streaming Video Understanding",
+    "authors": [
+      "Haoyang Fan",
+      "Dhruv Parikh",
+      "Anvitha Ramachandran",
+      "Sameh Gobriel",
+      "Nilesh Jain",
+      "Rajgopal Kannan",
+      "Viktor Prasanna"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-14",
+      "source_url": "https://arxiv.org/abs/2607.13298",
+      "pdf_url": "https://arxiv.org/pdf/2607.13298",
+      "doi": "10.48550/arXiv.2607.13298"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual_cache",
+      "memory_component": "short-term visual buffer and evidence cache",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Prior event memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Detailed visual records are retained for focused entities."
+        }
+      ]
+    },
+    {
+      "path_id": "semantic_memory",
+      "memory_component": "entity-centered long-term semantic memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Prior event memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Long-term semantic memory organizes entities and temporal changes and links back to visual evidence."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Prior event memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Surrounding context is stored compactly while focused entities retain detail. For FOLIO, this specifically supports episodic or hierarchical summarization of short-term visual buffer and evidence cache."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Prior event memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "The dynamic focus state updates entity organization and links to the visual cache. For FOLIO, this specifically supports relinking or reindexing of stored items of short-term visual buffer and evidence cache."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "source-linked semantic memory",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (short-term visual buffer and evidence cache) changes through episodic or hierarchical summarization, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

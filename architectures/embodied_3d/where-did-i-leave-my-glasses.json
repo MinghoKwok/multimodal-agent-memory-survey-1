@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "where-did-i-leave-my-glasses-2026",
+  "architecture_name": "Where Did I Leave My Glasses?",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Where Did I Leave My Glasses? Open-Vocabulary Semantic Exploration in Real-World Semi-Static Environments",
+    "authors": [
+      "Benjamin Bogenberger",
+      "Oliver Harrison",
+      "Orrin Dahanaggamaarachchi",
+      "Lukas Brunke",
+      "Jingxing Qian",
+      "Siqi Zhou",
+      "Angela P. Schoellig"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://ieeexplore.ieee.org/document/11359697",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Persistent object instances",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Builds a consistent semantic map with persistent object-level instance tracking.; Updates object stationarity probabilities as changes are observed.; Actively marks and explores areas not visited for an extended period.. query persistent object memory; flag changed/stale areas for revisitation."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Multi-Office + Hallway scenario. Our method per-",
+          "page": "PDF p. 7",
+          "figure_or_table": "Method overview",
+          "paraphrase": "During operation, Where Did I Leave My Glasses? applies fixed-rule insertion or replacement to Persistent object instances; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Multi-Office + Hallway scenario. Our method per-",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Where Did I Leave My Glasses? applies fixed-rule correction of stored state to Persistent object instances; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Where Did I Leave My Glasses? applies evidence-weighted revision of stored belief or confidence to Persistent object instances; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (Persistent object instances) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

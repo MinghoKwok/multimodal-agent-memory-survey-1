@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memora-2026",
+  "architecture_name": "MEMORA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "video_streaming",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MEMORA: Embodied Action Memory from Egocentric Videos for Reasoning and Planning",
+    "authors": [
+      "Zihao Yu",
+      "Xiu Yuan",
+      "Chongjie Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-15",
+      "source_url": "https://arxiv.org/abs/2607.14252",
+      "pdf_url": "https://arxiv.org/pdf/2607.14252",
+      "doi": "10.48550/arXiv.2607.14252"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "typed_stores",
+      "memory_component": "environment, entity, activity, and inferred-knowledge stores",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Four typed stores retain object states, activities, procedures, and regularities."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: MEMORY",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Online editing maintains object identities and state histories. For MEMORA, this specifically supports LLM-mediated memory editing of environment, entity, activity, and inferred-knowledge stores."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Typed retrieval",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "Offline consolidation forms reusable procedures. For MEMORA, this specifically supports episodic or hierarchical summarization of environment, entity, activity, and inferred-knowledge stores."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: MEMORY",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Repeated experience is abstracted into procedures and participant-specific regularities. For MEMORA, this specifically supports abstraction of episodes into reusable experience of environment, entity, activity, and inferred-knowledge stores."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (environment, entity, activity, and inferred-knowledge stores) changes through LLM-mediated memory editing, episodic or hierarchical summarization, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mem-w-2026",
+  "architecture_name": "Mem-W",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "Mem-W: Latent Memory-Native GUI Agents",
+    "authors": [
+      "Guibin Zhang",
+      "Yaohui Ling",
+      "Fanci Meng",
+      "Kun Wang",
+      "Shuicheng Yan"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-05-10",
+      "source_url": "https://arxiv.org/abs/2605.09317v1",
+      "pdf_url": "https://arxiv.org/pdf/2605.09317v1",
+      "doi": "10.48550/arXiv.2605.09317"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "procedural-and-working-latents",
+      "memory_component": "compressed historical trajectories and expired in-session segments",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3 Method",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A shared trajectory-to-latent compressor converts retrieved historical trajectories and expired current-session segments into compact tokens woven into the live policy context."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "As the session advances, expired trajectory prefixes are compressed by the trained module into new latent working-memory blocks. For Mem-W, this specifically supports a trained but frozen update module of compressed historical trajectories and expired in-session segments."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Procedural and working memories share the same latent-token interface.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The compressor/writer is trained offline and frozen at inference; only memory state is updated during use, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

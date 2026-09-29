@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "symbomni-2026",
+  "architecture_name": "SymbOmni",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "video",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning",
+    "authors": [
+      "Jinxiu Liu",
+      "Jianru Li",
+      "Tanqing Kuang",
+      "Xuanming Liu",
+      "Kangfu Mei",
+      "Yandong Wen",
+      "Weiyang Liu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-28",
+      "published_date": "2026-07-13",
+      "source_url": "https://arxiv.org/abs/2607.12042",
+      "pdf_url": "https://arxiv.org/pdf/2607.12042",
+      "doi": "10.48550/arXiv.2607.12042"
+    },
+    "reviewed_on": "2026-08-28",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "symbolic_concept_repository",
+      "memory_component": "persistent symbolic concept repository for visual creation",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.3–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The repository stores symbolic visual concepts with descriptions, parameters, constraints, preconditions, relations, and utility evidence; structural filtering and ranking retrieve concepts for later image and video tasks."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Hard and soft visual feedback can add, update, or delete symbolic concepts and revise their parameters, constraints, and preconditions."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Memory optimization consolidates related symbolic concepts and resolves redundant entries."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Concepts that remain invalid or unhelpful can be deprecated or deleted from the persistent repository."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.3–3.4; Appendix H",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "In sequential online groups, visual execution feedback revises persistent concept descriptions, preconditions, constraints, and relations only after each group; subsequent groups retrieve and compose the updated concepts."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported by the ordered online evaluation protocol: later multimodal task groups can access repository revisions learned from earlier groups, while within-group leakage is prevented."
+  ]
+}

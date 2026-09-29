@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "filmagent-2025",
+  "architecture_name": "FilmAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "embodied_3d"
+  ],
+  "provenance": {
+    "paper_title": "FilmAgent: A Multi-Agent Framework for End-to-End Film Automation in Virtual 3D Spaces",
+    "authors": [
+      "Zhenran Xu",
+      "Longyue Wang",
+      "Jifang Wang",
+      "Zhouyi Li",
+      "Senbao Shi",
+      "Xue Yang",
+      "Yiyu Wang",
+      "Baotian Hu",
+      "Jun Yu",
+      "Min Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-01-22",
+      "source_url": "https://arxiv.org/abs/2501.12909",
+      "pdf_url": "https://arxiv.org/pdf/2501.12909",
+      "doi": "10.48550/arXiv.2501.12909"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Persistent 3D world state (sets, characters, positions)",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Unity 3D scene state. Shots are staged in the persistent space; continuity is automatic."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Persistent 3D world state (sets, characters, positions)",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Unity 3D scene state. Shots are staged in the persistent space; continuity is automatic."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 25",
+          "figure_or_table": "",
+          "paraphrase": "During operation, FilmAgent applies LLM-mediated memory editing to Persistent 3D world state (sets, characters, positions); the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 24",
+          "figure_or_table": "",
+          "paraphrase": "During operation, FilmAgent applies fixed-rule correction of stored state to Persistent 3D world state (sets, characters, positions); the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 25): During inference, the operative memory component (Persistent 3D world state (sets, characters, positions)) changes through LLM-mediated memory editing, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

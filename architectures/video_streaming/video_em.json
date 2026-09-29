@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "video-em-2026",
+  "architecture_name": "Video-EM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Video-EM: Event-Centric Episodic Memory for Long-Form Video Understanding",
+    "authors": [
+      "Yun Wang",
+      "Long Zhang",
+      "Jingren Liu",
+      "Jiaqi Yan",
+      "Zhanjie Zhang",
+      "Jiahao Zheng",
+      "Ao Ma",
+      "Run Ling",
+      "Xun Yang",
+      "Dapeng Wu",
+      "Xiangyu Chen",
+      "Xuelong Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2026-03-07",
+      "source_url": "https://arxiv.org/abs/2508.09486v2",
+      "pdf_url": "https://arxiv.org/pdf/2508.09486v2",
+      "doi": "10.48550/arXiv.2508.09486"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "grounded-event-keyframes",
+      "memory_component": "query-grounded keyframes grouped into events",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "Multi-grained matching localizes moments and event expansion preserves the selected visual frames as grounded evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "event-timeline",
+      "memory_component": "dynamic scene narratives and relations with temporal indices",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Self-reflective Memory Refinement",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 4",
+          "paraphrase": "Each event explicitly records when, where, what, involved entities, dynamic scene relations, and a high-level narrative."
+        }
+      ]
+    },
+    {
+      "path_id": "event-text-records",
+      "memory_component": "grounded episodic narratives with when, where, what, and who cues",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 4",
+          "paraphrase": "Selected events are written as textual episodic records containing temporal indices, scene narratives, and when/where/what/who cues linked to their keyframes."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "An LLM memory agent iteratively checks sufficiency and cross-event consistency and adjusts event granularity. For Video-EM, this specifically supports LLM-mediated memory editing of query-grounded keyframes grouped into events."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "The reflection loop removes redundant evidence to produce a minimal sufficient event set. For Video-EM, this specifically supports merging or deduplication of overlapping entries of query-grounded keyframes grouped into events."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Structured event records remain grounded in the selected keyframes used by the downstream Video-LLM.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): During inference, the operative memory component (query-grounded keyframes grouped into events) changes through LLM-mediated memory editing, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

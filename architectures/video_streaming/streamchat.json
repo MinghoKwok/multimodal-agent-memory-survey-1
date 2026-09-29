@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "streamchat-2025",
+  "architecture_name": "StreamChat",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "dialogue"
+  ],
+  "provenance": {
+    "paper_title": "Streaming Video Understanding and Multi-round Interaction with Memory-enhanced Knowledge",
+    "authors": [
+      "Haomiao Xiong",
+      "Zongxin Yang",
+      "Jiazuo Yu",
+      "Yunzhi Zhuge",
+      "Lu Zhang",
+      "Jiawen Zhu",
+      "Huchuan Lu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2025-01-23",
+      "source_url": "https://arxiv.org/abs/2501.13468v1",
+      "pdf_url": "https://arxiv.org/pdf/2501.13468v1",
+      "doi": "10.48550/arXiv.2501.13468"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "short-and-long-vision-memory",
+      "memory_component": "short-term feature set and long-term feature-caption tree",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "Short memory retains selected vision embeddings; long memory clusters chunk features and captions into a chronological tree for cosine-similarity retrieval."
+        }
+      ]
+    },
+    {
+      "path_id": "caption-and-dialogue-memory",
+      "memory_component": "long-memory captions and encoded dialogue history",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "Text clues index long-memory visual units, while prior question-answer pairs are encoded into a FAISS-indexed dialogue memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "The memory-formation thread refreshes short memory, builds long-memory tree nodes, and appends dialogue records under a fixed schedule. For StreamChat, this specifically supports fixed-rule insertion or replacement of short-term feature set and long-term feature-caption tree."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "Chunk captions and higher-level grouped captions provide progressively compressed summaries. For StreamChat, this specifically supports episodic or hierarchical summarization of short-term feature set and long-term feature-caption tree."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "Age-dependent probabilities select a fixed number of embeddings for the new short-term set; unselected candidates leave the active memory. For StreamChat, this specifically supports explicit deletion or eviction of stored items of short-term feature set and long-term feature-caption tree."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Caption clues retrieve the corresponding stored visual feature units, which are supplied together with short memory.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): During inference, the operative memory component (short-term feature set and long-term feature-caption tree) changes through fixed-rule insertion or replacement, episodic or hierarchical summarization, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mobile-agent-e-2025",
+  "architecture_name": "Mobile-Agent-E",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Mobile-Agent-E: Self-Evolving Mobile Assistant for Complex Tasks",
+    "authors": [
+      "Zhenhailong Wang",
+      "Haiyang Xu",
+      "Junyang Wang",
+      "Xi Zhang",
+      "Ming Yan",
+      "Ji Zhang",
+      "Fei Huang",
+      "Heng Ji"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed 2026-08-30",
+      "published_date": "2025-01-28",
+      "source_url": "https://arxiv.org/abs/2501.11733",
+      "pdf_url": "https://arxiv.org/pdf/2501.11733",
+      "doi": "10.48550/arXiv.2501.11733"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "tips_long_term_memory",
+      "memory_component": "Tips: natural-language lessons distilled from previous trial-and-error on the phone GUI",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.2 Self-Evolution Module; 4.4 Scaling to larger task pools; Appendix G",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1 (framework overview); Figure 13 (generated Tips)",
+          "paraphrase": "Tips are 'general guidance on effective interactions and lessons learned from previous trial-and-error experiences', held in natural language in the persistent long-term memory and injected into the Operator's prompt; at scale an Experience Retriever agent 'select[s] only the relevant Tips and Shortcuts for the current task'. Only the verbalized lesson is kept, not the underlying screenshots."
+        }
+      ]
+    },
+    {
+      "path_id": "shortcuts_long_term_memory",
+      "memory_component": "Shortcuts: reusable JSON functions composed of sequences of atomic GUI operations with preconditions",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.2 Self-Evolution Module; 2.1 (Manager/Operator inputs, Eq. 1); Appendix F",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 12 (full list of generated Shortcuts)",
+          "paraphrase": "Shortcuts are 'reusable, executable functions composed of sequences of atomic operations tailored for recurring subroutines', stored in a predefined JSON format with an explicit precondition because 'a Shortcut may only be applicable in certain states'. They encode ordered GUI action structure (Tap(x,y), Type(text), ...) over app states and are supplied to the Manager for high-level planning and to the Operator for execution."
+        }
+      ]
+    },
+    {
+      "path_id": "working_memory_progress_and_notes",
+      "memory_component": "Working memory: Progress Status, Notes, action history and error history maintained across steps of a task",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.1 Framework (Perceptor, Action Reflector, Notetaker; Eq. 7)",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Perceptor turns each screenshot into 'a fine-grained list of texts and icons, along with their coordinates'; the Notetaker aggregates 'task-relevant information' such as prices or phone numbers into Notes, and the Action Reflector updates the Progress Status after each action. These verbalized records are explicitly designed working memory that is re-read by the Manager and Operator at later steps of the same task, and they are also the input the Experience Reflectors consume at task end. They reset between tasks."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.2 Self-Evolution Module (Eq. 8-9); 3.3 Experimental setting",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "At the end of each deployed task the two Experience Reflectors take the existing long-term memory plus the task's action and error history as input and emit 'newly generated Shortcuts in a predefined JSON format and updated Tips in natural language'. In the '+Evo' setting the agent runs sequentially over the task pool and the memory carried into task k+1 is the memory rewritten after task k. The reflector prompts (the governing update policy) are fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.2 Self-Evolution Module (Eq. 8-9); Appendices F-G",
+          "page": "HTML full text",
+          "figure_or_table": "Figures 12-13",
+          "paraphrase": "Concrete deployed GUI trajectories are abstracted into two reusable forms: generalized natural-language Tips and parameterized executable Shortcuts over atomic operations, which are then reused on later tasks."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v2): 2.1 Framework (Action Reflector, Notetaker; Eq. 7)",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Within a task, Progress Status and Notes are appended/overwritten after each verified action under a fixed protocol, and the resulting state is consumed by the next planning and action step."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Verbalized Tips and structured executable Shortcuts are distinct operative paths that are jointly supplied to the Manager and Operator in the same decision prompt.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full HTML v2 read. Deployment-time boundary is clear: all agents are 'instantiated from a frozen large multimodal model (LMM), such as GPT-4o'; no weights are trained, and the Tips/Shortcuts rewrite happens between deployed tasks, not offline.",
+    "T3 was considered and rejected. Deployment feedback (the error history of the completed task) changes memory CONTENT - the Tips and Shortcuts - under a fixed reflector prompt. It does not change any write, maintenance, or retrieval policy: the Experience Retrievers remain fixed prompted selectors, and the paper states that revising or deleting faulty Shortcuts is future work ('the ability to reflect on and revise generated Shortcuts in subsequent tasks', Appendix C limitations). Per the guide, feedback that merely changes memory content is T2. This is consistent with the corpus treatment of Voyager and EvolvingAgent, whose deployment-time skill/experience libraries are also T2.",
+    "Non-text criterion (b) is satisfied through GUI screenshots: the Perceptor's visual parse of each screen drives the action and error histories that the Experience Reflectors consume, and Shortcuts are sequences of coordinate-level GUI operations. Screenshots themselves are not retained in long-term memory, so all persistent paths have source_accessibility 'none'."
+  ]
+}

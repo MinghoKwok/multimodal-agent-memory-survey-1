@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "museagent-2026",
+  "architecture_name": "MuSEAgent",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MuSEAgent: Multimodal Semantic Experience Agent",
+    "authors": [
+      "Shijian Wang",
+      "Jiarui Jin",
+      "Runhao Fu",
+      "Zexuan Yan",
+      "Xingjian Wang",
+      "Mengkang Hu",
+      "Eric Wang",
+      "Xiaoxi Li",
+      "Kangning Zhang",
+      "Li Yao",
+      "Wenxiang Jiao",
+      "Xuelian Cheng",
+      "Yuan Lu",
+      "Zongyuan Ge"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-29",
+      "source_url": "https://arxiv.org/abs/2603.27813",
+      "pdf_url": "https://arxiv.org/pdf/2603.27813",
+      "doi": "10.48550/arXiv.2603.27813"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "quality-filtered multimodal experience bank",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Atomic decisions are abstracted into reusable multimodal experiences and retrieved through wide/deep semantic search."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The multimodal memory is built in an offline exploration/indexing phase; the paper treats online construction as future work, so deployed use is T1. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

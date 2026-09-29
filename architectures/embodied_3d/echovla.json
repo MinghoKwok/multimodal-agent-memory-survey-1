@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "echovla-2026",
+  "architecture_name": "EchoVLA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text",
+    "proprioception"
+  ],
+  "provenance": {
+    "paper_title": "EchoVLA: Robotic Vision-Language-Action Model with Synergistic Declarative Memory for Mobile Manipulation",
+    "authors": [
+      "Min Lin",
+      "Xiwen Liang",
+      "Bingqian Lin",
+      "Jingzhi Liu",
+      "Zijian Jiao",
+      "Kehan Li",
+      "Ziang Yan",
+      "Yu Sun",
+      "Weijia Liufu",
+      "Yuhan Ma",
+      "Jiarui Hu",
+      "Yuecheng Liu",
+      "Shen Zhao",
+      "Yuzheng Zhuang",
+      "Xiaodan Liang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3",
+      "published_date": "2026-08-07",
+      "source_url": "https://arxiv.org/abs/2511.18112v3",
+      "pdf_url": "https://arxiv.org/pdf/2511.18112v3",
+      "doi": "10.48550/arXiv.2511.18112"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "scene-voxel-memory",
+      "memory_component": "persistent spatial-semantic voxel feature map",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "A key-value voxel bank aggregates PointAttn features by 3D location and retrieves top-k local-frustum entries for coarse attention."
+        }
+      ]
+    },
+    {
+      "path_id": "episodic-token-buffer",
+      "memory_component": "time-indexed multimodal state-token history",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Retrieval and Interaction",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "A fixed-size FIFO buffer stores recent unified language, vision, point-cloud, and proprioceptive token sequences with timestamps for fine-grained retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "High-discrepancy voxel regions are persistently updated by an exponential moving average while stable regions remain unchanged. For EchoVLA, this specifically supports fixed-rule insertion or replacement of persistent spatial-semantic voxel feature map."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "The fixed-capacity FIFO buffer evicts oldest time-indexed token sequences as new states arrive. For EchoVLA, this specifically supports explicit deletion or eviction of stored items of persistent spatial-semantic voxel feature map."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Coarse scene-map features and fine-grained episodic tokens are separately retrieved and fused by cross-attention to condition the diffusion policy.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (persistent spatial-semantic voxel feature map) changes through fixed-rule insertion or replacement, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "gcagent-2025",
+  "architecture_name": "GCAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GCAgent: Graph-Centric Episodic Memory for Long Video Agents",
+    "authors": [
+      "Jeong Hun Yeo",
+      "Sangyun Chung",
+      "Sungjune Park",
+      "Dae Hoe Kim",
+      "Jinyoung Moon",
+      "Yong Man Ro"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-11-15",
+      "source_url": "https://arxiv.org/abs/2511.12027",
+      "pdf_url": "https://arxiv.org/pdf/2511.12027",
+      "doi": "10.48550/arXiv.2511.12027"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "schematic episodic memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Schematic and narrative episodic memories encode entities, events, and causal-temporal relations."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "narrative episode summaries",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Narrative memory summarizes episodes for later perception-action-reflection reasoning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Trajectory observations are consolidated into narrative episodes. For GCAgent, this specifically supports episodic or hierarchical summarization of schematic episodic memory."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Type",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GCAgent applies LLM-mediated memory editing to schematic episodic memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (schematic episodic memory) changes through episodic or hierarchical summarization, LLM-mediated memory editing; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

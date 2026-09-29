@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "curiosai-castle-2026",
+  "architecture_name": "CuriosAI CASTLE",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "CuriosAI Submission to the CASTLE Challenge at EgoVis 2026",
+    "authors": [
+      "Yuto Kanda",
+      "Hayato Tanoue",
+      "Takayuki Hori"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.27800",
+      "pdf_url": "https://arxiv.org/pdf/2605.27800",
+      "doi": "10.48550/arXiv.2605.27800"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "candidate temporal windows",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Captions; transcripts; timeline records; graph cells; evidence windows. SVA hierarchically narrows to a primary window then verifies sub-windows with a VLM; TMKG locates a primary cell through graph search."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "verified sub-window evidence",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Captions; transcripts; timeline records; graph cells; evidence windows. SVA hierarchically narrows to a primary window then verifies sub-windows with a VLM; TMKG locates a primary cell through graph search."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found candidate temporal windows fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

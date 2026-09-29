@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "echo-2026",
+  "architecture_name": "ECHO",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ECHO: Continuous Hierarchical Memory for Vision-Language-Action Models",
+    "authors": [
+      "Yanbin Hu",
+      "Jin Cui",
+      "Jiayi Lu",
+      "Ruixuan Yang",
+      "Jun Ye",
+      "Boran Zhao",
+      "Xingyu Chen",
+      "Xuguang Lan",
+      "Pengju Ren"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-09",
+      "source_url": "https://arxiv.org/abs/2605.10993",
+      "pdf_url": "https://arxiv.org/pdf/2605.10993",
+      "doi": "10.48550/arXiv.2605.10993"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "hyperbolic experience memory tree",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Autonomous Memory Consolidation",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "VLA hidden states are mapped into a continuous hyperbolic tree for top-down experience retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Plug-and-Play System Integration",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed background mechanism inserts and refines experience vectors in continuous memory. For ECHO, this specifically supports a trained but frozen update module of hyperbolic experience memory tree."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Plug-and-Play System Integration",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, ECHO applies merging or deduplication of overlapping entries to hyperbolic experience memory tree; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Background consolidation synthesizes virtual memories in the continuous space. For ECHO, this specifically supports abstraction of episodes into reusable experience of hyperbolic experience memory tree."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Plug-and-Play System Integration",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Geometric interpolation and structural splitting reorganize the semantic memory tree. For ECHO, this specifically supports relinking or reindexing of stored items of hyperbolic experience memory tree."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (hyperbolic experience memory tree) changes through a trained but frozen update module, merging or deduplication of overlapping entries, abstraction of episodes into reusable experience, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

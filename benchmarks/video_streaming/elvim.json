@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "elvim-2025",
+  "benchmark_name": "ELViM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "text"
+  ],
+  "paper": {
+    "title": "video-SALMONN S: Memory-Enhanced Streaming Audio-Visual LLM",
+    "authors": [
+      "Guangzhi Sun",
+      "Yixuan Li",
+      "Xiaodong Wu",
+      "Yudong Yang",
+      "Wei Li",
+      "Zejun Ma",
+      "Chao Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-02-03",
+      "source_url": "https://arxiv.org/abs/2510.11129",
+      "pdf_url": "https://arxiv.org/pdf/2510.11129",
+      "doi": "10.48550/arXiv.2510.11129"
+    },
+    "reviewed_on": "2026-08-30"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "long_range_stream_evidence",
+    "experience_abstraction",
+    "temporal_continuity_and_event_recall"
+  ],
+  "tasks": [
+    "online_streaming_video_question_answering",
+    "question_answering",
+    "memory_retrieval"
+  ],
+  "evidence": [
+    {
+      "section": "Full paper: Sec. 4 / 4.1 ELViM benchmark; Appendix A",
+      "page": "HTML Sec. 4",
+      "figure_or_table": "Figures 4-5; Table 5 (statistics); Table 1 (results)",
+      "paraphrase": "ELViM (Episodic Learning from Video Memory) simulates an agent that watched a procedural video hours earlier: 1,849 questions over 1,021 target videos in 15 categories, where the target video is embedded at least 30 minutes before the query inside merged 90-minute streams. It tests whether a model can learn procedural knowledge from episodic video memory and retrieve it to support real-time execution; video-SALMONN S reaches 46.7% versus 32.5% for video-SALMONN 2+."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Separate benchmark record created because the paper contributes both a memory architecture (video-SALMONN S) and a new memory-centric benchmark (ELViM), per counting_rules.md."
+  ],
+  "scope_status": "core_memory_benchmark"
+}

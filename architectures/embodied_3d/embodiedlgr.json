@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "embodiedlgr-2026",
+  "architecture_name": "EmbodiedLGR-Agent",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EmbodiedLGR: Integrating Lightweight Graph Representation and Retrieval for Semantic-Spatial Memory in Robotic Agents",
+    "authors": [
+      "Paolo Riva",
+      "Leonardo Gargani",
+      "Matteo Frosi",
+      "Matteo Matteucci"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-04-20",
+      "source_url": "https://arxiv.org/abs/2604.18271",
+      "pdf_url": "https://arxiv.org/pdf/2604.18271",
+      "doi": "10.48550/arXiv.2604.18271"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "semantic object-position graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Low-level objects and positions are stored in a semantic graph built from robot observations."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "scene-description memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "High-level observed-scene descriptions are retained in a RAG store alongside the graph."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The fixed local building pipeline adds observed objects, positions, and scene descriptions to memory. For EmbodiedLGR-Agent, this specifically supports fixed-rule insertion or replacement of semantic object-position graph."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: B. Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "New observations are linked into the semantic graph and retrieval store. For EmbodiedLGR-Agent, this specifically supports relinking or reindexing of stored items of semantic object-position graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (semantic object-position graph) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

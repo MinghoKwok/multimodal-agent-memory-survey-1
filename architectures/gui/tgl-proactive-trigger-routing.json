@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "tgl-proactive-trigger-routing-2026",
+  "architecture_name": "TGL Proactive Trigger and Routing",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Do Proactive Agents Really Need an LLM to Decide When to Wake and What to Anchor?",
+    "authors": [
+      "Xiaoze Liu",
+      "Ruowang Zhang",
+      "Amir H. Abdi",
+      "Michel Galley",
+      "Zhikai Chen",
+      "Siheng Xiong",
+      "Xiaoqian Wang",
+      "Jing Gao"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-31",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.30152",
+      "pdf_url": "https://arxiv.org/pdf/2605.30152",
+      "doi": "10.48550/arXiv.2605.30152"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "causal-session-event-entity-graph",
+      "memory_component": "causal heterogeneous temporal graph of session events and the files, applications, URLs, queries, and type entities they touch",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3 Problem Formulation and Sec. 4 Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "At decision time t, observed activity history through t is represented as a heterogeneous temporal graph. Event nodes are linked to named files, applications, URLs, queries, and type nodes, while directional temporal edges connect consecutive events; these named entities remain recoverable and are routed as structured evidence to the downstream agent."
+        },
+        {
+          "section": "Full paper: Appendix B.1, What the Graph Network Actually Sees",
+          "page": "PDF p. 16",
+          "figure_or_table": "Appendix B.1 graph schema",
+          "paraphrase": "Inference removes backward temporal edges so each trigger and routing decision depends only on the current event and prior events in its session, making the accumulated session graph a causal operative state rather than future-aware evaluation context."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 4 Method",
+          "page": "PDF pp. 3-4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Structured activity events are deterministically converted into event, entity, type, and temporal-edge updates under the same fixed graph-construction rules at training and inference. Each later event therefore extends the causal session graph that the TGL trigger and routing heads read on subsequent decisions."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "The manuscript bibliography key proactivewake2026 is only a citation-key shorthand; the paper does not name the architecture ProactiveWake. The record therefore uses the paper's own TGL trigger-and-routing terminology.",
+    "T2 is assigned because the operative causal session graph is extended as new deployment events arrive and later trigger/routing decisions consume that accumulated state. The TGL weights, graph-construction rule, trigger threshold, and routing cap remain fixed, so no T3 policy evolution occurs."
+  ]
+}

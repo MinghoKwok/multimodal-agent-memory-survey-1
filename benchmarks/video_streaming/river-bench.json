@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "river-bench-2026",
+  "benchmark_name": "RIVER Bench",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "RIVER: A Real-Time Interaction Benchmark for Video LLMs",
+    "authors": [
+      "Yansong Shi",
+      "Qingsong Zhao",
+      "Tianxiang Jiang",
+      "Xiangyu Zeng",
+      "Yi Wang",
+      "Limin Wang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-29",
+      "published_date": "2026-03-04",
+      "source_url": "https://arxiv.org/abs/2603.03985",
+      "pdf_url": "https://arxiv.org/pdf/2603.03985",
+      "doi": "10.48550/arXiv.2603.03985"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_stream_evidence",
+    "temporal_localization",
+    "temporal_relation_reasoning",
+    "multi_event_evidence_integration",
+    "memory_mediated_action"
+  ],
+  "tasks": [
+    "question_answering",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; RIVER Bench task definition",
+      "page": "",
+      "figure_or_table": "Benchmark framework and main evaluation tables",
+      "paraphrase": "Retrospective Memory, Live-Perception, and Proactive Anticipation tasks evaluate whether online video agents retain prior evidence and respond accurately and on time."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "spacemind-2026",
+  "architecture_name": "SpaceMind",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "lidar",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "SpaceMind: A Modular and Self-Evolving Embodied Vision-Language Agent Framework for Autonomous On-orbit Servicing",
+    "authors": [
+      "Aodi Wu",
+      "Haodong Han",
+      "Xubo Luo",
+      "Ruisuo Wang",
+      "Shan He",
+      "Xue Wan"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-28",
+      "published_date": "2026-04-15",
+      "source_url": "https://arxiv.org/abs/2604.14399",
+      "pdf_url": "https://arxiv.org/pdf/2604.14399",
+      "doi": "10.48550/arXiv.2604.14399"
+    },
+    "reviewed_on": "2026-08-28",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "persistent_skill_memory",
+      "memory_component": "persistent learned skill files for embodied servicing",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §3.5",
+          "page": "HTML full text",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Post-episode RGB, LiDAR, trajectory, and outcome evidence is distilled into learned skill files containing intent, triggers, rules, constraints, evidence, and provenance; the files are loaded for later episodes."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.5",
+          "page": "HTML full text",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Complete multimodal servicing trajectories and outcomes are distilled into concise reusable skill rules."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §3.5",
+          "page": "HTML full text",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "The evolution module can create, overlay, rewrite, disable, or leave unchanged a learned skill file, subject to a quality gate."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.4–3.5",
+          "page": "HTML full text",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "After each deployed episode, verified multimodal outcomes mutate persistent skill triggers, constraints, and rules; accepted skill files are loaded and selected during subsequent episodes."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported because post-episode feedback changes a reusable persistent skill artifact after deployment, and later embodied episodes retrieve the revised artifact without resetting it."
+  ]
+}

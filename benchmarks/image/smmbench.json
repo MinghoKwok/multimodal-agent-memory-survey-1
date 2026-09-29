@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "smmbench-2026",
+  "benchmark_name": "SMMBench",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "gui"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "SMMBench: A Benchmark for Source-Distributed Multimodal Agent Memory",
+    "authors": [
+      "Huacan Chai",
+      "Yukai Wang",
+      "Yingxuan Yang",
+      "Dan Peng",
+      "Yuanyi Song",
+      "Zhihui Fu",
+      "Weiwen Liu",
+      "Jianghao Lin",
+      "Jun Wang",
+      "Weinan Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-15",
+      "source_url": "https://arxiv.org/abs/2605.15710",
+      "pdf_url": "https://arxiv.org/pdf/2605.15710",
+      "doi": "10.48550/arXiv.2605.15710"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "fine_grained_visual_detail_retention",
+    "conflict_and_evidence_reliability",
+    "memory_mediated_action",
+    "multi_memory_evidence_integration"
+  ],
+  "tasks": [
+    "memory_retrieval",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "Benchmark overview / main evaluation table",
+      "paraphrase": "benchmark stresses source-distributed multimodal memory across conversations, screenshots, images, tables, and documents"
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

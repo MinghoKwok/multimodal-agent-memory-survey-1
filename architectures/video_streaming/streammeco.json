@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "streammeco-2026",
+  "architecture_name": "StreamMeCo",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "StreamMeCo: Long-Term Agent Memory Compression for Efficient Streaming Video Understanding",
+    "authors": [
+      "Junxi Wang",
+      "Te Sun",
+      "Jiayi Zhu",
+      "Junxian Li",
+      "Haowen Xu",
+      "Zichen Wen",
+      "Xuming Hu",
+      "Zhiyu Li",
+      "Linfeng Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-04-23",
+      "source_url": "https://arxiv.org/abs/2604.09000",
+      "pdf_url": "https://arxiv.org/pdf/2604.09000",
+      "doi": "10.48550/arXiv.2604.09000"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "compressed streaming memory graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The system compresses an event-memory graph while retaining connected temporal evidence for retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Graph",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Minmax sampling and edge-aware pruning evict redundant graph nodes. For StreamMeCo, this specifically supports explicit deletion or eviction of stored items of compressed streaming memory graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (compressed streaming memory graph) changes through explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

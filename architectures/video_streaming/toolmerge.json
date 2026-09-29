@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "toolmerge-2026",
+  "architecture_name": "ToolMerge",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Decomposing Queries into Tool Calls for Long-Video Keyframe Retrieval",
+    "authors": [
+      "Michal Shlapentokh-Rothman",
+      "Prachi Garg",
+      "Yu-Xiong Wang",
+      "Derek Hoiem"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-06",
+      "source_url": "https://arxiv.org/abs/2605.23826v2",
+      "pdf_url": "https://arxiv.org/pdf/2605.23826v2",
+      "doi": "10.48550/arXiv.2605.23826"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "frames",
+      "memory_component": "ranked keyframes",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "An LLM decomposes the query into visual tool calls and Boolean-merges their keyframe rankings."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found ranked keyframes fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

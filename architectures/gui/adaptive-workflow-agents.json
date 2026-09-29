@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "adaptive-workflow-agents-2026",
+  "architecture_name": "Adaptive Workflow Agents",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Adaptive Multimodal Agents-Based Framework for Automatic Workflow Execution",
+    "authors": [
+      "Susanna Cifani",
+      "Mario Luca Bernardi",
+      "Marta Cimitile"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.28607",
+      "pdf_url": "https://arxiv.org/pdf/2605.28607",
+      "doi": "10.48550/arXiv.2605.28607"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "workflow transition topology",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: A. The Graph-based RAG pipeline",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Topological knowledge base of workflow transitions. adaptive RAG over the topological knowledge base at inference time."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Adaptive Workflow Agents applies LLM-mediated memory editing to workflow transition topology; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): Algorithm 1 appends an LLM-generated narration to persistent workflow history during execution, so the system performs a fixed-policy T2 edit. Training-time learning, when present, was not counted as T3."
+  ]
+}

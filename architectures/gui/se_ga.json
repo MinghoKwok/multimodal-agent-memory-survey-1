@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "se-ga-2026",
+  "architecture_name": "SE-GA",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "SE-GA: Memory-Augmented Self-Evolution for GUI Agents",
+    "authors": [
+      "Shilong Jin",
+      "Lanjun Wang",
+      "Zhuosheng Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-05-16",
+      "source_url": "https://arxiv.org/abs/2605.16883",
+      "pdf_url": "https://arxiv.org/pdf/2605.16883",
+      "doi": "10.48550/arXiv.2605.16883"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "hierarchical_memory",
+      "memory_component": "episodic, semantic, and experiential GUI memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 2.2. Memory Mechanisms",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "TTME retrieves hierarchical episodic, semantic, and experiential memory at inference."
+        }
+      ]
+    },
+    {
+      "path_id": "mase-policy-adaptation",
+      "memory_component": "LoRA-adapted GUI policy conditioned on accumulated interaction experience",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "MASE uses accumulated GUI interaction experience to adapt the agent policy with LoRA, internalizing reusable experience in parameters."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 2.2. Memory Mechanisms",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, SE-GA applies fixed-rule insertion or replacement to episodic, semantic, and experiential GUI memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, SE-GA applies explicit deletion or eviction of stored items to episodic, semantic, and experiential GUI memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (episodic, semantic, and experiential GUI memory) changes through fixed-rule insertion or replacement, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

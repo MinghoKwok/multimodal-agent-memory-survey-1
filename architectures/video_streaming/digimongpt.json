@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "digimongpt-2026",
+  "architecture_name": "DigimonGPT",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DigimonGPT: An Evolvable Agent with Hierarchical Human-like Memory for Video Question Answering",
+    "authors": [
+      "Borui Li",
+      "Xingcai Zhang",
+      "Tianen Liu",
+      "Shuai Wang",
+      "Yun Cheng",
+      "Shuai Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-14",
+      "source_url": "https://doi.org/10.1609/aaai.v40i8.37523",
+      "pdf_url": "https://doi.org/10.1609/aaai.v40i8.37523",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "intra-video declarative memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Video features and semantic contexts are retained in hierarchical declarative memory."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "inter-task procedural memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Task-solving experiences are encoded as reusable procedural records and replayed by relevance and complexity."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical question-answering episodes are abstracted into procedural experience. For DigimonGPT, this specifically supports abstraction of episodes into reusable experience of intra-video declarative memory."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Hierarchical replay consolidates experience at multiple levels. For DigimonGPT, this specifically supports episodic or hierarchical summarization of intra-video declarative memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (intra-video declarative memory) changes through abstraction of episodes into reusable experience, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

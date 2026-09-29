@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ga-vln-2026",
+  "architecture_name": "GA-VLN",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "GA-VLN: Geometry-Aware BEV Representation for Efficient Vision-Language Navigation",
+    "authors": [
+      "Jiahao Yang",
+      "Zihan Wang",
+      "Xiangyang Li",
+      "Xing Zhu",
+      "Yujun Shen",
+      "Yinghao Xu",
+      "Shuqiang Jiang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-21",
+      "source_url": "https://arxiv.org/abs/2605.22036",
+      "pdf_url": "https://arxiv.org/pdf/2605.22036",
+      "doi": "10.48550/arXiv.2605.22036"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "agent-centric Bird's-Eye-View (BEV) spatial representations carrying geometry-aware features",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "BEV map entries representing the local spatial structure with geometry-aware encoding. navigation policy reads geometry-aware BEV maps for action selection."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "BEV map updates as the agent moves through the environment. For GA-VLN, this specifically supports fixed-rule insertion or replacement of agent-centric Bird's-Eye-View (BEV) spatial representations carrying geometry-aware features."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (agent-centric Bird's-Eye-View (BEV) spatial representations carrying geometry-aware features) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

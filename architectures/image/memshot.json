@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memshot-2026",
+  "architecture_name": "MemShot",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Memory Shot for Long-Term Dialogue",
+    "authors": [
+      "Chunyi Peng",
+      "Haidong Xin",
+      "Xuanshuo Sheng",
+      "Xin Dai",
+      "Zhenghao Liu",
+      "Shuo Wang",
+      "Yukun Yan",
+      "Zulong Chen",
+      "Yu Gu",
+      "Ge Yu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-30",
+      "published_date": "2026-05-30",
+      "source_url": "https://arxiv.org/abs/2606.28338",
+      "pdf_url": "https://arxiv.org/pdf/2606.28338",
+      "doi": "10.48550/arXiv.2606.28338"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual_memory_units",
+      "memory_component": "Memory shots: rendered images of contiguous dialogue spans with a session/timestamp header and a speaker-aware chat region",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper (HTML v1): 3.1 (memory construction, Eq. 3); 3.3 Visual memory unit construction (Eq. 9); 4 Experimental setup; A.3 Implementation details",
+          "page": "HTML full text",
+          "figure_or_table": "Table 5 (rendering parameters); Figure 4 (retriever robustness)",
+          "paraphrase": "Dialogue spans are rendered into images rather than compressed into text: a header region carries 'session-level metadata such as a session identifier and timestamp' and a chat region lays out 'dialogue as a speaker-aware chat stream' with consistent per-speaker positions and styles. Turn-pairs are packed until the 948x768-pixel canvas is full, and each new unit prepends 'the last two turn-pairs from the previous unit' to preserve continuity. The images are the memory items: they are embedded with Qwen3-VL-Embedding-8B, the top-10 units are retrieved by embedding similarity, and the retrieved images themselves are fed to the model, which uses 'its internal visual reasoning capabilities to associate key episodes'. The dialogue text is preserved verbatim inside the image, so the source is directly available downstream."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full HTML v1 read. Included because persistent cross-session dialogue memory is the entire contribution and the image modality is constitutive of that memory: memory items are rendered images, indexing and retrieval run through a multimodal (VL) embedding over those images, and generation consumes the images directly. The non-text modality is synthesized from text rather than captured from the world, which is the reverse of the usual perception-to-record direction; 'retained_perceptual_source_evidence' was chosen because the stored artifact is a modality-native, source-preserving item consumed as pixels, not a verbalized summary.",
+    "The multimodal embedding here is used only as the retrieval index over the image store and therefore does not create a second, latent representation path.",
+    "Tier T1: memory is constructed by a single pass over the dialogue history (M = Psi(C), Eq. 3) and thereafter only queried; no inference-time content update, consolidation, revision, reorganization, or forgetting is described, and no policy is learned from deployment feedback. Even if construction is run incrementally as sessions accumulate, that is formation and does not raise the tier.",
+    "Evaluated on existing benchmarks (LoCoMo, LongMemEval); no new benchmark is introduced, so no benchmark record was created."
+  ]
+}

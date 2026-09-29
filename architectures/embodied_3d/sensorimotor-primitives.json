@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "sensorimotor-primitives-2022",
+  "architecture_name": "Sensorimotor Primitives",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "proprioception",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "Learning Sensorimotor Primitives of Sequential Manipulation Tasks from Visual Demonstrations",
+    "authors": [
+      "Junchi Liang",
+      "Bowen Wen",
+      "Kostas Bekris",
+      "Abdeslam Boularias"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 / ICRA 2022 paper reviewed on 2026-08-31",
+      "published_date": "2022-03-08",
+      "source_url": "https://arxiv.org/abs/2203.03797v1",
+      "pdf_url": "https://arxiv.org/pdf/2203.03797v1",
+      "doi": "10.1109/ICRA46639.2022.9811703"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "recurrent-subtask-history",
+      "memory_component": "LSTM memory of completed tool-target-waypoint choices and manipulation subtasks",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. III Problem Formulation and Architecture",
+          "page": "PDF pp. 2-3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The paper states that the current 6-DoF object poses alone are insufficient because the robot must remember prior actions such as whether a brush was dipped. An LSTM compresses the history of selected tools, targets, and waypoints, and the high- and intermediate-level policies read this memory when choosing the next manipulation step."
+        },
+        {
+          "section": "Full paper: Sec. IV Learning from Visual Demonstrations",
+          "page": "PDF p. 5",
+          "figure_or_table": "Memory and retrieval losses",
+          "paraphrase": "The memory output encodes which subtasks in the demonstrated sequence have already been performed. The memory-consistency and retrieval objectives train it to retain and recover earlier target, tool, and waypoint choices for later decisions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. III Problem Formulation and Architecture; Sec. IV Learning from Visual Demonstrations",
+          "page": "PDF pp. 2-5",
+          "figure_or_table": "Figure 2; memory and retrieval losses",
+          "paraphrase": "During a manipulation episode, the fixed learned LSTM update transforms the accumulated tool-target-waypoint history after each decision into a new persistent hidden state. Later policy decisions consume that changed state, while the update rule itself remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "The LSTM state is an explicit operative memory rather than ordinary stateless recurrence: the paper motivates it as necessary to remember completed subtasks and adds objectives for memory consistency and retrieval of earlier choices.",
+    "Tier T2 applies because the latent memory content changes within the deployed manipulation episode under a fixed learned update module. Training occurs before deployment, and no deployment-time feedback changes the update or retrieval policy, so T3 does not apply."
+  ]
+}

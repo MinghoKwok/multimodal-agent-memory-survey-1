@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "longvideoagent-2026",
+  "architecture_name": "LongVideoAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "LongVideoAgent: Multi-Agent Reasoning with Long Videos",
+    "authors": [
+      "Runtao Liu",
+      "Ziyi Liu",
+      "Jiaqi Tang",
+      "Yue Ma",
+      "Renjie Pi",
+      "Jipeng Zhang",
+      "Qifeng Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-12-23",
+      "source_url": "https://arxiv.org/abs/2512.20618",
+      "pdf_url": "https://arxiv.org/pdf/2512.20618",
+      "doi": "10.48550/arXiv.2512.20618"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "question-relevant video segments",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Grounding agent outputs (segment localizations) and vision agent outputs (textual observations) accumulated by the master agent. iterative retrieval of sparse, question-relevant evidence via the grounding agent; subtitles complemented with visual detail from the vision agent."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "targeted textual observations",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Grounding agent outputs (segment localizations) and vision agent outputs (textual observations) accumulated by the master agent. iterative retrieval of sparse, question-relevant evidence via the grounding agent; subtitles complemented with visual detail from the vision agent."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): The full-paper lifecycle review found question-relevant video segments fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

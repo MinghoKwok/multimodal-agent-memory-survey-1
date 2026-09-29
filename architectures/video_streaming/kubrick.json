@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "kubrick-2024",
+  "architecture_name": "Kubrick",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "embodied_3d"
+  ],
+  "provenance": {
+    "paper_title": "Kubrick: Multimodal Agent Collaborations for Synthetic Video Generation",
+    "authors": [
+      "Liu He",
+      "Yizhi Song",
+      "Hejun Huang",
+      "Pinxin Liu",
+      "Yunlong Tang",
+      "Daniel Aliaga",
+      "Xin Zhou"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-05-05",
+      "source_url": "https://arxiv.org/abs/2408.10453",
+      "pdf_url": "https://arxiv.org/pdf/2408.10453",
+      "doi": "10.48550/arXiv.2408.10453"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Persistent 3D world state (geometry, assets, camera)",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "3D scene representation (Blender) shared across shots. Each shot is rendered from the shared 3D world; continuity is inherent."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Persistent 3D world state (geometry, assets, camera)",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "3D scene representation (Blender) shared across shots. Each shot is rendered from the shared 3D world; continuity is inherent."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 12",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Agents modify the persistent 3D world state across shots (fixed editing rules). For Kubrick, this specifically supports LLM-mediated memory editing of Persistent 3D world state (geometry, assets, camera)."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 12): During inference, the operative memory component (Persistent 3D world state (geometry, assets, camera)) changes through LLM-mediated memory editing; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

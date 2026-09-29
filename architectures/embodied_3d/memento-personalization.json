@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memento-personalization-2026",
+  "architecture_name": "MEMENTO Personalization",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Embodied Agents Meet Personalization: Investigating Challenges and Solutions Through the Lens of Memory Utilization",
+    "authors": [
+      "Taeyoon Kwon",
+      "Dongwook Choi",
+      "Hyojun Kim",
+      "Sunghwan Kim",
+      "Seungjun Moon",
+      "Beong-woo Kwak",
+      "Kuan-Hao Huang",
+      "Jinyoung Yeo"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://iclr.cc/virtual/2026/poster/10010718",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "object/user-pattern memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 18",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Past interactions become personalized object and routine memory entries. agents retrieve object-semantic and user-pattern memories for planning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MEMENTO Personalization applies fixed-rule insertion or replacement to object/user-pattern memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MEMENTO Personalization applies episodic or hierarchical summarization to object/user-pattern memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (object/user-pattern memory) changes through fixed-rule insertion or replacement, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

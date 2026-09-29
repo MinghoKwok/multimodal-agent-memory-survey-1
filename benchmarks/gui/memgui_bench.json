@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "memgui-bench-2026",
+  "benchmark_name": "MemGUI-Bench",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "MemGUI-Bench: Benchmarking Memory of Mobile GUI Agents in Dynamic Environments",
+    "authors": [
+      "Guangyi Liu",
+      "Pengxiang Zhao",
+      "Yaozhen Liang",
+      "Qinyi Luo",
+      "Shunye Tang",
+      "Yuxiang Chai",
+      "Weifeng Lin",
+      "Han Xiao",
+      "WenHao Wang",
+      "Siheng Chen",
+      "Zhengxi Lu",
+      "Gao Wu",
+      "Hao Wang",
+      "Liang Liu",
+      "Yong Liu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2026-02-03",
+      "source_url": "https://arxiv.org/abs/2602.06075",
+      "pdf_url": "https://arxiv.org/pdf/2602.06075",
+      "doi": "10.48550/arXiv.2602.06075"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_step_retention",
+    "cross_application_transfer",
+    "cross_session_experience_reuse",
+    "gui_state_tracking",
+    "action_outcome_tracking",
+    "memory_fidelity",
+    "learning_effectiveness",
+    "execution_efficiency"
+  ],
+  "tasks": [
+    "mobile_gui_action",
+    "cross_application_workflow",
+    "cross_session_learning"
+  ],
+  "evidence": [
+    {
+      "section": "Benchmark design",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "The suite contains 128 tasks across 26 applications, organized into mirror pairs to test short-term retention and long-term cross-session improvement."
+    },
+    {
+      "section": "MemGUI-Eval",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Progressive Scrutiny evaluates trajectories with hierarchical metrics covering memory fidelity, learning effectiveness, and execution efficiency."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

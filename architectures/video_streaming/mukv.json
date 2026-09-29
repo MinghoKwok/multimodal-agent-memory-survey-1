@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mukv-2026",
+  "architecture_name": "MuKV",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MuKV: Multi-Granular Key-Value Cache for Efficient Long Video Understanding",
+    "authors": [
+      "Junbin Xiao",
+      "Jiajun Chen",
+      "Tianxiang Sun",
+      "Xun Yang",
+      "Angela Yao"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-21",
+      "source_url": "https://arxiv.org/abs/2605.22269",
+      "pdf_url": "https://arxiv.org/pdf/2605.22269",
+      "doi": "10.48550/arXiv.2605.22269"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "offline multigranular visual KV cache",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "An offline multi-grained KV cache is queried through semi-hierarchical retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Parallel retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MuKV applies fixed-rule insertion or replacement to offline multigranular visual KV cache; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Parallel retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MuKV applies merging or deduplication of overlapping entries to offline multigranular visual KV cache; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Parallel retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MuKV applies explicit deletion or eviction of stored items to offline multigranular visual KV cache; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): Streaming inference builds and prunes multimodal KV caches; carried cache state is deliberately updated and reused, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

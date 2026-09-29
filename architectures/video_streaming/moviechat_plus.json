@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "moviechat-plus-2024",
+  "architecture_name": "MovieChat+",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MovieChat+: Question-aware Sparse Memory for Long Video Question Answering",
+    "authors": [
+      "Enxin Song",
+      "Wenhao Chai",
+      "Tian Ye",
+      "Jenq-Neng Hwang",
+      "Xi Li",
+      "Gaoang Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-04-26",
+      "source_url": "https://arxiv.org/abs/2404.17176",
+      "pdf_url": "https://arxiv.org/pdf/2404.17176",
+      "doi": "10.48550/arXiv.2404.17176"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "question-aware sparse visual token memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Question-aware sparse memory compresses long video tokens while preserving query-relevant content."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Redundant visual tokens are merged under the fixed Atkinson-Shiffrin-inspired policy. For MovieChat+, this specifically supports merging or deduplication of overlapping entries of question-aware sparse visual token memory."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Long streams are consolidated into sparse memory. For MovieChat+, this specifically supports episodic or hierarchical summarization of question-aware sparse visual token memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (question-aware sparse visual token memory) changes through merging or deduplication of overlapping entries, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

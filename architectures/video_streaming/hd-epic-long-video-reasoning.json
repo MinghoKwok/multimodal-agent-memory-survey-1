@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "hd-epic-long-video-reasoning-2026",
+  "architecture_name": "HD-EPIC Long-Video Reasoning",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Semantic and Visual Evidence for Efficient Long-Video Reasoning: A Solution for the HD-EPIC VQA Challenge",
+    "authors": [
+      "Yinsong Xu",
+      "Wei Jing",
+      "Liuxin Zhang",
+      "Wanjun Lv",
+      "Hui Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29402",
+      "pdf_url": "https://arxiv.org/pdf/2605.29402",
+      "doi": "10.48550/arXiv.2605.29402"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "selected semantic and visual evidence relevant to each question",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. Implementation Details",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Evidence representations (text-form semantic cues + visual frame cues) selected per question. question-conditioned evidence selection balances semantic and visual signals."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): The full-paper lifecycle review found selected semantic and visual evidence relevant to each question fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

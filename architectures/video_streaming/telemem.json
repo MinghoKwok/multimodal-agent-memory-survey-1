@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "telemem-2026",
+  "architecture_name": "TeleMem",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "TeleMem: Building Long-Term and Multimodal Memory for Agentic AI",
+    "authors": [
+      "Chunliang Chen",
+      "Ming Guan",
+      "Xiao Lin",
+      "Luxi Lin",
+      "Jiaxu Li",
+      "Qiyi Wang",
+      "Xiangyu Chen",
+      "Jixiang Luo",
+      "Changzhi Sun",
+      "Dell Zhang",
+      "Xuelong Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v4 reviewed on 2026-08-30",
+      "published_date": "2026-01-22",
+      "source_url": "https://arxiv.org/abs/2601.06037",
+      "pdf_url": "https://arxiv.org/pdf/2601.06037",
+      "doi": "10.48550/arXiv.2601.06037"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Threaded directed acyclic graph of stabilized semantic states: profile states, event states summarizing dialogue and video clips, and entity/object states with temporal evolution",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v4): Sec. 3.1 / 3.1.1 memory representation; Sec. 3.2 graph maintenance; Appendix A node examples",
+          "page": "HTML Sec. 3.1-3.2, Appendix A",
+          "figure_or_table": "Figures 5-6 (serialized node examples)",
+          "paraphrase": "Memory is a directed acyclic graph whose nodes are stabilized semantic states of three kinds: profile states over user and bot attributes, event states capturing interaction semantics drawn from textual dialogue or from video clips, and entity/object states representing persistent multimodal entities and their temporal evolution. Each node carries consolidated content, an embedding for similarity search, and effective timestamps, with the temporal constraint tau(p) < tau(v_i) enforcing acyclicity. Edges are pruned so only minimal causal dependencies survive, yielding interpretable memory threads as root-to-node paths. Retrieval identifies seed nodes by embedding similarity and then performs closure-based backward dependency traversal followed by chronological linearization, so the graph structure and node timestamps are both operative at read time. Serialized nodes (Appendix A, Figures 5-6) carry textual captions, aligned timestamps and clip references, linking a node back to the video segment it summarizes."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Retained video material addressed by the memory agent's video tools (video.retrieval for clip timestamps, video.rag for textual aggregation, video.qa for visual question answering over clips)",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v4): Sec. 3.3.2 multimodal memory agent; Algorithm 1",
+          "page": "HTML Sec. 3.3.2",
+          "figure_or_table": "Algorithm 1 (ReAct-style multimodal retrieval loop)",
+          "paraphrase": "A ReAct-style agent answers multimodal queries by invoking three tools over the stored video material: video.retrieval returns clip timestamps, video.rag aggregates textual evidence, and video.qa performs visual question answering directly on the clips. Because video.qa answers by looking at clips at retrieval time rather than at pre-extracted captions, raw visual evidence remains reachable from memory rather than being discarded after summarization."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v4): Sec. 3.2.3 Online incremental updates",
+          "page": "HTML Sec. 3.2.3",
+          "figure_or_table": "",
+          "paraphrase": "During deployment each incoming dialogue turn is summarized into candidate nodes, aligned against the existing store by retrieval, and an LLM decides add / update / no-op for each candidate. Stored node content is therefore rewritten by an LLM at inference time while the decision prompt and procedure remain fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v4): Sec. 3.2.3 Online incremental updates",
+          "page": "HTML Sec. 3.2.3",
+          "figure_or_table": "",
+          "paraphrase": "New nodes are inserted with the fixed Insert rule and the DAG's temporal and pruning constraints are re-applied on every write, so graph content grows under an unchanging update rule (batch size 1, global clustering omitted for latency)."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v4): Sec. 3.2.3 Online incremental updates, edge maintenance",
+          "page": "HTML Sec. 3.2.3",
+          "figure_or_table": "",
+          "paraphrase": "When a node is updated, ReInsert recomputes its incoming edges and cascades the recomputation to affected children; when a node is removed, orphaned children are re-attached through alternative parents. The organization of the memory graph, not only its content, therefore changes during deployment under a fixed relinking rule."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The semantic DAG and the retained video material are deliberately linked: event and object nodes carry clip references and timestamps that the video tools dereference, and the ReAct agent composes graph-retrieved textual context with clip-level visual answers into one response.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v4, Sec. 3.2.2-3.2.3, Sec. 3.3.2, Algorithm 1): assigned T2. What changes at inference time is memory content and graph organization (LLM add/update/no-op decisions, ReInsert edge recomputation, orphan re-attachment) under fixed prompts and fixed structural rules.",
+    "T3 explicitly rejected: the pruning criterion, the top-k-plus-closure retrieval procedure and the online/offline pipeline split are all statically designed, and the paper reports no deployment feedback that modifies a write, maintenance, or retrieval policy. Periodic offline rebuilding is scheduled maintenance, not feedback-driven policy change.",
+    "Conservative T2 scoping: the batch consolidation stage of Sec. 3.2.2 (global semantic clustering plus LLM add/delete/update/no-op over clusters) would correspond to memory_merging_and_deduplication and llm_based_conflict_resolution, but the paper frames it as an offline batch pipeline distinct from the online path, so it was not counted among inference-time operations. The T2 assignment rests entirely on the online incremental update path of Sec. 3.2.3.",
+    "Primary modality is assigned as video_streaming because video is the system's only non-text modality and supplies the multimodal memory module (event memory, object memory and clip-level QA). Both reported evaluations (the paper's own ZH-4O benchmark and LoCoMo) are text-only dialogue benchmarks, so they do not exercise the video path; this is recorded as an evaluation-coverage limitation rather than a conflicting modality assignment.",
+    "Video memory implementation detail is thin: the paper describes event/object extraction, clip references and the three video tools, but does not specify where or how raw clips are stored, so path_2's storage_indexing is the best-supported reading rather than an explicit statement.",
+    "The paper's ZH-4O benchmark (28 human-LLM Chinese role-playing sessions, ~600 turns each, 1,068 multiple-choice probes) is text-only and therefore fails the non-text-modality inclusion criterion; no benchmark record was created for it."
+  ]
+}

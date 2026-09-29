@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "dovsg-2025",
+  "architecture_name": "DovSG",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Dynamic Open-Vocabulary 3D Scene Graphs for Long-term Language-Guided Mobile Manipulation",
+    "authors": [
+      "Zhijie Yan",
+      "Shufei Li",
+      "Zuoxu Wang",
+      "Lixiu Wu",
+      "Han Wang",
+      "Jun Zhu",
+      "Lijiang Chen",
+      "Jihong Liu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v6",
+      "published_date": "2025-03-19",
+      "source_url": "https://arxiv.org/abs/2410.11989v6",
+      "pdf_url": "https://arxiv.org/pdf/2410.11989v6",
+      "doi": "10.48550/arXiv.2410.11989"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "object-geometric-memory",
+      "memory_component": "3D object nodes with geometric and semantic features",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Each object node carries fused geometry and open-vocabulary semantic features, with spatial relations represented by graph edges."
+        }
+      ]
+    },
+    {
+      "path_id": "historical-image-localization",
+      "memory_component": "historical RGB-D images and poses used for relocalization",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "The system retrieves similar historical 2D images and poses, matches them to the current view, and refines robot pose before local graph updates."
+        }
+      ]
+    },
+    {
+      "path_id": "dynamic-scene-graph",
+      "memory_component": "dynamic 3D object-relation scene graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Object nodes and spatial relations form a dynamic 3D scene graph whose updated structure is traversed for planning and remains linked to geometric and historical visual evidence."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "After interaction, fixed geometric checks locally update object features and the affected scene graph rather than reconstructing the full scene. For DovSG, this specifically supports fixed-rule insertion or replacement of 3D object nodes with geometric and semantic features."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Obsolete indices are removed and low- and high-level graph relations are rebuilt for changed regions. For DovSG, this specifically supports relinking or reindexing of stored items of 3D object nodes with geometric and semantic features."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "New RGB-D evidence is checked against fixed depth and color criteria; obsolete points are removed and affected graph state is recomputed. For DovSG, this specifically supports fixed-rule correction of stored state of 3D object nodes with geometric and semantic features."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Both operative paths remain within the source-preserving/modality-native parent family.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (3D object nodes with geometric and semantic features) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

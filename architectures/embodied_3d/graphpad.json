@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "graphpad-2025",
+  "architecture_name": "GraphPad",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GraphPad: Inference-Time 3D Scene Graph Updates for Embodied Question Answering",
+    "authors": [
+      "Muhammad Qasim Ali",
+      "Saeejith Nair",
+      "Alexander Wong",
+      "Yuchen Cui",
+      "Yuhao Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-06-01",
+      "source_url": "https://arxiv.org/abs/2506.01174",
+      "pdf_url": "https://arxiv.org/pdf/2506.01174",
+      "doi": "10.48550/arXiv.2506.01174"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "frame-indexed navigation log",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Task-Memory Alignment",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A navigation log indexes frame-by-frame visual content for later access."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "mutable scene graph and scratchpad",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Task-Memory Alignment",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "API calls update a task-tailored 3D scene graph and task-specific notes at inference time."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Task-Memory Alignment",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The agent uses API calls to add, revise, and tailor scene-memory content. For GraphPad, this specifically supports LLM-mediated memory editing of frame-indexed navigation log."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Task-Memory Alignment",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Inference-time graph updates add task-relevant objects and relations. For GraphPad, this specifically supports relinking or reindexing of stored items of frame-indexed navigation log."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (frame-indexed navigation log) changes through LLM-mediated memory editing, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

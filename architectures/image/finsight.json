@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "finsight-2026",
+  "architecture_name": "FinSight (Code Agent with Variable Memory)",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "FinSight: Towards Real-World Financial Deep Research",
+    "authors": [
+      "Jiajie Jin",
+      "Yuyao Zhang",
+      "Yimeng Xu",
+      "Hongjin Qian",
+      "Yutao Zhu",
+      "Zhicheng Dou"
+    ],
+    "latest_version": {
+      "version_label": "ACL Anthology camera-ready (ACL 2026, pp. 5868-5894), reviewed 2026-08-30",
+      "published_date": "2026-07-02",
+      "source_url": "https://aclanthology.org/2026.acl-long.265/",
+      "pdf_url": "https://aclanthology.org/2026.acl-long.265.pdf",
+      "doi": "10.18653/v1/2026.acl-long.265"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "variable-data-memory",
+      "memory_component": "Code Agent with Variable Memory unified variable space containing structured and unstructured financial data as executable Python objects",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Sec. 2.2 Framework of FinSight; Sec. 2.3 Code Agent with Variable Memory",
+          "page": "PDF pp. 3-4 (proceedings pp. 5870-5871)",
+          "figure_or_table": "Figure 2; Table 1; Algorithm 1",
+          "paraphrase": "CAVM unifies data, tools and callable agents in a programmable variable space. Its data partition stores structured financial tables such as pandas DataFrames and unstructured data as executable Python objects. Agents inspect variable metadata and generate code that retrieves or modifies selected variables, allowing precise data states to persist across the long-horizon research run instead of being repeatedly flattened into the prompt."
+        }
+      ]
+    },
+    {
+      "path_id": "chain-of-analysis-memory",
+      "memory_component": "multimodal Chain-of-Analysis segments and source-linked evidence records distilled from collected financial data",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Sec. 2.4 Two-Stage Writing with Generative Retrieval; Appendix E Retrieval",
+          "page": "PDF pp. 4-5 and 17 (proceedings pp. 5871-5872, 5884)",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "The Data Analysis Agent converts collected evidence into persistent Chain-of-Analysis segments. During structured writing, the Report Generation Agent retrieves relevant data and CoA segments from variable memory for each report section. CoAs carry source descriptions and element identifiers; Qwen3 embeddings and cosine similarity select relevant data and CoA records, preserving routes from report claims back to stored evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "chart-memory",
+      "memory_component": "generated financial chart artifacts retained with VLM captions and identifiers for later retrieval into the report",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Sec. 2.4 Two-Stage Writing with Generative Retrieval; Sec. 2.5 Iterative Vision-Enhanced Mechanism for Visualization",
+          "page": "PDF pp. 4-6 (proceedings pp. 5871-5873)",
+          "figure_or_table": "Figures 3-4",
+          "paraphrase": "Chart artifacts are generated from stored data, captioned by a VLM and assigned identifiers. Embedding retrieval matches a report-time figure description to the relevant retained chart, which is imported into the interleaved report. Before retention, the chart is repeatedly rendered and visually inspected by a VLM critic so that revised chart code produces an improved visual artifact."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Sec. 2.3 Code Agent with Variable Memory",
+          "page": "PDF pp. 3-4 (proceedings pp. 5870-5871)",
+          "figure_or_table": "Algorithm 1, Eq. 1-2",
+          "paraphrase": "At each inference step the agent reasons over the current variable-space metadata, generates executable code and applies Execute(C_t, V_{t-1}) to produce an updated variable state V_t. The LLM chooses which persistent variables to create, retrieve or modify while the CAVM execution loop itself remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Sec. 2.4 Two-Stage Writing with Generative Retrieval",
+          "page": "PDF pp. 4-5 (proceedings pp. 5871-5872)",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "During the research run, collected heterogeneous data is distilled into multiple viewpoint-specific Chain-of-Analysis segments. These durable intermediate summaries are subsequently selected and synthesized section by section, so the memory is consolidated hierarchically under a fixed two-stage procedure."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Structured variable data and source-linked CoA records are deliberately connected to retained chart artifacts through identifiers, VLM captions and embedding retrieval, and the report generator jointly consumes the retrieved analyses and charts in one interleaved report.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "T2, not T3: inference-time code execution, CoA construction and VLM-guided chart revision change persistent task memory and visual artifacts under fixed CAVM, writing and critic loops. Visual feedback improves the current chart content but does not persistently change a reusable write, maintenance or retrieval policy for later tasks.",
+    "Primary modality is image because professional visualizations are a central output and memory route: charts are generated, retained, caption-indexed, visually revised and retrieved into the final report. Financial tables and prose are operative but recorded under the text secondary modality because the repository has no separate tabular modality folder.",
+    "Paired benchmark record: finsight-benchmark-2026."
+  ]
+}

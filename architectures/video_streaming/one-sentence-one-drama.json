@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "one-sentence-one-drama-2026",
+  "architecture_name": "One Sentence One Drama",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "embodied_3d"
+  ],
+  "provenance": {
+    "paper_title": "One Sentence, One Drama: Personalized Short-Form Drama Generation via Multi-Agent Systems",
+    "authors": [
+      "Yufei Shi",
+      "Weilong Yan",
+      "Naixuan Huang",
+      "Yucheng Chen",
+      "Chenyu Zhang",
+      "Tao He",
+      "Si Yong Yeo",
+      "Ming Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-21",
+      "source_url": "https://arxiv.org/abs/2605.22144",
+      "pdf_url": "https://arxiv.org/pdf/2605.22144",
+      "doi": "10.48550/arXiv.2605.22144"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "narrative plan",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Multi-agent debate outputs; 3D-grounded first-frame reference; reviewer-loop error reports; transition and BGM planning records. retrieves/reuses the shared spatial reference and stage-level reviewer feedback during visual/video generation and targeted revision."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "shared 3D-grounded spatial reference",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Multi-agent debate outputs; 3D-grounded first-frame reference; reviewer-loop error reports; transition and BGM planning records. retrieves/reuses the shared spatial reference and stage-level reviewer feedback during visual/video generation and targeted revision."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "cross-clip character/scene state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Multi-agent debate outputs; 3D-grounded first-frame reference; reviewer-loop error reports; transition and BGM planning records. retrieves/reuses the shared spatial reference and stage-level reviewer feedback during visual/video generation and targeted revision."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Revision loops update script/visual/video outputs; spatial reference maintains consistent layout across clips; no long-term cross-session memory. For One Sentence One Drama, this specifically supports LLM-mediated memory editing of narrative plan."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Revision loops update script/visual/video outputs; spatial reference maintains consistent layout across clips; no long-term cross-session memory. For One Sentence One Drama, this specifically supports evidence-weighted revision of stored belief or confidence of narrative plan."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (narrative plan) changes through LLM-mediated memory editing, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

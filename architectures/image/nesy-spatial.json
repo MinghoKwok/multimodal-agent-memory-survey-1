@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "nesy-spatial-2026",
+  "architecture_name": "NeSy-Spatial",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "depth",
+    "3d_geometry"
+  ],
+  "provenance": {
+    "paper_title": "Self-Evolving Neuro-Symbolic Skills for Tool-Augmented Spatial Reasoning",
+    "authors": [
+      "Shi-Yu Tian",
+      "Zhuo-Xia Wang",
+      "Xuan-Yi Zhu",
+      "Zhi Zhou",
+      "Xinwei Yang",
+      "Kun-Yang Yu",
+      "Ming Yang",
+      "Yang Chen",
+      "Yu-Feng Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-28",
+      "published_date": "2026-08-08",
+      "source_url": "https://arxiv.org/abs/2608.07955",
+      "pdf_url": "https://arxiv.org/pdf/2608.07955",
+      "doi": "10.48550/arXiv.2608.07955"
+    },
+    "reviewed_on": "2026-08-28",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "neuro_symbolic_skill_library",
+      "memory_component": "persistent tool-use and geometry skill library",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.1–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figures 2–3",
+          "paraphrase": "The agent stores atomic neuro-symbolic instructions and Tool-Use and Geometry skills distilled from image-based spatial-reasoning trajectories; later problems retrieve and compose these structured skills with visual, depth, and reconstruction tools."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Verified spatial-reasoning trajectories are distilled into reusable atomic instructions and higher-level tool-use and geometry skills."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "The library-management stage analyzes, fuses, and prunes overlapping skill content before committing the next library state."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Pruning removes skills that are redundant or no longer supported during library evolution."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.2–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figures 2–3",
+          "paraphrase": "In the test-then-update protocol, each episode is predicted before its label is revealed; post-episode labels and verification traces update the persistent skill library, and the resulting library state is retrieved and composed on later spatial-reasoning tasks."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported by ordered test-then-update evaluation: multimodal task feedback arrives after prediction, changes reusable neuro-symbolic retrieval procedures, persists in the skill library, and affects later episodes."
+  ]
+}

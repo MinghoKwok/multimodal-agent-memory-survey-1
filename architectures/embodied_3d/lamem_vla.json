@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "lamem-vla-2026",
+  "architecture_name": "LaMem-VLA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation",
+    "authors": [
+      "Hongyu Qu",
+      "Jianzhe Gao",
+      "Xiaobin Hu",
+      "Shaohuan Yang",
+      "Xinlei Yu",
+      "Rui Yan",
+      "Wenguan Wang",
+      "Xiangbo Shu",
+      "Shuicheng Yan"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-08",
+      "source_url": "https://arxiv.org/abs/2607.07608",
+      "pdf_url": "https://arxiv.org/pdf/2607.07608",
+      "doi": "10.48550/arXiv.2607.07608"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "vaults",
+      "memory_component": "short- and long-term latent vaults",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Curator, seeker, condenser, and weaver manage latent experience for VLA reasoning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, LaMem-VLA applies a trained but frozen update module to short- and long-term latent vaults; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The condenser compacts retrieved evidence. For LaMem-VLA, this specifically supports merging or deduplication of overlapping entries of short- and long-term latent vaults."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "During operation, LaMem-VLA applies explicit deletion or eviction of stored items to short- and long-term latent vaults; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (short- and long-term latent vaults) changes through a trained but frozen update module, merging or deduplication of overlapping entries, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

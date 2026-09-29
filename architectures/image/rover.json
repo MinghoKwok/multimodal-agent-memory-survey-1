@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rover-2026",
+  "architecture_name": "ROVER",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ROVER: Routing Object-Centric Visual Evidence for Grounded Multi-Image Reasoning",
+    "authors": [
+      "Guannan Lv",
+      "Ren Nie",
+      "Hongjian Dou",
+      "Tingting Gao"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.27959",
+      "pdf_url": "https://arxiv.org/pdf/2605.27959",
+      "doi": "10.48550/arXiv.2605.27959"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Visual Working Space (VWS): an append-ordered store of object-anchored visual features distilled by the Sift module, shared across all routing events in a reasoning trajectory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v2): Sec. 3.1 Sift and Weave modules; Eq. 5 (VWS update) and Eq. 6 (Weave read)",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Equations 5 and 6",
+          "paraphrase": "Whenever the model emits a grounding event, Sift applies object-centric differential attention over non-RoI patch tokens to distill an object-anchored feature t_k^Sift, which is concatenated into the Visual Working Space W_k = [W_{k-1}; t_k^Sift] in R^{k x d}, with W_0 = empty. The VWS is shared across all routing events irrespective of source image index, forming a global memory of grounded objects for the whole multi-image trajectory. It is read by the Weave module, t_k^Weave = Enc_Weave(t_k^Sift, W_k, M_k^Weave), which cross-attends from the current object feature over the accumulated history under an autoregressive mask and injects the result back into the reasoning stream. Entries are compressed hidden vectors that do not themselves carry box coordinates or image indices (those live in the emitted text tokens), so the source image region is not recoverable from a stored entry."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v2): Sec. 3.1, Eq. 5",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Equation 5",
+          "paraphrase": "During inference the VWS changes by a fixed append rule: each new grounding event concatenates its Sift feature onto the existing store, which is then re-read by Weave at every subsequent routing event. Memory content therefore evolves across inference steps while the write rule (append) and the read rule (masked cross-attention) stay fixed. No eviction, merging, or reweighting is performed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v2, Sec. 3.1-3.2): assigned T2 under the guide's rule that a deliberate recurrent memory state carried to later inference steps counts even within a single episode. The VWS is an explicitly named, deliberately retained operative artifact that is re-read at every later routing event, not ordinary prompt history.",
+    "Scope caveat: the VWS is reset to empty at the start of each sample (W_0 = empty) and does not persist across samples or tasks; persistence is trajectory-scoped.",
+    "T3 explicitly rejected: the Sift and Weave encoders are trained by an entirely offline interleaved SFT then interleaved GRPO pipeline (Sec. 3.2) completed before deployment. At inference the routing weights are frozen and only memory content evolves, so no deployment feedback modifies a write, maintenance, or retrieval policy.",
+    "Tier confirmed directly by the annotation guide: 'A deliberate recurrent or latent memory carried to later inference steps counts even within one episode.' Trajectory-scoped persistence is therefore sufficient for T2; no corpus precedent was needed."
+  ]
+}

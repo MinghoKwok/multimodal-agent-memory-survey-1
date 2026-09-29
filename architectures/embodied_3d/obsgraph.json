@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "obsgraph-2026",
+  "architecture_name": "ObsGraph",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ObsGraph: Hierarchical Observation Representation for Embodied Reasoning and Exploration",
+    "authors": [
+      "Taekbeom Lee",
+      "Youngseok Jang",
+      "Jeonghwa Heo",
+      "Jeongjun Choi",
+      "H. Jin Kim"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-23",
+      "source_url": "https://arxiv.org/abs/2606.24068",
+      "pdf_url": "https://arxiv.org/pdf/2606.24068",
+      "doi": "10.48550/arXiv.2606.24068"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "views",
+      "memory_component": "room-linked visual views",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "View nodes preserve visual context and covisibility."
+        }
+      ]
+    },
+    {
+      "path_id": "graph",
+      "memory_component": "room-view-object hierarchy",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Rooms, views, and objects form a coarse-to-fine retrieval graph."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Fixed construction adds evidence during exploration. For ObsGraph, this specifically supports fixed-rule insertion or replacement of room-linked visual views."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "During operation, ObsGraph applies merging or deduplication of overlapping entries to room-linked visual views; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, ObsGraph applies relinking or reindexing of stored items to room-linked visual views; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, ObsGraph applies explicit deletion or eviction of stored items to room-linked visual views; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (room-linked visual views) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries, relinking or reindexing of stored items, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

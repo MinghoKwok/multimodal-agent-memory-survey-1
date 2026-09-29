@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "taskmem-2026",
+  "architecture_name": "TaskMem",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "audio_speech",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Task-Focused Memorization for Multimodal Agents",
+    "authors": [
+      "Tao Zou",
+      "Yichen He",
+      "Tian Qiu",
+      "Yuan Lin",
+      "Hang Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-05-29",
+      "source_url": "https://arxiv.org/abs/2605.31075v1",
+      "pdf_url": "https://arxiv.org/pdf/2605.31075v1",
+      "doi": "10.48550/arXiv.2605.31075"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "generated-episodic-memory",
+      "memory_component": "temporally ordered event-centric textual memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "For each streaming video segment, the memorization policy emits an episodic memory conditioned on recent segments and prior memories; evaluation answers using memory alone."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, TaskMem applies LLM-mediated memory editing to temporally ordered event-centric textual memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "write_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full-paper deployment feedback / policy evolution",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "After deployment, recent environment tasks define preference feedback used to update a lightweight adapter that persistently changes what the memorization policy writes. The persistent later-use effect is deployment-feedback evolution of the reusable write policy."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "The evaluated memory output is a single textual episodic stream.",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): Deployment-time online learning updates a reusable adapter from recent tasks/preferences and changes later memory-writing behavior, satisfying strict T3. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

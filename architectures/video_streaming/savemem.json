@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "savemem-2026",
+  "architecture_name": "SAVEMem",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Semantic-Aware Adaptive Visual Memory for Streaming Video Understanding",
+    "authors": [
+      "Hang Wu",
+      "Sherin Mary Mathews",
+      "Yujun Cai",
+      "Ming-Hsuan Yang",
+      "Yiwei Wang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2026-05-08",
+      "source_url": "https://arxiv.org/abs/2605.07897",
+      "pdf_url": "https://arxiv.org/pdf/2605.07897",
+      "doi": "10.48550/arXiv.2605.07897"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Three-tier visual token memory (M_short anchor, M_mid, M_long) holding original frame hidden states together with cached semantic salience scores under a fixed global token budget",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 3.2 memory hierarchy and scoring; Eq. 3 (late interaction); Algorithm 1",
+          "page": "HTML Sec. 3.2",
+          "figure_or_table": "Algorithm 1; Equation 3",
+          "paraphrase": "Memory is a three-tier store: a 4-frame short-term anchor at full fidelity, a 16-frame mid-term tier compressed by temporal pruning, and a long-term tier holding spatially selective tokens, all inside a global budget of B = 2048 tokens independent of video length. Retained tokens carry their original hidden states with no synthetic averaging, so what persists is the visual encoding rather than the frame pixels, which are not recoverable. Each token is indexed by a salience score s(v) = max_{q in Q} cos(v, q) against a fixed pseudo-question bank, computed once at encoding and cached. Retrieval ranks frames by ColBERT-style late interaction sigma(g) = (1/|g|) sum_i max_j cos(g_i, q_j) against the live query, and an anchor-conditioned recency gate can short-circuit to the short-term tier when MaxSim(M_short, q) >= rho * EMA of recent short-term scores, making tier recency an operative retrieval signal alongside similarity."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 3.2; Algorithm 1 lines 4-5",
+          "page": "HTML Sec. 3.2",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "For every arriving frame f_t the system encodes V_t, computes s_t = MaxSim(V_t, Q) and appends the scored frame to the short-term tier, so memory content changes continuously during streaming under a fixed write rule."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 3.2 Temporal Semantic Prune; Algorithm 1",
+          "page": "HTML Sec. 3.2",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "When the short-term tier overflows, the oldest frame is compressed on its way out by removing tokens that are already well represented by their temporal neighbours while sparing high-salience tokens, i.e. redundant duplicated visual content is collapsed at streaming time under a fixed criterion."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 3.2 Temporal Semantic Prune and Spatial Semantic Select; Algorithm 1 lines 6-8",
+          "page": "HTML Sec. 3.2",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Frames migrate short -> mid on short-term overflow and mid -> long on mid-term overflow, being progressively compressed (temporal pruning, then spatially dispersed selection ranked by s(v)) as they descend, so the organization of memory across tiers changes during streaming under a fixed FIFO-triggered rule."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 3.2 selective forgetting; Algorithm 1 line 9",
+          "page": "HTML Sec. 3.2",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "While the total token count over the three tiers exceeds the budget B, the lowest-salience token in the long-term tier is discarded, permanently removing items from memory during deployment under a deterministic rule (no decay function is used)."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v1, Sec. 3.2, Algorithm 1): assigned T2. Memory content and cross-tier organization change on every streamed frame through writing, temporal deduplication, tier migration and budget-driven eviction, all governed by fixed deterministic criteria.",
+    "T3 explicitly rejected: the method is training-free. The pseudo-question bank Q is instantiated once at model load and shared across all videos and queries, never adapting to observed queries; the recency-gate ratio rho is a manually set hyperparameter (0.1 for real-time, 2.0 for backward queries), not learned from deployment feedback. Stage-1 compression is query-agnostic and Stage-2 retrieval conditions only on the current query, so no policy artifact persists any change across interactions.",
+    "The paper introduces no dataset; it evaluates on the existing OVO-Bench, StreamingBench and ODV-Bench, so no benchmark record was created."
+  ]
+}

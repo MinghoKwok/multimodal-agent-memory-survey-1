@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "spamem-2026",
+  "benchmark_name": "SpaMEM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "SpaMEM: Benchmarking Dynamic Spatial Reasoning via Perception-Memory Integration in Embodied Environments",
+    "authors": [
+      "Chih-Ting Liao",
+      "Xi Xiao",
+      "Chunlei Meng",
+      "Zhangquan Chen",
+      "Yitong Qiao",
+      "Weilin Zhou",
+      "Tianyang Wang",
+      "Xu Zheng",
+      "Xin Cao"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-05-29",
+      "source_url": "https://arxiv.org/abs/2604.22409",
+      "pdf_url": "https://arxiv.org/pdf/2604.22409",
+      "doi": "10.48550/arXiv.2604.22409"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "spatial_state_and_object_memory",
+    "temporal_order_and_change",
+    "conflict_and_evidence_reliability"
+  ],
+  "tasks": [
+    "question_answering",
+    "navigation_and_localization"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Action-conditioned scene transformations isolate short-term updates and long-term spatial belief reconstruction from raw visual streams."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

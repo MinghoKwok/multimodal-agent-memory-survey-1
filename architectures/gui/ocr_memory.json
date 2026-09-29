@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ocr-memory-2026",
+  "architecture_name": "OCR-Memory",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "OCR-Memory: Optical Context Retrieval for Long-Horizon Agent Memory",
+    "authors": [
+      "Jinze Li",
+      "Yang Zhang",
+      "Xin Yang",
+      "Jiayi Qu",
+      "Jinfeng Xu",
+      "Shuo Yang",
+      "Junhua Ding",
+      "Edith Cheuk-Han Ngai"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-04-29",
+      "source_url": "https://arxiv.org/abs/2604.26622",
+      "pdf_url": "https://arxiv.org/pdf/2604.26622",
+      "doi": "10.48550/arXiv.2604.26622"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "images",
+      "memory_component": "annotated trajectory images",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Based Memory Systems. Existing",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Trajectories are rendered as anchored images."
+        }
+      ]
+    },
+    {
+      "path_id": "logs",
+      "memory_component": "verbatim trajectory logs",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Based Memory Systems. Existing",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Locate-and-transcribe fetches verbatim text keyed by an anchor."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Based Memory Systems. Existing",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Age-aware resolution downscales old trajectory images and restores selected ones. For OCR-Memory, this specifically supports progressive decay of stored importance or retention of annotated trajectory images."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Based Memory Systems. Existing",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, OCR-Memory applies fixed-rule insertion or replacement to annotated trajectory images; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (annotated trajectory images) changes through progressive decay of stored importance or retention, fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

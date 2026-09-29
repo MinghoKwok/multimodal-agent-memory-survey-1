@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "egoexomem-crossview-2026",
+  "benchmark_name": "EgoExoMem-CrossView",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "EgoExoMem: Cross-View Memory Reasoning over Synchronized Egocentric and Exocentric Videos",
+    "authors": [
+      "Ruiping Liu",
+      "Junwei Zheng",
+      "Yufan Chen",
+      "Di Wen",
+      "Shaofang Quan",
+      "Chengzhi Wu",
+      "Jiaming Zhang",
+      "Kailun Yang",
+      "Kunyu Peng",
+      "Rainer Stiefelhagen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-08",
+      "source_url": "https://arxiv.org/abs/2605.18734",
+      "pdf_url": "https://arxiv.org/pdf/2605.18734",
+      "doi": "10.48550/arXiv.2605.18734"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_order_and_change",
+    "spatial_state_and_object_memory",
+    "cross_modal_grounding"
+  ],
+  "tasks": [
+    "question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Synchronized ego/exo video questions require cross-view temporal and spatial memory reasoning."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "A distinct benchmark from the existing Echo-Memory record that reused the short name EgoExoMem."
+  ]
+}

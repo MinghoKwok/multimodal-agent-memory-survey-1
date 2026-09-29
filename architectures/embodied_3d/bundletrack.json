@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "bundletrack-2021",
+  "architecture_name": "BundleTrack",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "video_streaming"
+  ],
+  "provenance": {
+    "paper_title": "BundleTrack: 6D Pose Tracking for Novel Objects without Instance or Category-Level 3D Models",
+    "authors": [
+      "Bowen Wen",
+      "Kostas Bekris"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 / IROS 2021 paper reviewed on 2026-08-31",
+      "published_date": "2021-08-01",
+      "source_url": "https://arxiv.org/abs/2108.00516",
+      "pdf_url": "https://arxiv.org/pdf/2108.00516",
+      "doi": "10.48550/arXiv.2108.00516"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "rgbd-keyframe-memory-pool",
+      "memory_component": "memory pool of retained RGB-D keyframes selected from novel object views",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV Approach and Sec. IV-C Keyframe Selection",
+          "page": "PDF pp. 3-4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "BundleTrack retains historical RGB-D keyframes in a memory pool. For each new frame it selects up to 15 stored views with high mutual viewing overlap and supplies their raw feature and geometric correspondences to online pose-graph optimization."
+        }
+      ]
+    },
+    {
+      "path_id": "keyframe-pose-graph-state",
+      "memory_component": "SE(3) poses and correspondence structure attached to current and historical keyframes",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV-C Keyframe Selection and Sec. IV-D Online Pose Graph Optimization",
+          "page": "PDF p. 4",
+          "figure_or_table": "Equations 1-3",
+          "paraphrase": "The current frame and selected historical keyframes become pose-graph nodes linked by feature and dense geometric correspondence losses. Optimization returns the current pose and writes corrected historical poses back into the memory pool, where each state remains linked to its RGB-D keyframe."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV-E Augmenting the Keyframe Memory Pool",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 2, step 6",
+          "paraphrase": "The first frame is retained, and a later frame is added to the memory pool when its pose is farther than a fixed angular threshold from every existing keyframe, enriching the stored views under a fixed novelty rule."
+        }
+      ]
+    },
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV-D Online Pose Graph Optimization",
+          "page": "PDF p. 4",
+          "figure_or_table": "Equations 1-3",
+          "paraphrase": "At each tracking step, iteratively reweighted Gauss-Newton optimization jointly refines the current and selected historical keyframe poses. The corrected historical poses are persisted in the memory pool and improve later tracking."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Retained RGB-D keyframes and their geometric pose-graph state are explicitly linked and jointly consumed for correspondence construction and online pose refinement.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "This is not a fixed T1 demonstration or map: new views are admitted during tracking and stored historical poses are repeatedly corrected for use by later frames.",
+    "The admission threshold, keyframe-selection procedure, and pose-optimization objective remain fixed during deployment, so the evolving memory content is T2 rather than T3."
+  ]
+}

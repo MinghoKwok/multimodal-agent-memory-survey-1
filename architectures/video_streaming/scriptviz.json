@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "scriptviz-2026",
+  "architecture_name": "ScriptViz",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "gui"
+  ],
+  "provenance": {
+    "paper_title": "The Script is All You Need: An Agentic Framework for Long-Horizon Dialogue-to-Cinematic Video Generation",
+    "authors": [
+      "Chenyu Mu",
+      "Xin He",
+      "Qu Yang",
+      "Wanshun Chen",
+      "Jiadi Yao",
+      "Huang Liu",
+      "Zihao Yi",
+      "Bo Zhao",
+      "Xingyu Chen",
+      "Ruotian Ma",
+      "Fanghua Ye",
+      "Erkun Yang",
+      "Cheng Deng",
+      "Zhaopeng Tu",
+      "Xiaolong Li",
+      "Linus"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2601.17737",
+      "pdf_url": "https://arxiv.org/pdf/2601.17737",
+      "doi": "10.48550/arXiv.2601.17737"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Last/first-frame visual anchor carried to the next scene",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Anchor frame (image) extracted per scene. The anchor frame is passed as conditioning to the next scene, with a 'continuing from the previous scene' text cue."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): The full-paper lifecycle review found Last/first-frame visual anchor carried to the next scene fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

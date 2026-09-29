@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "h2-emv-2026",
+  "architecture_name": "H2-EMV",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "audio",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Learning to Forget -- Hierarchical Episodic Memory for Lifelong Robot Deployment",
+    "authors": [
+      "Leonard Bärmann",
+      "Joana Plewnia",
+      "Alex Waibel",
+      "Tamim Asfour"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-05",
+      "source_url": "https://arxiv.org/abs/2604.11306",
+      "pdf_url": "https://arxiv.org/pdf/2604.11306",
+      "doi": "10.48550/arXiv.2604.11306"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "tree",
+      "memory_component": "hierarchical scene instants, events and summaries",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Task and Architecture Overview",
+          "page": "PDF pp. 13, 18, 21",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Online construction builds a history tree from scene instants to long-range summaries."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Task and Architecture Overview",
+          "page": "PDF pp. 13, 18, 21",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Lower-level events are summarized upward. For H2-EMV, this specifically supports episodic or hierarchical summarization of hierarchical scene instants, events and summaries."
+        }
+      ]
+    },
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: Task and Architecture Overview",
+          "page": "PDF pp. 13, 18, 21",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Tiered expiry and relevance remove detail while keeping placeholders. For H2-EMV, this specifically supports progressive decay of stored importance or retention of hierarchical scene instants, events and summaries."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "maintenance_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: Task and Architecture Overview",
+          "page": "PDF pp. 13, 18, 21",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "User feedback updates natural-language retention rules used on later experience. The persistent later-use effect is deployment-feedback evolution of the reusable maintenance policy."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 13, 18, 21): User feedback during ongoing deployment revises reusable relevance rules that govern later summarization and forgetting, satisfying strict T3 maintenance-policy evolution. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

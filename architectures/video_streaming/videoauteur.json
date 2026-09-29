@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videoauteur-2025",
+  "architecture_name": "VideoAuteur",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "VideoAuteur: Towards Long Narrative Video Generation",
+    "authors": [
+      "Junfei Xiao",
+      "Feng Cheng",
+      "Lu Qi",
+      "Liangke Gui",
+      "Jiepeng Cen",
+      "Zhibei Ma",
+      "Alan Yuille",
+      "Lu Jiang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-06-07",
+      "source_url": "https://arxiv.org/abs/2501.06173",
+      "pdf_url": "https://arxiv.org/pdf/2501.06173",
+      "doi": "10.48550/arXiv.2501.06173"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Rolling visual-latent context (recent keyframes) conditioning successive segments",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 4. Method",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Visual latents (keyframes) in a rolling window. Recent keyframes condition the next segment."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Rolling visual-latent context (recent keyframes) conditioning successive segments",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 4. Method",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Visual latents (keyframes) in a rolling window. Recent keyframes condition the next segment."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VideoAuteur applies fixed-rule insertion or replacement to Rolling visual-latent context (recent keyframes) conditioning successive segments; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: 4. Method",
+          "page": "PDF p. 4",
+          "figure_or_table": "Method overview",
+          "paraphrase": "The rolling 1-3 keyframe window slides and evicts older keyframes. For VideoAuteur, this specifically supports explicit deletion or eviction of stored items of Rolling visual-latent context (recent keyframes) conditioning successive segments."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (Rolling visual-latent context (recent keyframes) conditioning successive segments) changes through fixed-rule insertion or replacement, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

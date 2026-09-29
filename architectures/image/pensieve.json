@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "pensieve-2025",
+  "architecture_name": "Pensieve",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "time",
+    "location"
+  ],
+  "provenance": {
+    "paper_title": "Memory-QA: Answering Recall Questions Based on Multimodal Memories",
+    "authors": [
+      "Hongda Jiang",
+      "Xinyuan Zhang",
+      "Siddhant Garg",
+      "Rishab Arora",
+      "Shiun-Zu Kuo",
+      "Jiayang Xu",
+      "Christopher Brossman",
+      "Yue Liu",
+      "Aaron Colak",
+      "Ahmed Aly",
+      "Anuj Kumar",
+      "Xin Luna Dong"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2025-09-22",
+      "source_url": "https://arxiv.org/abs/2509.18436v1",
+      "pdf_url": "https://arxiv.org/pdf/2509.18436v1",
+      "doi": "10.48550/arXiv.2509.18436"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "source-memory-images",
+      "memory_component": "multimodal memory entries",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Each stored memory entry contains an image snapshot plus its invocation, timestamp, and location metadata."
+        }
+      ]
+    },
+    {
+      "path_id": "augmented-text-memory",
+      "memory_component": "offline memory augmentation",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "OCR, QA-guided visual descriptions, and completed invocation text augment each source memory before retrieval."
+        }
+      ]
+    },
+    {
+      "path_id": "time-location-and-invocation-fields",
+      "memory_component": "memory metadata",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Date match, recency, location similarity, and multimodal embedding similarity are fused to rank memory entries."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Text and structured metadata remain linked to the original image entry; the VLM configuration can directly consume retrieved images.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The full-paper lifecycle review found multimodal memory entries fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "skemex-2026",
+  "architecture_name": "SkeMex",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Experience Makes Skillful: Enabling Generalizable Medical Agent Reasoning via Self-Evolving Skill Memory",
+    "authors": [
+      "Haoran Sun",
+      "Wenjie Li",
+      "Yujie Zhang",
+      "Zekai Lin",
+      "Fanrui Zhang",
+      "Kaitao Chen",
+      "Xingqi He",
+      "Yichen Li",
+      "Mianxin Liu",
+      "Lei Liu",
+      "Yankai Jiang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 reviewed 2026-08-26",
+      "published_date": "2026-06-15",
+      "source_url": "https://arxiv.org/abs/2606.09365",
+      "pdf_url": "https://arxiv.org/pdf/2606.09365",
+      "doi": "10.48550/arXiv.2606.09365"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "skill_repository",
+      "memory_component": "multi-branch clinical skill repository",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.2–3.3",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2; Equation 5",
+          "paraphrase": "Reusable clinical skills are organized into general, task-level, and action-level branches and retrieved at episode onset through category routing plus semantic, utility, and temporal scoring."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Trajectory-to-Skill Distillation",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "A gated buffer selects informative multimodal clinical trajectories and distills their reasoning or tool-use patterns into reusable skills with situational triggers and concrete steps."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Trajectory-to-Skill Distillation",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "The mutation pass selects CREATE, PATCH, or NONE and either writes a new skill or performs a local edit of an existing skill after novelty and quality review."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: §3.5 Utility-driven Skill Valuation",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 7–8",
+          "paraphrase": "Window-level outcome advantages and positive, negative, or harmful adoption signals revise each skill's bounded utility estimate, which is subsequently used in retrieval."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §3.6 Closed-loop Self-evolution Memory",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 9",
+          "paraphrase": "Periodic repository governance merges redundant skills and keeps the three branches compact."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.6 Closed-loop Self-evolution Memory",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 9",
+          "paraphrase": "Governance deprecates low-utility skills and removes the lowest-utility entries when a branch exceeds its capacity."
+        }
+      ]
+    },
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3 Value-aware Skill Retrieval",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 5",
+          "paraphrase": "An explicit Ebbinghaus-style memory-strength term decays over time so recently reinforced skills outrank stale or rarely validated entries."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.3–3.6 and §4.2 Online Mode",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 5–9; Table 2",
+          "paraphrase": "In the online post-deployment stream, task outcomes and adoption feedback persistently PATCH skill content and situational triggers and revise utilities used by later category-aware retrieval; the updated repository is then read by subsequent clinical tasks."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "The strict decision relies on the paper's online streaming evaluation, which explicitly updates memory during post-deployment interaction. Fixed utility-statistic updates alone would be T2; T3 rests on feedback-driven PATCH operations that change persistent skill triggers and procedures subsequently retrieved by later tasks. The separate frozen offline setting is not used to justify T3."
+  ]
+}

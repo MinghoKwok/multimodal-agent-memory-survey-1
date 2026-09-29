@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "peam-2026",
+  "architecture_name": "PEAM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "PEAM: Parametric Embodied Agent Memory through Contrastive Internalization of Experience in Minecraft",
+    "authors": [
+      "Yuchen Guo",
+      "Junli Gong",
+      "Weicheng Wang",
+      "Hongmin Cai",
+      "Yiu-ming Cheung",
+      "Weifeng Su"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-06-01",
+      "source_url": "https://arxiv.org/abs/2605.27762",
+      "pdf_url": "https://arxiv.org/pdf/2605.27762",
+      "doi": "10.48550/arXiv.2605.27762"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "parametric-skill-adapters",
+      "memory_component": "per-category MoE-LoRA adapter bank over the multimodal fast module",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "3.1 Two-tier architecture; 3.2 Contrastive internalization",
+          "page": "",
+          "figure_or_table": "Figure 2; Equation 1",
+          "paraphrase": "Experience is internalized into a multimodal Mixture-of-Experts LoRA over a Qwen3-VL-8B-Instruct backbone with physically isolated per-category adapters for {craft, gather, combat}; consolidation updates only the category-specific adapter parameters via a joint behavioral-cloning plus PEAM-DPO contrastive objective on success and failure-correction pairs. The stored memory is the adapter weights themselves; no source trajectory is recoverable from them."
+        },
+        {
+          "section": "4.1 Execution loop",
+          "page": "",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "At execution time a task is routed to its category adapter and the fast path emits the consolidated skill reflexively from the visually conditioned parametric module; the slow LLM is invoked only when verification fails. Activation of memory is thus parametric rather than by explicit lookup."
+        }
+      ]
+    },
+    {
+      "path_id": "episodic-trajectory-store",
+      "memory_component": "external episodic store of successful and failure-correction trajectories",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "3.2 Contrastive internalization; 3.3 Parameterization Worthiness",
+          "page": "",
+          "figure_or_table": "Algorithm 1 line 17; Equation 3; Appendix D",
+          "paraphrase": "An external episodic store stages tuples (task, skill category, executed trajectory, outcome) accumulated during live agent execution. Entries are executable JavaScript action code plus a discrete pre-action state vector (inventory composition, biome identity, time-of-day bucket, bot location); candidates are selected for consolidation by matching that state vector and by a Parameterization Worthiness score over cost saving, cross-context stability, redundancy, and interference. Raw visual observations are not retained, so the perceptual source is not recoverable."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "3.4 Self-triggered consolidation; 4.1 Execution loop",
+          "page": "",
+          "figure_or_table": "Equation 4; Algorithm 1 lines 18-24",
+          "paraphrase": "During the agent's live Minecraft operation, a scale-free statistical trigger compares each skill's recent failure rate against its own historical baseline and, when the criterion fires, runs a gradient update of the category adapter over the staged trajectories. The parametric memory content therefore changes at deployment time; the trigger rule and the PV selection formula that govern the update are fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "3.2 Contrastive internalization; 3.3 Parameterization Worthiness",
+          "page": "",
+          "figure_or_table": "Equation 1; Equation 3",
+          "paraphrase": "Batches of concrete staged trajectories, including failure-correction contrasts, are abstracted into reusable parametric skills inside the adapter bank, replacing inference-time retrieval of individual episodes; later tasks in the same category reuse the abstracted skill."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The explicit episodic trajectory store and the parametric adapter bank form one deliberate pipeline: staged symbolic trajectories are selected and consolidated into the parametric memory that then drives the fast execution path.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "T3 explicitly rejected. Consolidation is triggered by deployment failure statistics (Section 3.4, Algorithm 1 lines 18-24) and persistently changes a reusable artifact, but the artifact changed is the parametric memory content (the adapters) and the staged episodic entries, not a memory write, maintenance, or retrieval policy. The write policy (Parameterization Worthiness score, Equation 3) and the maintenance policy (self-triggered consolidation criterion, Equation 4) are fixed formulas throughout deployment. Per the guide, feedback that changes only memory content or fixed per-item statistics is T2.",
+    "Residual uncertainty: the paper's own evaluation runs the agent in episodic task rollouts, so the boundary between 'deployment' and an offline consolidation cycle is described inconsistently (Section 3.4 calls consolidation decoupled/batched, while Algorithm 1 places it inside the per-task execution loop). The tier assignment does not depend on this, since either reading yields at most T2."
+  ]
+}

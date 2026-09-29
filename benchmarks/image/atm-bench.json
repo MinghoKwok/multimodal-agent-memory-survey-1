@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "atm-bench-2026",
+  "benchmark_name": "ATM-Bench",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "video"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "According to Me: Long-Term Personalized Referential Memory QA",
+    "authors": [
+      "Jingbiao Mei",
+      "Jinghong Chen",
+      "Guangyu Yang",
+      "Xinyu Hou",
+      "Margaret Li",
+      "Bill Byrne"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-03-02",
+      "source_url": "https://arxiv.org/abs/2603.01990",
+      "pdf_url": "https://arxiv.org/pdf/2603.01990",
+      "doi": "10.48550/arXiv.2603.01990"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_continuity_and_event_recall",
+    "fine_grained_visual_detail_retention",
+    "memory_update_and_staleness",
+    "multi_memory_evidence_integration"
+  ],
+  "tasks": [
+    "question_answering",
+    "memory_retrieval",
+    "continual_learning"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "Benchmark overview / main evaluation table",
+      "paraphrase": "benchmark contribution depends on personal memory distributed across images, videos, emails, and cross-source update/retrieval"
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

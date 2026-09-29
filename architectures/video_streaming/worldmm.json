@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "worldmm-2026",
+  "architecture_name": "WorldMM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "WorldMM: Dynamic Multimodal Memory Agent for Long Video Reasoning",
+    "authors": [
+      "Woongyeong Yeo",
+      "Kangsan Kim",
+      "Jaehong Yoon",
+      "Sung Ju Hwang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2026-03-27",
+      "source_url": "https://arxiv.org/abs/2512.02425v2",
+      "pdf_url": "https://arxiv.org/pdf/2512.02425v2",
+      "doi": "10.48550/arXiv.2512.02425"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual-memory",
+      "memory_component": "timestamped frames and searchable segment features",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Adaptive Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "WorldMM stores segment features for text-to-video similarity search and a timestamp-to-frame index for direct visual inspection."
+        }
+      ]
+    },
+    {
+      "path_id": "episodic-and-semantic-graphs",
+      "memory_component": "multi-scale event graphs and evolving semantic graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Episodic knowledge graphs span multiple temporal scales; a semantic graph stores long-term relations, and a retrieval agent iteratively chooses memory type and query."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Adaptive Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Matched old and new triplets are sent to an LLM to identify outdated facts and revised or added facts. For WorldMM, this specifically supports LLM-based resolution of conflicting records of timestamped frames and searchable segment features."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Adaptive Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Embedding similarity finds overlapping triplets before consolidation integrates new conceptual knowledge. For WorldMM, this specifically supports merging or deduplication of overlapping entries of timestamped frames and searchable segment features."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Adaptive Memory Retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Semantic triplets and recurring habits are extracted from video segments and consolidated into a reusable long-term semantic graph. For WorldMM, this specifically supports abstraction of episodes into reusable experience of timestamped frames and searchable segment features."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Graph-derived time ranges can directly index original frames, while feature search independently retrieves visual segments.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (timestamped frames and searchable segment features) changes through LLM-based resolution of conflicting records, merging or deduplication of overlapping entries, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

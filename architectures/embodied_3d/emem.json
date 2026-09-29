@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "emem-2026",
+  "architecture_name": "eMEM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "eMEM: A Hybrid Spatio-Temporal Memory System For Embodied Agents",
+    "authors": [
+      "A. Haroon Rasheed",
+      "Maria Kabtoul"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-22",
+      "source_url": "https://arxiv.org/abs/2606.03374",
+      "pdf_url": "https://arxiv.org/pdf/2606.03374",
+      "doi": "10.48550/arXiv.2606.03374"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multi-index spatiotemporal graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "SQLite, HNSW, and R-tree indexes expose meaning-, time-, and space-aware recall over one graph."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "consolidated perceptual summaries",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A tiered pipeline transforms raw observations into compressed summaries for cross-layer recall."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Data Model",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Tiered consolidation compresses raw perceptual observations into summaries. For eMEM, this specifically supports episodic or hierarchical summarization of multi-index spatiotemporal graph."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: System",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Observations move through multiple consolidation layers under a fixed pipeline. For eMEM, this specifically supports migration between memory tiers of multi-index spatiotemporal graph."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Consolidation reduces redundant observations while preserving cross-layer links. For eMEM, this specifically supports merging or deduplication of overlapping entries of multi-index spatiotemporal graph."
+        }
+      ]
+    },
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: System",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, eMEM applies progressive decay of stored importance or retention to multi-index spatiotemporal graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (multi-index spatiotemporal graph) changes through episodic or hierarchical summarization, migration between memory tiers, merging or deduplication of overlapping entries, progressive decay of stored importance or retention; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

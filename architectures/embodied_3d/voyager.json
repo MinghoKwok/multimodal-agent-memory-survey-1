@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "voyager-2023",
+  "architecture_name": "Voyager",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+    "authors": [
+      "Guanzhi Wang",
+      "Yuqi Xie",
+      "Yunfan Jiang",
+      "Ajay Mandlekar",
+      "Chaowei Xiao",
+      "Yuke Zhu",
+      "Linxi Fan",
+      "Anima Anandkumar"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2023-05-25",
+      "source_url": "https://arxiv.org/abs/2305.16291",
+      "pdf_url": "https://arxiv.org/pdf/2305.16291",
+      "doi": "10.48550/arXiv.2305.16291"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "executable skill library",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Temporally extended executable code skills are stored, retrieved, composed, and reused across Minecraft worlds."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Environment feedback, execution errors, and self-verification revise skill programs. For Voyager, this specifically supports LLM-mediated memory editing of executable skill library."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Verified programs are admitted as reusable behavior skills. For Voyager, this specifically supports abstraction of episodes into reusable experience of executable skill library."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (executable skill library) changes through LLM-mediated memory editing, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

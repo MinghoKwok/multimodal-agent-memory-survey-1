@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "behaviorvla-2026",
+  "architecture_name": "BehaviorVLA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "From Abstraction to Instantiation: Learning Behavioral Representation for Vision-Language-Action Model",
+    "authors": [
+      "Bing Hu",
+      "Zaijing Li",
+      "Rui Shao",
+      "Junda Chen",
+      "April Hua Liu",
+      "Wei-Shi Zheng",
+      "Liqiang Nie"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-05-31",
+      "source_url": "https://arxiv.org/abs/2605.22671",
+      "pdf_url": "https://arxiv.org/pdf/2605.22671",
+      "doi": "10.48550/arXiv.2605.22671"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Behavior Memory Bank of scene-invariant behavioral prototypes distilled from demonstrations",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v2): Sec. 3.2.2 Behavior prototype construction and retrieval; Eq. 6; Fig. 2",
+          "page": "HTML Sec. 3.2.2",
+          "figure_or_table": "Equation 6; Figure 2 caption",
+          "paraphrase": "A bank of behavior prototypes is built by temporal mean pooling of behavior tokens (z_proto = 1/T sum_t h_t^z) over offline demonstrations, where behavior tokens come from spatial multimodal fusion of the vision and action streams (Sec. 3.2.1). At deployment a query q = MLP(Phi(O_0, L)) formed from the initial observation and the instruction selects the top-K prototypes by dot-product similarity with softmax weighting, and the aggregated prototype latent is injected as a behavioral prior that conditions action generation. The stored items are compressed latent vectors, not text or retained frames, and the demonstrations behind them are not recoverable from the bank."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v2, Sec. 3.2.2 / 3.4, Fig. 2): the Behavior Memory Bank is constructed entirely in offline Phase-1 manifold learning (L_Stage1 = L_rec + alpha L_global + beta L_local, Eq. 13) and Phase-2 prior-guided policy tuning; at deployment the bank is read-only. Figure 2 states retrieval is performed once at the start of each episode and the retrieved prototype stays fixed during execution. This is the guide's canonical T1 case of a skill library formed before downstream use and thereafter only queried. The Limitations section lists dynamic prototype-bank updating through self-supervised exploration as future work, confirming no deployment-time write, maintenance, or policy change exists.",
+    "Retrieval embeddings here are not merely an index: the aggregated prototype latent is itself supplied downstream as a conditioning signal, so it is annotated as an operative latent representation path rather than an index-only embedding."
+  ]
+}

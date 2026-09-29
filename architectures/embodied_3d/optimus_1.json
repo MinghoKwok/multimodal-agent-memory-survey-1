@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "optimus-1-2024",
+  "architecture_name": "Optimus-1",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Optimus-1: Hybrid Multimodal Memory Empowered Agents Excel in Long-Horizon Tasks",
+    "authors": [
+      "Zaijing Li",
+      "Yuquan Xie",
+      "Rui Shao",
+      "Gongwei Chen",
+      "Dongmei Jiang",
+      "Liqiang Nie"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-08-07",
+      "source_url": "https://arxiv.org/abs/2408.03615",
+      "pdf_url": "https://arxiv.org/pdf/2408.03615",
+      "doi": "10.48550/arXiv.2408.03615"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "abstracted multimodal experience pool",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Implementation Details",
+          "page": "PDF p. 20",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical multimodal episodes are retained as references for in-context reflection."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "hierarchical directed knowledge graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "World knowledge is transformed into a hierarchical directed graph for planning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Hybrid Multimodal Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical trajectories are summarized into reusable multimodal experiences. For Optimus-1, this specifically supports abstraction of episodes into reusable experience of abstracted multimodal experience pool."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Hybrid Multimodal Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "World knowledge and episodes are organized at multiple levels. For Optimus-1, this specifically supports episodic or hierarchical summarization of abstracted multimodal experience pool."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Optimus-1 applies explicit deletion or eviction of stored items to abstracted multimodal experience pool; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Optimus-1 applies merging or deduplication of overlapping entries to abstracted multimodal experience pool; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (abstracted multimodal experience pool) changes through abstraction of episodes into reusable experience, episodic or hierarchical summarization, explicit deletion or eviction of stored items, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

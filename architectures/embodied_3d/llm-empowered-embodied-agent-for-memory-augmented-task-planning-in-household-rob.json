@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "llm-empowered-embodied-agent-for-memory-augmented-task-planning-in-household-rob-2026",
+  "architecture_name": "LLM-Empowered Embodied Agent for Memory-Augmented Task Planning in Household Robotics",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "LLM-Empowered Embodied Agent for Memory-Augmented Task Planning in Household Robotics",
+    "authors": [
+      "Marc Glocker",
+      "Peter Hönig",
+      "Matthias Hirschmanner",
+      "Markus Vincze"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-04-30",
+      "source_url": "https://arxiv.org/abs/2504.21716",
+      "pdf_url": "https://arxiv.org/pdf/2504.21716",
+      "doi": "10.48550/arXiv.2504.21716"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "QA-style records of past interactions",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: B. Algorithmic Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Past interactions are converted into textual memory entries.; Entries are embedded and appended to a vector database.; Object detections and user/robot interaction records become searchable knowledge-base items.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Object identities and last-known locations",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: B. Algorithmic Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Past interactions are converted into textual memory entries.; Entries are embedded and appended to a vector database.; Object detections and user/robot interaction records become searchable knowledge-base items.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "Action history and task state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: B. Algorithmic Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Past interactions are converted into textual memory entries.; Entries are embedded and appended to a vector database.; Object detections and user/robot interaction records become searchable knowledge-base items.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: B. Algorithmic Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, LLM-Empowered Embodied Agent for Memory-Augmented Task Planning in Household Robotics applies fixed-rule insertion or replacement to QA-style records of past interactions; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (QA-style records of past interactions) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

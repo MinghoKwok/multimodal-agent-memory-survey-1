@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "echo-mc-2026",
+  "architecture_name": "Echo-MC",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Experience Transfer for Multimodal LLM Agents in Minecraft Game",
+    "authors": [
+      "Chenghao Li",
+      "Jun Liu",
+      "Songbo Zhang",
+      "Huadong Jian",
+      "Hao Ni",
+      "Lik-Hang Lee",
+      "Sung-Ho Bae",
+      "Guoqing Wang",
+      "Yang Yang",
+      "Chaoning Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-04-07",
+      "source_url": "https://arxiv.org/abs/2604.05533",
+      "pdf_url": "https://arxiv.org/pdf/2604.05533",
+      "doi": "10.48550/arXiv.2604.05533"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "transferable experience units along five knowledge dimensions: structure, attribute, process, function, interaction",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Experience entries decomposed across the five dimensions. In-Context Analogy Learning (ICAL) retrieves relevant experiences and adapts them to unseen tasks via contextual examples."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "transferable experience units along five knowledge dimensions: structure, attribute, process, function, interaction",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Experience entries decomposed across the five dimensions. In-Context Analogy Learning (ICAL) retrieves relevant experiences and adapts them to unseen tasks via contextual examples."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Memory grows as new interactions distill into the five-dimension format. For Echo-MC, this specifically supports abstraction of episodes into reusable experience of transferable experience units along five knowledge dimensions: structure, attribute, process, function, interaction."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Echo-MC applies fixed-rule insertion or replacement to transferable experience units along five knowledge dimensions: structure, attribute, process, function, interaction; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (transferable experience units along five knowledge dimensions: structure, attribute, process, function, interaction) changes through abstraction of episodes into reusable experience, fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

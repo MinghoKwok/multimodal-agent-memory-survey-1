@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "mm-lifelong-2026",
+  "benchmark_name": "MM-Lifelong",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio",
+    "text"
+  ],
+  "paper": {
+    "title": "Towards Multimodal Lifelong Understanding: A Dataset and Agentic Baseline",
+    "authors": [
+      "Guo Chen",
+      "Lidong Lu",
+      "Yicheng Liu",
+      "Liangrui Dong",
+      "Lidong Zou",
+      "Jixin Lv",
+      "Zhenquan Li",
+      "Xinyi Mao",
+      "Baoqi Pei",
+      "Shihao Wang",
+      "Zhiqi Li",
+      "Karan Sapra",
+      "Fuxiao Liu",
+      "Yin-Dong Zheng",
+      "Yifei Huang",
+      "Limin Wang",
+      "Zhiding Yu",
+      "Andrew Tao",
+      "Guilin Liu",
+      "Tong Lu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv HTML version served on 2026-08-30",
+      "published_date": "2026-03-05",
+      "source_url": "https://arxiv.org/abs/2603.05484",
+      "pdf_url": "https://arxiv.org/pdf/2603.05484",
+      "doi": "10.48550/arXiv.2603.05484"
+    },
+    "reviewed_on": "2026-08-30"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_stream_evidence",
+    "long_range_evidence",
+    "temporal_continuity_and_event_recall",
+    "multi_event_evidence_integration",
+    "fine_grained_visual_detail_retention",
+    "temporal_localization",
+    "source_evidence_recoverability"
+  ],
+  "tasks": [
+    "question_answering",
+    "temporal_localization"
+  ],
+  "evidence": [
+    {
+      "section": "Full paper (arXiv HTML): Sec. 3.2 (temporal sparsity), Sec. 4 (dataset), Sec. 4.2.1 (task types), Sec. 4.2.2 (clue-grounded annotation), Sec. 4.5 (metrics)",
+      "page": "",
+      "figure_or_table": "Tables 1-2",
+      "paraphrase": "MM-Lifelong contains 181.1 hours of unscripted footage organized at Day (Gamer's Journey, 23.6 h over ~24 h), Week (Egocentric Life, 51.9 h over ~7 days) and Month (Live Stream, 105.6 h over ~51 days) scales, with 1,289 questions grounded in 1,810 annotated clue intervals, 127 of which span dependencies over 10 hours."
+    },
+    {
+      "section": "Full paper (arXiv HTML): Sec. 3.2; Sec. 4.2.1",
+      "page": "",
+      "figure_or_table": "Table 1",
+      "paraphrase": "The design deliberately separates physical temporal span from observational duration so that span >> duration, creating high temporal sparsity with unobserved gaps. Two task families are defined: Needle-in-a-Lifestream, which requires recovering fleeting details buried in a massive stream, and Multi-Hop Reasoning, which requires aggregating evidence across disjoint intervals separated by hours or days."
+    },
+    {
+      "section": "Full paper (arXiv HTML): Sec. 4.5 (metrics); Sec. 1/Abstract (diagnosed failure modes)",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Scoring combines LLM-judged Answer Accuracy (0/0.5/1) with Ref@N, a quantized temporal IoU against the annotated clue intervals, so both the answer and the recovered evidence location are graded. The paper frames the benchmark around two memory failure modes it isolates: the Working Memory Bottleneck of end-to-end MLLMs under context saturation and Global Localization Collapse of agentic baselines on sparse month-long timelines."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Recorded as a separate benchmark record from the ReMA architecture record per counting_rules.md, since the paper contributes both a dataset and a distinct memory architecture.",
+    "Classified core_memory_benchmark because the stated design goal is to stress persistent multimodal memory over month-scale sparse timelines and the metrics grade evidence localization, not only answer text.",
+    "Evidence drawn from the arXiv full-text HTML; printed page numbers were not resolvable from the HTML rendering."
+  ],
+  "scope_status": "core_memory_benchmark"
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memoryvla-plus-plus-2026",
+  "architecture_name": "MemoryVLA++",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemoryVLA++: Temporal Modeling via Memory and Imagination in Vision-Language-Action Models",
+    "authors": [
+      "Hao Shi",
+      "Weiye Li",
+      "Bin Xie",
+      "Yulin Wang",
+      "Renping Zhou",
+      "Tiancai Wang",
+      "Xiangyu Zhang",
+      "Ping Luo",
+      "Gao Huang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-08",
+      "source_url": "https://arxiv.org/abs/2606.09827",
+      "pdf_url": "https://arxiv.org/pdf/2606.09827",
+      "doi": "10.48550/arXiv.2606.09827"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": [
+      "memoryvla-2025"
+    ]
+  },
+  "representation_paths": [
+    {
+      "path_id": "temporal",
+      "memory_component": "perceptual-cognitive history and imagined future latents",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Cognitive Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The bank retrieves historical tokens while a world model supplies future latents."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MemoryVLA++ applies fixed-rule insertion or replacement to perceptual-cognitive history and imagined future latents; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Redundancy-aware consolidation updates the bank. For MemoryVLA++, this specifically supports merging or deduplication of overlapping entries of perceptual-cognitive history and imagined future latents."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (perceptual-cognitive history and imagined future latents) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

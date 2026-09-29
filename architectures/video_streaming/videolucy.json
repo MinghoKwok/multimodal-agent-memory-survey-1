@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videolucy-2025",
+  "architecture_name": "VideoLucy",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoLucy: Deep Memory Backtracking for Long Video Understanding",
+    "authors": [
+      "Jialong Zuo",
+      "Yongtai Deng",
+      "Lingdong Kong",
+      "Jingkang Yang",
+      "Rui Jin",
+      "Yiwei Zhang",
+      "Nong Sang",
+      "Liang Pan",
+      "Ziwei Liu",
+      "Changxin Gao"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-10-14",
+      "source_url": "https://arxiv.org/abs/2510.12422",
+      "pdf_url": "https://arxiv.org/pdf/2510.12422",
+      "doi": "10.48550/arXiv.2510.12422"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "hierarchical video memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Fine Memory",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Progressive memory depths retain increasingly fine temporal video evidence for iterative backtracking."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Fine Memory",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VideoLucy applies LLM-mediated memory editing to hierarchical video memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Fine Memory",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VideoLucy applies episodic or hierarchical summarization to hierarchical video memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 4–5): Caption memory is iteratively rewritten and summarized across video segments during inference, satisfying T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

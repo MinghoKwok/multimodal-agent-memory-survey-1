@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "dreamrunner-2024",
+  "architecture_name": "DreamRunner",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DreamRunner: Fine-Grained Compositional Story-to-Video Generation with Retrieval-Augmented Motion Adaptation",
+    "authors": [
+      "Zun Wang",
+      "Jialu Li",
+      "Han Lin",
+      "Jaehong Yoon",
+      "Mohit Bansal"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-11-14",
+      "source_url": "https://arxiv.org/abs/2411.16657",
+      "pdf_url": "https://arxiv.org/pdf/2411.16657",
+      "doi": "10.48550/arXiv.2411.16657"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Retrieval-augmented motion priors",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Diffusion Model",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Retrieved video motion references; Test-time LoRA weights. BM25 then CLIP retrieval over the InternVid corpus selects motion references."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Diffusion Model",
+          "page": "PDF p. 4",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Per-scene/character LoRA is adapted at test time (a fixed adaptation mechanism). For DreamRunner, this specifically supports a fixed operational optimization objective of Retrieval-augmented motion priors."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (Retrieval-augmented motion priors) changes through a fixed operational optimization objective; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

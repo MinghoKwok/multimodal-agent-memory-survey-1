@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rema-2026",
+  "architecture_name": "ReMA (Recursive Multimodal Agent)",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Towards Multimodal Lifelong Understanding: A Dataset and Agentic Baseline",
+    "authors": [
+      "Guo Chen",
+      "Lidong Lu",
+      "Yicheng Liu",
+      "Liangrui Dong",
+      "Lidong Zou",
+      "Jixin Lv",
+      "Zhenquan Li",
+      "Xinyi Mao",
+      "Baoqi Pei",
+      "Shihao Wang",
+      "Zhiqi Li",
+      "Karan Sapra",
+      "Fuxiao Liu",
+      "Yin-Dong Zheng",
+      "Yifei Huang",
+      "Limin Wang",
+      "Zhiding Yu",
+      "Andrew Tao",
+      "Guilin Liu",
+      "Tong Lu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv HTML version served on 2026-08-30",
+      "published_date": "2026-03-05",
+      "source_url": "https://arxiv.org/abs/2603.05484",
+      "pdf_url": "https://arxiv.org/pdf/2603.05484",
+      "doi": "10.48550/arXiv.2603.05484"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Memory Bank B of consolidated linguistic summaries produced by MMInspect over sampled video segments",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 5 Method; Algorithm 1 (controller loop), Algorithm 2 (MMInspect), Algorithm 3 (MemManage), Algorithm 4 (MemSearch)",
+          "page": "",
+          "figure_or_table": "Figure 6 (ReMA two-phase overview); Algorithms 1-4 (Appendix B.1)",
+          "paraphrase": "MMInspect samples frames inside a requested time range and calls a VLM to produce localized descriptions; those observations are incrementally consolidated into the Memory Bank B by MemManage, giving a compact global language-augmented representation of the lifelong stream. Memory nodes are keyed by their source temporal intervals, so MemSearch first ranks relevant nodes and then hierarchically summarizes across temporal intervals, and the controller can always re-issue MMInspect on a stored interval to recover the original frames. Memory content is text derived from perception, not pixels."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "the retained lifelong video/audio stream itself, re-inspectable by interval through the MMInspect tool",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 5 Method; Algorithm 1 lines 10-24; Algorithm 2 (MMInspect)",
+          "page": "",
+          "figure_or_table": "Figure 6",
+          "paraphrase": "At every reasoning step the controller may choose the MMInspect action to re-examine a specific time interval of the raw stream, sampling frames afresh for either passive captioning or query-based inspection. The source stream is therefore retained as an operative, re-queryable memory route addressed by timestamp, not merely consumed once at ingest."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 5 Method; Algorithm 3 (MemManage)",
+          "page": "",
+          "figure_or_table": "Algorithm 3",
+          "paraphrase": "When new observations arrive during inference, MemManage detects overlapping memory nodes and merges them by summarization, explicitly to prevent memory explosion. Memory content changes at inference time under a fixed, hand-specified consolidation rule."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 5 Method; Algorithm 3 (MemManage), Algorithm 4 (MemSearch)",
+          "page": "",
+          "figure_or_table": "Algorithms 3-4",
+          "paraphrase": "New MMInspect observations are incrementally consolidated into B by summarization, and MemSearch performs hierarchical summarization across temporal intervals; the recursive belief state is progressively refined by folding each step's outcome back into the persistent Memory Bank."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 5 Method; Algorithm 1 lines 10-24",
+          "page": "",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "The LLM/VLM controller writes the outcome of each MMInspect or MemSearch action back into B, so the belief state is edited by model-generated content during the inference episode; the governing update policy (the fixed controller prompt and MemManage rule) does not change."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The language-augmented Memory Bank and the timestamp-addressable raw stream are deliberately linked: memory nodes carry the temporal intervals that let the controller route back to MMInspect for fresh perceptual evidence, and both routes are jointly supplied to the controller's recursive belief update.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Tier T2, not T3: the persistent Memory Bank changes during inference through MemManage merging/summarization and controller write-back, but the write, maintenance, and retrieval policies are fixed prompts/rules. The paper reports no learned or deployment-feedback-updated memory policy; the controller is an off-the-shelf reasoning model.",
+    "Path 2 (retained stream) is annotated as an operative memory route because MMInspect re-samples raw frames from arbitrary stored intervals on demand; an annotator who treats the source video as environment rather than memory would drop this path and the hybrid flag, leaving a single perception-to-text path.",
+    "Evidence was taken from the arXiv full-text HTML (method section plus Algorithms 1-4 and Figure 6). Printed page numbers were not resolvable from the HTML rendering."
+  ]
+}

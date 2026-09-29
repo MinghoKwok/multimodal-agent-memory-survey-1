@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ptah-2026",
+  "architecture_name": "Ptah",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Towards Verifiable Multimodal Deep Research: A Multi-Agent Harness for Interleaved Report Generation",
+    "authors": [
+      "Chenghao Zhang",
+      "Guanting Dong",
+      "Yufan Liu",
+      "Tong Zhao",
+      "Xiaoxi Li",
+      "Zhicheng Dou"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-06-03",
+      "source_url": "https://arxiv.org/abs/2605.29861",
+      "pdf_url": "https://arxiv.org/pdf/2605.29861",
+      "doi": "10.48550/arXiv.2605.29861"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "source-aligned images in a Visual Working Memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Visual Working Memory entries (source-aligned images) plus claim-grounded evidence records. declarative multimodal tool use over Visual Working Memory during report composition."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Ptah applies fixed-rule insertion or replacement to source-aligned images in a Visual Working Memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 3–4): The visual working memory is updated as observations arrive (M_t), so inference changes persistent operative state under fixed logic. Training-time learning, when present, was not counted as T3."
+  ]
+}

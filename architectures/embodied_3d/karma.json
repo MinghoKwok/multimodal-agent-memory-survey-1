@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "karma-2024",
+  "architecture_name": "KARMA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "KARMA: Augmenting Embodied AI Agents with Long-and-short Term Memory Systems",
+    "authors": [
+      "Zixuan Wang",
+      "Bo Yu",
+      "Junzhe Zhao",
+      "Wenhao Sun",
+      "Sai Hou",
+      "Shuai Liang",
+      "Xing Hu",
+      "Yinhe Han",
+      "Yiming Gan"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-09-23",
+      "source_url": "https://arxiv.org/abs/2409.14908",
+      "pdf_url": "https://arxiv.org/pdf/2409.14908",
+      "doi": "10.48550/arXiv.2409.14908"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "graph",
+      "memory_component": "3D scene graph experience",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Long-term memory holds comprehensive 3D scene graphs."
+        }
+      ]
+    },
+    {
+      "path_id": "state",
+      "memory_component": "dynamic object positions and states",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Short-term memory records changing object states."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed rule updates short-term state. For KARMA, this specifically supports fixed-rule insertion or replacement of 3D scene graph experience."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Adaptive replacement discards less pertinent entries. For KARMA, this specifically supports explicit deletion or eviction of stored items of 3D scene graph experience."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (3D scene graph experience) changes through fixed-rule insertion or replacement, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

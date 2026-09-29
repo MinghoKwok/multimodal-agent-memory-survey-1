@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videostreaming-2024",
+  "architecture_name": "VideoStreaming",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Streaming Long Video Understanding with Large Language Models",
+    "authors": [
+      "Rui Qian",
+      "Xiaoyi Dong",
+      "Pan Zhang",
+      "Yuhang Zang",
+      "Shuangrui Ding",
+      "Dahua Lin",
+      "Jiaqi Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-05-25",
+      "source_url": "https://arxiv.org/abs/2405.16009",
+      "pdf_url": "https://arxiv.org/pdf/2405.16009",
+      "doi": "10.48550/arXiv.2405.16009"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "latent",
+      "memory_component": "propagated video memory",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Each clip is folded into constant-size historical latent memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Large Language Model",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed learned update propagates memory across clips. For VideoStreaming, this specifically supports a trained but frozen update module of propagated video memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (propagated video memory) changes through a trained but frozen update module; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rewind-2025",
+  "architecture_name": "ReWind",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ReWind: Understanding Long Videos with Instructed Learnable Memory",
+    "authors": [
+      "Anxhelo Diko",
+      "Tinghuai Wang",
+      "Wassim Swaileh",
+      "Shiyan Sun",
+      "Ioannis Patras"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2025-03-27",
+      "source_url": "https://arxiv.org/abs/2411.15556v2",
+      "pdf_url": "https://arxiv.org/pdf/2411.15556v2",
+      "doi": "10.48550/arXiv.2411.15556"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "instructed-memory-bank",
+      "memory_component": "long-term memory bank",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figures 2 and 3",
+          "paraphrase": "Learnable read queries attend to stored history; write queries distill instruction-conditioned frame representations into compact tokens appended in temporal order."
+        }
+      ]
+    },
+    {
+      "path_id": "visual-feature-buffer",
+      "memory_component": "original visual feature buffer",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Per-frame encoder features are preserved in a separate buffer, and Dynamic Frame Selection retrieves instruction-relevant high-resolution features for the second stage."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "A trained cross-attention write interface uses learned queries to compress each new frame representation and persist it in the memory bank. For ReWind, this specifically supports a trained but frozen update module of long-term memory bank."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Learned memory states and selected modality-native frame features are combined as LLM input.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (long-term memory bank) changes through a trained but frozen update module; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

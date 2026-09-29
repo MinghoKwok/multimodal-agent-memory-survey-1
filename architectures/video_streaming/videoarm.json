@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videoarm-2025",
+  "architecture_name": "VideoARM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoARM: Adaptive Reasoning and Memory for Long Video Understanding",
+    "authors": [
+      "Yufei Yin",
+      "Qianke Meng",
+      "Minghao Chen",
+      "Jiajun Ding",
+      "Zhenwei Shao",
+      "Zhou Yu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-12-13",
+      "source_url": "https://arxiv.org/abs/2512.12360",
+      "pdf_url": "https://arxiv.org/pdf/2512.12360",
+      "doi": "10.48550/arXiv.2512.12360"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multilevel visual clue memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The observe-think-act-memorize loop retains and updates multilevel visual clues."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "hierarchical semantic memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Hierarchical summaries provide long-range evidence to later reasoning steps."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed controller consolidates observations into multilevel clues. For VideoARM, this specifically supports episodic or hierarchical summarization of multilevel visual clue memory."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The memorize step updates retained clues during video processing. For VideoARM, this specifically supports LLM-mediated memory editing of multilevel visual clue memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (multilevel visual clue memory) changes through episodic or hierarchical summarization, LLM-mediated memory editing; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

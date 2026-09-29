@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "planning-from-imagination-2025",
+  "architecture_name": "Planning from Imagination",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Planning from Imagination: Episodic Simulation and Episodic Memory for Vision-and-Language Navigation",
+    "authors": [
+      "Yiyuan Pan",
+      "Yunzhe Xu",
+      "Zhe Liu",
+      "Hesheng Wang"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2025-01-01",
+      "source_url": "https://ojs.aaai.org/index.php/AAAI/article/view/32679",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic / trajectory memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Mixed-granularity memory updated during navigation and expanded through episodic simulation. memory/imagined viewpoints guide waypoint and action selection."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Planning from Imagination applies fixed-rule insertion or replacement to episodic / trajectory memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Planning from Imagination applies merging or deduplication of overlapping entries to episodic / trajectory memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Topological memory updates at each navigation step. For Planning from Imagination, this specifically supports relinking or reindexing of stored items of episodic / trajectory memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (episodic / trajectory memory) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

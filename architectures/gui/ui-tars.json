@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ui-tars-2025",
+  "architecture_name": "UI-TARS",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "UI-TARS: Pioneering Automated GUI Interaction with Native Agents",
+    "authors": [
+      "Yujia Qin",
+      "Yining Ye",
+      "Junjie Fang",
+      "Haoming Wang",
+      "Shihao Liang",
+      "Shizuo Tian",
+      "Junda Zhang",
+      "Jiahao Li",
+      "Yunxin Li",
+      "Shijue Huang",
+      "Wanjun Zhong",
+      "Kuanye Li",
+      "Jiale Yang",
+      "Yu Miao",
+      "Woyu Lin",
+      "Longxiang Liu",
+      "Xu Jiang",
+      "Qianli Ma",
+      "Jingyu Li",
+      "Xiaojun Xiao",
+      "Kai Cai",
+      "Chuang Li",
+      "Yaowei Zheng",
+      "Chaolin Jin",
+      "Chen Li",
+      "Xiao Zhou",
+      "Minchao Wang",
+      "Haoli Chen",
+      "Zhaojian Li",
+      "Haihua Yang",
+      "Haifeng Liu",
+      "Feng Lin",
+      "Tao Peng",
+      "Xin Liu",
+      "Guang Shi"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2025-01-21",
+      "source_url": "https://arxiv.org/abs/2501.12326",
+      "pdf_url": "https://arxiv.org/pdf/2501.12326",
+      "doi": "10.48550/arXiv.2501.12326"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "short-term memory: retained history of prior thoughts and actions plus a recency window of GUI screenshots",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Section 4.1 (inference formulation)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "At each step the model predicts P(t_n, a_n | instruction, t_1, a_1, ..., (o_{n-i}, t_{n-i}, a_{n-i})_{i=1..N}, o_n). Section 4.1 states that the full history of previous actions and thoughts is retained as short-term memory, while raw screenshot observations are truncated to the last N to fit the 32k sequence budget. The retained item is therefore an accumulating sequential record of self-generated System-2 thoughts and executed actions, with a recency-selected window of the underlying screenshots still directly present."
+        },
+        {
+          "section": "Full paper: Section 3.1 (agent memory taxonomy)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "Section 3.1 defines short-term memory as a temporary repository for task-specific information capturing the agent's immediate context, i.e. the paper explicitly designates this history as a named memory component of the architecture rather than an incidental prompt buffer."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "long-term operational experience internalized in the native agent model's weights",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "unclear"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Section 3.1 (native agent model vs framework agent)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "Section 3.1 contrasts framework agents, which keep long-term memory in external stores, with native agent models that encode long-term operational experience of tasks within their internal parameters, converting the observable interaction process into implicit parameterized storage. This parametric internalization of GUI interaction experience is the paper's central design claim and is what the model consults when acting."
+        },
+        {
+          "section": "Full paper: Section 4.5 (online trace bootstrapping and reflection tuning)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "Experience enters the parameters through an iterative loop: model M_n executes tasks on hundreds of virtual machines, traces are filtered by rule-based heuristics, VLM scoring and human review, annotators mark the erroneous step and label the corrected thought and action, and the model is retrained by reflection tuning. The loop is run for multiple rounds to produce successive model versions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Section 4.1",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "During task execution the short-term memory is extended at every step by a fixed append rule: the newly generated thought and executed action are written into the retained history and the screenshot window is advanced to the last N observations. Content and window membership change during inference while the governing update rule itself is fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "T3 was considered and rejected. The Section 4.5 online trace bootstrapping and reflection tuning loop looks like deployment feedback, but the traces are collected in dedicated virtual-machine rollouts, filtered by rule heuristics, VLM scoring and human review, and human annotators label the corrected thought and action before the model is retrained. Each round produces a new model version rather than persistently changing a write, maintenance or retrieval policy from feedback arising during deployed interactions. The annotation guide excludes offline SFT and pre-deployment continual learning from T3 even when the paper frames it as continuous or lifelong improvement, so no T3 target is recorded.",
+    "T2 assignment: Section 4.1 explicitly names the accumulating thought/action history 'short-term memory' and states that it is retained in full, satisfying the guide's carve-out for history that the architecture explicitly retains and reuses as operative memory. The append-plus-recency-window mechanism changes this memory during inference under a fixed update rule. The alternative T1 reading (ordinary sliding prompt history with no persistent memory artifact) was considered but rejected because the named retained history matches the treatment of comparable systems in this corpus, including chain_of_memory.json and mobile-agent-e.json.",
+    "storage_indexing for the parametric path is recorded as 'unclear': UI-TARS internalizes experience by full-model training over successive checkpoints, so there is no adapter bank or other explicit store to name.",
+    "Full-text HTML (arXiv:2501.12326v1) was read for Sections 3.1, 4.1 and 4.5; HTML rendering gives no stable page numbers, so section pointers are recorded instead."
+  ]
+}

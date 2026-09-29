@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "persode-2025",
+  "architecture_name": "Persode",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Persode: Personalized Visual Journaling with Episodic Memory-Aware AI Agent",
+    "authors": [
+      "Seokho Jin",
+      "Manseo Kim",
+      "Sungho Byun",
+      "Hansol Kim",
+      "Jungmin Lee",
+      "Sujeong Baek",
+      "Semi Kim",
+      "Sanghum Park",
+      "Sung Park"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-08-28",
+      "source_url": "https://arxiv.org/abs/2508.20585",
+      "pdf_url": "https://arxiv.org/pdf/2508.20585",
+      "doi": "10.48550/arXiv.2508.20585"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "events",
+      "memory_component": "timestamped events, emotions and preferences",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory-Aware Conversational Agent",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The RAG store organizes event-emotion records and visual preferences."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory-Aware Conversational Agent",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Persode applies fixed-rule insertion or replacement to timestamped events, emotions and preferences; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory-Aware Conversational Agent",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Persode applies abstraction of episodes into reusable experience to timestamped events, emotions and preferences; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory-Aware Conversational Agent",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Persode applies episodic or hierarchical summarization to timestamped events, emotions and preferences; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (timestamped events, emotions and preferences) changes through fixed-rule insertion or replacement, abstraction of episodes into reusable experience, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

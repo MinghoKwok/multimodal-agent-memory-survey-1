@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "visualmem-2026",
+  "architecture_name": "VisualMem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Personal Visual Memory from Explicit and Implicit Evidence",
+    "authors": [
+      "Viet Nguyen",
+      "Thao Nguyen",
+      "Vishal M. Patel",
+      "Yuheng Li"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.28806",
+      "pdf_url": "https://arxiv.org/pdf/2605.28806",
+      "doi": "10.48550/arXiv.2605.28806"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "personal image evidence",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Personal images are preserved rather than collapsed into generic captions."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "structured personal visual memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Conversational context resolves identity, ownership, and durable user facts into a structured visual memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VisualMem applies LLM-mediated memory editing to personal image evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Cross-turn evidence is reconciled to resolve identity, ownership, and persistent user facts. For VisualMem, this specifically supports evidence-weighted revision of stored belief or confidence of personal image evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VisualMem applies LLM-based resolution of conflicting records to personal image evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VisualMem applies merging or deduplication of overlapping entries to personal image evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (personal image evidence) changes through LLM-mediated memory editing, evidence-weighted revision of stored belief or confidence, LLM-based resolution of conflicting records, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

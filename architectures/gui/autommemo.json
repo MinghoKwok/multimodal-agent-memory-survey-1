@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "autommemo-2026",
+  "architecture_name": "AutoMMemo",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Learning to Learn from Multimodal Experience",
+    "authors": [
+      "Xingyu Sui",
+      "Weixiang Zhao",
+      "Yongxin Tang",
+      "Yanyan Zhao",
+      "Yang Wu",
+      "Dandan Tu",
+      "Bing Qin"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-05-16",
+      "source_url": "https://arxiv.org/abs/2605.16857",
+      "pdf_url": "https://arxiv.org/pdf/2605.16857",
+      "doi": "10.48550/arXiv.2605.16857"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "episodes",
+      "memory_component": "multimodal episode recorders",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Additional Algorithm Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "",
+          "paraphrase": "Episode recorders retain visual observations, actions, messages, metadata, and outcomes."
+        }
+      ]
+    },
+    {
+      "path_id": "memo_program",
+      "memory_component": "executable update/retrieve memory program",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Additional Algorithm Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "",
+          "paraphrase": "An executable Python memo program defines how episodes are stored, organized, and retrieved."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Additional Algorithm Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "",
+          "paraphrase": "Candidate programs can change indexing, state-action associations, ranking, and payload structure. For AutoMMemo, this specifically supports relinking or reindexing of stored items of multimodal episode recorders."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Additional Algorithm Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "",
+          "paraphrase": "Program mutation can remove noisy and redundant memory content. For AutoMMemo, this specifically supports merging or deduplication of overlapping entries of multimodal episode recorders."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "source-linked executable multimodal memory program",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 13): Memo-program design is optimized offline. Runtime memo state is still merged/relinked under the final fixed program, making the deployed tier T2 rather than T3. Training-time learning, when present, was not counted as T3."
+  ]
+}

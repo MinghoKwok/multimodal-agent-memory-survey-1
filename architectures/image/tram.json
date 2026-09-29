@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "tram-2026",
+  "architecture_name": "TRAM",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "TRAM: Enhancing Multimodal Reasoning with Trajectory-Derived Auxiliary Memory",
+    "authors": [
+      "Kang Liu",
+      "Zijing Wang",
+      "Yongkang Liu",
+      "Mengjie Zhao",
+      "Xiaocui Yang",
+      "Shi Feng",
+      "Yifei Zhang",
+      "Daling Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-08-03",
+      "source_url": "https://arxiv.org/abs/2608.01922",
+      "pdf_url": "https://arxiv.org/pdf/2608.01922",
+      "doi": "10.48550/arXiv.2608.01922"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "latents",
+      "memory_component": "fast and slow trajectory latents",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Latency (ms/token) Peak memory (GB)",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Completed reasoning is consolidated into fast and slow recurrent latent streams."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Latency (ms/token) Peak memory (GB)",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Fixed recurrent modules update both streams during decoding. For TRAM, this specifically supports a trained but frozen update module of fast and slow trajectory latents."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (fast and slow trajectory latents) changes through a trained but frozen update module; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

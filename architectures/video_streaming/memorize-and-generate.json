@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memorize-and-generate-2025",
+  "architecture_name": "Memorize-and-Generate",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Memorize-and-Generate: Towards Long-Term Consistency in Real-Time Video Generation",
+    "authors": [
+      "Tianrui Zhu",
+      "Shiyi Zhang",
+      "Zhirui Sun",
+      "Jingqi Tian",
+      "Yansong Tang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-12-23",
+      "source_url": "https://arxiv.org/abs/2512.18741",
+      "pdf_url": "https://arxiv.org/pdf/2512.18741",
+      "doi": "10.48550/arXiv.2512.18741"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Structural anchors (final frame of each attention block) for long-term consistency",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autoencoded KV-cache entries; Anchor frames. Ongoing generation is conditioned on the cached anchors (read internally during decoding)."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Structural anchors (final frame of each attention block) for long-term consistency",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autoencoded KV-cache entries; Anchor frames. Ongoing generation is conditioned on the cached anchors (read internally during decoding)."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Memorize-and-Generate Framework",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Memorize-and-Generate applies a trained but frozen update module to Structural anchors (final frame of each attention block) for long-term consistency; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Memorize-and-Generate applies merging or deduplication of overlapping entries to Structural anchors (final frame of each attention block) for long-term consistency; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "Method overview",
+          "paraphrase": "KV-cache entries are maintained, compressed, and evicted by a fixed learned mechanism as the stream proceeds. For Memorize-and-Generate, this specifically supports explicit deletion or eviction of stored items of Structural anchors (final frame of each attention block) for long-term consistency."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (Structural anchors (final frame of each attention block) for long-term consistency) changes through a trained but frozen update module, merging or deduplication of overlapping entries, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

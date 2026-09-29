@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memocr-2026",
+  "architecture_name": "MemOCR",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemOCR: Layout-Aware Visual Memory for Efficient Long-Horizon Reasoning",
+    "authors": [
+      "Yaorui Shi",
+      "Shugui Liu",
+      "Yu Yang",
+      "Wenyu Mao",
+      "Yuxin Chen",
+      "Qi Gu",
+      "Hui Su",
+      "Xunliang Cai",
+      "Xiang Wang",
+      "An Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-29",
+      "source_url": "https://arxiv.org/abs/2601.21468",
+      "pdf_url": "https://arxiv.org/pdf/2601.21468",
+      "doi": "10.48550/arXiv.2601.21468"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "layout-aware rich-text visual memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method: MemOCR",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The system maintains structured rich-text history and renders an adaptively compressed visual memory for later reasoning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: C. Implementation Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The memory writer rewrites accumulated content under a fixed budget-aware compression policy. For MemOCR, this specifically supports LLM-mediated memory editing of layout-aware rich-text visual memory."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: C. Implementation Details",
+          "page": "PDF p. 13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Older interaction content is compressed into denser layout-aware memory. For MemOCR, this specifically supports episodic or hierarchical summarization of layout-aware rich-text visual memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 13): RL/DPO train memory behavior offline. During inference a frozen model edits rich-text memory and summaries, satisfying T2 but not T3. Training-time learning, when present, was not counted as T3."
+  ]
+}

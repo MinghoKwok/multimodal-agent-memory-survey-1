@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "moviedreamer-2024",
+  "architecture_name": "MovieDreamer",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MovieDreamer: Hierarchical Generation for Coherent Long Visual Sequence",
+    "authors": [
+      "Canyu Zhao",
+      "Mingyu Liu",
+      "Wen Wang",
+      "Weihua Chen",
+      "Fan Wang",
+      "Hao Chen",
+      "Bo Zhang",
+      "Chunhua Shen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-11-25",
+      "source_url": "https://arxiv.org/abs/2407.16655",
+      "pdf_url": "https://arxiv.org/pdf/2407.16655",
+      "doi": "10.48550/arXiv.2407.16655"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Compact keyframe tokens within the long context",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 25",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autoregressive keyframe tokens (~2 per keyframe); Diffusion-decoded keyframes. Long videos are extended by anchoring the continuation on the previous first/last frame within the AR context."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Compact keyframe tokens within the long context",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 25",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autoregressive keyframe tokens (~2 per keyframe); Diffusion-decoded keyframes. Long videos are extended by anchoring the continuation on the previous first/last frame within the AR context."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 25): The full-paper lifecycle review found Compact keyframe tokens within the long context fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

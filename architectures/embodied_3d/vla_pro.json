@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vla-pro-2026",
+  "architecture_name": "VLA-Pro",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "VLA-Pro: Cross-Task Procedural Memory Transfer for Vision-Language-Action Models",
+    "authors": [
+      "Shengyu Si",
+      "Yuanzhuo Lu",
+      "Ruimeng Yang",
+      "Ziyi Ye",
+      "Zuxuan Wu",
+      "Yu-Gang Jiang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29562v1",
+      "pdf_url": "https://arxiv.org/pdf/2605.29562v1",
+      "doi": "10.48550/arXiv.2605.29562"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "procedural-state-index",
+      "memory_component": "structured action, object, orientation, and interaction-point sequences",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Each task adapter is indexed by a sequence of structured procedural states; action-aware field similarity retrieves the top-k relevant source tasks."
+        }
+      ]
+    },
+    {
+      "path_id": "task-lora-bank",
+      "memory_component": "task-specific LoRA procedural memories",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Offline task-specific LoRA adapters store executable experience; retrieved adapters are similarity-weighted, fused, and temporarily loaded for the current action chunk."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Every structured procedural-state index points to a parameterized LoRA memory that is activated after retrieval.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The full-paper lifecycle review found structured action, object, orientation, and interaction-point sequences fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

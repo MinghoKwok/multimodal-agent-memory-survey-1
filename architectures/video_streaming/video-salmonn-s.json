@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "video-salmonn-s-2025",
+  "architecture_name": "video-SALMONN S",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "video-SALMONN S: Memory-Enhanced Streaming Audio-Visual LLM",
+    "authors": [
+      "Guangzhi Sun",
+      "Yixuan Li",
+      "Xiaodong Wu",
+      "Yudong Yang",
+      "Wei Li",
+      "Zejun Ma",
+      "Chao Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-02-03",
+      "source_url": "https://arxiv.org/abs/2510.11129",
+      "pdf_url": "https://arxiv.org/pdf/2510.11129",
+      "doi": "10.48550/arXiv.2510.11129"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "TTT_MEM fast weights W_t that absorb streamed audio-visual chunks into long-term memory held in model parameters",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1 Test-time training memory (TTT_MEM)",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Eq. 1-4",
+          "paraphrase": "The layer computes (Z_t, W_t) = TTT_MEM(X_t, X_{t-T}, W_{t-1}); the fast weights W_t are updated at streaming time by a gradient step W_t = W_{t-1} - eta * grad l(X_t, X_{t-T}; W_{t-1}) on a reconstruction loss (Eq. 2) plus a long-span prediction loss (Eq. 3) that 'encourages retention of information relevant across distant timestamps'. The abstract states the model 'continuously transforms short-term multimodal representations into long-term memory embedded in model parameters', so history persists only inside the weights and no source frames or audio are recoverable."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "fixed-size bank of N multimodal memory tokens Z~_t carried recurrently across streaming chunks",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Eq. 1; Figure 2/3 (architecture)",
+          "paraphrase": "A fixed-size sequence of N memory tokens (16k default, up to 128k) persists across chunks; incoming tokens Z_t are merged with the previous bank Z~_{t-1} and the budget is held by discarding the most cosine-similar adjacent token pairs. This bank is a deliberate recurrent multimodal latent state supplied to the LLM at later chunks, supporting streams of over three hours at 11 FPS."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "prompt-dependent compressed KV-cache used for modality-aware memory reading",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Modality-aware memory reading",
+          "page": "HTML Sec. 3.3",
+          "figure_or_table": "Sec. 3.3 description",
+          "paraphrase": "At read time the retained per-layer key/value cache is compressed in a prompt-dependent way: the top-M tokens per layer by attention score against the current question are kept with their relative positions preserved, so which cached audio-visual encodings reach the answer depends on the query."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Eq. 2-4",
+          "paraphrase": "During streaming inference the fast-weight memory is revised by an explicit gradient-descent step per chunk on reconstruction and long-span prediction objectives; the memory content (weights) changes while the update rule, span T = 2 and learning rate eta remain fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.1",
+          "page": "HTML Sec. 3.1",
+          "figure_or_table": "Eq. 1 and surrounding text",
+          "paraphrase": "New chunk tokens are merged into the persistent memory-token bank and the bank is held at its budget by discarding the K highest-similarity adjacent token pairs, a fixed deduplication rule applied at streaming time."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Modality-aware memory reading",
+          "page": "HTML Sec. 3.3",
+          "figure_or_table": "Sec. 3.3 description",
+          "paraphrase": "Prompt-dependent KV-cache compression drops all but the top-M attention-scored tokens per layer at inference time under a fixed selection rule."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The TTT fast-weight long-term memory, the recurrent multimodal memory-token bank, and the prompt-compressed modality-native KV cache are jointly supplied to the LLM when answering at a given point in the stream.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review: although the mechanism is called test-time training, what changes at deployment is memory content (fast weights W_t and the memory-token bank) under a gradient rule whose form, span and learning rate are fixed. The TTT_MEM projection parameters theta are learned in a two-stage offline scheme (Sec. 3.2, Figure 3: stage 1 at 1024 frames, stage 2 frozen theta at 2048 frames) and are frozen at test time; no write, maintenance or retrieval policy is revised from deployment feedback, so T3 does not apply.",
+    "Deliberate recurrent memory carried across streaming chunks is counted as T2 per the guide, distinct from ordinary prompt history."
+  ]
+}

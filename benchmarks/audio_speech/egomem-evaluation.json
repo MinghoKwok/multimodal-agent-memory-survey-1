@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "egomem-evaluation-2025",
+  "benchmark_name": "EgoMem evaluation",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "EgoMem: Lifelong Memory Agent for Full-duplex Omnimodal Models",
+    "authors": [
+      "Yiqun Yao",
+      "Naitong Yu",
+      "Xiang Li",
+      "Xin Jiang",
+      "Xuezhi Fang",
+      "Wenjia Ma",
+      "Xuying Meng",
+      "Jing Li",
+      "Aixin Sun",
+      "Yequan Wang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-31",
+      "published_date": "2026-01-30",
+      "source_url": "https://arxiv.org/abs/2509.11914",
+      "pdf_url": "https://arxiv.org/pdf/2509.11914",
+      "doi": "10.48550/arXiv.2509.11914"
+    },
+    "reviewed_on": "2026-08-31"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "entity_identity_tracking",
+    "cross_modal_evidence",
+    "memory_update_and_staleness",
+    "temporal_continuity_and_event_recall",
+    "experience_abstraction"
+  ],
+  "tasks": [
+    "memory_retrieval",
+    "personal_assistance",
+    "response_generation",
+    "memory_evaluation"
+  ],
+  "evidence": [
+    {
+      "section": "5 Experiments; 5.1 Retrieval Evaluation",
+      "page": "PDF p. 7",
+      "figure_or_table": "Table 1",
+      "paraphrase": "The paper presents dedicated retrieval benchmarks for face verification, speaker recognition and text-memory retrieval. It constructs 1,000 speaker-query utterances with 120 keys, a 5,000-pair speaker-verification test set, and 200 fact-retrieval queries against 500 candidate relation and personal-fact entries."
+    },
+    {
+      "section": "5.2 Episodic Trigger Evaluation; 5.3 Personalized Dialog Evaluation",
+      "page": "PDF pp. 7-8",
+      "figure_or_table": "Tables 2-3",
+      "paraphrase": "Held-out omnimodal token streams evaluate dialog-boundary memory with clean and noisy inputs, while personalized-dialog tests measure whether retrieved user profiles, facts and relations support fact-consistent responses. The paper states that part of the personalized omnimodal-dialog test set will be released."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Recorded separately from the EgoMem architecture per the corpus precedent for papers that introduce both a memory system and dedicated evaluation artifacts.",
+    "This is a collection of dedicated evaluation sets rather than a separately branded 'EgoMem-Bench'; the benchmark_name follows the manuscript Table 1 label.",
+    "The full-system evaluation is genuinely multimodal: face and voice identity are derived from raw audiovisual streams and route retrieval from persistent user memory, even though some sub-evaluations operate on text facts or public identity datasets."
+  ]
+}

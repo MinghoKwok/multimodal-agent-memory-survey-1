@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "finagent-2024",
+  "architecture_name": "FinAgent",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "A Multimodal Foundation Agent for Financial Trading: Tool-Augmented, Diversified, and Generalist",
+    "authors": [
+      "Wentao Zhang",
+      "Lingxuan Zhao",
+      "Haochong Xia",
+      "Shuo Sun",
+      "Jiaze Sun",
+      "Molei Qin",
+      "Xinyi Li",
+      "Yuqing Zhao",
+      "Yilei Zhao",
+      "Xinyu Cai",
+      "Longtao Huang",
+      "Jiajun Wang",
+      "Jun Wang",
+      "Jiaheng Zhang",
+      "Yuchen Fang",
+      "Bo An"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 HTML reviewed on 2026-08-30 (KDD 2024 version)",
+      "published_date": "2024-02-28",
+      "source_url": "https://arxiv.org/abs/2402.18485",
+      "pdf_url": "https://arxiv.org/pdf/2402.18485",
+      "doi": "10.1145/3637528.3671801"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "memory module holding market-intelligence summaries plus low-level and high-level reflection analyses, embedded with an LLM and matched by vector similarity",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "unclear",
+      "evidence": [
+        {
+          "section": "Full paper: 4.1 Market Intelligence Module; 4.2 Memory Module; 4.3 Reflection Module",
+          "page": "arXiv HTML v3, Sec. 4.1-4.3",
+          "figure_or_table": "Figure 2 (overall architecture)",
+          "paraphrase": "Sec. 4.2 states that all analyses and summaries produced by the market-intelligence, low-level-reflection and high-level-reflection modules are stored in the memory module, which uses a vector storage architecture. Sec. 4.1 adds a dedicated query-text field to each market-intelligence output and embeds it with an LLM so that past entries with similar content are retrieved by vector similarity. The stored items are natural-language records distilled from numeric, textual and chart inputs; the paper does not state that the Kline chart images themselves are kept or linked from the memory entries, hence source accessibility is left unclear."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 4.1 Market Intelligence Module; 4.2 Memory Module",
+          "page": "arXiv HTML v3, Sec. 4.1-4.2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "At every trading step of the deployed decision loop the newly produced market-intelligence summary and the new low-/high-level reflections are written into the memory module and become retrievable for subsequent trading days; the memory content therefore grows and is reused during inference under a fixed write rule, with no change to the write or retrieval policy itself."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Inclusion: (a) the memory module with diversified retrieval and the dual-level reflection that reads it are headline contributions, not an incidental context window; (b) visual Kline/trading charts are an explicit input modality (Appendix B, Dataset Details) and the low-level reflection module is described in Sec. 4.3 as analyzing the market intelligence together with the Kline chart and technical indicators, and Sec. 4.2 says those reflection analyses are stored in memory - so a non-text modality feeds memory formation.",
+    "Evidence limitation: the paper does not state that a chart-derived analysis is written as a separately identified memory entry or that the chart image is retained or re-derivable from the stored entry. The non-text contribution to memory is supported by Sec. 4.3, where the Kline chart is analyzed by low-level reflection, together with Sec. 4.2, where all reflection analyses are stored. Source accessibility remains unclear because the persistence of the original chart is not specified.",
+    "Tier: T2. Persistent inference-time writes of summaries and reflections that are retrieved on later trading days; no deployment-feedback-driven change to a reusable write, maintenance, or retrieval policy is reported (training uses a fixed historical window Jun 2022-Jun 2023, testing Jun 2023-Jan 2024).",
+    "Primary modality set to image as the only non-text modality (candlestick/Kline chart images); the underlying market series is numeric/textual and none of the five folders covers it, so this assignment is a best fit rather than a strong signal.",
+    "Scope follows the same corpus precedent as finacumen-2026: criterion (b) is satisfied by non-text participation in memory formation alone, which 38 existing records already rely on. Whether the chart-derived analysis is stored as a separately identified entry does not affect inclusion, modality, or tier."
+  ]
+}

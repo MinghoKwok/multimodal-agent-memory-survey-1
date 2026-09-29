@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "dreamfactory-2024",
+  "architecture_name": "DreamFactory",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "DreamFactory: Pioneering Multi-Scene Long Video Generation with a Multi-Agent Framework",
+    "authors": [
+      "Zhifei Xie",
+      "Daniel Tang",
+      "Dingwei Tan",
+      "Jacques Klein",
+      "Tegawend F. Bissyand",
+      "Saad Ezzini"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2024-08-21",
+      "source_url": "https://arxiv.org/abs/2408.11788",
+      "pdf_url": "https://arxiv.org/pdf/2408.11788",
+      "doi": "10.48550/arXiv.2408.11788"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Long- and short-term visual memory of generated scenes/frames",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Algorithm 2 Calculate CSSC Score",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Image vector-DB entries; Base-frame references. New scenes are conditioned on retrieved reference frames; Monitor agent checks the new scene against stored frames."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Keyframe Iteration Design Method leverages",
+          "page": "PDF p. 5",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Short-term memory turns over and the Monitor agent re-conditions scenes; a fixed monitoring rule. For DreamFactory, this specifically supports fixed-rule insertion or replacement of Long- and short-term visual memory of generated scenes/frames."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (Long- and short-term visual memory of generated scenes/frames) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

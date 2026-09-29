@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "skill-3d-2026",
+  "architecture_name": "Skill-3D",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Skill-3D: Evolving Scene-Aware Skills for Agentic 3D Spatial Reasoning",
+    "authors": [
+      "Haoyuan Li",
+      "Zhengdong Hu",
+      "Jun Wang",
+      "Hehe Fan",
+      "Yi Yang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-06-11",
+      "source_url": "https://arxiv.org/abs/2606.07436",
+      "pdf_url": "https://arxiv.org/pdf/2606.07436",
+      "doi": "10.48550/arXiv.2606.07436"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "scene-aware procedural skills",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Scene Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Scene Memory records rollouts; reusable scene-aware skills are distilled into a skill library. retrieves compact skill subsets by task category, target entities, scene signature, required evidence, historical success, failure lessons, and tool cost."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The skill library co-evolves during training; deployed inference retrieves fixed skills. Offline library formation is not T2 under the strict lifecycle rule. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

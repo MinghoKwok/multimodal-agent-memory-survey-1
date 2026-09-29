@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "episodic-memory-verbalization-2025",
+  "architecture_name": "Episodic Memory Verbalization",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Episodic Memory Verbalization using Hierarchical Representations of Life-Long Robot Experience",
+    "authors": [
+      "Leonard Baermann",
+      "Chad DeChant",
+      "Joana Plewnia",
+      "Fabian Peller-Konrad",
+      "Daniel Bauer",
+      "Tamim Asfour",
+      "Alex Waibel"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2025-01-01",
+      "source_url": "https://ieeexplore.ieee.org/document/11203101",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Multimodal experience streams are grouped/summarized into a tree. LLM agent explores history tree for QA/verbalization."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Episodic Memory Verbalization applies episodic or hierarchical summarization to episodic memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "History tree grows with ongoing robot experience. For Episodic Memory Verbalization, this specifically supports abstraction of episodes into reusable experience of episodic memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (episodic memory) changes through episodic or hierarchical summarization, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

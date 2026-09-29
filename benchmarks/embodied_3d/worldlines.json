@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "worldlines-2026",
+  "benchmark_name": "WorldLines",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "WorldLines: Benchmarking and Modeling Long-Horizon Stateful Embodied Agents",
+    "authors": [
+      "Yehang Zhang",
+      "Jianchong Su",
+      "Haojian Huang",
+      "Yifan Chang",
+      "Tianhao Zhou",
+      "Xinli Xu",
+      "Yingjie Xu",
+      "Yinchuan Li",
+      "Zexi Li",
+      "Ying-Cong Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-08-21",
+      "source_url": "https://arxiv.org/abs/2606.18847",
+      "pdf_url": "https://arxiv.org/pdf/2606.18847",
+      "doi": "10.48550/arXiv.2606.18847"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_order_and_change",
+    "memory_mediated_action",
+    "conflict_and_evidence_reliability"
+  ],
+  "tasks": [
+    "question_answering",
+    "planning"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Temporally extended household traces test Memory QA and embodied planning over changing world state."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17 scope review: Household event traces support questions and planning over temporally changing semantic states. The reviewed protocol uses semantic scene and event information; raw visual or audio inputs to the evaluated agent were not established. Retained as a stateful embodied-memory comparison. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json.",
+    "The v2 evaluation protocol uses semantic household traces. An image input to the evaluated memory system was not established; the unsupported image secondary-modality tag and Table 2 direct CE annotation were removed. Source: https://arxiv.org/html/2606.18847v2, Sections 3.1–3.3 and 8.1."
+  ]
+}

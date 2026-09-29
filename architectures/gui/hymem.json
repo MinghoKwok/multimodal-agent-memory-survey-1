@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "hymem-2026",
+  "architecture_name": "HyMEM",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Hybrid Self-evolving Structured Memory for GUI Agents",
+    "authors": [
+      "Sibo Zhu",
+      "Wenyi Wu",
+      "Kun Zhou",
+      "Stephen Wang",
+      "Biwei Huang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-11",
+      "source_url": "https://arxiv.org/abs/2603.10291",
+      "pdf_url": "https://arxiv.org/pdf/2603.10291",
+      "doi": "10.48550/arXiv.2603.10291"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "symbolic GUI memory graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Size",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Discrete high-level symbolic nodes support multi-hop retrieval and working-memory refresh."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "continuous trajectory embeddings",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Hybrid Structured Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Continuous trajectory embeddings are linked to symbolic nodes and supplied to the GUI agent."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Fixed node operations merge or replace overlapping GUI experiences. For HyMEM, this specifically supports merging or deduplication of overlapping entries of symbolic GUI memory graph."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Size",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Node updates reorganize the symbolic graph and its trajectory links. For HyMEM, this specifically supports relinking or reindexing of stored items of symbolic GUI memory graph."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Utilization",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "On-the-fly working-memory refresh updates the active task state. For HyMEM, this specifically supports fixed-rule correction of stored state of symbolic GUI memory graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (symbolic GUI memory graph) changes through merging or deduplication of overlapping entries, relinking or reindexing of stored items, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

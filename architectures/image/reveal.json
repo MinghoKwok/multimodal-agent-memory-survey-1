@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "reveal-2026",
+  "architecture_name": "REVEAL",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "REVEAL: Reference-Grounded Reasoning for Multimodal Manipulation Detection",
+    "authors": [
+      "Jun Zhou",
+      "Bingwen Hu",
+      "Yaxiong Wang",
+      "Zhedong Zheng",
+      "Yongzhen Wang",
+      "Yuchen Zhang",
+      "Ping Liu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.28459",
+      "pdf_url": "https://arxiv.org/pdf/2605.28459",
+      "doi": "10.48550/arXiv.2605.28459"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "retrieved authentic reference evidence (image-text pairs covering 40K+ public figures)",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval-Augmented Learning",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Reference library of authentic image-text pairs. retrieves authentic evidence and compares the query against it for reference-grounded verification."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found retrieved authentic reference evidence (image-text pairs covering 40K+ public figures) fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

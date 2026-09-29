@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "gui-explorer-2025",
+  "architecture_name": "GUI-explorer",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GUI-explorer: Autonomous Exploration and Mining of Transition-aware Knowledge for GUI Agent",
+    "authors": [
+      "Bin Xie",
+      "Rui Shao",
+      "Gongwei Chen",
+      "Kaiwen Zhou",
+      "Yinchuan Li",
+      "Jie Liu",
+      "Min Zhang",
+      "Liqiang Nie"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-05-22",
+      "source_url": "https://arxiv.org/abs/2505.16827",
+      "pdf_url": "https://arxiv.org/pdf/2505.16827",
+      "doi": "10.48550/arXiv.2505.16827"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "exploration screenshots and trajectories",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Autonomous exploration collects screenshots and function-aware interaction trajectories."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "transition-aware UI knowledge",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Observation-action-outcome triples are mined into reusable screen-operation logic."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): GUI exploration and knowledge mining precede task execution. The deployed executor reads a fixed knowledge base, so this is T1. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

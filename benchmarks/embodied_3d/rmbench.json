@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "rmbench-2026",
+  "benchmark_name": "RMBench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "RMBench: Memory-Dependent Robotic Manipulation Benchmark with Insights into Policy Design",
+    "authors": [
+      "Tianxing Chen",
+      "Yuran Wang",
+      "Mingleyang Li",
+      "Yan Qin",
+      "Hao Shi",
+      "Zixuan Li",
+      "Yifan Hu",
+      "Yingsheng Zhang",
+      "Kaixuan Wang",
+      "Yue Chen",
+      "Hongcheng Wang",
+      "Junjie Wang",
+      "Tianhang Yang",
+      "Renjing Xu",
+      "Ruihai Wu",
+      "Yao Mu",
+      "Yaodong Yang",
+      "Hao Dong",
+      "Ping Luo"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-30",
+      "source_url": "https://arxiv.org/abs/2603.01229",
+      "pdf_url": "https://arxiv.org/pdf/2603.01229",
+      "doi": "10.48550/arXiv.2603.01229"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "memory_mediated_action",
+    "temporal_order_and_change",
+    "spatial_state_and_object_memory"
+  ],
+  "tasks": [
+    "agent_action",
+    "robotic_manipulation"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Nine simulated manipulation tasks span controlled levels of memory dependence and support memory-policy ablations."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

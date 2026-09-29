@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mardoc-2026",
+  "architecture_name": "MARDoc",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MARDoc: A Memory-Aware Refinement Agent Framework for Multimodal Long Document QA",
+    "authors": [
+      "Kaifeng Chen",
+      "Hongtao Liu",
+      "Qiyao Peng",
+      "Jian Yang",
+      "Yongqiang Liu",
+      "Xiaochen Zhang",
+      "Qing Yang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-04",
+      "source_url": "https://arxiv.org/abs/2606.05749",
+      "pdf_url": "https://arxiv.org/pdf/2606.05749",
+      "doi": "10.48550/arXiv.2606.05749"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multimodal document evidence",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Explorer retrieves multi-granularity evidence from the original multimodal document."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "structured evidence and reasoning memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Agent Memory. Memory mechanisms have be-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Refiner distills traces into a dynamically updated structure preserving evidence and logical dependencies."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Agent Memory. Memory mechanisms have be-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Refiner repeatedly edits structured evidence and reasoning memory. For MARDoc, this specifically supports LLM-mediated memory editing of multimodal document evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Agent Memory. Memory mechanisms have be-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Long interaction traces are distilled instead of accumulated verbatim. For MARDoc, this specifically supports episodic or hierarchical summarization of multimodal document evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Agent Memory. Memory mechanisms have be-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Reflector feedback checks evidence sufficiency and directs targeted memory refinement. For MARDoc, this specifically supports evidence-weighted revision of stored belief or confidence of multimodal document evidence."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (multimodal document evidence) changes through LLM-mediated memory editing, episodic or hierarchical summarization, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

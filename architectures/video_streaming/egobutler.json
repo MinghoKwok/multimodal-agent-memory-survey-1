@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "egobutler-2025",
+  "architecture_name": "EgoButler",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EgoLife: Towards Egocentric Life Assistant",
+    "authors": [
+      "Jingkang Yang",
+      "Shuai Liu",
+      "Hongming Guo",
+      "Yuhao Dong",
+      "Xiamengwei Zhang",
+      "Sicheng Zhang",
+      "Pengyun Wang",
+      "Zitang Zhou",
+      "Binzhu Xie",
+      "Ziyue Wang",
+      "Bei Ouyang",
+      "Zhengyu Lin",
+      "Marco Cominelli",
+      "Zhongang Cai",
+      "Yuanhan Zhang",
+      "Peiyuan Zhang",
+      "Fangzhou Hong",
+      "Joerg Widmer",
+      "Francesco Gringoli",
+      "Lei Yang",
+      "Bo Li",
+      "Ziwei Liu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-02-09",
+      "source_url": "https://arxiv.org/abs/2503.03803",
+      "pdf_url": "https://arxiv.org/pdf/2503.03803",
+      "doi": "10.48550/arXiv.2503.03803"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "egorag_sources",
+      "memory_component": "retrieved egocentric video/audio evidence",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "EgoRAG retrieves relevant ultra-long egocentric experience for life-oriented QA."
+        }
+      ]
+    },
+    {
+      "path_id": "egorag_records",
+      "memory_component": "indexed egocentric experience records",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Retrieved long-horizon records support practical recall and personalized assistance."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "retrieval-linked source evidence and records",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): The full-paper lifecycle review found retrieved egocentric video/audio evidence fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

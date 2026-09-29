@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "odysseyagent-2024",
+  "architecture_name": "OdysseyAgent",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GUI Odyssey: A Comprehensive Dataset for Cross-App GUI Navigation on Mobile Devices",
+    "authors": [
+      "Quanfeng Lu",
+      "Wenqi Shao",
+      "Zitao Liu",
+      "Lingxiao Du",
+      "Fanqing Meng",
+      "Boxuan Li",
+      "Botong Chen",
+      "Siyuan Huang",
+      "Kaipeng Zhang",
+      "Ping Luo"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2025-08-01",
+      "source_url": "https://arxiv.org/abs/2406.08451",
+      "pdf_url": "https://arxiv.org/pdf/2406.08451",
+      "doi": "10.48550/arXiv.2406.08451"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "history screenshot memory: tokens of the previous delta=4 screenshots, compressed by a learned history resampler and concatenated with the current screen tokens, instruction and previous actions",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Method / OdysseyAgent architecture (history resampler)",
+          "page": "",
+          "figure_or_table": "Architecture figure of OdysseyAgent; Table 4 (ablation on historical information)",
+          "paraphrase": "OdysseyAgent stores the previous screenshots of the episode and compresses their visual tokens with a single-layer cross-attention 'history resampler' whose learnable embeddings act as queries and whose keys/values are the historical screenshot tokens; the resulting 256 compressed history tokens (vs 1,024 for naive multi-image input) are concatenated with the current screenshot tokens, the instruction and the previous actions before the LLM decodes the next action. Default history length is delta=4. The raw historical screenshots exist in the trajectory and are re-encoded, so the perceptual source is recoverable but is not itself stored as memory content."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "previous-action history string carried alongside the compressed screenshot history",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Method / OdysseyAgent architecture; ablation",
+          "page": "",
+          "figure_or_table": "Table 4 (previous actions and historical screenshots ablated separately)",
+          "paraphrase": "The agent input explicitly includes the previous actions of the episode together with the compressed historical screenshot tokens; the ablation removes previous actions and historical screenshots as distinct history sources, showing both contribute to cross-app navigation accuracy."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Compressed historical screenshot tokens and the textual previous-action record are jointly concatenated into the agent input for next-action prediction.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full-text HTML (arXiv v2) consulted. Included because the history resampler is a named architectural contribution for retaining and reusing past screenshots across steps of a long cross-app episode, and is ablated (Table 4); it is not merely an incidental context window. This inclusion is nevertheless borderline: the memory is a fixed-length sliding history rather than an accumulating store.",
+    "T1 by the strict rule: the history is a fixed window re-encoded by a frozen-policy cross-attention module at every step. There is no persistent memory artifact that is written, revised, reorganized or forgotten at inference time, and no recurrent state carried forward beyond re-reading the last delta screenshots. Training of the resampler happens offline during supervised fine-tuning and does not raise the tier.",
+    "The GUI Odyssey dataset itself was not given a benchmark record: it evaluates cross-app navigation generalization (random/task/device/app splits) rather than memory capability."
+  ]
+}

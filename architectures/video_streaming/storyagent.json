@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "storyagent-2024",
+  "architecture_name": "StoryAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "StoryAgent: Customized Storytelling Video Generation via Multi-Agent Collaboration",
+    "authors": [
+      "Panwen Hu",
+      "Jin Jiang",
+      "Jianqi Chen",
+      "Mingfei Han",
+      "Shengcai Liao",
+      "Xiaojun Chang",
+      "Xiaodan Liang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2024-11-11",
+      "source_url": "https://arxiv.org/abs/2411.04925",
+      "pdf_url": "https://arxiv.org/pdf/2411.04925",
+      "doi": "10.48550/arXiv.2411.04925"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Subject identity embeddings",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "LoRA-BE 16-token identity embeddings learned from reference videos; Reference subject entries. Identity embeddings and reference subjects are reused across shots."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Reference subject bank",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "LoRA-BE 16-token identity embeddings learned from reference videos; Reference subject entries. Identity embeddings and reference subjects are reused across shots."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): Subject-specific LoRA memory is trained from reference video before evaluation; deployed generation uses fixed parameters, so it is T1. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

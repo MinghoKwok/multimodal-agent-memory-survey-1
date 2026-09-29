@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "cma-2026",
+  "architecture_name": "CMA",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing",
+    "authors": [
+      "Feng Wang",
+      "Canmiao Fu",
+      "Zhipeng Huang",
+      "Chen Li",
+      "Jing Lyu",
+      "Ge Li"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-09",
+      "source_url": "https://arxiv.org/abs/2607.08497",
+      "pdf_url": "https://arxiv.org/pdf/2607.08497",
+      "doi": "10.48550/arXiv.2607.08497"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual",
+      "memory_component": "episodic visual memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Visual Memory (EVM), allowing visual content",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Visual inputs are externalized into selectively reactivated episodes."
+        }
+      ]
+    },
+    {
+      "path_id": "abstract",
+      "memory_component": "structured visual abstractions",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Visual Memory (EVM), allowing visual content",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Perceptual abstractions route retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Visual Memory (EVM), allowing visual content",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed deployed pipeline writes and organizes new episodes. For CMA, this specifically supports fixed-rule insertion or replacement of episodic visual memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): SFT/RL optimize the memory writer before deployment. Inference writes structured image episodes with a frozen policy, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

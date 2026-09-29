@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "robograph-tsh-2026",
+  "benchmark_name": "RoboGraph-TSH",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Compiling and Benchmarking Task-State Horizons for Embodied Agents",
+    "authors": [
+      "Meiqi Wang",
+      "Shichao Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-08-08",
+      "source_url": "https://arxiv.org/abs/2608.08036",
+      "pdf_url": "https://arxiv.org/pdf/2608.08036",
+      "doi": "10.48550/arXiv.2608.08036"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "temporal_order_and_change",
+    "spatial_state_and_object_memory",
+    "memory_mediated_action"
+  ],
+  "tasks": [
+    "planning",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Compiled task-state horizons measure agents' ability to track, explore, and update task-relevant world state."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update.",
+    "2026-09-17 scope review: Task-state horizons explicitly vary retaining observed state, exploring hidden state and updating stale state; interventions and state-management metrics diagnose memory failures. Restrict multimodal inclusion to the visual simulation backend; the symbolic-only backend is not multimodal. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

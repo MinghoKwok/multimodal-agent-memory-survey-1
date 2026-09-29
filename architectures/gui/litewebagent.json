@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "litewebagent-2025",
+  "architecture_name": "LiteWebAgent",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "LiteWebAgent: The Open-Source Suite for VLM-Based Web-Agent Applications",
+    "authors": [
+      "Danqing Zhang",
+      "Balaji Rama",
+      "Jingyi Ni",
+      "Shiying He",
+      "Fu Zhao",
+      "Kunyu Chen",
+      "Arnold Chen",
+      "Junyu Cao"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-03-04",
+      "source_url": "https://arxiv.org/abs/2503.02950",
+      "pdf_url": "https://arxiv.org/pdf/2503.02950",
+      "doi": "10.48550/arXiv.2503.02950"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "agent workflow memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 1. LiteWebAgent Agent Framework: An ex-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The modular suite can inject stored agent workflows into recursive function-calling execution."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found agent workflow memory fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "robomemarena-2026",
+  "benchmark_name": "RoboMemArena",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "RoboMemArena: A Comprehensive and Challenging Robotic Memory Benchmark",
+    "authors": [
+      "Huashuo Lei",
+      "Wenxuan Song",
+      "Huarui Zhang",
+      "Jieyuan Pei",
+      "Jiayi Chen",
+      "Haodong Yan",
+      "Han Zhao",
+      "Pengxiang Ding",
+      "Zhipeng Zhang",
+      "Lida Huang",
+      "Donglin Wang",
+      "Yan Wang",
+      "Haoang Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-05-11",
+      "source_url": "https://arxiv.org/abs/2605.10921",
+      "pdf_url": "https://arxiv.org/pdf/2605.10921",
+      "doi": "10.48550/arXiv.2605.10921"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "memory_mediated_action",
+    "long_range_evidence",
+    "spatial_state_and_object_memory"
+  ],
+  "tasks": [
+    "robotic_manipulation",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Twenty-six long robotic tasks include keyframe and subtask memory annotations plus physical evaluation."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

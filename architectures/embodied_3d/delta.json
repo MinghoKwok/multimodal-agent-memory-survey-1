@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "delta-2025",
+  "architecture_name": "DeLTa",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DeLTa: Demonstration and Language-Guided Novel Transparent Object Manipulation",
+    "authors": [
+      "Taeyeop Lee",
+      "Gyuree Kang",
+      "Bowen Wen",
+      "Youngho Kim",
+      "Seunghyeok Back",
+      "In So Kweon",
+      "David Hyunchul Shim",
+      "Kuk-Jin Yoon"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-31",
+      "published_date": "2025-10-07",
+      "source_url": "https://arxiv.org/abs/2510.05662",
+      "pdf_url": "https://arxiv.org/pdf/2510.05662",
+      "doi": "10.48550/arXiv.2510.05662"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "demonstration-trajectory-database",
+      "memory_component": "database of fixed object-centric 6-DoF pick, place and pour demonstration trajectories",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. III-A Parsing Human Video Demonstration",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2; Trajectory Database paragraph",
+          "paraphrase": "The system extracts one object-pose trajectory for each pick, place and pour skill, transforms it into an action-specific reference frame, subsamples and smooths it, and explicitly stores the processed trajectories in a trajectory database."
+        },
+        {
+          "section": "Full paper: Sec. III-C Demonstration-Guided Robot Action Execution",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 5; Eq. 2-5",
+          "paraphrase": "During robot execution, the action manager selects the stored trajectory-based skill requested by the task plan, retrieves and retargets its object-frame waypoints to the current object, and follows the aligned demonstration trajectory through the last-inch manipulation stage."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included as fixed demonstration memory because the paper explicitly stores processed trajectories in a database and the deployed action manager later selects and reads them by primitive skill.",
+    "Per-task retargeting, plan refinement and IK/QP execution create transient task products but do not persistently edit the demonstration trajectory database or its retrieval policy; therefore the highest tier is T1."
+  ]
+}

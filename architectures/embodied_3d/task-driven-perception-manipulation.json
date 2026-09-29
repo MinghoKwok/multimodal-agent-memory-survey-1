@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "task-driven-perception-manipulation-2020",
+  "architecture_name": "Task-driven Perception and Manipulation",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth"
+  ],
+  "provenance": {
+    "paper_title": "Task-Driven Perception and Manipulation for Constrained Placement of Unknown Objects",
+    "authors": [
+      "Chaitanya Mitash",
+      "Rahul Shome",
+      "Bowen Wen",
+      "Abdeslam Boularias",
+      "Kostas E. Bekris"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 / IEEE RA-L 2020 paper reviewed on 2026-08-31",
+      "published_date": "2020-06-28",
+      "source_url": "https://arxiv.org/abs/2006.15503",
+      "pdf_url": "https://arxiv.org/pdf/2006.15503",
+      "doi": "10.1109/LRA.2020.3006816"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "dynamic-object-volume",
+      "memory_component": "dynamic object-centric voxel representation with occupied and unseen sets",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Secs. III-IV Problem Setup and Proposed Pipeline",
+          "page": "PDF pp. 3-4",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "The robot maintains an object-frame voxel representation split into observed occupied surface voxels and still-unseen voxels. Conservative and optimistic object volumes derived from these sets are queried to plan safe grasps, sensing viewpoints, handoffs and constrained placements."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV Proposed Pipeline",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 3; object-update procedure",
+          "paraphrase": "After each new RGB-D viewpoint, transformed observations add previously unseen surface voxels to the occupied set and remove voxels shown to be empty. Grasps and placements are then recomputed over the updated object estimate under a fixed update rule."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV and online-adaptation description",
+          "page": "PDF pp. 3-4",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Pose tracking corrects the object pose after stochastic in-hand motion, and the new registered depth observation revises occupied, unseen and empty-space assignments before the next manipulation plan is selected."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included as an embodied-memory system because the persistent RGB-D-derived voxel state is operationally necessary for later sensing and manipulation actions, not merely an offline reconstruction artifact.",
+    "Strict-tier full-paper review: the object representation and pose are updated during task execution, while voxel-assignment, viewpoint-selection and replanning procedures remain fixed; therefore the highest tier is T2 and no T3 target is assigned."
+  ]
+}

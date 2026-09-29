@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mm-mem-2026",
+  "architecture_name": "MM-Mem",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "From Verbatim to Gist: Distilling Pyramidal Multimodal Memory via Semantic Information Bottleneck for Long-Horizon Video Agents",
+    "authors": [
+      "Niu Lian",
+      "Yuting Wang",
+      "Hanshu Yao",
+      "Jinpeng Wang",
+      "Bin Chen",
+      "Yaowei Wang",
+      "Min Zhang",
+      "Shu-Tao Xia"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-02",
+      "source_url": "https://arxiv.org/abs/2603.01455",
+      "pdf_url": "https://arxiv.org/pdf/2603.01455",
+      "doi": "10.48550/arXiv.2603.01455"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "sensory",
+      "memory_component": "fine-grained perceptual traces",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The Sensory Buffer retains verbatim traces."
+        }
+      ]
+    },
+    {
+      "path_id": "gist",
+      "memory_component": "episodic stream and symbolic schema",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The pyramid distills sensory traces into episodes and gist."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MM-Mem applies a trained but frozen update module to fine-grained perceptual traces; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed pyramid summarizes verbatim traces. For MM-Mem, this specifically supports episodic or hierarchical summarization of fine-grained perceptual traces."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Visual Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The information bottleneck abstracts task-relevant gist. For MM-Mem, this specifically supports abstraction of episodes into reusable experience of fine-grained perceptual traces."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Information moves through sensory, episodic, and symbolic tiers. For MM-Mem, this specifically supports migration between memory tiers of fine-grained perceptual traces."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MM-Mem applies merging or deduplication of overlapping entries to fine-grained perceptual traces; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): The ADD/MERGE/DISCARD manager is trained offline and frozen at inference. It still changes memory content under a fixed policy, making the system T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

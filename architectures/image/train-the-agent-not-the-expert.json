@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "train-the-agent-not-the-expert-2026",
+  "architecture_name": "Train the Agent Not the Expert",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Train the Agent, Not the Expert: Learning to Harness Heterogeneous Experts for Multi-Turn Visual Reasoning",
+    "authors": [
+      "Yaowu Fan",
+      "Tao Han",
+      "Dazhao Du",
+      "Andy J. Ma",
+      "Jia Wan"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29894",
+      "pdf_url": "https://arxiv.org/pdf/2605.29894",
+      "doi": "10.48550/arXiv.2605.29894"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "dynamic record of expert calls, intermediate visual evidence, and agent reasoning state across turns",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 9",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Heterogeneous-expert call records plus intermediate visual evidence held across multi-turn reasoning. experts are selected and their outputs integrated; evidence is referenced across turns."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: Multi-model Results",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Train the Agent Not the Expert applies migration between memory tiers to dynamic record of expert calls, intermediate visual evidence, and agent reasoning state across turns; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Train the Agent Not the Expert applies episodic or hierarchical summarization to dynamic record of expert calls, intermediate visual evidence, and agent reasoning state across turns; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Train the Agent Not the Expert applies fixed-rule insertion or replacement to dynamic record of expert calls, intermediate visual evidence, and agent reasoning state across turns; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (dynamic record of expert calls, intermediate visual evidence, and agent reasoning state across turns) changes through migration between memory tiers, episodic or hierarchical summarization, fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

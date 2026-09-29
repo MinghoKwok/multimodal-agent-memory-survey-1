@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "geoevolver-2026",
+  "architecture_name": "GeoEvolver",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Experience-Driven Multi-Agent Systems Are Training-free Context-aware Earth Observers",
+    "authors": [
+      "Pengyu Dai",
+      "Weihao Xuan",
+      "Junjue Wang",
+      "Hongruixuan Chen",
+      "Jian Song",
+      "Yafei Ou",
+      "Naoto Yokoya"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-26",
+      "published_date": "2026-01-30",
+      "source_url": "https://arxiv.org/abs/2602.02559",
+      "pdf_url": "https://arxiv.org/pdf/2602.02559",
+      "doi": "10.48550/arXiv.2602.02559"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "global_memory_bank",
+      "memory_component": "global Earth-observation experience bank",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3 Hierarchical Memory",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 5",
+          "paraphrase": "The global bank persists distilled tool-chain patterns and failure-derived guardrails across queries and retrieves top-k entries by embedding similarity as strategy context."
+        }
+      ]
+    },
+    {
+      "path_id": "working_memory",
+      "memory_component": "episode-local compressed working context",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3 Hierarchical Memory",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "Within an episode, older interactions are summarized into a compact progress state while a raw tail of recent tool steps remains available to the executors."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Experience-Driven Self-Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 7–8",
+          "paraphrase": "Successful variants yield reusable operation order and decision checkpoints, while failed variants yield root-cause attributions and corrective guardrails; contrastive distillation extracts invariants across variants."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Consolidation",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 9",
+          "paraphrase": "Single-variant and contrastive memories are consolidated into the global bank through canonical-key deduplication."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: §3.3 Working Memory",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "A fixed working-memory operator summarizes older episode interactions while retaining a bounded recent trajectory tail."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.2–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2; Equations 3–9",
+          "paraphrase": "For each deployed Earth-observation query, the judge's success and validity signals plus tool errors drive distillation of reusable workflow templates and corrective guardrails; these persistent procedural priors are retrieved to alter orchestration and execution on future queries."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "The paper explicitly frames the problem as deployed specialized workflows and closes every query with judgement and persistent experience distillation. The changed artifact is reusable procedural guidance for later queries, so this is T3 rather than ordinary T2 episode logging."
+  ]
+}

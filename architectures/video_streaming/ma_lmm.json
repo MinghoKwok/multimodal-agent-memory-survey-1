@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ma-lmm-2024",
+  "architecture_name": "MA-LMM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MA-LMM: Memory-Augmented Large Multimodal Model for Long-Term Video Understanding",
+    "authors": [
+      "Bo He",
+      "Hengduo Li",
+      "Young Kyun Jang",
+      "Menglin Jia",
+      "Xuefei Cao",
+      "Ashish Shah",
+      "Abhinav Shrivastava",
+      "Ser-Nam Lim"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 / CVPR 2024",
+      "published_date": "2024-04-24",
+      "source_url": "https://arxiv.org/abs/2404.05726v2",
+      "pdf_url": "https://arxiv.org/pdf/2404.05726v2",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual-memory-bank",
+      "memory_component": "visual memory bank",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Sequentially encoded frame features are cached as keys and values so the current Q-Former queries can attend to visual history."
+        }
+      ]
+    },
+    {
+      "path_id": "query-memory-bank",
+      "memory_component": "query memory bank",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Processed query representations from previous time steps persist separately and enter later Q-Former self-attention."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Large Multimodal Model (MA-LMM), aiming for effi-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "A fixed trained Q-Former generates and appends the query-state memory as frames arrive. For MA-LMM, this specifically supports a trained but frozen update module of visual memory bank."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Large Multimodal Model (MA-LMM), aiming for effi-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2(b)",
+          "paraphrase": "When a bank exceeds its bound, the fixed compression policy finds maximally similar adjacent entries and averages them. For MA-LMM, this specifically supports merging or deduplication of overlapping entries of visual memory bank."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The dual bank jointly activates modality-native frame features and persistent learned query states in the Q-Former.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (visual memory bank) changes through a trained but frozen update module, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

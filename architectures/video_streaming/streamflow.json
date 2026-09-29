@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "streamflow-2026",
+  "architecture_name": "StreamFlow",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "StreamFlow: Dynamic Memory Flows for Streaming Video Understanding",
+    "authors": [
+      "Muxin Fu",
+      "Yifan Zhang",
+      "Wentao Zhang",
+      "Fangming Guo",
+      "Qian Chen",
+      "Guibin Zhang",
+      "Shuicheng Yan",
+      "Bo An"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-08-11",
+      "source_url": "https://arxiv.org/abs/2608.10949",
+      "pdf_url": "https://arxiv.org/pdf/2608.10949",
+      "doi": "10.48550/arXiv.2608.10949"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "dynamics-aware mid-term visual memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3. Latent Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A lightweight mid-term memory filters temporal redundancy before full visual encoding."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "latent long-term visual memory",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical content is consolidated into visual latents and injected by attention-guided retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3. Latent Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, StreamFlow applies fixed-rule insertion or replacement to dynamics-aware mid-term visual memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3. Latent Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Redundant streaming observations are filtered before encoding. For StreamFlow, this specifically supports merging or deduplication of overlapping entries of dynamics-aware mid-term visual memory."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Mid-term content is consolidated into long-term visual latents. For StreamFlow, this specifically supports episodic or hierarchical summarization of dynamics-aware mid-term visual memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (dynamics-aware mid-term visual memory) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

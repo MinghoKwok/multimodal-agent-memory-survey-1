@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "o-marc-2026",
+  "architecture_name": "O-MARC",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "O-MARC: Omni Memory-Augmented Compression Distillation for Efficient Video Understanding",
+    "authors": [
+      "Peiran Wu",
+      "Yunze Liu",
+      "Chi-Hao Wu",
+      "Chen Chen",
+      "Junxiao Shen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-05-26",
+      "source_url": "https://arxiv.org/abs/2605.26584",
+      "pdf_url": "https://arxiv.org/pdf/2605.26584",
+      "doi": "10.48550/arXiv.2605.26584"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "compressed_av",
+      "memory_component": "compressed visual memory and temporally grounded audio anchors",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "OMAC preserves salient visual memory and aligned audio anchors in a compressed context."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): The full-paper lifecycle review found compressed visual memory and temporally grounded audio anchors fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

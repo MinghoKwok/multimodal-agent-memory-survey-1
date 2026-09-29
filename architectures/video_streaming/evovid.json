@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "evovid-2026",
+  "architecture_name": "EvoVid",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EvoVid: Temporal-Centric Self-Evolution for Video Large Language Models",
+    "authors": [
+      "Shiqi Huang",
+      "Ziyue Wang",
+      "Zhongrong Zuo",
+      "Han Qiu",
+      "Qi She",
+      "Bihan Wen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-21",
+      "source_url": "https://arxiv.org/abs/2605.21931",
+      "pdf_url": "https://arxiv.org/pdf/2605.21931",
+      "doi": "10.48550/arXiv.2605.21931"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "self-evolving Video-LLM weights driven by Q-S self-play",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Base Model (w/o training)",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Questioner-Solver trajectory records used as self-supervision signal. self-evolved Video-LLM is consulted at evaluation time."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "trajectory experience",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Algorithm and Pipeline",
+          "page": "PDF p. 13",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Questioner-Solver trajectory records used as self-supervision signal. self-evolved Video-LLM is consulted at evaluation time."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): The full-paper lifecycle review found self-evolving Video-LLM weights driven by Q-S self-play fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

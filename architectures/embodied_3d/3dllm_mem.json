@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "3dllm-mem-2025",
+  "architecture_name": "3DLLM-Mem",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "3DLLM-Mem: Long-Term Spatial-Temporal Memory for Embodied 3D Large Language Model",
+    "authors": [
+      "Wenbo Hu",
+      "Yining Hong",
+      "Yanjun Wang",
+      "Leison Gao",
+      "Zibu Wei",
+      "Xingcheng Yao",
+      "Nanyun Peng",
+      "Yonatan Bitton",
+      "Idan Szpektor",
+      "Kai-Wei Chang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2025-12-17",
+      "source_url": "https://arxiv.org/abs/2505.22657",
+      "pdf_url": "https://arxiv.org/pdf/2505.22657",
+      "doi": "10.48550/arXiv.2505.22657"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "working-and-episodic-3d-features",
+      "memory_component": "working memory and episodic memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Current multi-view observations form 3D patch-token working memory, while prior observations and interactions persist as spatial-temporal episodic features."
+        },
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "Working-memory tokens query episodic memory through attention and fuse task-relevant spatial and temporal features."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "When the agent moves to a new environment, the preceding working memory is transferred into episodic memory. For 3DLLM-Mem, this specifically supports migration between memory tiers of working memory and episodic memory."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "If a previously represented environment is revisited after modification, the corresponding memory entry is updated to the latest observed state. For 3DLLM-Mem, this specifically supports fixed-rule correction of stored state of working memory and episodic memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Working and episodic levels contain the same modality-native 3D feature type.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): During inference, the operative memory component (working memory and episodic memory) changes through migration between memory tiers, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

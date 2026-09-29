@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "map-vla-2025",
+  "architecture_name": "MAP-VLA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MAP-VLA: Memory-Augmented Prompting for Vision-Language-Action Model in Robotic Manipulation",
+    "authors": [
+      "Runhao Li",
+      "Wenkai Guo",
+      "Zhenyu Wu",
+      "Changyuan Wang",
+      "Haoyuan Deng",
+      "Zhenyu Weng",
+      "Yap-Peng Tan",
+      "Ziwei Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-11-12",
+      "source_url": "https://arxiv.org/abs/2511.09516",
+      "pdf_url": "https://arxiv.org/pdf/2511.09516",
+      "doi": "10.48550/arXiv.2511.09516"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "prompts",
+      "memory_component": "stage-specific soft prompts",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: C. Memory-Augmented Action Generation",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical demonstrations become stage prompts retrieved by trajectory similarity."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The full-paper lifecycle review found stage-specific soft prompts fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

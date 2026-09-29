@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "hylovqa-2026",
+  "architecture_name": "HyLoVQA",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "HyLoVQA: Dynamic Hypernetwork-Generated Low-Rank Adaptation for Continual Visual Question Answering",
+    "authors": [
+      "Yiran Wang",
+      "Chenyi Xiong",
+      "Ziyue Qin",
+      "Miao Zhang",
+      "Kui Xiao",
+      "Zhifei Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-21",
+      "source_url": "https://arxiv.org/abs/2605.22035",
+      "pdf_url": "https://arxiv.org/pdf/2605.22035",
+      "doi": "10.48550/arXiv.2605.22035"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "drift-resilient memory bank of visual-object and textual-task anchors",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Memory-bank anchor entries; hypernetwork-generated LoRA adapter weights. anchor retrieval conditions a hypernetwork that generates per-task LoRA adapters."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "drift-resilient memory bank of visual-object and textual-task anchors",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Memory-bank anchor entries; hypernetwork-generated LoRA adapter weights. anchor retrieval conditions a hypernetwork that generates per-task LoRA adapters."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Retrieved visual-object and textual-task anchors are updated online through a fixed momentum-style procedure; the memory policy itself is not self-evolving. For HyLoVQA, this specifically supports a fixed operational optimization objective of drift-resilient memory bank of visual-object and textual-task anchors."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (drift-resilient memory bank of visual-object and textual-task anchors) changes through a fixed operational optimization objective; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

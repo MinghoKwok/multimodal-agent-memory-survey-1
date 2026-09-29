@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "reflectworld-mm-2026",
+  "architecture_name": "ReflectWorld-MM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "audio",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ReflectWorld-MM: An Entity-Oriented Multi-Media Memory System for Open-Ended Video Streams",
+    "authors": [
+      "Xiaokang Ma",
+      "Yifan Sun",
+      "Zhihong Jin",
+      "Jie Gu",
+      "Yudong Luo",
+      "Shenyi Shao",
+      "Chu Tang",
+      "Jingmin Chen",
+      "Li Pu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-06",
+      "source_url": "https://arxiv.org/abs/2607.09759",
+      "pdf_url": "https://arxiv.org/pdf/2607.09759",
+      "doi": "10.48550/arXiv.2607.09759"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "obs",
+      "memory_component": "entity-resolved multimedia observations",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A bounded front end creates entity-resolved observations."
+        }
+      ]
+    },
+    {
+      "path_id": "entities",
+      "memory_component": "episodic, semantic and procedural entity memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Long-term memory couples multi-scale episodes with evolving entity semantics and procedures."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Hierarchical Episodic Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed hierarchy consolidates observations. For ReflectWorld-MM, this specifically supports episodic or hierarchical summarization of entity-resolved multimedia observations."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Repeated experience becomes semantic and procedural memory. For ReflectWorld-MM, this specifically supports abstraction of episodes into reusable experience of entity-resolved multimedia observations."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Later observations revise conflicting entity knowledge. For ReflectWorld-MM, this specifically supports LLM-based resolution of conflicting records of entity-resolved multimedia observations."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval and System Realization",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "A fixed GPT-based manager chooses Add, Update, Delete, or no-change actions after accumulating observations. For ReflectWorld-MM, this specifically supports LLM-mediated memory editing of entity-resolved multimedia observations."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Retrieval and System Realization",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "Repeated confirmation increases an entity memory's importance through a fixed evidence-reweighting rule. For ReflectWorld-MM, this specifically supports evidence-weighted revision of stored belief or confidence of entity-resolved multimedia observations."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (entity-resolved multimedia observations) changes through episodic or hierarchical summarization, abstraction of episodes into reusable experience, LLM-based resolution of conflicting records, LLM-mediated memory editing, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

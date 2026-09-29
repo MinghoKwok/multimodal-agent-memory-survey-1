@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "causalnav-2026",
+  "architecture_name": "CAUSALNAV",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "CausalNav: A Long-term Embodied Navigation System for Autonomous Mobile Robots in Dynamic Outdoor Scenarios",
+    "authors": [
+      "Hongbo Duan",
+      "Shangyi Luo",
+      "Zhiyuan Deng",
+      "Yanbo Chen",
+      "Yuanhao Chiang",
+      "Yi Liu",
+      "Fangming Liu",
+      "Xueqian Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-01-05",
+      "source_url": "https://arxiv.org/abs/2601.01872",
+      "pdf_url": "https://arxiv.org/pdf/2601.01872",
+      "doi": "10.48550/arXiv.2601.01872"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multi-level semantic scene graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: A. System Overview",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Embodied Graph constructed from map data and live perception, then updated in a temporal window. RAG retrieves from the Embodied Graph for semantic navigation and long-range planning under open-vocabulary queries."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: A. System Overview",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, CAUSALNAV applies fixed-rule insertion or replacement to multi-level semantic scene graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: A. System Overview",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, CAUSALNAV applies fixed-rule correction of stored state to multi-level semantic scene graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: A. System Overview",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Graph is continuously updated within a temporal window to reflect environmental changes and dynamic objects. For CAUSALNAV, this specifically supports explicit deletion or eviction of stored items of multi-level semantic scene graph."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (multi-level semantic scene graph) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "grga-2026",
+  "architecture_name": "GRGA (Graph-based Retrieval-Generation Agent)",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Don't Just Listen, Try Planning: Graph-based Retrieval-Generation Agent for Long-form Audio Meeting Understanding",
+    "authors": [
+      "Quanwei Tang",
+      "Dong Zhang",
+      "Shoushan Li",
+      "Guodong Zhou"
+    ],
+    "latest_version": {
+      "version_label": "ACL Anthology camera-ready (Findings of ACL 2026, pp. 20715-20742), reviewed 2026-08-30",
+      "published_date": "2026-07-02",
+      "source_url": "https://aclanthology.org/2026.findings-acl.1038/",
+      "pdf_url": "https://aclanthology.org/2026.findings-acl.1038.pdf",
+      "doi": "10.18653/v1/2026.findings-acl.1038"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multi-dimensional heterogeneous meeting graph over utterance nodes (transcript, speaker identity, start/end timestamps, LLM-distilled speaker profile) with temporal, reply-to, same-speaker, entity and coreference-semantic edges",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval",
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "3.2 Audio-to-Graph Indexing; 3.2.2 Multi-dimensional Graph Modeling",
+          "page": "PDF pp. 20718-20719",
+          "figure_or_table": "Figure 3 (framework overview, bottom-left graph)",
+          "paraphrase": "VAD + ASR + forced alignment turn the meeting audio into timestamped utterance nodes; ERes2NetV2 speaker embeddings and incremental clustering assign speaker IDs, and an LLM distills a structured speaker profile stored as a node attribute. The heterogeneous graph G=(V,E) adds temporal, reply-to, same-speaker, entity co-occurrence and LLM-detected coreference edges, and this graph is the environment the agent queries. Nodes carry timestamps and utterance IDs, so the underlying audio span is recoverable."
+        },
+        {
+          "section": "3.3 GRGA Planning Process; Appendix (Tools Details)",
+          "page": "PDF pp. 20719, 20734",
+          "figure_or_table": "Table 11 (atomic tools in the action space)",
+          "paraphrase": "The planner issues keyword_search (BM25), semantic_search (dense retrieval), hybrid_search, filte_time_range, filte_speaker and traverse_relations over the graph, i.e. tool-mediated similarity, metadata and edge-traversal access rather than a single one-shot retrieval."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "retained raw meeting waveform, addressed by timestamp through the audio_segment tool",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Appendix (Tools Details); 4 Experimentation (ablation and tool-usage analysis)",
+          "page": "PDF pp. 20734, 20720-20721",
+          "figure_or_table": "Table 11 (audio_segment tool); Table 5 (ablation: w/o Tool: Audio Access, -14.78 accuracy on AMI)",
+          "paraphrase": "audio_segment(t_start, t_end) 'retrieves raw waveform data to ground text in acoustic signals (e.g., for emotion detection)'. The tool-usage analysis states that acoustic-aware questions show a high frequency of Audio Access calls in the final steps, i.e. the agent listens to the retained raw audio when transcripts are insufficient; removing the tool causes the second-largest accuracy drop."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "agent belief state b_t = {query, decomposed constraints, interaction history H_t, accumulated evidence set, reflector critiques}",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "3.1 Problem Formulation; 3.3 GRGA Planning Process",
+          "page": "PDF pp. 20718-20719",
+          "figure_or_table": "Equations 2, 5, 6, 7",
+          "paraphrase": "The task is cast as a POMDP whose belief state b_t, explicitly defined as the sufficient statistic for decision-making, is initialized from the decomposed query and updated by a deterministic transition b_{t+1} = psi(b_t, P_t, o_t) = b_t + {P_t, o_t}. Observations are textual evidence segments s_i = (text_i, time_i, spk_i) retained across planning iterations and consumed by the Answer Synthesizer with citations; utterance IDs and timestamps link each record back to the graph and audio."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "3.3 GRGA Planning Process (Environment Interaction: Tool Execution)",
+          "page": "PDF p. 20719",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "At every inference step the retained belief/evidence state is updated by a fixed deterministic transition function psi that appends the executed plan and the newly retrieved evidence; the memory content grows across steps while the update rule itself is fixed and training-free."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "3.3 GRGA Planning Process (Reward Estimation: Synthesis & Reflection)",
+          "page": "PDF p. 20719",
+          "figure_or_table": "Equations 8-9; Figure 3 (Reliability Critique / Re-Plan & Update Belief); Table 5 (w/o Reflection, -9.84)",
+          "paraphrase": "The Self-Reflector scores the entailment between accumulated evidence and the candidate answer; when the score falls below the threshold the negative critique is injected into the belief state (b_{t+1} <- b_{t+1} union {fb_t}), which revises the retained evidence/belief content and forces a corrective plan on the next iteration. The revision policy is a fixed prompted rule, not a learned one."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The pre-built utterance graph, the timestamp-addressed raw waveform, and the accumulated textual belief/evidence state are deliberately linked (graph nodes carry the timestamps used to fetch audio, and both feed the same evidence set) and jointly supplied to the Answer Synthesizer.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full camera-ready PDF read (text extracted locally). The multi-dimensional graph is explicitly 'pre-constructed' and serves as a fixed environment: it is only queried, never rewritten, so the graph alone would be T1.",
+    "T2 is assigned on the agent-side memory: the paper formalizes an explicit belief state with a deterministic transition function (Eq. 6) and reflector-driven critique injection (Eq. 9) that persists across planning iterations within an episode and is reused by the synthesizer. Alternative reading: this state could be treated as ordinary prompt/action history, which would place the system at T1; it is counted here because the architecture explicitly retains, formalizes and reuses it as operative memory.",
+    "No T3: the system is training-free ('the policy utilizes in-context reasoning to determine the next optimal action without parameter updates'); the reflector reward is a within-episode heuristic and no write/maintenance/retrieval policy artifact persists to later questions or meetings."
+  ]
+}

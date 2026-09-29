@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "anomalyagent-2026",
+  "architecture_name": "AnomalyAgent",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "AnomalyAgent: Agentic Multimodal Reasoning for Few-Shot Anomaly Detection",
+    "authors": [
+      "Yi Zhang",
+      "Jiawen Zhu",
+      "Lele Fu",
+      "Guansong Pang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.30140",
+      "pdf_url": "https://arxiv.org/pdf/2605.30140",
+      "doi": "10.48550/arXiv.2605.30140"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "few-shot visual reference memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Self Calibration with Normal Reference Examples",
+          "page": "PDF pp. 5–6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed bank of few-shot visual references is retrieved to ground anomaly reasoning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Self Calibration with Normal Reference Examples",
+          "page": "PDF pp. 5–6",
+          "figure_or_table": "",
+          "paraphrase": "During operation, AnomalyAgent applies evidence-weighted revision of stored belief or confidence to few-shot visual reference memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Self Calibration with Normal Reference Examples",
+          "page": "PDF pp. 5–6",
+          "figure_or_table": "",
+          "paraphrase": "During operation, AnomalyAgent applies LLM-mediated memory editing to few-shot visual reference memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 5–6): Normal references, fixed-weight prototype updates, and reflection notes are written during operation; these are T2 state revision and editing. Training-time learning, when present, was not counted as T3."
+  ]
+}

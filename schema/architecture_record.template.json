@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "",
+  "architecture_name": "",
+  "primary_modality": "",
+  "secondary_modalities": [],
+  "provenance": {
+    "paper_title": "",
+    "authors": [],
+    "latest_version": {
+      "version_label": "",
+      "published_date": "",
+      "source_url": "",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "",
+      "memory_component": "",
+      "leaf": "",
+      "storage_indexing": [],
+      "retrieval_activation": [],
+      "source_accessibility": "unclear",
+      "evidence": [
+        {
+          "section": "",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": ""
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": ""
+  },
+  "review_status": "needs_adjudication",
+  "adjudication_notes": []
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "knowu-bench-2026",
+  "benchmark_name": "KnowU-Bench",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "KnowU-Bench: Towards Interactive, Proactive, and Personalized Mobile Agent Evaluation",
+    "authors": [
+      "Tongbo Chen",
+      "Zhengxi Lu",
+      "Zhan Xu",
+      "Guocheng Shao",
+      "Shaohan Zhao",
+      "Fei Tang",
+      "Yong Du",
+      "Kaitao Song",
+      "Yizhou Liu",
+      "Yuchen Yan",
+      "Wenqi Zhang",
+      "Xu Tan",
+      "Weiming Lu",
+      "Jun Xiao",
+      "Yueting Zhuang",
+      "Yongliang Shen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-29",
+      "published_date": "2026-04-09",
+      "source_url": "https://arxiv.org/abs/2604.08455",
+      "pdf_url": "https://arxiv.org/pdf/2604.08455",
+      "doi": "10.48550/arXiv.2604.08455"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_step_retention",
+    "memory_update_and_staleness",
+    "gui_state_tracking",
+    "action_outcome_tracking",
+    "cross_session_experience_reuse",
+    "memory_mediated_action"
+  ],
+  "tasks": [
+    "mobile_gui_action",
+    "planning",
+    "proactive_interaction"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark environment and evaluation protocol",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "A reproducible Android environment hides user profiles and exposes behavioral logs, requiring agents to infer preferences, ask clarifying questions, calibrate proactive intervention, and execute personalized GUI tasks."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory-adjacent because the benchmark targets personalization and proactive interaction broadly, although behavioral-history reuse is necessary."
+  ]
+}

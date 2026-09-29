@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "aesopagent-2024",
+  "architecture_name": "AesopAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "audio"
+  ],
+  "provenance": {
+    "paper_title": "AesopAgent: Agent-driven Evolutionary System on Story-to-Video Production",
+    "authors": [
+      "Jiuniu Wang",
+      "Zehua Du",
+      "Yuyuan Zhao",
+      "Bo Yuan",
+      "Kexiang Wang",
+      "Jian Liang",
+      "Yaxi Zhao",
+      "Yihen Lu",
+      "Gengliang Li",
+      "Junlong Gao",
+      "Xin Tu",
+      "Zhenyu Guo"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-03-12",
+      "source_url": "https://arxiv.org/abs/2403.07952",
+      "pdf_url": "https://arxiv.org/pdf/2403.07952",
+      "doi": "10.48550/arXiv.2403.07952"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "expert experience and professional knowledge",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The RAG layer accumulates expert experience and professional knowledge for future production runs."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "optimized prompts and utility settings",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Accumulated experience is used to iteratively optimize prompts, utilities, and the video-generation workflow."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, AesopAgent applies LLM-mediated memory editing to expert experience and professional knowledge; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Production experience is accumulated as reusable expert knowledge. For AesopAgent, this specifically supports abstraction of episodes into reusable experience of expert experience and professional knowledge."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (expert experience and professional knowledge) changes through LLM-mediated memory editing, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

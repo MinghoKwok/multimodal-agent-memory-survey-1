@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "m2a-2026",
+  "architecture_name": "M2A",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "conversation"
+  ],
+  "provenance": {
+    "paper_title": "M2A: Multimodal Memory Agent with Dual-Layer Hybrid Memory for Long-Term Personalized Interactions",
+    "authors": [
+      "Junyu Feng",
+      "Binxiao Xu",
+      "Jiayi Chen",
+      "Mengyu Dai",
+      "Cenyang Wu",
+      "Haodong Li",
+      "Bohan Zeng",
+      "Yunliu Xie",
+      "Hao Liang",
+      "Ming Lu",
+      "Wentao Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-02-07",
+      "source_url": "https://arxiv.org/abs/2602.07624v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.07624v1",
+      "doi": "10.48550/arXiv.2602.07624"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "raw-message-store",
+      "memory_component": "immutable raw conversation and image log",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 4.1. Framework Overview",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The append-only RawMessageStore preserves complete multimodal messages in chronological order and remains addressable through evidence identifiers."
+        }
+      ]
+    },
+    {
+      "path_id": "semantic-memory-store",
+      "memory_component": "editable high-level semantic observations",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 4.1. Framework Overview",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Semantic entries combine high-level descriptions, image captions, associated images, and pointers to supporting raw-message ranges; dense, sparse, and visual rankings are fused."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory ID",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "MemoryManager analyzes prior entries and executes create, delete, or modify operations after ChatAgent requests an update. For M2A, this specifically supports LLM-mediated memory editing of immutable raw conversation and image log."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: M2A: Multimodal Memory Agent for Personalized Interactions",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "MemoryManager compares a new interaction with related memories and removes or replaces outdated and conflicting semantic entries. For M2A, this specifically supports LLM-based resolution of conflicting records of immutable raw conversation and image log."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Editable semantic observations and their image fields remain linked by evidence_ids to immutable raw messages.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (immutable raw conversation and image log) changes through LLM-mediated memory editing, LLM-based resolution of conflicting records; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

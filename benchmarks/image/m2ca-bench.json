@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "m2ca-bench-2026",
+  "benchmark_name": "M2CA-Bench",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Cognitive-structured Multimodal Agent for Multimodal Understanding, Generation, and Editing",
+    "authors": [
+      "Feng Wang",
+      "Canmiao Fu",
+      "Zhipeng Huang",
+      "Chen Li",
+      "Jing Lyu",
+      "Ge Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-29",
+      "published_date": "2026-07-09",
+      "source_url": "https://arxiv.org/abs/2607.08497",
+      "pdf_url": "https://arxiv.org/pdf/2607.08497",
+      "doi": "10.48550/arXiv.2607.08497"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "episodic_visual_recall",
+    "fine_grained_visual_detail_retention",
+    "entity_identity_tracking",
+    "multi_event_evidence_integration"
+  ],
+  "tasks": [
+    "memory_retrieval",
+    "response_generation"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; M2CA-Bench benchmark and evaluation sections",
+      "page": "",
+      "figure_or_table": "M2CA-Bench difficulty strata and main evaluation tables",
+      "paraphrase": "One hundred 20-turn multimodal sessions with turn-level retrieval annotations isolate episodic visual-memory construction, retrieval, and downstream generation or editing."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

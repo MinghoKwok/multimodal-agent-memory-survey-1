@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "eventmemagent-2026",
+  "architecture_name": "EventMemAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EventMemAgent: Hierarchical Event-Centric Memory for Online Video Understanding with Adaptive Tool Use",
+    "authors": [
+      "Siwei Wen",
+      "Zhangcheng Wang",
+      "Xingjian Zhang",
+      "Lei Huang",
+      "Wenjun Wu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-02-17",
+      "source_url": "https://arxiv.org/abs/2602.15329",
+      "pdf_url": "https://arxiv.org/pdf/2602.15329",
+      "doi": "10.48550/arXiv.2602.15329"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "event-granular short-term frame buffer",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2.2. Structured Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Short-term memory detects event boundaries and reservoir-samples frames in a bounded buffer."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "long-term structured event archive",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Past observations are archived event by event for later active evidence capture."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2.2. Structured Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Event-granular reservoir sampling bounds the short-term frame buffer. For EventMemAgent, this specifically supports explicit deletion or eviction of stored items of event-granular short-term frame buffer."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2.2. Structured Long-Term Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Detected events are consolidated into the long-term archive. For EventMemAgent, this specifically supports episodic or hierarchical summarization of event-granular short-term frame buffer."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (event-granular short-term frame buffer) changes through explicit deletion or eviction of stored items, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

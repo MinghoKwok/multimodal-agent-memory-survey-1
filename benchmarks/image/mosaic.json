@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "mosaic-2026",
+  "benchmark_name": "MOSAIC",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "video_streaming",
+    "audio_speech",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "MOSAIC: An Omni-Modal Benchmark for Long-Term Memory and Cross-Modal Reasoning in Conversational Agents",
+    "authors": [
+      "Anonymous Authors"
+    ],
+    "latest_version": {
+      "version_label": "OpenReview anonymous ACL submission reviewed on 2026-08-30",
+      "published_date": "",
+      "source_url": "https://openreview.net/forum?id=juBgXjNvg4",
+      "pdf_url": "https://openreview.net/pdf?id=juBgXjNvg4",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-30"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "cross_modal_evidence",
+    "cross_modal_grounding",
+    "fine_grained_visual_detail_retention",
+    "spatial_state_and_object_memory",
+    "temporal_continuity_and_event_recall",
+    "temporal_order_and_change",
+    "memory_update_and_staleness",
+    "multi_memory_evidence_integration",
+    "entity_identity_tracking",
+    "unanswerable_query_handling"
+  ],
+  "tasks": [
+    "question_answering",
+    "memory_retrieval",
+    "memory_evaluation"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; Sections 3-4 (benchmark construction and validation)",
+      "page": "1; main paper benchmark-construction pages",
+      "figure_or_table": "Figure 1; benchmark overview and question-type tables",
+      "paraphrase": "MOSAIC contains 923 questions embedded in persona-grounded conversations spanning 11-24 sessions and multiple months. Six question types test factual recall, knowledge updates, temporal reasoning, cross-modal selection and bridging, and refusal when the history does not support an answer."
+    },
+    {
+      "section": "Appendix D (modality statistics and modality-gap construction)",
+      "page": "appendix",
+      "figure_or_table": "Table 11 and modality-gap strategy tables",
+      "paraphrase": "The required evidence spans text, image, audio, and video, with images supplying the largest share of required facts (911 of 1,860, 49.0%). The construction includes image detail and spatial gaps, video event-order and state-transition gaps, and audio prosody gaps that prevent replacement by redundant text."
+    },
+    {
+      "section": "Sections 5-6 and human-evaluation appendix",
+      "page": "evaluation and appendix pages",
+      "figure_or_table": "Main results tables; Table 17",
+      "paraphrase": "Native omni-modal, caption-to-text, and omni-to-text systems are evaluated with retrieval and memory baselines. The best reported system reaches 64.9% accuracy; the stated 91.3% ceiling is a corrected answerability estimate rather than human QA accuracy, and the human audit is deliberately stratified toward difficult probe failures."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Benchmark-only record: the paper introduces a dataset and evaluation framework, not a distinct persistent-memory architecture.",
+    "primary_modality set to image because images provide the largest share of load-bearing required evidence; video, audio, and text remain operative secondary modalities.",
+    "The exact OpenReview posting date is left blank rather than inferred from the search index's rounded '3 months ago' label; the forum and PDF were reviewed on 2026-08-30.",
+    "The paper states that the benchmark and evaluation framework are released, but no independently accessible code or data repository was located during review."
+  ]
+}

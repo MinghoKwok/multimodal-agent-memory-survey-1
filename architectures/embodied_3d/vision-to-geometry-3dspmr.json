@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vision-to-geometry-3dspmr-2025",
+  "architecture_name": "Vision to Geometry / 3DSPMR",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Vision to Geometry: 3D Spatial Memory for Sequential Embodied MLLM Reasoning and Exploration",
+    "authors": [
+      "Zhongyi Cai",
+      "Yi Du",
+      "Chen Wang",
+      "Yu Kong"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-03-18",
+      "source_url": "https://arxiv.org/abs/2512.02458",
+      "pdf_url": "https://arxiv.org/pdf/2512.02458",
+      "doi": "10.48550/arXiv.2512.02458"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Compact representative spatial memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Our Method",
+          "page": "PDF p. 14",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores representative spatial data rather than all redundant observations.; Uses FoV-based constraints as explicit geometric cues for memory construction.; Memory is accumulated from previous explorations and carried into later tasks.. spatial memory reused across sequential tasks to guide exploration."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "FoV coverage information",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Our Method",
+          "page": "PDF p. 14",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores representative spatial data rather than all redundant observations.; Uses FoV-based constraints as explicit geometric cues for memory construction.; Memory is accumulated from previous explorations and carried into later tasks.. spatial memory reused across sequential tasks to guide exploration."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Unified Spatial Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Vision to Geometry / 3DSPMR applies fixed-rule insertion or replacement to Compact representative spatial memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Unified Spatial Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Vision to Geometry / 3DSPMR applies relinking or reindexing of stored items to Compact representative spatial memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Unified Spatial Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Vision to Geometry / 3DSPMR applies merging or deduplication of overlapping entries to Compact representative spatial memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (Compact representative spatial memory) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

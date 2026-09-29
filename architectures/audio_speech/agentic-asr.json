@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "agentic-asr-2026",
+  "architecture_name": "Agentic ASR",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Towards Human-Like Interactive Speech Recognition With Agentic Correction and Semantic Evaluation",
+    "authors": [
+      "Zixuan Jiang",
+      "Yanqiao Zhu",
+      "Peng Wang",
+      "Qinyuan Chen",
+      "Xinjian Zhao",
+      "Xipeng Qiu",
+      "Wupeng Wang",
+      "Zhifu Gao",
+      "Xiangang Li",
+      "Kai Yu",
+      "Xie Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29430",
+      "pdf_url": "https://arxiv.org/pdf/2605.29430",
+      "doi": "10.48550/arXiv.2605.29430"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "updated textual transcription state and correction history",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: B. Agentic ASR Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stateful transcription history and LLM-applied edits. reasoning module uses interaction history to infer the intended edit."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "updated textual transcription state and correction history",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: B. Agentic ASR Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stateful transcription history and LLM-applied edits. reasoning module uses interaction history to infer the intended edit."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: B. Agentic ASR Framework",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Agentic ASR applies LLM-mediated memory editing to updated textual transcription state and correction history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (updated textual transcription state and correction history) changes through LLM-mediated memory editing; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

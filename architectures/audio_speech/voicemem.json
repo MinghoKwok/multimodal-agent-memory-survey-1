@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "voicemem-2026",
+  "architecture_name": "VoiceMem",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VoiceMem: Streaming Dual-Brain Memory for Real-Time Interaction",
+    "authors": [
+      "Zhifei Xie",
+      "Jiaqi Lang",
+      "Ze An",
+      "Yifan Zhao",
+      "Dongchao Yang",
+      "Kai Li",
+      "Ziyang Ma",
+      "Mingbao Lin",
+      "Chunyan Miao",
+      "Shuicheng Yan"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 HTML served on 2026-08-30",
+      "published_date": "2026-08-26",
+      "source_url": "https://arxiv.org/abs/2608.26005",
+      "pdf_url": "https://arxiv.org/pdf/2608.26005",
+      "doi": "10.48550/arXiv.2608.26005"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "left-brain informational memory: a schema/entity indexing layer over a backend item store (Mem0 by default)",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.1 Left Brain",
+          "page": "",
+          "figure_or_table": "Definition of the left-brain graph G^L; Figure 2 (architecture)",
+          "paraphrase": "A two-level structure sits above the interchangeable backend item store: schemas give coarse semantic routing and entities locate specific people, events and concepts. Each entity node v carries a textual description d_v, micro-level neighbour links N_v^micro, and an index I_v pointing to the backend memory items it owns. Retrieval traverses schema -> entity -> one-hop neighbours to narrow the candidate set before any backend similarity search, so structure traversal and vector search are composed rather than alternatives, and the entity index recovers the underlying conversational items."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "right-brain persona and affective memory: independent persona nodes and cross-entity emotion nodes",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.2 Right Brain",
+          "page": "",
+          "figure_or_table": "Equations 4-7",
+          "paraphrase": "Two node types are maintained: independent nodes v^I holding user-intrinsic dispositions and affective tendencies, and cross-entity nodes v_e^C holding context-dependent emotion tied to a left-brain entity through a linking parameter rho_{v,e}. Both node types store natural-language descriptions plus indices into backend memory items, so the persisted affective memory is a text record distilled from the spoken interaction rather than a stored acoustic signal, and it preserves whom or what an emotion concerns."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "optional multimodal audio nodes attached to entity nodes (speaker voiceprints, acoustic embeddings, raw waveforms)",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.4 (audio memory extension); Sec. 5.3 (ChatMem-Bench Paralinguistics & Environment results)",
+          "page": "",
+          "figure_or_table": "Table 3",
+          "paraphrase": "Sec. 3.4 states that VoiceMem extends memory beyond text to audio and that, when enabled, agents selectively retain audio as speaker voiceprints, acoustic embeddings, or raw waveforms and attach them as multimodal nodes to the corresponding entity nodes, supporting multi-speaker discrimination, paralinguistic analysis, and environmental sound memory. Sec. 5.3 reports that on the three acoustic categories every text-only system scores between 3.23 and 26.92 while VoiceMem reaches 45.16 to 53.84, which is consistent with non-transcribable acoustic evidence actually being retained and reused."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.2 (short-horizon attribution)",
+          "page": "",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "For each conversational turn x_t an affect estimator produces e_t = phi(x_t); the pair (x_t, e_t) is immediate evidence for adding, editing, or merging persona nodes during the live conversation. Persona memory content therefore changes at inference time under a fixed attribution policy."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.2 (short-horizon attribution)",
+          "page": "",
+          "figure_or_table": "Equation 6",
+          "paraphrase": "Short-horizon updates explicitly include merging persona nodes when new turn-level affective evidence duplicates or subsumes an existing node."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.2 (long-horizon attribution)",
+          "page": "",
+          "figure_or_table": "Equation 7",
+          "paraphrase": "After each session, long-horizon attribution jointly analyses the full turn sequence and consolidates recurrent affective evidence into stable independent persona nodes, so transient emotional states are abstracted into durable dispositions instead of accumulating."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.1 (asynchronous updater)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "An asynchronous updater extracts new facts from the ongoing conversation and jointly reconciles them against nearby existing memories, choosing among add, update, delete, or keep. Reconciliation of contradictory facts happens during deployment under this fixed decision policy."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML): Sec. 3.1 (asynchronous updater)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "The same asynchronous reconciliation may resolve to delete, removing superseded memory items from the left-brain store during deployment."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The informational left-brain graph, the affective right-brain persona graph, and the optional acoustic nodes are deliberately linked (cross-entity emotion nodes bind to left-brain entities via rho_{v,e}; audio nodes attach to entity nodes) and their retrieval results are merged into a single prompt supplied to the speech model.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Tier T2, not T3. Feedback during deployment changes memory content and persona-node structure only; the write/reconcile/retrieve policies are fixed. The learning the paper reports is Sec. 4.1 black-box online policy distillation that produces the ChatMem-400K training set and the memory-aware SLM before deployment, which annotation_guide.md excludes from T3 regardless of the 'online' label. Sec. 4.2 decoupled deployment allows swapping memory backends by operator action, not by deployment feedback.",
+    "Evidence limitation for path 3: Sec. 3.4 explicitly describes conditionally enabled acoustic retention as speaker voiceprints, acoustic embeddings, or raw waveforms attached to entity nodes, and Sec. 5.3 reports gains on acoustic benchmark categories over text-only systems. The paper does not specify the encoder, index, or matching procedure, so only the explicitly described representation and graph attachment are recorded. Inclusion criterion (b) is independently supported because ChatMem-Bench inputs are audio and the affect estimator phi consumes the spoken turn.",
+    "Two fetches of the HTML reported the ChatMem-Bench turn count as 5,314 and 15,314 respectively; the turn count is therefore not asserted in the benchmark record.",
+    "Evidence taken from arXiv full-text HTML; printed page numbers were not resolvable from the HTML rendering."
+  ]
+}

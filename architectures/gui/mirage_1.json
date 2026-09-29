@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mirage-1-2025",
+  "architecture_name": "Mirage-1",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Mirage-1: Augmenting and Updating GUI Agent with Hierarchical Multimodal Skills",
+    "authors": [
+      "Yuquan Xie",
+      "Zaijing Li",
+      "Rui Shao",
+      "Gongwei Chen",
+      "Kaiwen Zhou",
+      "Yinchuan Li",
+      "Dongmei Jiang",
+      "Liqiang Nie"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-06-12",
+      "source_url": "https://arxiv.org/abs/2506.10387",
+      "pdf_url": "https://arxiv.org/pdf/2506.10387",
+      "doi": "10.48550/arXiv.2506.10387"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "multimodal execution-skill trajectories",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Update HMS",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Execution skills retain multimodal historical trajectories and step goals."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "core and meta skill hierarchy",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Update HMS",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Trajectories are progressively abstracted into core skills and meta-skills for planning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Update HMS",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical trajectories are progressively abstracted into reusable skill levels. For Mirage-1, this specifically supports abstraction of episodes into reusable experience of multimodal execution-skill trajectories."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Execution, core, and meta skills form a consolidated hierarchy. For Mirage-1, this specifically supports episodic or hierarchical summarization of multimodal execution-skill trajectories."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (multimodal execution-skill trajectories) changes through abstraction of episodes into reusable experience, episodic or hierarchical summarization; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "seer-bench-2025",
+  "benchmark_name": "SEER-Bench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Vision to Geometry: 3D Spatial Memory for Sequential Embodied MLLM Reasoning and Exploration",
+    "authors": [
+      "Zhongyi Cai",
+      "Yi Du",
+      "Chen Wang",
+      "Yu Kong"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-29",
+      "published_date": "2026-03-18",
+      "source_url": "https://arxiv.org/abs/2512.02458",
+      "pdf_url": "https://arxiv.org/pdf/2512.02458",
+      "doi": "10.48550/arXiv.2512.02458"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "memory_update_and_staleness",
+    "spatial_state_and_object_memory",
+    "task_state_and_progress_tracking",
+    "memory_mediated_action",
+    "multi_event_evidence_integration"
+  ],
+  "tasks": [
+    "question_answering",
+    "planning",
+    "navigation_and_localization"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; SEER-Bench task construction and evaluation",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "Sequential EQA and embodied multimodal navigation tasks require reuse of spatial knowledge across feasible and infeasible subtasks in a shared exploration episode."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "augustus-2025",
+  "architecture_name": "AUGUSTUS",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "video",
+    "audio"
+  ],
+  "provenance": {
+    "paper_title": "AUGUSTUS: An LLM-Driven Multimodal Agent System with Contextualized User Memory",
+    "authors": [
+      "Jitesh Jain",
+      "Shubham Maheshwari",
+      "Ning Yu",
+      "Wen-mei Hwu",
+      "Humphrey Shi"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-10-17",
+      "source_url": "https://arxiv.org/abs/2510.15261",
+      "pdf_url": "https://arxiv.org/pdf/2510.15261",
+      "doi": "10.48550/arXiv.2510.15261"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "semantic tags",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Storing Concepts in Contextual Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Encoded language-form descriptions; semantic tags; context nodes with modality, timestamp, URL, and embeddings. CoPe search first retrieves concepts from a contextual tree and personalized tag graph, then retrieves concept-relevant context nodes."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "multimodal context nodes",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Storing Concepts in Contextual Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Encoded language-form descriptions; semantic tags; context nodes with modality, timestamp, URL, and embeddings. CoPe search first retrieves concepts from a contextual tree and personalized tag graph, then retrieves concept-relevant context nodes."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "user context",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Storing Concepts in Contextual Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Encoded language-form descriptions; semantic tags; context nodes with modality, timestamp, URL, and embeddings. CoPe search first retrieves concepts from a contextual tree and personalized tag graph, then retrieves concept-relevant context nodes."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 20",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Recall memory logs conversations; contextual memory receives new context inserts; in-context memory can be modified. For AUGUSTUS, this specifically supports LLM-mediated memory editing of semantic tags."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Stage-2: Store in Memory",
+          "page": "PDF p. 15",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Recall memory logs conversations; contextual memory receives new context inserts; in-context memory can be modified. For AUGUSTUS, this specifically supports explicit deletion or eviction of stored items of semantic tags."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 20): During inference, the operative memory component (semantic tags) changes through LLM-mediated memory editing, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

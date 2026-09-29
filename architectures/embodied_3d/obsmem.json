@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "obsmem-2026",
+  "architecture_name": "ObsMem",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "WorldLines: Benchmarking and Modeling Long-Horizon Stateful Embodied Agents",
+    "authors": [
+      "Yehang Zhang",
+      "Jianchong Su",
+      "Haojian Huang",
+      "Yifan Chang",
+      "Tianhao Zhou",
+      "Xinli Xu",
+      "Yingjie Xu",
+      "Yinchuan Li",
+      "Zexi Li",
+      "Ying-Cong Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-08-21",
+      "source_url": "https://arxiv.org/abs/2606.18847",
+      "pdf_url": "https://arxiv.org/pdf/2606.18847",
+      "doi": "10.48550/arXiv.2606.18847"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "state_trails",
+      "memory_component": "visibility-aware memories and action-native state trails",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 16",
+          "figure_or_table": "",
+          "paraphrase": "ObsMem tracks visibility, action history, and changing household state for embodied planning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Typed Memory Update",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "State trails update overwritten world states under partial observability. For ObsMem, this specifically supports fixed-rule correction of stored state of visibility-aware memories and action-native state trails."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Benchmarks for Long-Horizon Agent Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Evidence-linked state records are connected across dialogue and action traces. For ObsMem, this specifically supports relinking or reindexing of stored items of visibility-aware memories and action-native state trails."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (visibility-aware memories and action-native state trails) changes through fixed-rule correction of stored state, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

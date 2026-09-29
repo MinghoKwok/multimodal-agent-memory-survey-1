@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "gem-occ-2026",
+  "architecture_name": "GEM-Occ",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "GEM-Occ: From Visual Geometry Evidence to Embodied Semantic Occupancy Memory",
+    "authors": [
+      "Hu Zhu",
+      "Bohan Li",
+      "Xianda Guo",
+      "Hongsi Liu",
+      "Baorui Peng",
+      "Mingqi Yuan",
+      "Xin Jin",
+      "Wenjun Zeng",
+      "Chang Wen Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-06",
+      "source_url": "https://arxiv.org/abs/2607.05543",
+      "pdf_url": "https://arxiv.org/pdf/2607.05543",
+      "doi": "10.48550/arXiv.2607.05543"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "gaussian_evidence",
+      "memory_component": "semantic Gaussian occupancy and free-space evidence",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Additional Method Details",
+          "page": "PDF p. 12",
+          "figure_or_table": "",
+          "paraphrase": "Transient geometry is fused into persistent semantic Gaussian occupancy memory."
+        }
+      ]
+    },
+    {
+      "path_id": "building_graph",
+      "memory_component": "local caches, room submaps, and building graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Memory is organized across local, room, and building levels."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Visibility- and uncertainty-aware causal updates revise occupancy evidence. For GEM-Occ, this specifically supports fixed-rule correction of stored state of semantic Gaussian occupancy and free-space evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: Visual Geometry Model",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "Evidence is fused from local caches into room submaps and a building graph. For GEM-Occ, this specifically supports migration between memory tiers of semantic Gaussian occupancy and free-space evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Training Objective and Memory Maintenance",
+          "page": "PDF p. 14",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GEM-Occ applies merging or deduplication of overlapping entries to semantic Gaussian occupancy and free-space evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Training Objective and Memory Maintenance",
+          "page": "PDF p. 14",
+          "figure_or_table": "",
+          "paraphrase": "During operation, GEM-Occ applies explicit deletion or eviction of stored items to semantic Gaussian occupancy and free-space evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "geometry-linked hierarchical occupancy graph",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (semantic Gaussian occupancy and free-space evidence) changes through fixed-rule correction of stored state, migration between memory tiers, merging or deduplication of overlapping entries, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

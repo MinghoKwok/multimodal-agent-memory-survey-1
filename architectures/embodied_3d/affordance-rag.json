@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "affordance-rag-2026",
+  "architecture_name": "Affordance RAG",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Affordance RAG: Hierarchical Multimodal Retrieval With Affordance-Aware Embodied Memory for Mobile Manipulation",
+    "authors": [
+      "Ryosuke Korekata",
+      "Quanting Xie",
+      "Yonatan Bisk",
+      "Komei Sugiura"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://ieeexplore.ieee.org/document/11345987",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Target object candidates and receptacle candidates",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: A. Affordance-Aware Embodied Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The robot builds Affordance Mem during pre-exploration from collected images.; SEEM-style segmentation produces object masks; VLMs produce descriptions; embeddings are stored for multimodal retrieval.; Agglomerative clustering builds higher-level region nodes and summaries, making the memory hierarchical rather than a flat image bank.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Hierarchical region nodes spanning building/room/area/object levels",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: A. Affordance-Aware Embodied Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The robot builds Affordance Mem during pre-exploration from collected images.; SEEM-style segmentation produces object masks; VLMs produce descriptions; embeddings are stored for multimodal retrieval.; Agglomerative clustering builds higher-level region nodes and summaries, making the memory hierarchical rather than a flat image bank.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "Object-centric descriptions beyond category labels",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: A. Affordance-Aware Embodied Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The robot builds Affordance Mem during pre-exploration from collected images.; SEEM-style segmentation produces object masks; VLMs produce descriptions; embeddings are stored for multimodal retrieval.; Agglomerative clustering builds higher-level region nodes and summaries, making the memory hierarchical rather than a flat image bank.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_4",
+      "memory_component": "Affordance scores indicating whether picking/placing is physically suitable",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: A. Affordance-Aware Embodied Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "The robot builds Affordance Mem during pre-exploration from collected images.; SEEM-style segmentation produces object masks; VLMs produce descriptions; embeddings are stored for multimodal retrieval.; Agglomerative clustering builds higher-level region nodes and summaries, making the memory hierarchical rather than a flat image bank.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): The image/affordance store is constructed before downstream queries and only retrieved at inference; top-k selection is not eviction. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

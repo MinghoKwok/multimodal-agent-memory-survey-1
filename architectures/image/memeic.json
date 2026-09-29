@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memeic-2025",
+  "architecture_name": "MemEIC",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemEIC: A Step Toward Continual and Compositional Knowledge Editing",
+    "authors": [
+      "Jin Seong",
+      "Jiyun Park",
+      "Wencke Liermann",
+      "Hongseok Choi",
+      "Yoonji Nam",
+      "Hyun Kim",
+      "Soojong Lim",
+      "Namhoon Lee"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-10-29",
+      "source_url": "https://arxiv.org/abs/2510.25798",
+      "pdf_url": "https://arxiv.org/pdf/2510.25798",
+      "doi": "10.48550/arXiv.2510.25798"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "external",
+      "memory_component": "dual visual and textual evidence",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Dual external memory retrieves cross-modal evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "lora",
+      "memory_component": "modality-specific LoRA edits",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Dual LoRA adapters retain continual visual and textual edits."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Sequential optimization writes edits into LoRA adapters. For MemEIC, this specifically supports a fixed operational optimization objective of dual visual and textual evidence."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): During inference, the operative memory component (dual visual and textual evidence) changes through a fixed operational optimization objective; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "chronosaudio-2026",
+  "benchmark_name": "ChronosAudio",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "paper": {
+    "title": "ChronosAudio: A Comprehensive Long-Audio Benchmark for Evaluating Audio-Large Language Models",
+    "authors": [
+      "Kaiwen Luo",
+      "Liang Lin",
+      "Yibo Zhang",
+      "Moayad Aloqaily",
+      "Jialiang Tao",
+      "Dexian Wang",
+      "Zhenhong Zhou",
+      "Junwei Zhang",
+      "Kun Wang",
+      "Li Sun",
+      "Qingsong Wen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-30",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2601.04876",
+      "pdf_url": "https://arxiv.org/pdf/2601.04876",
+      "doi": "10.48550/arXiv.2601.04876"
+    },
+    "reviewed_on": "2026-08-30"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_continuity_and_event_recall",
+    "temporal_order_and_change",
+    "multi_memory_evidence_integration"
+  ],
+  "tasks": [
+    "question_answering",
+    "temporal_localization",
+    "generation"
+  ],
+  "evidence": [
+    {
+      "section": "Full text: Section 3 (benchmark design) and Section 3.1 (data construction and length stratification)",
+      "page": "",
+      "figure_or_table": "Section 3.1 clip-count statistics; Table 2 (model list)",
+      "paraphrase": "Six tasks grouped into Temporal Perception (Dictation, Localization), Verbatim Sequential Generation (Transcription, Multi-Speaker) and High-level Reasoning (Comprehension, Summary), evaluated over three explicit duration strata: short-form 3,000 clips of 30s-5min, middle-form 2,000 clips of 5-10min, long-form 1,000 clips of 10-20min. The stratification is the benchmark's controlled variable: identical task families are re-asked at increasing audio length so that retention over the stream, not task difficulty, is what varies."
+    },
+    {
+      "section": "Full text: Section 4 (results) / 'Long-Context Collapse' analysis",
+      "page": "",
+      "figure_or_table": "Table 2 and main result tables",
+      "paraphrase": "16 audio LLMs (8 open, 8 closed) are evaluated; the headline finding is 'Long-Context Collapse', over 90% degradation on some tasks when moving from short to long audio, attributed to attention failing to maintain temporal coherence across the stream. Localization requires temporal grounding within long audio and Comprehension/Summary require synthesizing evidence dispersed across the whole recording."
+    },
+    {
+      "section": "Full text: Section 3.1 and Section 7 (Ethical Considerations)",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Audio is synthetic, generated from SQuAD text with F5-TTS, which lets the authors place ground-truth evidence at controlled positions in the stream and avoids PII; it also means the acoustic signal is TTS speech rather than natural recordings."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Classified as a core memory benchmark because retention and localization of evidence across 10-20 minute audio streams is the benchmark's controlled axis, not a side effect; it is the audio analogue of the long-form video diagnostic benchmarks in this corpus.",
+    "It evaluates end-to-end audio LLMs rather than agents with an explicit memory module, so it measures model long-context retention rather than any external memory write/read/maintenance policy.",
+    "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update."
+  ],
+  "scope_status": "memory_adjacent"
+}

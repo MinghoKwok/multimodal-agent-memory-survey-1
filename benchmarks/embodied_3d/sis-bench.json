@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "sis-bench-2026",
+  "benchmark_name": "SIS-Bench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "video_streaming",
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Self in Space: Benchmarking Self-Awareness and Spatial Cognition in UAV Embodied Intelligence",
+    "authors": [
+      "Zhishan Zou",
+      "Guoyan Sun",
+      "Zhiwei Wei",
+      "Jiancheng Pan",
+      "Yujie Li",
+      "Mugen Peng",
+      "Wenjia Xu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-29",
+      "published_date": "2026-07-15",
+      "source_url": "https://arxiv.org/abs/2607.12477",
+      "pdf_url": "https://arxiv.org/pdf/2607.12477",
+      "doi": "10.48550/arXiv.2607.12477"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_localization",
+    "spatial_state_and_object_memory",
+    "self_state_tracking",
+    "multi_event_evidence_integration"
+  ],
+  "tasks": [
+    "question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; SIS-Bench construction and cognitive hierarchy",
+      "page": "",
+      "figure_or_table": "Benchmark overview and task hierarchy",
+      "paraphrase": "Real UAV videos support 13 tasks organized by space versus self and by perception, memory, and reasoning, directly probing retained spatial and agent-state evidence."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory-adjacent because it evaluates embodied spatial intelligence broadly rather than a dedicated agent-memory architecture.",
+    "2026-09-17 scope review: Real UAV video tasks explicitly include memory alongside perception and reasoning about space and self. The full benchmark is broader than its memory tasks; detailed protocol claims remain to be rechecked. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

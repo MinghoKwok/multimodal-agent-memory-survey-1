@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "remembench-2026",
+  "benchmark_name": "ReMemBench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Scaling Short-Term Memory of Visuomotor Policies for Long-Horizon Tasks",
+    "authors": [
+      "Rutav Shah",
+      "Rajat Kumar Jenamani",
+      "Xiaohan Zhang",
+      "Lingfeng Sun",
+      "Roberto Martín-Martín",
+      "Yuke Zhu",
+      "Deva Ramanan",
+      "Karl Schmeckpeper"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-06-15",
+      "source_url": "https://arxiv.org/abs/2606.16178",
+      "pdf_url": "https://arxiv.org/pdf/2606.16178",
+      "doi": "10.48550/arXiv.2606.16178"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "memory_mediated_action",
+    "temporal_order_and_change",
+    "spatial_state_and_object_memory"
+  ],
+  "tasks": [
+    "robotic_manipulation",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Eight household manipulation tasks isolate four forms of short-term visuomotor memory."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

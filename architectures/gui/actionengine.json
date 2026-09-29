@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "actionengine-2026",
+  "architecture_name": "ActionEngine",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ActionEngine: From Reactive to Programmatic GUI Agents via State Machine Memory",
+    "authors": [
+      "Hongbin Zhong",
+      "Fazle Faisal",
+      "Luis França",
+      "Tanakorn Leesatapornwongsa",
+      "Adriana Szekeres",
+      "Kexin Rong",
+      "Suman Nath"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-02-24",
+      "source_url": "https://arxiv.org/abs/2602.20502",
+      "pdf_url": "https://arxiv.org/pdf/2602.20502",
+      "doi": "10.48550/arXiv.2602.20502"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "updatable GUI state-machine memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: System Overview",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Crawler-validated GUI states and action templates form a state machine used to synthesize executable programs."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Dynamic Memory Update Mechanism",
+          "page": "PDF p. 8",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Execution failures trigger fixed vision-based re-grounding and persistent memory updates. For ActionEngine, this specifically supports fixed-rule insertion or replacement of updatable GUI state-machine memory."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Failed actions are repaired and their state-machine entries corrected. For ActionEngine, this specifically supports fixed-rule correction of stored state of updatable GUI state-machine memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): During inference, the operative memory component (updatable GUI state-machine memory) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

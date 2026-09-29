@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "comfyclaw-2026",
+  "architecture_name": "ComfyClaw",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ComfyClaw: Self-Evolving Skill Harnesses for Image Generation Workflows",
+    "authors": [
+      "Zongxia Li",
+      "Dawei Liu",
+      "Fuxiao Liu",
+      "Yuhang Zhou",
+      "Xiyang Wu",
+      "Jingxi Chen",
+      "Jing Xie",
+      "Xiaomin Wu",
+      "Lichao Sun"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-26",
+      "published_date": "2026-07-02",
+      "source_url": "https://arxiv.org/abs/2607.01709",
+      "pdf_url": "https://arxiv.org/pdf/2607.01709",
+      "doi": "10.48550/arXiv.2607.01709"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "skill_library",
+      "memory_component": "versioned workflow skill library",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.1–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The long-term skill library stores lightweight names, descriptions, tags, and trigger phrases separately from full step-by-step workflow procedures; a trigger router exposes relevant metadata first and retrieves full instructions on demand."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Skill Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 3",
+          "paraphrase": "Success and failure traces from completed image-generation runs are clustered and distilled into reusable workflow procedures rather than retained only as raw episodes."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Skill Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equations 4–6",
+          "paraphrase": "The skill evolver applies CREATE, REVISE, and REINFORCE mutations to skill records, and accepted candidates are committed as new persistent versions."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Skill Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 4",
+          "paraphrase": "The explicit MERGE mutation combines redundant skills before the candidate library is validated and committed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.4 Skill Evolution",
+          "page": "HTML full text",
+          "figure_or_table": "Equation 4",
+          "paraphrase": "The explicit DELETE mutation removes a skill judged no longer useful, subject to the same validation and rollback process as other mutations."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3.2–3.4",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 1; Equations 4–6",
+          "paraphrase": "During deployed workflow runs, runtime errors and VLM feedback over rendered images drive validated REVISE and REINFORCE mutations that persistently change skill descriptions, triggers, and emphasis terms used by the trigger router; committed versions are invoked on later prompts."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported by a complete deployment chain: rendered-image and runtime feedback arise during use; the feedback changes persistent skill triggers and procedures; accepted versions are committed; and the router uses those changed artifacts on later image-generation runs."
+  ]
+}

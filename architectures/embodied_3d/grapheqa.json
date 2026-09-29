@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "grapheqa-2025",
+  "architecture_name": "GraphEQA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "GraphEQA: Using 3D Semantic Scene Graphs for Real-time Embodied Question Answering",
+    "authors": [
+      "Saumya Saxena",
+      "Blake Buchanan",
+      "Chris Paxton",
+      "Peiqi Liu",
+      "Bingqing Chen",
+      "Narunas Vaskevicius",
+      "Luigi Palmieri",
+      "Jonathan Francis",
+      "Oliver Kroemer"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2025-09-24",
+      "source_url": "https://arxiv.org/abs/2412.14480v2",
+      "pdf_url": "https://arxiv.org/pdf/2412.14480v2",
+      "doi": "10.48550/arXiv.2412.14480"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "task-relevant-image-buffer",
+      "memory_component": "top-K task-relevant prior images",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Buffered observations are ranked with SigLIP; only the top-K images are retained and jointly supplied with the current view to the VLM planner."
+        }
+      ]
+    },
+    {
+      "path_id": "metric-semantic-scene-graph",
+      "memory_component": "online hierarchical 3D scene graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "The online 3DSG stores rooms, regions, objects, and frontier links; the planner traverses its hierarchy while grounding decisions in retained images."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "The metric-semantic graph is incrementally updated online as the robot maps new space and adds object and frontier nodes. For GraphEQA, this specifically supports fixed-rule insertion or replacement of top-K task-relevant prior images."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: 3.4 Task-relevant Visual Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "At each step, only the top-K relevant prior images remain in the buffer and the rest are discarded. For GraphEQA, this specifically supports explicit deletion or eviction of stored items of top-K task-relevant prior images."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The VLM jointly receives the hierarchical scene graph and task-relevant source images for grounded planning.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (top-K task-relevant prior images) changes through fixed-rule insertion or replacement, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

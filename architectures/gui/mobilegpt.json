@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mobilegpt-2024",
+  "architecture_name": "MobileGPT",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MobileGPT: Augmenting LLM with Human-like App Memory for Mobile Task Automation",
+    "authors": [
+      "Sunjae Lee",
+      "Junyoung Choi",
+      "Jungjae Lee",
+      "Munim Hasan Wasi",
+      "Hojun Choi",
+      "Steven Y. Ko",
+      "Sangeun Oh",
+      "Insik Shin"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3",
+      "published_date": "2024-10-16",
+      "source_url": "https://arxiv.org/abs/2312.03003v3",
+      "pdf_url": "https://arxiv.org/pdf/2312.03003v3",
+      "doi": "10.48550/arXiv.2312.03003"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "hierarchical-app-memory",
+      "memory_component": "screens, reusable subtasks, and action procedures",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: System Design",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "App memory organizes screens and derived action procedures into reusable, parameterizable subtasks that can be selected and recomposed for new goals."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: System Design",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "The LLM selects useful explored paths and derives a task procedure that is stored in app memory. For MobileGPT, this specifically supports LLM-mediated memory editing of screens, reusable subtasks, and action procedures."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Explored action sequences are decomposed into modular subtask procedures for reuse across tasks. For MobileGPT, this specifically supports abstraction of episodes into reusable experience of screens, reusable subtasks, and action procedures."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MobileGPT applies fixed-rule correction of stored state to screens, reusable subtasks, and action procedures; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "The operative app memory is one structured procedural representation.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (screens, reusable subtasks, and action procedures) changes through LLM-mediated memory editing, abstraction of episodes into reusable experience, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

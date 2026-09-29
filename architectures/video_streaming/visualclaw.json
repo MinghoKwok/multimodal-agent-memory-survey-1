@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "visualclaw-2026",
+  "architecture_name": "VisualClaw",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VisualClaw: A Real-Time, Personalized Agent for the Physical World",
+    "authors": [
+      "Haoqin Tu",
+      "Jianwen Chen",
+      "Zijun Wang",
+      "Siwei Han",
+      "Juncheng Wu",
+      "Hardy Chen",
+      "Haonian Ji",
+      "Kaiwen Xiong",
+      "Jiaqi Liu",
+      "Peng Xia",
+      "Jieru Mei",
+      "Hongliang Fei",
+      "Jason Eshraghian",
+      "Zeyu Zheng",
+      "Yuyin Zhou",
+      "Huaxiu Yao",
+      "Cihang Xie"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-15",
+      "source_url": "https://arxiv.org/abs/2606.16295",
+      "pdf_url": "https://arxiv.org/pdf/2606.16295",
+      "doi": "10.48550/arXiv.2606.16295"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "filtered streaming visual evidence",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF pp. 4, 6, 19",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A cascaded gate retains informative streaming frames while reducing uploads."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "hot/cold multimodal skill bank",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF pp. 4, 6, 19",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A compressed skill bank is retrieved by hot/cold top-k injection and updated from failures."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF pp. 4, 6, 19",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Failures and retrieved memories are distilled into reusable skills. For VisualClaw, this specifically supports abstraction of episodes into reusable experience of filtered streaming visual evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF pp. 4, 6, 19",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "An evolver writes persistent skill-bank updates for later questions. For VisualClaw, this specifically supports LLM-mediated memory editing of filtered streaming visual evidence."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: Method",
+          "page": "PDF pp. 4, 6, 19",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Failure-driven skill updates persist and change future hot/cold skill activation and injection for later questions. The persistent later-use effect is deployment-feedback evolution of the reusable retrieval policy or procedure."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 4, 6, 19): Post-deployment failures create reusable skills that are injected on later queries; the persistent behavioral retrieval artifact evolves under deployed feedback, satisfying strict T3. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "primary_modality": [
+    "image",
+    "video_streaming",
+    "gui",
+    "embodied_3d",
+    "audio_speech"
+  ],
+  "representation_leaf": [
+    "retained_perceptual_source_evidence",
+    "modality_specific_encodings_and_geometric_state",
+    "perception_to_text_records_and_summaries",
+    "spatial_temporal_and_cross_modal_structured_memory",
+    "persistent_multimodal_latent_state",
+    "experience_conditioned_parametric_memory"
+  ],
+  "representation_parent_map": {
+    "retained_perceptual_source_evidence": "source_preserving_and_modality_native_memory",
+    "modality_specific_encodings_and_geometric_state": "source_preserving_and_modality_native_memory",
+    "perception_to_text_records_and_summaries": "cross_represented_explicit_memory",
+    "spatial_temporal_and_cross_modal_structured_memory": "cross_represented_explicit_memory",
+    "persistent_multimodal_latent_state": "internalized_latent_and_parametric_memory",
+    "experience_conditioned_parametric_memory": "internalized_latent_and_parametric_memory"
+  },
+  "storage_indexing": [
+    "flat_sequential_record_store",
+    "vector_indexed_collection",
+    "hierarchical_multi_tier_store",
+    "graph_relational_store",
+    "modular_adapter_store_bank",
+    "unclear"
+  ],
+  "retrieval_activation": [
+    "similarity_based_retrieval",
+    "metadata_spatiotemporal_retrieval",
+    "structure_based_traversal",
+    "planner_tool_assisted_retrieval",
+    "latent_parametric_activation",
+    "unclear"
+  ],
+  "t2_operation_leaf": [
+    "rule_based_update",
+    "llm_based_memory_editing",
+    "learned_update_module",
+    "optimization_based_update",
+    "memory_merging_and_deduplication",
+    "episodic_or_hierarchical_summarization",
+    "experience_abstraction",
+    "rule_based_state_correction",
+    "llm_based_conflict_resolution",
+    "evidence_weighted_belief_revision",
+    "memory_tier_migration",
+    "memory_relinking_and_reindexing",
+    "discrete_memory_eviction",
+    "progressive_memory_decay"
+  ],
+  "t2_parent_map": {
+    "rule_based_update": "memory_update",
+    "llm_based_memory_editing": "memory_update",
+    "learned_update_module": "memory_update",
+    "optimization_based_update": "memory_update",
+    "memory_merging_and_deduplication": "memory_consolidation",
+    "episodic_or_hierarchical_summarization": "memory_consolidation",
+    "experience_abstraction": "memory_consolidation",
+    "rule_based_state_correction": "memory_revision_and_conflict_resolution",
+    "llm_based_conflict_resolution": "memory_revision_and_conflict_resolution",
+    "evidence_weighted_belief_revision": "memory_revision_and_conflict_resolution",
+    "memory_tier_migration": "memory_reorganization",
+    "memory_relinking_and_reindexing": "memory_reorganization",
+    "discrete_memory_eviction": "memory_forgetting",
+    "progressive_memory_decay": "memory_forgetting"
+  },
+  "t3_policy_evolution_target": [
+    "write_policy_evolution",
+    "maintenance_policy_evolution",
+    "retrieval_policy_evolution"
+  ],
+  "highest_management_tier": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "source_accessibility": [
+    "direct",
+    "linked_recoverable",
+    "retained_not_accessible",
+    "none",
+    "unclear"
+  ],
+  "review_status": [
+    "verified",
+    "needs_adjudication"
+  ]
+}

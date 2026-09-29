@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ui-mem-2026",
+  "architecture_name": "UI-Mem",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "UI-Mem: Self-Evolving Experience Memory for Online Reinforcement Learning in Mobile GUI Agents",
+    "authors": [
+      "Han Xiao",
+      "Guozhi Wang",
+      "Hao Wang",
+      "Shilong Liu",
+      "Yuxiang Chai",
+      "Yue Pan",
+      "Yufeng Zhou",
+      "Xiaoxin Chen",
+      "Yafei Wen",
+      "Hongsheng Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-02-05",
+      "source_url": "https://arxiv.org/abs/2602.05832v1",
+      "pdf_url": "https://arxiv.org/pdf/2602.05832v1",
+      "doi": "10.48550/arXiv.2602.05832"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "hierarchical-experience-templates",
+      "memory_component": "workflows, subtask skills, and failure-pattern templates",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 4.1. Implementation Details",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Raw trajectories are abstracted into parameterized high-level workflows, executable subtask skills, and failure patterns retrieved and instantiated for new tasks."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "The operative memory is one structured template hierarchy.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): The self-evolving memory loop runs during reinforcement-training iterations; inference retrieves the resulting fixed memory. Training-time evolution does not qualify as T2 or T3. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

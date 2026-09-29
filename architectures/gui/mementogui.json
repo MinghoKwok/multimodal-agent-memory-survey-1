@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mementogui-2026",
+  "architecture_name": "MementoGUI",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "MementoGUI: Learning Agentic Multimodal Memory Control for Long-Horizon GUI Agents",
+    "authors": [
+      "Ziyun Zeng",
+      "Hang Hua",
+      "Bocheng Zou",
+      "Mu Cai",
+      "Rogerio Feris",
+      "Jiebo Luo"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-05-18",
+      "source_url": "https://arxiv.org/abs/2605.18652v1",
+      "pdf_url": "https://arxiv.org/pdf/2605.18652v1",
+      "doi": "10.48550/arXiv.2605.18652"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "roi-visual-working-memory",
+      "memory_component": "localized visual references for task-relevant interface events",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Working-memory events retain ROI-level visual evidence alongside concise summaries for later GUI decisions."
+        }
+      ]
+    },
+    {
+      "path_id": "working-and-episodic-records",
+      "memory_component": "event summaries and retrieved past trajectories",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Model Output",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "MementoCore performs step processing, compression, episodic writing, and learned episodic selection over reusable trajectories."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Model Output",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "A trained controller selects online memory events and executes specialized working- and episodic-memory operators. For MementoGUI, this specifically supports a trained but frozen update module of localized visual references for task-relevant interface events."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Supervision Construction",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "Selected interaction history is compressed into concise event summaries while preserving localized visual cues. For MementoGUI, this specifically supports episodic or hierarchical summarization of localized visual references for task-relevant interface events."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Text summaries and ROI-level screenshots are jointly preserved as structured multimodal events.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): Training learns the gate and consolidation module. Deployment uses those frozen modules to update memory state, which is T2, not policy evolution. Training-time learning, when present, was not counted as T3."
+  ]
+}

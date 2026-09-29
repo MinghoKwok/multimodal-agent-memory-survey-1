@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "abot-agentos-2026",
+  "architecture_name": "ABot-AgentOS",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+    "authors": [
+      "Jiayi Tian",
+      "Shiao Liu",
+      "Yuting Xu",
+      "Jia Lu",
+      "Zihao Guan",
+      "Honglin Han",
+      "Di Yang",
+      "Minqi Gu",
+      "Yifei Qian",
+      "Tianlin Zhang",
+      "Yanqing Zhu",
+      "Zeqian Ye",
+      "Menglin Yang",
+      "Fei Wang",
+      "Xu Hu",
+      "Xiuxian Li",
+      "Wei Zhang",
+      "Shihui Su",
+      "Yiyan Ji",
+      "Jingbo Wang",
+      "Ziteng Feng",
+      "Jiaheng Liu",
+      "Zhaoxiang Zhang",
+      "Xiaolong Wu",
+      "Zixiao Tang",
+      "Zhining Gu",
+      "Yang Cai",
+      "Linbo Zheng",
+      "Jingjing Ma",
+      "Mingyang Yin",
+      "Zedong Chu",
+      "Wenbin Tang",
+      "Mu Xu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-17",
+      "source_url": "https://arxiv.org/abs/2607.10350",
+      "pdf_url": "https://arxiv.org/pdf/2607.10350",
+      "doi": "10.48550/arXiv.2607.10350"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "source-grounded multimodal traces",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Dialogue, visual observations, and task traces remain source-grounded within lifelong memory."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Universal Multi-modal Graph Memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Visual, spatial, temporal, dialogue, and task evidence becomes typed nodes and edges."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Diagnosed failures are converted into gated runtime evo-assets for later tasks. For ABot-AgentOS, this specifically supports LLM-mediated memory editing of source-grounded multimodal traces."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Multi-stage verification diagnoses memory failures before promotion. For ABot-AgentOS, this specifically supports evidence-weighted revision of stored belief or confidence of source-grounded multimodal traces."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "write_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full-paper deployment feedback / policy evolution",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "",
+          "paraphrase": "For ABot-AgentOS, feedback produced during deployed inference persistently changes a reusable artifact governing later interactions: deployment-feedback evolution of the reusable write policy."
+        }
+      ]
+    },
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full-paper deployment feedback / policy evolution",
+          "page": "PDF pp. 12–13",
+          "figure_or_table": "",
+          "paraphrase": "For ABot-AgentOS, feedback produced during deployed inference persistently changes a reusable artifact governing later interactions: deployment-feedback evolution of the reusable retrieval policy or procedure."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 12–13): Deployment failures, user corrections, and low-confidence cases compile gated reusable evo-assets; promoted assets alter later memory writing and evidence retrieval, satisfying strict T3. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

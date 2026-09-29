@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "canvas-2026",
+  "architecture_name": "CANVAS",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "CANVAS: Continuity-Aware Narratives via Visual Agentic Storyboarding",
+    "authors": [
+      "Ishani Mondal",
+      "Yiwen Song",
+      "Mihir Parmar",
+      "Palash Goyal",
+      "Jordan Boyd-Graber",
+      "Tomas Pfister",
+      "Yale Song"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-04-15",
+      "source_url": "https://arxiv.org/abs/2604.13452",
+      "pdf_url": "https://arxiv.org/pdf/2604.13452",
+      "doi": "10.48550/arXiv.2604.13452"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "World-state anchor memory for cross-shot continuity",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 20",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Storyboard state; Reference-set anchor frames. Reference-set anchors condition I2V; world state is consulted per shot."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Background Consistency (Room architecture perfect)",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "World state is updated across shots by fixed agent rules to maintain continuity. For CANVAS, this specifically supports fixed-rule insertion or replacement of World-state anchor memory for cross-shot continuity."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (World-state anchor memory for cross-shot continuity) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

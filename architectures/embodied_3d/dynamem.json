@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "dynamem-2025",
+  "architecture_name": "DynaMem",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DynaMem: Online Dynamic Spatio-Semantic Memory for Open World Mobile Manipulation",
+    "authors": [
+      "Peiqi Liu",
+      "Zhanqiu Guo",
+      "Mohit Warke",
+      "Soumith Chintala",
+      "Chris Paxton",
+      "Nur Muhammad Mahi Shafiullah",
+      "Lerrel Pinto"
+    ],
+    "latest_version": {
+      "version_label": "ICRA 2025 proceedings / current arXiv version",
+      "published_date": "2025-05-29",
+      "source_url": "https://arxiv.org/abs/2411.04999",
+      "pdf_url": "https://arxiv.org/pdf/2411.04999",
+      "doi": "10.1109/ICRA55743.2025.11127619"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "voxel-feature-memory",
+      "memory_component": "dynamic spatio-semantic voxel point cloud",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Update rule",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Each voxel retains 3D location, an observation count, a count-weighted semantic feature, latest time, and latest contributing image identifier."
+        },
+        {
+          "section": "Full paper: Update rule",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 4",
+          "paraphrase": "Text-to-feature similarity selects a voxel and its latest associated image for object verification."
+        }
+      ]
+    },
+    {
+      "path_id": "latest-observation-images",
+      "memory_component": "source images referenced by voxels",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Update rule",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 4",
+          "paraphrase": "The latest image identifier stored with a selected voxel resolves back to an RGB observation used by the multimodal verifier."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Update rule",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "A fixed voxel-assignment rule adds new points and updates feature, count, time, and source-image metadata. For DynaMem, this specifically supports fixed-rule insertion or replacement of dynamic spatio-semantic voxel point cloud."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Update rule",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Ray casting removes voxels that should be visible in the current camera frustum but are absent from the new depth observation. For DynaMem, this specifically supports fixed-rule correction of stored state of dynamic spatio-semantic voxel point cloud."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "The image link preserves provenance within the same source/native parent family.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (dynamic spatio-semantic voxel point cloud) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "brainnav-2026",
+  "architecture_name": "BrainNav",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Endowing Embodied Agents with Spatial Reasoning Capabilities for Vision-and-Language Navigation",
+    "authors": [
+      "Qianqian Bai",
+      "Zhongpu Chen",
+      "Ling Luo",
+      "Huaming Du",
+      "Yuqian Lei",
+      "Ziyun Jiao"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-03-02",
+      "source_url": "https://arxiv.org/abs/2504.08806",
+      "pdf_url": "https://arxiv.org/pdf/2504.08806",
+      "doi": "10.48550/arXiv.2504.08806"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "trajectory / map memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. Hippocampal Memory Center",
+          "page": "PDF p. 9",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores experienced paths, topological maps and coordinate maps during exploration. retrieves topological maps and historical trajectories; exact matches can reuse paths."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "trajectory / map memory",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. Hippocampal Memory Center",
+          "page": "PDF p. 9",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores experienced paths, topological maps and coordinate maps during exploration. retrieves topological maps and historical trajectories; exact matches can reuse paths."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, BrainNav applies fixed-rule insertion or replacement to trajectory / map memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 3",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Spatial representation updates during real-world navigation. For BrainNav, this specifically supports relinking or reindexing of stored items of trajectory / map memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (trajectory / map memory) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

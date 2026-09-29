@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "streammind-2026",
+  "architecture_name": "StreamMind",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "audio",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "StreamArena: Toward Continuous, Interactive, and Long-Horizon Agentic Streaming Video Understanding",
+    "authors": [
+      "Xichen Zhang",
+      "Guankai Li",
+      "Yinghao Zhu",
+      "Shijian Wang",
+      "Sitong Wu",
+      "Shaozuo Yu",
+      "Meng Chu",
+      "Yuan Lu",
+      "Jiaya Jia"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-08-06",
+      "source_url": "https://arxiv.org/abs/2608.05703",
+      "pdf_url": "https://arxiv.org/pdf/2608.05703",
+      "doi": "10.48550/arXiv.2608.05703"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "source",
+      "memory_component": "persistent audiovisual evidence",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Bank",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Backend workers asynchronously build persistent evidence memory."
+        }
+      ]
+    },
+    {
+      "path_id": "events",
+      "memory_component": "reusable event records",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Historical records are reused instead of rebuilt for each query."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Bank",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, StreamMind applies fixed-rule insertion or replacement to persistent audiovisual evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Fixed backend workers condense stream history. For StreamMind, this specifically supports episodic or hierarchical summarization of persistent audiovisual evidence."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Bank",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, StreamMind applies relinking or reindexing of stored items to persistent audiovisual evidence; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): During inference, the operative memory component (persistent audiovisual evidence) changes through fixed-rule insertion or replacement, episodic or hierarchical summarization, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

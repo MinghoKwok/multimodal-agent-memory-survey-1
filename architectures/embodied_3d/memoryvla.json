@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memoryvla-2025",
+  "architecture_name": "MemoryVLA",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemoryVLA: Perceptual-Cognitive Memory in Vision-Language-Action Models for Robotic Manipulation",
+    "authors": [
+      "Hao Shi",
+      "Bin Xie",
+      "Yingfei Liu",
+      "Lin Sun",
+      "Fengrong Liu",
+      "Tiancai Wang",
+      "Erjin Zhou",
+      "Haoqiang Fan",
+      "Xiangyu Zhang",
+      "Gao Huang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-08-26",
+      "source_url": "https://arxiv.org/abs/2508.19236",
+      "pdf_url": "https://arxiv.org/pdf/2508.19236",
+      "doi": "10.48550/arXiv.2508.19236"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "cognitive-bank",
+      "memory_component": "persistent cognitive memory tokens",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The cognitive memory bank retains compact latent decision state that is retrieved for the action expert."
+        }
+      ]
+    },
+    {
+      "path_id": "perceptual-bank",
+      "memory_component": "temporally indexed compressed perceptual tokens",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Visual encoder outputs are compressed into perceptual tokens, stored in a temporally indexed bank, and queried to influence the action policy."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Redundancy-aware consolidation merges similar entries. For MemoryVLA, this specifically supports merging or deduplication of overlapping entries of persistent cognitive memory tokens."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (persistent cognitive memory tokens) changes through merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

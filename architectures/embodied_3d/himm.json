@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "himm-2026",
+  "architecture_name": "HIMM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "HIMM: Human-Inspired Long-Term Memory Modeling for Embodied Exploration and Question Answering",
+    "authors": [
+      "Ji Li",
+      "Bo Wang",
+      "Jing Xia",
+      "Mingyi Li",
+      "Shiyan Hu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-03-02",
+      "source_url": "https://arxiv.org/abs/2602.15513",
+      "pdf_url": "https://arxiv.org/pdf/2602.15513",
+      "doi": "10.48550/arXiv.2602.15513"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic + semantic memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory: Visual Reasoning for",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores global/regional embeddings, 3D boxes, raw images and episodic traces. retrieves similar episodes and semantic regions for exploration/QA."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "episodic + semantic memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory: Visual Reasoning for",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores global/regional embeddings, 3D boxes, raw images and episodic traces. retrieves similar episodes and semantic regions for exploration/QA."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "episodic + semantic memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory: Visual Reasoning for",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores global/regional embeddings, 3D boxes, raw images and episodic traces. retrieves similar episodes and semantic regions for exploration/QA."
+        }
+      ]
+    },
+    {
+      "path_id": "path_4",
+      "memory_component": "episodic + semantic memory",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory: Visual Reasoning for",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Stores global/regional embeddings, 3D boxes, raw images and episodic traces. retrieves similar episodes and semantic regions for exploration/QA."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Episodic Memory: Visual Reasoning for",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, HIMM applies fixed-rule insertion or replacement to episodic + semantic memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (episodic + semantic memory) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

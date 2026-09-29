@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videoagent-2024",
+  "architecture_name": "VideoAgent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoAgent: A Memory-augmented Multimodal Agent for Video Understanding",
+    "authors": [
+      "Yue Fan",
+      "Xiaojian Ma",
+      "Rujie Wu",
+      "Yuntao Du",
+      "Jiaqi Li",
+      "Zhi Gao",
+      "Qing Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2024-03-18",
+      "source_url": "https://arxiv.org/abs/2403.11481v2",
+      "pdf_url": "https://arxiv.org/pdf/2403.11481v2",
+      "doi": "10.48550/arXiv.2403.11481"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "temporal-captions",
+      "memory_component": "temporal memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Segment captions, caption embeddings, and time positions form temporal memory; tools retrieve captions by time or semantic relevance."
+        }
+      ]
+    },
+    {
+      "path_id": "temporal-video-features",
+      "memory_component": "temporal memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Each video segment has a visual feature used for query-to-segment localization, with the segment identity retained."
+        }
+      ]
+    },
+    {
+      "path_id": "object-relational-memory",
+      "memory_component": "object memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Re-identified objects are stored in a feature table and SQL database with categories and temporal appearances; an LLM tool generates database queries."
+        }
+      ]
+    },
+    {
+      "path_id": "source-video-segments",
+      "memory_component": "raw video available to VQA tool",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "After localizing a segment from memory, the agent can invoke visual question answering on the corresponding raw video segment."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Source-linked captions, visual features, relational object state, and recoverable video segments are jointly routed by tools.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): The full-paper lifecycle review found temporal memory fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

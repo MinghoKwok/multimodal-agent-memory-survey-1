@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "anime-2025",
+  "architecture_name": "AniME",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "audio"
+  ],
+  "provenance": {
+    "paper_title": "AniME: Adaptive Multi-Agent Planning for Long Animation Generation",
+    "authors": [
+      "Lisai Zhang",
+      "Baohan Xu",
+      "Siqian Yang",
+      "Mingyu Yin",
+      "Jing Liu",
+      "Chao Xu",
+      "Siqi Wang",
+      "Yidi Wu",
+      "Yuxin Hong",
+      "Zihao Zhang",
+      "Yanzhang Liang",
+      "Yudong Jiang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-10-10",
+      "source_url": "https://arxiv.org/abs/2508.18781",
+      "pdf_url": "https://arxiv.org/pdf/2508.18781",
+      "doi": "10.48550/arXiv.2508.18781"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "global production memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method Details",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The director maintains global workflow and asset state used by downstream animation agents."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Method Details",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The director's fixed coordination workflow updates global production state as assets are created. For AniME, this specifically supports fixed-rule insertion or replacement of global production memory."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Method Details",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Production state is revised when downstream agents return updated assets and control conditions. For AniME, this specifically supports fixed-rule correction of stored state of global production memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (global production memory) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

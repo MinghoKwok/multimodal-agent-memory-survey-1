@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rekv-2025",
+  "architecture_name": "ReKV",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Streaming Video Question-Answering with In-context Video KV-Cache Retrieval",
+    "authors": [
+      "Shangzhe Di",
+      "Zhelun Yu",
+      "Guanghao Zhang",
+      "Haoyuan Li",
+      "Tao Zhong",
+      "Hao Cheng",
+      "Bolin Li",
+      "Wanggui He",
+      "Fangxun Shu",
+      "Hao Jiang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30 (ICLR 2025)",
+      "published_date": "2025-03-01",
+      "source_url": "https://arxiv.org/abs/2503.00540",
+      "pdf_url": "https://arxiv.org/pdf/2503.00540",
+      "doi": "10.48550/arXiv.2503.00540"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "external video KV-Cache store built incrementally from the live video stream and queried per question",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3 (video stream encoding with sliding-window attention; video KV-Cache retrieval; question answering with retrieved KVs); Appendix A.1, A.3",
+          "page": "HTML Sec. 3; Appendix A.1/A.3",
+          "figure_or_table": "Figure 2 (a)-(c); Eq. 1-3",
+          "paraphrase": "Frames are encoded once with sliding-window attention and their per-layer key/value vectors are kept as an external memory: 'All video KV-Caches are stored for future retrieval.' The store is tiered across GPU, RAM and disk (a 1-hour video yields 18.8 GB of cache for LLaVA-OV-7B). At question time the r most relevant frames/blocks are selected either by external CLIP-style cosine similarity between frame and question embeddings (Eq. 2) or by internal similarity between per-frame averaged attention keys and aggregated question queries, and only those KVs are reloaded onto the GPU as context for generation (Eq. 3). Frame pixels are not retained in the memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3, video stream encoding",
+          "page": "HTML Sec. 3",
+          "figure_or_table": "Figure 2(a); Eq. 1",
+          "paraphrase": "The persistent KV memory is written during deployment, not before it: as the stream advances, each newly encoded frame's key/value vectors are appended to the store under a fixed sliding-window encoding rule, and questions may be asked at any point against the store as it stands. The memory content therefore changes across inference while the write rule is fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_tier_migration",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3 (memory management); Appendix A.1",
+          "page": "HTML Sec. 3; Appendix A.1",
+          "figure_or_table": "Figure 2(b)-(c)",
+          "paraphrase": "'For extremely long videos, we manage memory constraints by offloading KV-Caches to RAM or disk'; Appendix A.1 adds that video processing stores the computed cache in RAM and spills to disk when RAM is exceeded. On retrieval the selected entries are 'reloaded onto the GPU', so entries move between storage tiers during streaming under a fixed capacity rule."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review: ReKV is explicitly 'training-free' and 'seamlessly integrates with existing Video-LLMs without requiring additional training' (Abstract, Sec. 3), so no write/retrieval/maintenance policy is changed by deployment feedback; T3 does not apply.",
+    "T2 rests on the memory store being constructed during the streaming deployment itself (append of new frame KVs) plus the GPU/RAM/disk tier migration, not on eviction: the paper describes no deliberate discarding of cache entries, and retrieval itself is a query-conditioned read that would not raise the tier on its own."
+  ]
+}

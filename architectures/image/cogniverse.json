@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "cogniverse-2026",
+  "architecture_name": "CogniVerse",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "CogniVerse: Revolutionizing Multi-Modal Retrieval-Augmented Generation with Cognitive Reflection and Geometric Reasoning",
+    "authors": [
+      "Xiang Fang",
+      "Wanlong Fang",
+      "Changshuo Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29602",
+      "pdf_url": "https://arxiv.org/pdf/2605.29602",
+      "doi": "10.48550/arXiv.2605.29602"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "retrieved multimodal evidence with cognitive-reflection-based necessity assessment",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Multi-modal Retrieval Module",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Embeddings modeled in hyperbolic space; cognitive reflection records of retrieval decisions. Cognitive Reflection Module dynamically assesses retrieval necessity and relevance."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 3–4): The full-paper lifecycle review found retrieved multimodal evidence with cognitive-reflection-based necessity assessment fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "momuse-2024",
+  "architecture_name": "MoMuSE",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "MoMuSE: Momentum Multi-modal Target Speaker Extraction for Real-time Scenarios with Impaired Visual Cues",
+    "authors": [
+      "Junjie Li",
+      "Ke Zhang",
+      "Shuai Wang",
+      "Kong Aik Lee",
+      "Haizhou Li"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-12-11",
+      "source_url": "https://arxiv.org/abs/2412.08247",
+      "pdf_url": "https://arxiv.org/pdf/2412.08247",
+      "doi": "10.48550/arXiv.2412.08247"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "momentum",
+      "memory_component": "audio-visual speaker identity state",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Speaker-identity momentum tracks the target when visual cues disappear."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed learned momentum update refreshes speaker state. For MoMuSE, this specifically supports a trained but frozen update module of audio-visual speaker identity state."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): During inference, the operative memory component (audio-visual speaker identity state) changes through a trained but frozen update module; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

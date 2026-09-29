@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "latent-spatial-memory-2026",
+  "architecture_name": "Latent Spatial Memory",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "embodied_3d"
+  ],
+  "provenance": {
+    "paper_title": "Latent Spatial Memory for Video World Models",
+    "authors": [
+      "Weijie Wang",
+      "Haoyu Zhao",
+      "Yifan Yang",
+      "Feng Chen",
+      "Zeyu Zhang",
+      "Yefei He",
+      "Zicheng Duan",
+      "Donny Y. Chen",
+      "Yuqing Yang",
+      "Bohan Zhuang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-06-08",
+      "source_url": "https://arxiv.org/abs/2606.09828",
+      "pdf_url": "https://arxiv.org/pdf/2606.09828",
+      "doi": "10.48550/arXiv.2606.09828"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "persistent 3D scene information for spatially consistent video generation",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Diffusion latent tokens tied to world-space coordinates in a persistent 3D cache. queries the persistent cache by projecting latent-attributed 3D points onto target camera grids with z-buffering and ControlNet-style injection."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "persistent 3D scene information for spatially consistent video generation",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Diffusion latent tokens tied to world-space coordinates in a persistent 3D cache. queries the persistent cache by projecting latent-attributed 3D points onto target camera grids with z-buffering and ControlNet-style injection."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Spatial Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Initialize-readout-update loop persists static scene information across chunks; generated frames can update the latent cache; no self-improving policy. For Latent Spatial Memory, this specifically supports fixed-rule insertion or replacement of persistent 3D scene information for spatially consistent video generation."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (persistent 3D scene information for spatially consistent video generation) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

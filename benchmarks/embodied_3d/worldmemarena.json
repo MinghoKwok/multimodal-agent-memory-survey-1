@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "worldmemarena-2026",
+  "benchmark_name": "WorldMemArena",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "WorldMemArena: Evaluating Multimodal Agent Memory Through Action-World Interaction",
+    "authors": [
+      "Chengzhi Liu",
+      "Yuzhe Yang",
+      "Sophia Xiao Pu",
+      "Yepeng Liu",
+      "Lin Long",
+      "Yichen Guo",
+      "Nuo Chen",
+      "Zhaotian Weng",
+      "Elena Kochkina",
+      "Simerjot Kaur",
+      "Charese Smiley",
+      "Xiaomo Liu",
+      "James Zou",
+      "Sheng Liu",
+      "Yuheng Bu",
+      "Songyou Peng",
+      "Xin Eric Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-06-01",
+      "source_url": "https://arxiv.org/abs/2605.29341",
+      "pdf_url": "https://arxiv.org/pdf/2605.29341",
+      "doi": "10.48550/arXiv.2605.29341"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "fine_grained_visual_detail_retention",
+    "memory_update_and_staleness",
+    "memory_mediated_action",
+    "multi_memory_evidence_integration"
+  ],
+  "tasks": [
+    "agent_action",
+    "continual_learning"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "Benchmark overview / main evaluation table",
+      "paraphrase": "benchmark formulates multimodal agent memory as an action-world loop across visual observations, text, GUI/web, and embodied settings"
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

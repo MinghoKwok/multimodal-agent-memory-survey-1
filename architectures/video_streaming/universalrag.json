@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "universalrag-2026",
+  "architecture_name": "UniversalRAG",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "UniversalRAG: Retrieval-Augmented Generation over Corpora of Diverse Modalities and Granularities",
+    "authors": [
+      "Woongyeong Yeo",
+      "Kangsan Kim",
+      "Soyeong Jeong",
+      "Jinheon Baek",
+      "Sung Ju Hwang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v5 (ACL 2026 camera-ready), reviewed 2026-08-30",
+      "published_date": "2026-06-12",
+      "source_url": "https://arxiv.org/abs/2504.20734",
+      "pdf_url": "https://arxiv.org/pdf/2504.20734",
+      "doi": "10.48550/arXiv.2504.20734"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "video-corpus",
+      "memory_component": "video corpus held at two granularities (full-length videos and segmented short clips)",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 2.2 UniversalRAG; Sec. 3.1 Experimental Setup / Implementation Details",
+          "page": "",
+          "figure_or_table": "Figure 1 (framework overview); Figure 4 (routed-modality distribution)",
+          "paraphrase": "Videos from LVBench and the VideoRAG corpora are stored as full-length items and additionally segmented into short clips, forming two separate granularity-level corpora, each embedded with a vision encoder (InternVideo2 in v1, VLM2Vec-V2 in v5) into its own independent embedding space and read by cosine similarity."
+        },
+        {
+          "section": "Full paper: Sec. 3.1 Implementation Details (v1 wording retained across versions)",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "32 frames are uniformly sampled per video for both the retrieval and the generation stage, so the retrieved video is handed to the LVLM generator as decoded frames rather than as a caption; the stored perceptual source is therefore directly accessible downstream. Scripts (for videos) and captions (for images) enter only the ensemble similarity score used for retrieval, not as a substitute memory record."
+        }
+      ]
+    },
+    {
+      "path_id": "image-corpus",
+      "memory_component": "image corpus kept intact (MRAG-Bench / WebQA / InfoSeek images)",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 2.2 UniversalRAG; Sec. 3.1 Experimental Setup",
+          "page": "",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Images are kept intact because they are inherently piecemeal, indexed in their own vision embedding space, and the retrieved image itself is supplied to the multimodal generator (Qwen3-VL-8B-Instruct / InternVL3.5-8B / Molmo2-4B), which consumes textual and visual inputs."
+        },
+        {
+          "section": "Full paper: Sec. 2.2 / Sec. 2.3 Router Implementation Strategies",
+          "page": "",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Access is gated by a per-query modality-and-granularity router that runs before retrieval and selects which corpus (none / paragraph / document / table / image / clip / video) to query, i.e. a planner-style routing step layered on top of within-corpus similarity search."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v5, cross-checked against v1 for implementation details): the text, table, image, clip and video corpora are built before deployment and thereafter only queried. Nothing is written back, merged, decayed or re-indexed at inference; the router is trained offline (or prompted zero-shot) and its parameters/prompt are fixed at deployment. Query-conditioned routing plus top-k similarity selection over fixed items is explicitly T1 under the guide. Highest tier T1.",
+    "primary_modality is a close call: v5 evaluates on three image benchmarks (MRAG-Bench, WebQA, InfoSeek) and three video benchmarks (LVBench, VideoRAG-Wiki, VideoRAG-Synth). video_streaming was chosen because the video corpus is the largest persistent perceptual store and is the one on which the paper's granularity contribution is actually instantiated (full-length video vs. segmented clip corpora); image is recorded as a secondary operative modality.",
+    "The v5 HTML does not spell out in its Method section whether retrieved video reaches the generator as frames or as a script. The 'uniformly sample 32 frames per video for both the retrieval and generation stages' statement comes from the v1 implementation details; source_accessibility=direct for the video path rests on that sentence plus the use of frame-consuming LVLM generators, and should be re-checked against the ACL camera-ready PDF."
+  ]
+}

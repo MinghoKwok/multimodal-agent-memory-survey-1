@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "magnet-gui-2026",
+  "architecture_name": "MAGNET",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MAGNET: Towards Adaptive GUI Agents with Memory-Driven Knowledge Evolution",
+    "authors": [
+      "Libo Sun",
+      "Jiwen Zhang",
+      "Siyuan Wang",
+      "Zhongyu Wei"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-27",
+      "source_url": "https://arxiv.org/abs/2601.19199",
+      "pdf_url": "https://arxiv.org/pdf/2601.19199",
+      "doi": "10.48550/arXiv.2601.19199"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "stationary visual-semantic memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: MAGNET Framework",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Stationary memory links diverse visual features to stable functional semantics."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "procedural intent memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: MAGNET Framework",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Procedural memory captures stable task intents across changing GUI workflows."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3.1 Memory Content Update",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MAGNET applies fixed-rule insertion or replacement to stationary visual-semantic memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Stationary Memory",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MAGNET applies merging or deduplication of overlapping entries to stationary visual-semantic memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3.1 Memory Content Update",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Visual-semantic and procedural associations are updated across interface changes. For MAGNET, this specifically supports relinking or reindexing of stored items of stationary visual-semantic memory."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3.1 Memory Content Update",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Frequently accessed knowledge is prioritized while both memories are refined. For MAGNET, this specifically supports evidence-weighted revision of stored belief or confidence of stationary visual-semantic memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (stationary visual-semantic memory) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries, relinking or reindexing of stored items, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

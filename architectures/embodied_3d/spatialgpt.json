@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "spatialgpt-2026",
+  "architecture_name": "SpatialGPT",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "SpatialGPT: Zero-Shot Vision-and-Language Navigation via Spatial CoT over Structured Spatial Memory",
+    "authors": [
+      "Zhiqiang Jiang",
+      "Xin Wang"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://dl.acm.org/doi/abs/10.1145/3748636.3762753?download=true",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "spatial working memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Method: Spatial Knowledge Update",
+          "page": "Proceedings pp. 423–435",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Updates SKG with spatial knowledge, selected directions and alternatives. backtracking retrieves stored alternative paths or infers frontiers."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Method: Spatial Knowledge Update",
+          "page": "Proceedings pp. 423–435",
+          "figure_or_table": "",
+          "paraphrase": "During operation, SpatialGPT applies fixed-rule insertion or replacement to spatial working memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (Proceedings pp. 423–435): During inference, the operative memory component (spatial working memory) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

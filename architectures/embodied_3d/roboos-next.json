@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "roboos-next-2025",
+  "architecture_name": "RoboOS-NeXT",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "RoboOS-NeXT: A Unified Memory-based Framework for Lifelong, Scalable, and Robust Multi-Robot Collaboration",
+    "authors": [
+      "Huajie Tan",
+      "Cheng Chi",
+      "Xiansheng Chen",
+      "Yuheng Ji",
+      "Zhongxia Zhao",
+      "Xiaoshuai Hao",
+      "Yaoxu Lyu",
+      "Mingyu Cao",
+      "Junkai Zhao",
+      "Huaihai Lyu",
+      "Enshen Zhou",
+      "Ning Chen",
+      "Yankai Fu",
+      "Cheng Peng",
+      "Wei Guo",
+      "Dong Liang",
+      "Zhuo Chen",
+      "Mengsi Lyu",
+      "Chenrui He",
+      "Yulong Ao",
+      "Yonghua Lin",
+      "Pengwei Wang",
+      "Zhongyuan Wang",
+      "Shanghang Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-10-30",
+      "source_url": "https://arxiv.org/abs/2510.26536",
+      "pdf_url": "https://arxiv.org/pdf/2510.26536",
+      "doi": "10.48550/arXiv.2510.26536"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Spatial-Embodiment Memory",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "STEM is updated from mapping, tool-calling feedback, task execution, and robot state changes.; Task/event history is written into temporal memory.; Robot embodiment/capability state is written into embodiment memory.. spatial query over the map conditioned on current observation and instruction."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Temporal-Embodiment Memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "STEM is updated from mapping, tool-calling feedback, task execution, and robot state changes.; Task/event history is written into temporal memory.; Robot embodiment/capability state is written into embodiment memory.. spatial query over the map conditioned on current observation and instruction."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboOS-NeXT applies fixed-rule insertion or replacement to Spatial-Embodiment Memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboOS-NeXT applies fixed-rule correction of stored state to Spatial-Embodiment Memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RoboOS-NeXT applies relinking or reindexing of stored items to Spatial-Embodiment Memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: III. METHOD",
+          "page": "PDF p. 3",
+          "figure_or_table": "Method overview",
+          "paraphrase": "During operation, RoboOS-NeXT applies explicit deletion or eviction of stored items to Spatial-Embodiment Memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 3): During inference, the operative memory component (Spatial-Embodiment Memory) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state, relinking or reindexing of stored items, explicit deletion or eviction of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

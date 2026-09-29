@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mavis-2025",
+  "architecture_name": "MAViS",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MAViS: A Multi-Agent Framework for Long-Sequence Video Storytelling",
+    "authors": [
+      "Qian Wang",
+      "Ziqi Huang",
+      "Ruoxi Jia",
+      "Paul Debevec",
+      "Ning Yu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-01-24",
+      "source_url": "https://arxiv.org/abs/2508.08487",
+      "pdf_url": "https://arxiv.org/pdf/2508.08487",
+      "doi": "10.48550/arXiv.2508.08487"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Per-character identity (LoRA via MUDI)",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Implementation Details",
+          "page": "PDF p. 14",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Per-character LoRA weights. Character LoRA is applied per shot to keep protagonists consistent."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "optimization_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Implementation Details",
+          "page": "PDF p. 14",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Per-character LoRA is learned (a fixed adaptation mechanism). For MAViS, this specifically supports a fixed operational optimization objective of Per-character identity (LoRA via MUDI)."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 14): During inference, the operative memory component (Per-character identity (LoRA via MUDI)) changes through a fixed operational optimization objective; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

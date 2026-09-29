@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mobile-agent-v2-2024",
+  "architecture_name": "Mobile-Agent-v2",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Mobile-Agent-v2: Mobile Device Operation Assistant with Effective Navigation via Multi-Agent Collaboration",
+    "authors": [
+      "Junyang Wang",
+      "Haiyang Xu",
+      "Haitao Jia",
+      "Xi Zhang",
+      "Ming Yan",
+      "Weizhou Shen",
+      "Ji Zhang",
+      "Fei Huang",
+      "Jitao Sang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-06-03",
+      "source_url": "https://arxiv.org/abs/2406.01014",
+      "pdf_url": "https://arxiv.org/pdf/2406.01014",
+      "doi": "10.48550/arXiv.2406.01014"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "task-progress and focus-content memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Unit",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A memory unit tracks focus content and updates it with task progress for planning and decision agents."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Unit",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The fixed multi-agent workflow updates focus memory as task progress changes. For Mobile-Agent-v2, this specifically supports fixed-rule insertion or replacement of task-progress and focus-content memory."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A reflection agent observes action outcomes and repairs erroneous operations. For Mobile-Agent-v2, this specifically supports fixed-rule correction of stored state of task-progress and focus-content memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (task-progress and focus-content memory) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

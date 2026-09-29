@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "skillmimicgen-2024",
+  "architecture_name": "SkillMimicGen",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "proprioception",
+    "actions"
+  ],
+  "provenance": {
+    "paper_title": "SkillMimicGen: Automated Demonstration Generation for Efficient Skill Learning and Deployment",
+    "authors": [
+      "Caelan Reed Garrett",
+      "Ajay Mandlekar",
+      "Bowen Wen",
+      "Dieter Fox"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 / CoRL 2024 paper reviewed on 2026-08-31",
+      "published_date": "2024-10-24",
+      "source_url": "https://arxiv.org/abs/2410.18907v1",
+      "pdf_url": "https://arxiv.org/pdf/2410.18907v1",
+      "doi": "10.48550/arXiv.2410.18907"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": [
+      "MimicGen"
+    ]
+  },
+  "representation_paths": [
+    {
+      "path_id": "parameterized-skill-policy-bank",
+      "memory_component": "fixed bank of learned parameterized manipulation skills with initiation conditions, closed-loop controllers, and termination conditions",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 4.1 Skills Framework",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "A skill is represented as an object, an initiation condition, a closed-loop controller, and a termination condition. At test time SkillGen executes several of these learned skills in sequence, with motion planning between them, so the learned skill modules remain available as fixed operative artifacts during later robot execution."
+        },
+        {
+          "section": "Full paper: Sec. 4.6 Policy Learning",
+          "page": "PDF p. 5",
+          "figure_or_table": "Skill definition and deployment procedure",
+          "paraphrase": "Generated demonstrations are used to learn parameterized skill policies. During deployment, the system predicts a skill initiation state, plans to it, rolls out the corresponding learned policy until its termination condition, and repeats this process for the next skill."
+        },
+        {
+          "section": "Full paper: Sec. 5 Experimental Setup",
+          "page": "PDF p. 6",
+          "figure_or_table": "",
+          "paraphrase": "The deployed agents receive front-view and wrist-camera RGB observations together with proprioception, establishing direct non-text participation in skill selection and execution."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included under the guide's fixed skill-library rule: learned manipulation skills persist after offline data generation and training and are selected and composed during subsequent deployment.",
+    "Demonstration generation and policy learning occur before deployment. The paper does not show deployed feedback modifying the stored skill modules or their management policy, so neither T2 nor T3 is assigned."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "open-world-3d-scene-graph-rag-2026",
+  "architecture_name": "Open-World 3D Scene Graph RAG",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Open-World 3D Scene Graph Generation for Retrieval-Augmented Reasoning",
+    "authors": [
+      "Fei Yu",
+      "Quan Deng",
+      "Shengeng Tang",
+      "Yuehua Li",
+      "Lechao Cheng"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-11-08",
+      "source_url": "https://arxiv.org/abs/2511.05894",
+      "pdf_url": "https://arxiv.org/pdf/2511.05894",
+      "doi": "10.48550/arXiv.2511.05894"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "open-vocabulary objects",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Dynamic 3D scene graph nodes and edges encoded into a vector database for retrieval-augmented reasoning. retrieval-augmented reasoning retrieves relevant stored scene-graph context for text/image-conditioned queries."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "semantic relations",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Dynamic 3D scene graph nodes and edges encoded into a vector database for retrieval-augmented reasoning. retrieval-augmented reasoning retrieves relevant stored scene-graph context for text/image-conditioned queries."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Open-World 3D Scene Graph RAG applies fixed-rule insertion or replacement to open-vocabulary objects; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Dynamic graph construction updates semantic and spatial relationships as observations evolve. For Open-World 3D Scene Graph RAG, this specifically supports relinking or reindexing of stored items of open-vocabulary objects."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (open-vocabulary objects) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

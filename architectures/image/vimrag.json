@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vimrag-2026",
+  "architecture_name": "VimRAG",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "video_streaming",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VimRAG: Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph",
+    "authors": [
+      "Qiuchen Wang",
+      "Shihang Wang",
+      "Yu Zeng",
+      "Qiang Zhang",
+      "Fanrui Zhang",
+      "Zhuoning Guo",
+      "Bosi Zhang",
+      "Wenxuan Huang",
+      "Lin Chen",
+      "Zehui Chen",
+      "Pengjun Xie",
+      "Ruixue Ding"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-04-21",
+      "source_url": "https://arxiv.org/abs/2602.12735",
+      "pdf_url": "https://arxiv.org/pdf/2602.12735",
+      "doi": "10.48550/arXiv.2602.12735"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual_nodes",
+      "memory_component": "multimodal evidence nodes",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Policy Model",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "The directed acyclic memory graph preserves retrieved image/video evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "reasoning_graph",
+      "memory_component": "structured agent states and evidence graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "Reasoning states and retrieved multimodal evidence are organized in a dynamic DAG."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Policy Model",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "During operation, VimRAG applies LLM-mediated memory editing to multimodal evidence nodes; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "graph-linked visual evidence and structured reasoning state",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): GGPO trains the compression/update behavior offline. Runtime compressed memory is generated under the frozen model, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

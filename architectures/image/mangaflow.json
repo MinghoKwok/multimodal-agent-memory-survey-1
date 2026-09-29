@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mangaflow-2026",
+  "architecture_name": "MangaFlow",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MangaFlow: An End-to-End Agentic Framework for Controllable Story to Manga Generation",
+    "authors": [
+      "Muyao Wang",
+      "Zeke Xie",
+      "Yanhao Chen",
+      "Lixin Xiu",
+      "Hideki Nakayama"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1, reviewed 2026-08-30",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.28173",
+      "pdf_url": "https://arxiv.org/pdf/2605.28173",
+      "doi": "10.48550/arXiv.2605.28173"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "story-section memory: cached visual reference images for shared scenes, characters and key objects (R_k^scene, R_k^char, R_k^obj)",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.4 Story Section Memory; Sec. 3.6 reference-conditioned rendering",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Equation 6 (M_k = (d_k, R_k^scene, R_k^char, R_k^obj, phi_k)); Algorithm 1 lines 4-10",
+          "paraphrase": "Each story section s_k owns a memory record keyed by section identity. The record holds generated or user-supplied reference IMAGES for the section's shared scenes, characters and key objects. Algorithm 1 loads the cached memory M_k if available and otherwise generates and stores the references; every panel assigned to section k then reads the same stored images and conditions rendering on them to preserve scene/character/object consistency. Access is by section (and entity) key, not by embedding similarity. The stored images are the artifacts themselves, so the perceptual source is directly available downstream."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "story-section memory: textual section description d_k and structured character / key-object profiles phi_k",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.4 Story Section Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Equation 6; Algorithm 1 lines 4-10",
+          "paraphrase": "Alongside the reference images the same record persists a textual section description d_k and structured profiles phi_k describing characters and key objects. These text records are written once per section and are re-read as prompt conditioning for every panel in that section, so they are an explicit cross-represented text memory distinct from the stored images."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.4 Story Section Memory",
+          "page": "arXiv HTML, method section",
+          "figure_or_table": "Algorithm 1 lines 4-10",
+          "paraphrase": "Memory is populated lazily inside the generation loop rather than fully built up front: for each section the framework first tries to load the cached M_k, and only if it is unavailable does it generate the references and write the new record. The store therefore grows during generation under a fixed deterministic write rule, and later panels read entries written by earlier iterations. No revision, merge, or eviction of existing entries is described."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The cached reference images and the textual section description / structured profiles live in one section record and are jointly supplied to the panel renderer, which conditions on the images while being prompted with the text profiles.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full text read via arXiv HTML; inclusion is clear (persistent cross-panel visual reference memory is a core contribution, and images are what is stored and reused).",
+    "Tier T2: Algorithm 1 shows generate-if-absent-then-cache executing inside the panel-generation loop, so persistent memory content is created during the deployed generation run and consumed by later panels under a fixed rule. This matches the corpus treatment of generation-pipeline systems that write to a reference store during downstream generation (gest.json and canvas.json), and differs from formation-stage expansion completed before downstream traversal (videotree.json). T3 is ruled out because no deployment-time feedback changes a write, maintenance, or retrieval policy.",
+    "No inference-time revision, summarization, deduplication, or eviction of memory entries is described.",
+    "Paired benchmark record: mangagen-metabench.json (MangaGen-MetaBench)."
+  ]
+}

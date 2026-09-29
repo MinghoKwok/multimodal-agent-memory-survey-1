@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mobimem-2025",
+  "architecture_name": "MobiMem",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "audio_speech",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Beyond Training: Enabling Self-Evolution of Agents with MobiMem",
+    "authors": [
+      "Zibin Liu",
+      "Cheng Zhang",
+      "Xi Zhao",
+      "Yunfei Feng",
+      "Bingyu Bai",
+      "Dahu Feng",
+      "Erhu Feng",
+      "Yubin Xia",
+      "Haibo Chen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-26",
+      "published_date": "2025-12-15",
+      "source_url": "https://arxiv.org/abs/2512.15784",
+      "pdf_url": "https://arxiv.org/pdf/2512.15784",
+      "doi": "10.48550/arXiv.2512.15784"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "profile_memory",
+      "memory_component": "concept-entity user profile memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3 and 4.1",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Profile Memory organizes user facts, preferences, and behavioral patterns in a concept-entity distance graph for embedding retrieval and graph traversal."
+        }
+      ]
+    },
+    {
+      "path_id": "experience_memory",
+      "memory_component": "multi-level execution-template memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§3 and 4.2",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Experience Memory decomposes completed workflows into reusable templates with invariant control logic and parameter slots that a Task Rewriter retrieves and instantiates for new tasks."
+        }
+      ]
+    },
+    {
+      "path_id": "action_memory",
+      "memory_component": "ActTree and ActChain replay memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.3 and 5.2",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "ActTree and ActChain retain UI states, actions, and template-to-action mappings for verified prefix or prefix-suffix replay, with links back to recorded GUI execution state."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.2 and 5.2",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "The Experience Generator summarizes deployed task traces into reusable templates and maps template steps to recorded action sequences."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §5.3 Agent Exception Handler",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "After a user correction, the Experience Generator compares the original plan with the corrected execution and distills the cause into an improved persistent template."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §5.2 Recording mechanism",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "AgentRR merges a newly recorded GUI path into matching ActTree states and action edges and updates the associated task list rather than duplicating the path."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.3 and 5.2",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "Before replay, cached actions are checked against the current UI hierarchy; a mismatch rolls back the stale action, falls back to replanning, and records an alternative path or refreshed action memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§3, 5.1, and 5.3",
+          "page": "HTML full text",
+          "figure_or_table": "Figures 2 and 6",
+          "paraphrase": "During deployment, explicit user interruptions and manual GUI corrections become feedback: the Experience Generator diagnoses the deviation and persistently evolves the reusable execution template, which the Task Rewriter and action-replay mechanisms select for future tasks to avoid the same error."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "MobiMem explicitly targets post-deployment self-evolution. The strict T3 chain is strongest in the exception handler: deployed user correction changes a persistent reusable template, and future template selection and action replay consume the corrected procedure."
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vesta-2026",
+  "architecture_name": "Vesta",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Vesta: A Generalist Embodied Reasoning Model",
+    "authors": [
+      "Johan Bjorck",
+      "Zhiqi Li",
+      "Yunze Man",
+      "Jing Wang",
+      "An-Chieh Cheng",
+      "Sifei Liu",
+      "Shihao Wang",
+      "Zhiding Yu",
+      "Abhishek Badki",
+      "Stan Birchfield",
+      "Valts Blukis",
+      "Yevgen Chebotar",
+      "Siyi Chen",
+      "Sicong Leng",
+      "Yu-Cheng Chou",
+      "Tianli Ding",
+      "Boyi Li",
+      "Zhengyi Luo",
+      "Hang Su",
+      "Jonathan Tremblay",
+      "Tingwu Wang",
+      "Bowen Wen",
+      "Jimmy Wu",
+      "Xianghui Xie",
+      "Hanrong Ye",
+      "Hongxu Yin",
+      "K. R. Zentner",
+      "Liangyan Gui",
+      "Yu-Xiong Wang",
+      "Yuke Zhu",
+      "Linxi \"Jim\" Fan",
+      "Jan Kautz"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-31",
+      "published_date": "2026-06-18",
+      "source_url": "https://arxiv.org/abs/2606.20905",
+      "pdf_url": "https://arxiv.org/pdf/2606.20905",
+      "doi": "10.48550/arXiv.2606.20905"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "sampled-visual-history",
+      "memory_component": "sampled history of egocentric observations retained by the planner memory harness",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 2.4 Action Planning with Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 3; memory-harness definition",
+          "paraphrase": "At each planning step, the explicit memory harness retains timestamped egocentric observations from prior steps. It re-injects at most K historical images into the planner using either uniform or recency-biased temporal sampling, while always retaining the first frame to preserve the initial state."
+        }
+      ]
+    },
+    {
+      "path_id": "subtask-history-cache",
+      "memory_component": "timestamped running cache of prior text subtasks and goal-conditioned progress",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 2.4 Action Planning with Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Memory-harness tuple definition",
+          "paraphrase": "The history is an ordered set of tuples containing step index, timestamp, observation, predicted subtask and goal. The planner writes each predicted text subtask to this running memory and conditions later non-Markovian planning decisions on the resulting compressed context."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 2.4; Appendix B real-robot inference loop",
+          "page": "PDF pp. 4, 22",
+          "figure_or_table": "Figure 8; Algorithms 1-2",
+          "paraphrase": "During deployment, each planner call appends the latest observation/subtask step to the planner-owned memory, and subsequent calls use the updated history. The write and temporal-sampling rules are fixed, so the persistent state evolves without policy evolution."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Sampled source images and the timestamped textual subtask history are jointly re-injected into the planner prompt to select later embodied subtasks.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review: Vesta's memory harness changes during real-robot inference as observations and predicted subtasks accumulate, but uniform/recency sampling and all write rules remain fixed; therefore it is T2 rather than T3.",
+    "The K-frame cap is implemented as prompt-time temporal sampling from history, not documented deletion from the underlying history, so discrete_memory_eviction is not assigned.",
+    "The full paper reports that joint image-text memory outperforms either image-only or text-only memory in its planning ablation (Table 5), supporting the cross-representation hybrid assignment."
+  ]
+}

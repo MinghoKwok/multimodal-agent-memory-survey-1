@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "agmem-2026",
+  "architecture_name": "AGMem",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Naive Visual Memory is Not Enough: A Failure-Mode Study of GUI Agents",
+    "authors": [
+      "Seoyoung Choi",
+      "Minseok Ko",
+      "Hyunseok Lee",
+      "Kunwoong Kim",
+      "Woomin Song",
+      "Chanseok Jeon",
+      "Jinwoo Shin"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-06-12",
+      "source_url": "https://arxiv.org/abs/2606.14106",
+      "pdf_url": "https://arxiv.org/pdf/2606.14106",
+      "doi": "10.48550/arXiv.2606.14106"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "crops",
+      "memory_component": "action-grounded GUI crops",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 3.2. Action-grounded visual memory",
+          "page": "PDF pp. 5–6, 13–14",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "AGMem stores local crops tied to successful actions or recoveries instead of full screenshots."
+        },
+        {
+          "section": "Full paper: 3.2. Action-grounded visual memory",
+          "page": "PDF pp. 5–6, 13–14",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The memory bank is also an ordered collection of trajectory-segmented atomic memory steps, in addition to its vector index."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 5–6, 13–14): The full-paper lifecycle review found action-grounded GUI crops fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

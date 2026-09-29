@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "deepimagesearch-2026",
+  "architecture_name": "DeepImageSearch",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DeepImageSearch: Benchmarking Multimodal Agents for Context-Aware Image Retrieval in Visual Histories",
+    "authors": [
+      "Chenlong Deng",
+      "Mengjie Deng",
+      "Junjie Wu",
+      "Dun Zeng",
+      "Teng Wang",
+      "Qingsong Xie",
+      "Jiadeng Huang",
+      "Shengjie Ma",
+      "Changwang Zhang",
+      "Zhaoxiang Wang",
+      "Jun Wang",
+      "Yutao Zhu",
+      "Zhicheng Dou"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-29",
+      "source_url": "https://arxiv.org/abs/2602.10809",
+      "pdf_url": "https://arxiv.org/pdf/2602.10809",
+      "doi": "10.48550/arXiv.2602.10809"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "raw visual history",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Mechanisms. We design two complementary",
+          "page": "PDF pp. 6, 15",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The agent navigates raw visual histories with fine-grained tools to recover context-dependent target images."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "dual-memory navigation state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Mechanisms. We design two complementary",
+          "page": "PDF pp. 6, 15",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A dual-memory system preserves long-horizon exploration state while the agent plans multi-step retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Mechanisms. We design two complementary",
+          "page": "PDF pp. 6, 15",
+          "figure_or_table": "",
+          "paraphrase": "During operation, DeepImageSearch applies fixed-rule insertion or replacement to raw visual history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Mechanisms. We design two complementary",
+          "page": "PDF pp. 6, 15",
+          "figure_or_table": "",
+          "paraphrase": "During operation, DeepImageSearch applies episodic or hierarchical summarization to raw visual history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 6, 15): Named image subsets persist and the interaction history is replaced by a summary during use, establishing T2 update and summarization. Training-time learning, when present, was not counted as T3."
+  ]
+}

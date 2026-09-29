@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "mmrc-2025",
+  "benchmark_name": "MMRC",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation",
+    "authors": [
+      "Haochen Xue",
+      "Feilong Tang",
+      "Ming Hu",
+      "Yexin Liu",
+      "Qidong Huang",
+      "Yulong Li",
+      "Chengzhi Liu",
+      "Zhongxing Xu",
+      "Chong Zhang",
+      "Chun-Mei Feng",
+      "Yutong Xie",
+      "Imran Razzak",
+      "Zongyuan Ge",
+      "Jionglong Su",
+      "Junjun He",
+      "Yu Qiao"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed on 2026-08-29",
+      "published_date": "2025-03-08",
+      "source_url": "https://arxiv.org/abs/2502.11903",
+      "pdf_url": "https://arxiv.org/pdf/2502.11903",
+      "doi": "10.48550/arXiv.2502.11903"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "memory_update_and_staleness",
+    "unanswerable_query_handling",
+    "entity_identity_tracking",
+    "visual_state_change_tracking"
+  ],
+  "tasks": [
+    "question_answering",
+    "response_generation"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark design and task taxonomy",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "Real-world multimodal conversations directly evaluate extraction, multi-turn reasoning, information update, image management, memory recall, and answer refusal."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory-adjacent because it evaluates conversational memory behavior rather than prescribing a persistent agent-memory architecture.",
+    "2026-09-17 scope review: History-conditioned probes explicitly test memory recall, image management and information updates, alongside cross-turn reasoning. The former dagger is not justified. Memory-related ability tracks; other MMRC tasks are broader dialogue tests. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

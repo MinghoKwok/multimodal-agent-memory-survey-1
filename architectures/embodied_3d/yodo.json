@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "yodo-2022",
+  "architecture_name": "YODO (You Only Demonstrate Once)",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth"
+  ],
+  "provenance": {
+    "paper_title": "You Only Demonstrate Once: Category-Level Manipulation from Single Visual Demonstration",
+    "authors": [
+      "Bowen Wen",
+      "Wenzhao Lian",
+      "Kostas Bekris",
+      "Stefan Schaal"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 / RSS 2022 paper reviewed on 2026-08-31",
+      "published_date": "2022-01-30",
+      "source_url": "https://arxiv.org/abs/2201.12716",
+      "pdf_url": "https://arxiv.org/pdf/2201.12716",
+      "doi": "10.48550/arXiv.2201.12716"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "category-level-demonstration-trajectory",
+      "memory_component": "fixed category-level 6-DoF demonstration trajectory and task-relevant local-frame sequence",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. IV-B Model-free 6 DoF Object Motion Tracking; Sec. IV-C Category-Level Behavior Cloning",
+          "page": "PDF pp. 4-6",
+          "figure_or_table": "Figure 1; Algorithm 1",
+          "paraphrase": "A single recorded demonstration video is parsed into an ordered object-pose trajectory in the receptacle coordinate frame, lifted into a category-level representation, and reprojected for a novel object. During online execution, Algorithm 1 iterates through the resulting fixed virtual target trajectory and uses each stored pose as the next manipulation goal."
+        },
+        {
+          "section": "Full paper: Sec. IV-C Local Attention",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 2; Eq. 4",
+          "paraphrase": "A demonstration-derived attention heatmap and local anchor sequence preserve task-relevant geometry along the manipulation horizon; online execution transfers these fixed references to the novel object while the controller follows the stored trajectory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included under the guide's fixed demonstration-memory rule: the demonstration-derived 6-DoF trajectory persists beyond video parsing and is repeatedly read during later robot execution.",
+    "The online object tracker updates the robot's current pose estimate, but the operative demonstration trajectory and its access policy remain fixed. This feedback control is not a persistent memory edit, so the architecture remains T1."
+  ]
+}

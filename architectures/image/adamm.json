@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "adamm-2026",
+  "architecture_name": "AdaMM",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Beyond Retrieval: Analytic Memory for Multimodal Agents",
+    "authors": [
+      "Zhoujin Tian",
+      "Hao Zhang",
+      "Yao Tian",
+      "Cheng Chen",
+      "Yakun Li",
+      "Lei Zhang",
+      "Xiaofang Zhou"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv HTML version served on 2026-08-30 (revised 2026-08-04)",
+      "published_date": "2026-07-31",
+      "source_url": "https://arxiv.org/abs/2607.29440",
+      "pdf_url": "https://arxiv.org/pdf/2607.29440",
+      "doi": "10.48550/arXiv.2607.29440"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "analytic memory: provenance-linked attribute-value observations extracted from dialogue and images, induced into schemas and materialized as queryable tables",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3.1 Attribute extraction; 3.3.2 Schema induction; 3.3.3 Memory materialization",
+          "page": "arXiv HTML, Sec. 3.3",
+          "figure_or_table": "Eq. 1; Eqs. 3-7; Table 6 (Appendix E)",
+          "paraphrase": "Each interaction round is parsed into attribute-value tuples (e.g. {Sleep Time: 5.5 hrs}) whose provenance pointer p_t refers back to the supporting dialogue span or image; recurring attribute co-occurrences are induced into schemas and materialized as relational tables in which one row corresponds to one interaction round, so the memory is an explicit cross-modal structured store rather than a text blob, and the original image remains reachable through the provenance link."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "retrieval memory: three-tier topic -> episode -> event hierarchy of textual event records carrying interaction order, timestamps and associated image identifiers",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3.4 Retrieval memory; Appendix A",
+          "page": "arXiv HTML, Sec. 3.4 and Appendix A",
+          "figure_or_table": "Eq. 12; Eq. 13",
+          "paraphrase": "Events store dialogue and contextual content, interaction order, timestamp and associated image identifiers, grouped into episodes and topics. Each node keeps separate textual and visual embeddings, the visual one obtained by mean-pooling the embeddings of associated images (Eq. 12), and node scoring is a late fusion of textual and visual cosine similarities (Eq. 13). The SemanticMatch tool retrieves by similarity, EventLocate retrieves by temporal/order metadata. The visual embeddings serve only as an index into these records, so per the guide they do not open an independent latent representation path."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3.2 Schema induction; 3.3.3 Memory materialization",
+          "page": "arXiv HTML, Sec. 3.3.2-3.3.3",
+          "figure_or_table": "Eqs. 3-7",
+          "paraphrase": "As new interaction rounds arrive at inference time, candidate pattern mining plus fixed support and all-confidence thresholds decide whether a new schema is created or an existing schema is extended, and the tables are (re)materialized. Persistent memory content and structure therefore change during deployment while the governing thresholds stay fixed (Appendix C states thresholds are fixed across both benchmarks)."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: 3.3.2 Schema evolution; 3.3.3 Memory materialization",
+          "page": "arXiv HTML, Sec. 3.3.2-3.3.3",
+          "figure_or_table": "Eqs. 3-7; Table 6 (Appendix E)",
+          "paraphrase": "Schema evolution incrementally extends discovered field structures and triggers rematerialization of the corresponding tables, reorganizing how already-stored observations are grouped and addressed for later analytic queries."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The memory-aware joint query planner decomposes a query into analytic operations over the tabular analytic memory and retrieval operations over the hierarchical event memory, routing each to its tool and combining the results for one answer (Sec. 3.5.1-3.5.2, Table 1, Eqs. 9-10).",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Inclusion: (a) analytic + retrieval memory over long-term multimodal interaction is the whole contribution; (b) images participate in memory formation (attribute extraction from images), storage (image identifiers and provenance pointers in event records), and retrieval (visual embeddings in the late-fusion node score).",
+    "Tier: T2, not T3. Schema discovery/evolution and table rematerialization change memory content and organization during deployment, but the induction thresholds and the planner's routing policy are fixed; Appendix C reports thresholds held constant across benchmarks and the paper reports no deployment-feedback update to any write, maintenance, or retrieval policy.",
+    "Visual embeddings are used only for index-time node scoring, so no persistent_multimodal_latent_state path was created (annotation_guide: an embedding used only as an index does not create an independent latent representation path).",
+    "No benchmark record: the paper evaluates on the pre-existing MemEye and MemGallery benchmarks and does not introduce a new one.",
+    "Primary modality set to image because the persistent experience is image-plus-dialogue sessions and both evaluation benchmarks are image-grounded conversational memory suites; no video/GUI/embodied/audio stream is involved."
+  ]
+}

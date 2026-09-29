@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "personavlm-2026",
+  "architecture_name": "PersonaVLM",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "PersonaVLM: Long-Term Personalized Multimodal LLMs",
+    "authors": [
+      "Chang Nie",
+      "Chaoyou Fu",
+      "Yifan Zhang",
+      "Haihua Yang",
+      "Caifeng Shan"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-20",
+      "source_url": "https://arxiv.org/abs/2604.13074",
+      "pdf_url": "https://arxiv.org/pdf/2604.13074",
+      "doi": "10.48550/arXiv.2604.13074"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "chronological multimodal memory summaries",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The system proactively extracts and summarizes chronological multimodal interactions."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "personalized memory database",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. PersonaVLM Framework",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Consolidated memories and evolving personality information are organized for multi-turn retrieval and response alignment."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. PersonaVLM Framework",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A fixed extraction-and-consolidation process updates the personalized database after interactions. For PersonaVLM, this specifically supports LLM-mediated memory editing of chronological multimodal memory summaries."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: A.1. Memory Storage",
+          "page": "PDF p. 11",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Chronological multimodal interactions are summarized before storage. For PersonaVLM, this specifically supports episodic or hierarchical summarization of chronological multimodal memory summaries."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1. PersonaVLM Framework",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Long-term interaction evidence is abstracted into durable user characteristics. For PersonaVLM, this specifically supports abstraction of episodes into reusable experience of chronological multimodal memory summaries."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (chronological multimodal memory summaries) changes through LLM-mediated memory editing, episodic or hierarchical summarization, abstraction of episodes into reusable experience; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

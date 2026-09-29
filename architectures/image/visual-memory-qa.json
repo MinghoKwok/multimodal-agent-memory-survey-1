@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "visual-memory-qa-2017",
+  "architecture_name": "Visual Memory QA",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text",
+    "video"
+  ],
+  "provenance": {
+    "paper_title": "Visual Memory QA: Your Personal Photo and Video Search Agent",
+    "authors": [
+      "Lu Jiang",
+      "LiangLiang Cao",
+      "Yannis Kalantidis",
+      "Sachin Farfade",
+      "Alex Hauptmann"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2017-01-01",
+      "source_url": "https://doi.org/10.1609/aaai.v31i1.10537",
+      "pdf_url": "",
+      "doi": "10.1609/aaai.v31i1.10537"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "automatically analyzed personal visual memories",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Visual Memory Question Answering",
+          "page": "PDF p. 1",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Content-analysis outputs and indexed visual evidence without user-generated metadata. conversational interface retrieves relevant personal visual evidence to answer life-log questions."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "detected visual concepts/events",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Visual Memory Question Answering",
+          "page": "PDF p. 1",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Content-analysis outputs and indexed visual evidence without user-generated metadata. conversational interface retrieves relevant personal visual evidence to answer life-log questions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 1): The full-paper lifecycle review found automatically analyzed personal visual memories fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

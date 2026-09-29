@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "vstream-qa-2024",
+  "benchmark_name": "VStream-QA",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Flash-VStream: Memory-Based Real-Time Understanding for Long Video Streams",
+    "authors": [
+      "Haoji Zhang",
+      "Yiqin Wang",
+      "Yansong Tang",
+      "Yong Liu",
+      "Jiashi Feng",
+      "Jifeng Dai",
+      "Xiaojie Jin"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version of the benchmark-introducing paper",
+      "published_date": "2024-06-12",
+      "source_url": "https://arxiv.org/abs/2406.08085",
+      "pdf_url": "https://arxiv.org/pdf/2406.08085",
+      "doi": "10.48550/arXiv.2406.08085"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_stream_evidence",
+    "temporal_localization",
+    "multi_event_evidence_integration",
+    "asynchronous_question_answering"
+  ],
+  "tasks": [
+    "online_streaming_video_question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; VStream-QA benchmark section",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "VStream-QA is introduced for asynchronous question answering over continuously arriving long video streams rather than explicit memory-management diagnosis."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained because Table 1 marks it as memory-adjacent; it should be separable from core-memory benchmark counts.",
+    "2026-09-17 scope review: The real-time VStream-QA protocol processes past video before timestamped questions and tests recall of prior events and their order. Limit this row to the real-time historical-evidence protocol; offline full-video QA is less diagnostic. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

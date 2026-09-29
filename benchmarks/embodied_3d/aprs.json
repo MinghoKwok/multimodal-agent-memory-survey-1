@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "aprs-2026",
+  "benchmark_name": "APRS",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "Seek to Segment: Active Perception for Panoramic Referring Segmentation",
+    "authors": [
+      "Song Tang",
+      "Shuming Hu",
+      "Xincheng Shuai",
+      "Henghui Ding",
+      "Yu-Gang Jiang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-29",
+      "published_date": "2026-07-02",
+      "source_url": "https://arxiv.org/abs/2607.02497",
+      "pdf_url": "https://arxiv.org/pdf/2607.02497",
+      "doi": "10.48550/arXiv.2607.02497"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "spatial_state_and_object_memory",
+    "memory_mediated_action",
+    "task_state_and_progress_tracking"
+  ],
+  "tasks": [
+    "navigation_and_localization",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; APRS benchmark construction and evaluation",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "Active panoramic referring segmentation requires sequential viewpoint control, spatial-memory integration, target localization, and segmentation across continuous 360-degree scenes."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory-adjacent because the primary benchmark contribution is active referring segmentation, with spatial memory serving the search process."
+  ]
+}

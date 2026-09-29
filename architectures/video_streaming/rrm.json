@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rrm-2026",
+  "architecture_name": "RRM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "audio",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "RRM: Experience-Driven Reflective Retrieval Memory for Long-Horizon Multimodal Reasoning",
+    "authors": [
+      "Jingxiang Fan",
+      "Junbao Zhuo",
+      "Bochao Zou"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-07-30",
+      "source_url": "https://arxiv.org/abs/2607.28156",
+      "pdf_url": "https://arxiv.org/pdf/2607.28156",
+      "doi": "10.48550/arXiv.2607.28156"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "facts",
+      "memory_component": "entity-centric factual video graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The graph preserves current-video factual evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "experience",
+      "memory_component": "successful and failed retrieval strategies",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Reflective memory stores procedural guidance distilled from task trajectories."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RRM applies LLM-mediated memory editing to entity-centric factual video graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "",
+          "paraphrase": "During operation, RRM applies abstraction of episodes into reusable experience to entity-centric factual video graph; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full-paper deployment feedback / policy evolution",
+          "page": "PDF pp. 4–5",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Reuse feedback and outcomes change guidance for later searches. The persistent later-use effect is deployment-feedback evolution of the reusable retrieval policy or procedure."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 4–5): Test-time mini-batch feedback stores reflective retrieval procedures derived from success/failure and reuses them on later batches, satisfying strict T3. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

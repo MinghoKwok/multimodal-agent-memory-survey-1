@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "hime-2026",
+  "architecture_name": "HiMe",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "HiMe: Hierarchical Embodied Memory for Long-Horizon Vision-Language-Action Control",
+    "authors": [
+      "Li Ji",
+      "Siyin Wang",
+      "Pengfang Qian",
+      "Xiaopeng Yu",
+      "Yihai Tian",
+      "Zhaoye Fei",
+      "Jingjing Gong",
+      "Xipeng Qiu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2026-07-03",
+      "source_url": "https://arxiv.org/abs/2607.03449",
+      "pdf_url": "https://arxiv.org/pdf/2607.03449",
+      "doi": "10.48550/arXiv.2607.03449"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic contextual memory (multimodal key-value store) - retained RGB observation frames referenced by image_path and re-supplied to the Planner",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.2 Hierarchical Embodied Memory",
+          "page": "HTML v1, Sec. 3.2 (approx. PDF pp. 7-8)",
+          "figure_or_table": "Figure 2 (Executor/Sentry/Planner loop); Eq. (3)",
+          "paraphrase": "Contextual memory E^c_t is a multimodal key-value store M_t accumulating 'both visual imagery and textual descriptions'. Records carry id, tags, data and an image_path pointing at the retained dual-view RGB frame; retrieved records, including the stored imagery, are handed back to the Planner (composite wrist + third-person view) at re-planning time, so the raw perceptual evidence itself persists and is reused downstream rather than only a textual proxy."
+        },
+        {
+          "section": "Full paper: Sec. 5.1 (Q1: What type of memory representation is most effective)",
+          "page": "HTML v1, Sec. 5.1",
+          "figure_or_table": "ablation over memory representation",
+          "paraphrase": "Image-only, text-only and cross-modal memory variants are compared; the cross-modal store (image plus text) is best (avg. 90%), confirming that retained imagery is an operative memory path and not decoration."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "episodic contextual memory - textual captions/tags distilled from observations, used as the retrieval keys and as Planner context",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.2 Hierarchical Embodied Memory",
+          "page": "HTML v1, Sec. 3.2 (approx. PDF pp. 7-8)",
+          "figure_or_table": "Eq. (3)",
+          "paraphrase": "Each memory record stores tags and a textual description of what was observed. A query q_t = f_enc(l, W_t) built from the instruction and the recent-observation window is embedded with OpenAI text-embedding-3 and matched by cosine similarity against caption embeddings, returning M_ret = TopK(E^c_t, q_t). The textual record is the indexed surface, and it carries an image_path back to the source frame, so the originating observation stays recoverable."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "episodic procedural memory - ordered list of language subgoals with done/current/pending status labels",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.2 / Sec. 3.3 (policy decomposition)",
+          "page": "HTML v1, Sec. 3.2-3.3 (approx. PDF pp. 7-9)",
+          "figure_or_table": "Eq. (4); Sec. 10 Planner prompt (plan_list)",
+          "paraphrase": "Procedural memory E^p_t = {tau_i} is an ordered language-subgoal plan whose entries are labelled [done]/[current]/[pending]. It persists across subtasks, is read in full by the Planner when re-planning is triggered, and the next active subgoal tau_{t+1} is selected from it and dispatched to the Executor."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 (Memory Update and Re-planning)",
+          "page": "HTML v1, Sec. 3.3; prompts in Sec. 10",
+          "figure_or_table": "Eq. (4); MEMORY CRUD PROTOCOL in the Planner prompt",
+          "paraphrase": "During deployment, whenever the Sentry emits a subtask-completion signal u_t = 1 (Eq. 2), the Planner is invoked and executes (E^c_{t+1}, E^p_{t+1}) <- pi_p(l, W_t, M_ret, E^p_t): a GPT-4o Planner issues explicit CREATE / UPDATE / DELETE / QUERY operations over the multimodal record store and rewrites the subgoal plan. Memory content changes at inference time; the CRUD protocol and prompt that govern it are fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: Abstract; Sec. 3.3; Sec. 5.2 (Q2: Is dynamic memory management necessary)",
+          "page": "HTML v1, Sec. 5.2",
+          "figure_or_table": "Table 2 (Memory Hit / API Calls / Task Progress)",
+          "paraphrase": "Update revises outdated entries and Delete removes 'stale or conflicting information'; the ablation shows the agent self-corrects its stored knowledge when the environment changes mid-episode or when a human instruction contradicts an earlier recorded preference. Resolution is performed by the LLM Planner reading the retrieved records against fresh observations."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3; Sec. 5.2",
+          "page": "HTML v1, Sec. 3.3 / 5.2",
+          "figure_or_table": "MEMORY CRUD PROTOCOL (DELETE record_id)",
+          "paraphrase": "DELETE record_id removes obsolete records outright during deployment; the ablation notes that without Update/Delete the store retains obsolete states and injects noise, so eviction is an actually-exercised inference-time operation."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Retained RGB frames and their textual captions/tags are stored in one key-value record and jointly supplied to the Planner at re-planning time; the procedural subgoal plan is revised in the same call, so the paths are deliberately fused rather than parallel alternatives.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier check: no deployment-feedback-driven change to any reusable write/retrieval/maintenance policy. The Planner and Sentry prompts and the CRUD protocol are hand-written and fixed; the only learned component (the pi_0.5 Executor) is fine-tuned offline on 60 real-robot demonstrations before deployment. The paper's 'self-correct' claim concerns memory CONTENT revision under a fixed LLM editing policy, which is T2 by the guide, not T3.",
+    "Working memory (8-frame sliding window of raw observations) is explicitly transient and was not annotated as a persistent representation path.",
+    "No benchmark record created: evaluation is on three custom real-robot WidowX-250 tasks (Object Search, Counting, Rearrangement); the paper states it releases no matched simulation benchmark or dataset.",
+    "Procedural-memory retrieval was coded planner_tool_assisted_retrieval because the whole status-labelled plan is read by the Planner LLM, which then selects the active subgoal; no similarity or index lookup is used on that path."
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "hippomm-2026",
+  "architecture_name": "HippoMM",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "HippoMM: Hippocampal-inspired Multimodal Memory for Long Audiovisual Event Understanding",
+    "authors": [
+      "Yueqian Lin",
+      "Jingyang Zhang",
+      "Qinsi Wang",
+      "Hancheng Ye",
+      "Yuzhe Fu",
+      "Yudong Liu",
+      "Hai Helen Li",
+      "Yiran Chen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2026-04-01",
+      "source_url": "https://arxiv.org/abs/2504.10739v2",
+      "pdf_url": "https://arxiv.org/pdf/2504.10739v2",
+      "doi": "10.48550/arXiv.2504.10739"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "thetaevent-perceptual-context",
+      "memory_component": "key visual and auditory context linked from ThetaEvents",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 4.2. Hierarchical Memory Retrieval (Pattern Comple-",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "Each ThetaEvent retains representative cross-modal embeddings and references to key visual, auditory, and temporal context in the detailed short-term segment."
+        }
+      ]
+    },
+    {
+      "path_id": "thetaevent-summary",
+      "memory_component": "semantic ThetaEvent summaries",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 4.2. Hierarchical Memory Retrieval (Pattern Comple-",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Consolidated audiovisual segments become concise summaries; confidence-gated retrieval searches summaries first and escalates to detailed temporal windows when needed."
+        }
+      ]
+    },
+    {
+      "path_id": "thetaevent-source-evidence",
+      "memory_component": "detailed audiovisual source spans linked from ThetaEvents",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 2.1. Hippocampal Memory Mechanisms",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Each ThetaEvent retains pointers to detailed audiovisual source spans, and confidence-gated coarse-to-fine retrieval can reopen the underlying temporal evidence."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Abstract summaries, representative embeddings, and linked audiovisual episode details are bundled in each ThetaEvent.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): Hierarchical memory formation precedes downstream queries; inference performs fixed retrieval over the formed artifact, not persistent cross-query editing. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

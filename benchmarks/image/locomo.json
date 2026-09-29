@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "locomo-2024",
+  "benchmark_name": "LoCoMo",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "paper": {
+    "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents",
+    "authors": [
+      "Adyasha Maharana",
+      "Dong-Ho Lee",
+      "Sergey Tulyakov",
+      "Mohit Bansal",
+      "Francesco Barbieri",
+      "Yuwei Fang"
+    ],
+    "latest_version": {
+      "version_label": "Protocol checked against arXiv v1 and official dataset release on 2026-09-17",
+      "published_date": "2024-02-27",
+      "source_url": "https://arxiv.org/abs/2402.17753",
+      "pdf_url": "https://arxiv.org/pdf/2402.17753",
+      "doi": "10.48550/arXiv.2402.17753"
+    },
+    "reviewed_on": "2026-09-17"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_continuity_and_event_recall",
+    "multi_event_evidence_integration",
+    "cross_modal_evidence"
+  ],
+  "tasks": [
+    "question_answering",
+    "memory_retrieval",
+    "generation",
+    "response_generation"
+  ],
+  "evidence": [
+    {
+      "section": "Sections 3.3–3.4, 4–5 and 8",
+      "page": "",
+      "figure_or_table": "Tables 2–4; Figure 4",
+      "paraphrase": "Human-edited image-sharing conversations support long-term QA, event summarization and multimodal dialogue generation. QA includes unanswerable adversarial questions and retrieval evaluation. The original QA and summarization experiments use image captions; dialogue generation uses images directly. The authors note limited long-term visual consistency."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Restored to Table 2 under the broadened inclusion rule. Dataset-level multimodality must be distinguished from the caption-based QA protocol. No claim of native visual-memory evaluation applies to all tracks."
+  ],
+  "scope_status": "core_memory_benchmark"
+}

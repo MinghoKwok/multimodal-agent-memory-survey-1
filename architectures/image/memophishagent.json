@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memophishagent-2026",
+  "architecture_name": "MemoPhishAgent",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MemoPhishAgent: Memory-Augmented Multi-Modal LLM Agent for Phishing URL Detection",
+    "authors": [
+      "Xuan Chen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 reviewed on 2026-08-30; also ACL 2026 Industry Track",
+      "published_date": "2026-04-21",
+      "source_url": "https://arxiv.org/abs/2602.21394",
+      "pdf_url": "https://arxiv.org/pdf/2602.21394",
+      "doi": "10.48550/arXiv.2602.21394"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic memory of past investigations: LLM-distilled keyword set (from page text plus rendered screenshot) as key; full tool-calling trajectory and final verdict as value",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3.1 (episodic memory construction)",
+          "page": "HTML v3, Sec. 3.3.1",
+          "figure_or_table": "framework figure (Fig. 1/2); Sec. 3.3 memory design",
+          "paraphrase": "For each investigated URL the agent 'prompt[s] the LLM to distill compact keywords {k_i} ... given the page text and screenshot', embeds the keyword set with a pre-trained sentence encoder, and stores it 'in a vector index along with its value: the full tool-calling sequence <t_1,...,t_m> and the final verdict y_hat'. The persisted artifact is therefore a textualised record of a multimodal observation (rendered page screenshot plus visual-tool outputs); the screenshot itself is not retained, so the perceptual source is not recoverable from memory."
+        },
+        {
+          "section": "Full paper: Sec. 3.3.2 (hierarchical retrieval policy)",
+          "page": "HTML v3, Sec. 3.3.2",
+          "figure_or_table": "Fig. 3 (sensitivity to k and tau)",
+          "paraphrase": "At query time the incoming URL's keyword embedding is matched by cosine similarity against the index under a fixed threshold tau; the number k' of matches routes the agent to majority vote over stored verdicts (k' >= k), to reuse of retrieved trajectories as in-context exemplars (0 < k' < k), or to a full ReAct investigation (k' = 0)."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 / 3.3.1; Sec. 5 (production deployment)",
+          "page": "HTML v3, Sec. 3.3, Sec. 5",
+          "figure_or_table": "",
+          "paraphrase": "Every URL processed in deployment yields a new episodic entry: 'Each URL yields a tool-calling trajectory and decision, which we treat as reusable supervision: when similar URLs recur, the agent can retrieve prior investigations to accelerate and stabilize its reasoning.' The store therefore grows and changes during operation (the system runs in production over ~60K URLs weekly) under a fixed write rule, and later URLs are decided from entries written earlier at inference time."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Appendix A.3.6 (forgetting / time-window pruning)",
+          "page": "HTML v3, Sec. A.3.6",
+          "figure_or_table": "forgetting-strategy ablation",
+          "paraphrase": "A time-window pruning policy discards stored trajectories during operation: 'after every 50 processed URLs, we prune the least recently used 20%, 40%, and 60% of stored trajectories separately', with detection performance reported as stable across the settings. Eviction is by a fixed LRU rule, so the content shrinks while the policy does not change."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier check: no T3. The routing thresholds k and tau and the retrieval/write rules are hyperparameters fixed before deployment (Sec. 4.2 reports only a sensitivity sweep, Fig. 3); production (Sec. 5) uses fixed thresholds. Deployment feedback changes memory CONTENT, never a reusable write/retrieval/maintenance policy, so T2.",
+    "Modality scope call: the non-text modality participates in memory FORMATION rather than in storage. Keywords are distilled by the LLM from the page text AND the rendered screenshot, and the stored trajectory records visual tool calls (Check Screenshot, Check Image, alongside Crawl Content, Extract Targets, Intelligent Search). Only textualised keywords, tool sequences and verdicts are persisted, which is why source_accessibility is 'none' and the sole leaf is perception_to_text_records_and_summaries. An annotator applying a stricter reading of criterion (b) could argue the visual channel is upstream of memory rather than in it.",
+    "No benchmark record created. The paper releases SocPhish (2,765 URLs from five social-media platforms, Dec 2024 - May 2025, Appendix A.3.2, Table 6), but it is a phishing-detection dataset that evaluates detection recall, not an agent-memory capability benchmark, so it falls outside the benchmark scope of this survey.",
+    "Author list is incomplete: the arXiv HTML front matter surfaced only the lead author (Xuan Chen, Purdue University / Amazon internship); remaining co-authors were not resolvable from the fetched rendering."
+  ]
+}

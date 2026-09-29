@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "rgb-only-reconstruction-mpc-2022",
+  "architecture_name": "RGB-Only Reconstruction and MPC",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "RGB-Only Reconstruction of Tabletop Scenes for Collision-Free Manipulator Control",
+    "authors": [
+      "Zhenggang Tang",
+      "Balakumar Sundaralingam",
+      "Jonathan Tremblay",
+      "Bowen Wen",
+      "Ye Yuan",
+      "Stephen Tyree",
+      "Charles Loop",
+      "Alexander Schwing",
+      "Stan Birchfield"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 / ICRA 2023 paper reviewed on 2026-08-31",
+      "published_date": "2022-10-21",
+      "source_url": "https://arxiv.org/abs/2210.11668",
+      "pdf_url": "https://arxiv.org/pdf/2210.11668",
+      "doi": "10.48550/arXiv.2210.11668"
+    },
+    "reviewed_on": "2026-08-31",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "nerf-derived-esdf-scene-memory",
+      "memory_component": "fixed NeRF-derived scene mesh and Euclidean full signed distance field used by the manipulator controller",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. III-A Neural Scene Reconstruction from RGB Images",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1; Eq. 1-3",
+          "paraphrase": "Multiple RGB observations are consolidated into a per-scene NeRF; a polygonal mesh and bounding-volume hierarchy are extracted, and signed distances are queried to form an ESDF suitable for downstream robotic planning."
+        },
+        {
+          "section": "Full paper: Sec. III-B Manipulator Control Problem",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "After reconstruction, the scene mesh is loaded into a sampling-based model-predictive controller. The controller repeatedly queries the fixed signed-distance representation to generate collision-free robot motions toward later target poses."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Included under the guide's fixed-map rule: the RGB-derived mesh/ESDF persists beyond formation and is an operative input to subsequent manipulator-control decisions.",
+    "The paper describes fast per-scene NeRF optimization during memory formation, but does not update the reconstructed scene during the downstream MPC phase. Formation-time optimization does not raise the management tier, so the architecture is T1."
+  ]
+}

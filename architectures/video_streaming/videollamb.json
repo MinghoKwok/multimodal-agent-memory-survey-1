@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "videollamb-2024",
+  "architecture_name": "VideoLLaMB",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VideoLLaMB: Long Video Understanding with Recurrent Memory Bridges",
+    "authors": [
+      "Yuxuan Wang",
+      "Cihang Xie",
+      "Yang Liu",
+      "Zilong Zheng"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2024-09-02",
+      "source_url": "https://arxiv.org/abs/2409.01071",
+      "pdf_url": "https://arxiv.org/pdf/2409.01071",
+      "doi": "10.48550/arXiv.2409.01071"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "recurrent bridge memory tokens",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: 2.3. Memory Cache with Retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Recurrent memory tokens bridge SceneTilling segments and carry latent context forward."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: 2.2. Recurrent Memory Bridge Layers",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A learned recurrent bridge updates persistent memory tokens between semantic scenes. For VideoLLaMB, this specifically supports a trained but frozen update module of recurrent bridge memory tokens."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (recurrent bridge memory tokens) changes through a trained but frozen update module; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "knowact-guiclaw-2026",
+  "architecture_name": "KnowAct-GUIClaw",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "KnowAct-GUIClaw: Know Deeply, Act Perfectly, Personal GUI Assistant with Self-Evolving Memory and Skill",
+    "authors": [
+      "Yunxin Li",
+      "Jinchao Li",
+      "Baotian Hu",
+      "Min Zhang",
+      "Shibo Su",
+      "Zhenran Xu",
+      "Chenrui Zhao",
+      "Tongshu Bian",
+      "Xiaoman Liang",
+      "Meishan Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 reviewed 2026-08-26",
+      "published_date": "2026-07-15",
+      "source_url": "https://arxiv.org/abs/2607.12625",
+      "pdf_url": "https://arxiv.org/pdf/2607.12625",
+      "doi": "10.48550/arXiv.2607.12625"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "experience_memory",
+      "memory_component": "trajectory-derived experience memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.2 and 4.5",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Success and failure traces become concise textual policies that are recalled by semantic similarity and supplied to later routing, decomposition, layout reasoning, and recovery."
+        }
+      ]
+    },
+    {
+      "path_id": "skill_store",
+      "memory_component": "state-validated GUI skill and shortcut store",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.4–4.5",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Each skill stores app and platform scope, parameters, ordered GUI steps, reliability fields, and visual or deterministic state contracts; app-scoped candidates are retrieved by lexical and embedding signals and checked for applicability."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §4.5 Reflect",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "Post-run reflection turns GUI trajectories, screenshots, action parameters, and inferred state contracts into concise lessons and reusable declarative procedures."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §4.5 Reflect",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "A vision-language extraction and evolution process writes accepted skills and edits an identified failed skill in place while enforcing action, parameter, scope, and state-validation constraints."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: §4.5 Experience memory",
+          "page": "HTML full text",
+          "figure_or_table": "",
+          "paraphrase": "The experience-memory inducer limits retained items per task and drops near-duplicate lessons within the same application."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§4.2, 4.4, and 4.5",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "When a reused skill fails during GUI execution, reflection uses the failed step, screen evidence, error, original skill, and prior feedback to update that skill in place, including narrowing its retrieval description and refreshing targets or state contracts; the persistent edited skill is retrieved and validated on later subtasks."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 rests on runtime failure repair, not the paper's separate offline extraction path: deployed screen/error feedback edits the same reusable skill's retrieval description and execution contract, persists the edit, and changes later retrieval and execution."
+  ]
+}

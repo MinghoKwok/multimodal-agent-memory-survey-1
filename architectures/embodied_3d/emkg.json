@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "emkg-2026",
+  "architecture_name": "EMKG",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "EMKG: Embodied Memory Knowledge Graphs for Object-Goal Navigation in Dynamic Open Worlds",
+    "authors": [
+      "Mingyi Li",
+      "Hui Liu",
+      "Ying Li",
+      "Shubo Zhang",
+      "Chunle Gao",
+      "Xiaokang Ma",
+      "Hanqing Hu",
+      "Weixin Mao"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2026-01-01",
+      "source_url": "https://ieeexplore.ieee.org/document/11358999",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Object nodes and target captions",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Publisher method description: Dynamic Memory Knowledge Graph",
+          "page": "Publisher pp. 4537–4544",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Builds an extensible multimodal memory relational knowledge graph.; Fuses image/text embeddings with 3D coordinate representations.; Sampling-based RAG update evaluates top-k candidates and incrementally updates the vector memory.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "3D coordinates and spatial relations",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Publisher method description: Dynamic Memory Knowledge Graph",
+          "page": "Publisher pp. 4537–4544",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Builds an extensible multimodal memory relational knowledge graph.; Fuses image/text embeddings with 3D coordinate representations.; Sampling-based RAG update evaluates top-k candidates and incrementally updates the vector memory.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "Multimodal vector memory entries",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Publisher method description: Dynamic Memory Knowledge Graph",
+          "page": "Publisher pp. 4537–4544",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Builds an extensible multimodal memory relational knowledge graph.; Fuses image/text embeddings with 3D coordinate representations.; Sampling-based RAG update evaluates top-k candidates and incrementally updates the vector memory.. graph query/traversal over the memory conditioned on the current goal."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Publisher method description: Dynamic Memory Knowledge Graph",
+          "page": "Publisher pp. 4537–4544",
+          "figure_or_table": "Method overview",
+          "paraphrase": "During operation, EMKG applies fixed-rule insertion or replacement to Object nodes and target captions; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Publisher method description: Dynamic Memory Knowledge Graph",
+          "page": "Publisher pp. 4537–4544",
+          "figure_or_table": "",
+          "paraphrase": "During operation, EMKG applies evidence-weighted revision of stored belief or confidence to Object nodes and target captions; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (Publisher pp. 4537–4544): During inference, the operative memory component (Object nodes and target captions) changes through fixed-rule insertion or replacement, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

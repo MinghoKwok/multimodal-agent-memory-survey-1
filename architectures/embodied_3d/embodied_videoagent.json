@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "embodied-videoagent-2025",
+  "architecture_name": "Embodied VideoAgent",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "video_streaming",
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Embodied VideoAgent: Persistent Memory from Egocentric Videos and Embodied Sensors Enables Dynamic Scene Understanding",
+    "authors": [
+      "Yue Fan",
+      "Xiaojian Ma",
+      "Rongpeng Su",
+      "Jun Guo",
+      "Rujie Wu",
+      "Xi Chen",
+      "Qing Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2025-01-09",
+      "source_url": "https://arxiv.org/abs/2501.00358v2",
+      "pdf_url": "https://arxiv.org/pdf/2501.00358v2",
+      "doi": "10.48550/arXiv.2501.00358"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "persistent-object-memory",
+      "memory_component": "object states, relations, 3D boxes, and visual/context features",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: 2.2. Memory and Tools of Embodied VideoAgent",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "Each persistent object entry stores identity, state, relations, 3D bounding box, object visual feature, and contextual visual feature; tools query these fields."
+        }
+      ]
+    },
+    {
+      "path_id": "temporal-memory",
+      "memory_component": "segment captions and video features",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: 2.2. Memory and Tools of Embodied VideoAgent",
+          "page": "PDF p. 3",
+          "figure_or_table": "",
+          "paraphrase": "A temporal table stores segment identifiers, captions, video features, and caption embeddings for tool-based temporal localization."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 12",
+          "figure_or_table": "",
+          "paraphrase": "A VLM determines object-state and relation changes caused by observed actions and rewrites the corresponding persistent object entries. For Embodied VideoAgent, this specifically supports LLM-mediated memory editing of object states, relations, 3D boxes, and visual/context features."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: D. VLM-based Memory Update",
+          "page": "PDF p. 14",
+          "figure_or_table": "",
+          "paraphrase": "Visual and spatial similarity re-identify recurring objects so observations update an existing entry instead of creating duplicates. For Embodied VideoAgent, this specifically supports merging or deduplication of overlapping entries of object states, relations, 3D boxes, and visual/context features."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Temporal descriptions and the object database are both explicit cross-represented records rather than distinct parent-family representations.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 12): During inference, the operative memory component (object states, relations, 3D boxes, and visual/context features) changes through LLM-mediated memory editing, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

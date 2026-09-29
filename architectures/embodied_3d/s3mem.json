@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "s3mem-2026",
+  "architecture_name": "S3Mem",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "S3Mem: Structured Spatiotemporal Scene-Event Memory for Long-Horizon Interactive Question Answering",
+    "authors": [
+      "Encheng Su",
+      "Jinouwen Zhang",
+      "Jianyu Wu",
+      "Qiucheng Yu",
+      "Chen Tang",
+      "Pengze Li",
+      "Lintao Wang",
+      "Yizhou Wang",
+      "Xinzhu Ma",
+      "Shixiang Tang",
+      "Aoran Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.28831",
+      "pdf_url": "https://arxiv.org/pdf/2605.28831",
+      "doi": "10.48550/arXiv.2605.28831"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "structured scene-event episodic memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Structured Memory Writer",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Trajectories are written into structured scene-event units and routed through anchor-sensitive retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): The complete history is serialized and packed for a query; no persistent memory artifact is edited across downstream interactions, so this is T1. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

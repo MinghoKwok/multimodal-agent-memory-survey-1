@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "visrag-2024",
+  "architecture_name": "VisRAG",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VisRAG: Vision-based Retrieval-augmented Generation on Multi-modality Documents",
+    "authors": [
+      "Shi Yu",
+      "Chaoyue Tang",
+      "Bokai Xu",
+      "Junbo Cui",
+      "Junhao Ran",
+      "Yukun Yan",
+      "Zhenghao Liu",
+      "Shuo Wang",
+      "Xu Han",
+      "Zhiyuan Liu",
+      "Maosong Sun"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2024-10-14",
+      "source_url": "https://arxiv.org/abs/2410.10594",
+      "pdf_url": "https://arxiv.org/pdf/2410.10594",
+      "doi": "10.48550/arXiv.2410.10594"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "document-page-images",
+      "memory_component": "visual document corpus",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Document pages remain in image form; a VLM encodes each page for cosine-similarity retrieval."
+        },
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Retrieved page images, rather than their index embeddings, are supplied to the VLM generator."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Index embeddings are retrieval aids, not an operative latent memory path.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): The full-paper lifecycle review found visual document corpus fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

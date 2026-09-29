@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "memoryexplorer-lmee-bench-2026",
+  "architecture_name": "MemoryExplorer / LMEE-Bench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Explore with Long-term Memory: A Benchmark and Multimodal LLM-based Reinforcement Learning Framework for Embodied Exploration",
+    "authors": [
+      "Sen Wang",
+      "Bangwei Liu",
+      "Zhenkun Gao",
+      "Lizhuang Ma",
+      "Xuhong Wang",
+      "Yuan Xie",
+      "Xin Tan"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-03-22",
+      "source_url": "https://arxiv.org/abs/2601.10744",
+      "pdf_url": "https://arxiv.org/pdf/2601.10744",
+      "doi": "10.48550/arXiv.2601.10744"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "episodic / exploration memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 2, 16–17",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Agent collects episodic memories during multi-goal navigation. episodic retrieval supplies memories to cognition/decision modules."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "episodic / exploration memory",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF pp. 2, 16–17",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Agent collects episodic memories during multi-goal navigation. episodic retrieval supplies memories to cognition/decision modules."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF pp. 2, 16–17",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MemoryExplorer / LMEE-Bench applies fixed-rule insertion or replacement to episodic / exploration memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 2, 16–17): The agent writes episodic exploration memories on the fly and reuses them across later goals; the fixed write procedure is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

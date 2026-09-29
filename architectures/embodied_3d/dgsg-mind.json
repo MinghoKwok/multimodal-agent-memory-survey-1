@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "dgsg-mind-2026",
+  "architecture_name": "DGSG-Mind",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "provenance": {
+    "paper_title": "DGSG-Mind: Dynamic 3D Gaussian Scene Graphs for Long-Term Scene Understanding and Grounding",
+    "authors": [
+      "Luzhou Ge",
+      "Xiangyu Zhu",
+      "Jinyan Liu",
+      "Xuesong Li"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-05-29",
+      "source_url": "https://arxiv.org/abs/2605.29879",
+      "pdf_url": "https://arxiv.org/pdf/2605.29879",
+      "doi": "10.48550/arXiv.2605.29879"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "long-term scene representation: object instances",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Dynamic 3D Gaussian Splatting representation combined with scene graph nodes and edges. language-grounded retrieval over the scene graph for grounding and long-term understanding."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "spatial relationships",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Dynamic 3D Gaussian Splatting representation combined with scene graph nodes and edges. language-grounded retrieval over the scene graph for grounding and long-term understanding."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, DGSG-Mind applies fixed-rule insertion or replacement to long-term scene representation: object instances; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, DGSG-Mind applies fixed-rule correction of stored state to long-term scene representation: object instances; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Online updates as the environment evolves; long-term adaptation. For DGSG-Mind, this specifically supports explicit deletion or eviction of stored items of long-term scene representation: object instances."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 8",
+          "figure_or_table": "Method overview",
+          "paraphrase": "Online updates as the environment evolves; long-term adaptation. For DGSG-Mind, this specifically supports relinking or reindexing of stored items of long-term scene representation: object instances."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 8): During inference, the operative memory component (long-term scene representation: object instances) changes through fixed-rule insertion or replacement, fixed-rule correction of stored state, explicit deletion or eviction of stored items, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

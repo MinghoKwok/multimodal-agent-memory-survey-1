@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "avila-2025",
+  "architecture_name": "AViLA",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "AViLA: Asynchronous Vision-Language Agent for Streaming Multimodal Data Interaction",
+    "authors": [
+      "Gengyuan Zhang",
+      "Tanveer Hannan",
+      "Hermine Kleiner",
+      "Beste Aydemir",
+      "Xinyu Xie",
+      "Jian Lan",
+      "Thomas Seidl",
+      "Volker Tresp",
+      "Jindong Gu"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-06-23",
+      "source_url": "https://arxiv.org/abs/2506.18472",
+      "pdf_url": "https://arxiv.org/pdf/2506.18472",
+      "doi": "10.48550/arXiv.2506.18472"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "comprehensive streaming observation memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The memory retains historical streaming observations even when queries and evidence arrive asynchronously."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "time-aware evidence index",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Evidence identification links asynchronous queries to relevant historical observations and response triggers."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "New stream observations are continuously appended under a fixed retention procedure. For AViLA, this specifically supports fixed-rule insertion or replacement of comprehensive streaming observation memory."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Temporal evidence links are updated as asynchronous support arrives. For AViLA, this specifically supports relinking or reindexing of stored items of comprehensive streaming observation memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): During inference, the operative memory component (comprehensive streaming observation memory) changes through fixed-rule insertion or replacement, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

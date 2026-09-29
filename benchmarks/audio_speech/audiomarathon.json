@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "audiomarathon-2025",
+  "benchmark_name": "AudioMarathon",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text"
+  ],
+  "paper": {
+    "title": "AudioMarathon: A Comprehensive Benchmark for Long-Context Audio Understanding and Efficiency in Audio LLMs",
+    "authors": [
+      "Peize He",
+      "Zichen Wen",
+      "Yubo Wang",
+      "Yuxuan Wang",
+      "Xiaoqian Liu",
+      "Jiajie Huang",
+      "Zehui Lei",
+      "Zhuangcheng Gu",
+      "Xiangqi Jin",
+      "Jiabing Yang",
+      "Kai Li",
+      "Zhifei Liu",
+      "Weijia Li",
+      "Cunxiang Wang",
+      "Conghui He",
+      "Linfeng Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2025-10-08",
+      "source_url": "https://arxiv.org/abs/2510.07293",
+      "pdf_url": "https://arxiv.org/pdf/2510.07293",
+      "doi": "10.48550/arXiv.2510.07293"
+    },
+    "reviewed_on": "2026-08-30"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_order_and_change"
+  ],
+  "tasks": [
+    "question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark construction (10 subsets across speech content, audio scene, and voice characteristics)",
+      "page": "",
+      "figure_or_table": "Table 3 (model comparison)",
+      "paraphrase": "6,567 questions over 90-300 s audio (2,250-7,500 audio tokens) spanning speech, sound, and music; tasks require multi-hop inference over long-range temporal dependencies, so the model must hold and re-access evidence distributed across the whole clip."
+    },
+    {
+      "section": "Efficiency evaluation of inference-time compression",
+      "page": "",
+      "figure_or_table": "Section 4.1; Table 4; Figures 5-7",
+      "paraphrase": "The benchmark systematically evaluates KV-cache eviction policies (Random, KNorm, TOVA, SnapKV) and audio-token pruning policies (Random, FastV, DART, and the authors' time-aligned Frame pruning) at 30%/60%/90% compression, i.e. it measures how well different retention/eviction policies over the audio KV store preserve task accuracy."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Retained as memory_adjacent, not a core memory benchmark: the benchmark targets long-context audio understanding and inference efficiency, and there is no explicit evaluation of a persistent cross-session or streaming agent memory. It is included because its efficiency track directly evaluates KV-cache eviction and audio-token retention policies, which are inference-time memory-management policies over a non-text (audio) modality.",
+    "No architecture record created: the paper proposes no new memory architecture (the only novel component is the 'Frame' time-aligned pruning baseline used as an evaluation condition).",
+    "Scope confirmed against ten existing memory_adjacent records, in particular lvomnibench.json which is likewise recorded as memory_adjacent for evaluating long-horizon comprehension rather than memory architecture."
+  ],
+  "scope_status": "memory_adjacent"
+}

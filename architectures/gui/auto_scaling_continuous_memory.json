@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "auto-scaling-continuous-memory-2025",
+  "architecture_name": "Auto-scaling Continuous Memory",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Auto-scaling Continuous Memory for GUI Agent",
+    "authors": [
+      "Wenyi Wu",
+      "Kun Zhou",
+      "Ruoxin Yuan",
+      "Vivian Yu",
+      "Stephen Wang",
+      "Zhiting Hu",
+      "Biwei Huang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-10-10",
+      "source_url": "https://arxiv.org/abs/2510.09038",
+      "pdf_url": "https://arxiv.org/pdf/2510.09038",
+      "doi": "10.48550/arXiv.2510.09038"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "continuous GUI trajectory memory",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Size (log scale)",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "GUI trajectories are encoded into fixed-length continuous embeddings and injected directly into the VLM."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The full-paper lifecycle review found continuous GUI trajectory memory fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

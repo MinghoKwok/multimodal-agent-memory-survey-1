@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "egomas-2026",
+  "architecture_name": "EgoMAS",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MA-EgoQA: Question Answering over Egocentric Videos from Multiple Embodied Agents",
+    "authors": [
+      "Kangsan Kim",
+      "Yanlai Yang",
+      "Suji Kim",
+      "Woongyeong Yeo",
+      "Youngwan Lee",
+      "Mengye Ren",
+      "Sung Ju Hwang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 (HTML full text) reviewed on 2026-08-30",
+      "published_date": "2026-03-11",
+      "source_url": "https://arxiv.org/abs/2603.09827",
+      "pdf_url": "https://arxiv.org/pdf/2603.09827",
+      "doi": "10.48550/arXiv.2603.09827"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "per-agent individual memory: VLM captions of each embodied agent's egocentric video stream, produced at fixed 10-minute intervals over the multi-day recording",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "5.1 Event-based Shared Memory",
+          "page": "arXiv HTML full text, Section 5.1",
+          "figure_or_table": "Figure 5 (EgoMAS pipeline overview)",
+          "paraphrase": "Each agent's long egocentric video is compressed into natural-language captions at every 10-minute interval; these per-agent caption records are the modality-native perception converted into a persistent textual store that the second retrieval stage queries. Each caption is tied to its agent identity and its 10-minute window, so the originating video segment remains locatable."
+        },
+        {
+          "section": "5.2 Agent-wise Dynamic Retrieval",
+          "page": "arXiv HTML full text, Section 5.2",
+          "figure_or_table": "Table 5b (retrieval ablation, BM25 vs alternatives)",
+          "paraphrase": "The second retrieval stage issues agent-specific sub-queries, each pairing an agent identifier with a sub-question, and retrieves top-k entries from that agent's individual caption memory; the agent identifier acts as a metadata routing key on top of lexical similarity ranking."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "system-level shared event memory: 4W1H (When, What, Where, Who, How) event records synthesised by a central manager from the parallel per-agent captions",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "5.1 Event-based Shared Memory",
+          "page": "arXiv HTML full text, Section 5.1",
+          "figure_or_table": "Figure 5 (EgoMAS pipeline overview)",
+          "paraphrase": "A centralised manager integrates the individual captions into system-level summaries by identifying key events and explicitly recording, for each event, the fields When, What, Where, Who and How. The result is a schematised spatio-temporal record that aligns several agents' viewpoints into one coherent global memory, distinct from the flat per-agent caption stream it is built from."
+        },
+        {
+          "section": "5.2 Agent-wise Dynamic Retrieval",
+          "page": "arXiv HTML full text, Section 5.2",
+          "figure_or_table": "Figure 5",
+          "paraphrase": "Answering runs a two-tier read: BM25 ranking over the system-level event memory returns top-n events, which condition agent-specific sub-queries into the lower per-agent tier; a score threshold filters the union before response generation. The two tiers form one hierarchical store rather than independent indexes."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "The system-level 4W1H event records and the per-agent caption records are deliberately linked (events index into the agents whose captions produced them) and are jointly supplied to the answer generator through the two-stage retrieval cascade.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Tier judged T1: the shared memory is fully precomputed from the recorded egocentric streams before question answering; at QA time the system only performs query-conditioned two-stage retrieval and threshold filtering over fixed items. No persistent memory content, metadata or organisation changes during inference, and no deployment feedback alters any write or retrieval policy.",
+    "The 10-minute-interval caption/summary integration is memory formation over the stream, not inference-time memory management, and therefore does not raise the tier under the guide's formation/inference boundary rule.",
+    "Both representation paths are textual by leaf, but the non-text-modality criterion is met at formation: the memory is derived entirely from multiple egocentric video streams, and video is the central persistent experience and the evaluation setting.",
+    "source_accessibility recorded as linked_recoverable because every record carries an agent identifier and a temporal window (the 4W1H 'When'/'Who' fields) that locate the originating video segment. The full text does not explicitly describe re-sampling video frames at answer time; if strict re-access is required, this field would drop to retained_not_accessible.",
+    "Evidence pointers taken from the arXiv HTML full text (Sections 5.1-5.2, Figure 5, Tables 2/5b). PDF page numbers were not resolved.",
+    "source_accessibility lowered from 'linked_recoverable' to 'retained_not_accessible' during merge review: the paper never states that video frames are re-accessed at answer time, and the guide forbids inferring a mechanism from field structure alone. The 4W1H Who/When fields index events but are not shown to return source video."
+  ]
+}

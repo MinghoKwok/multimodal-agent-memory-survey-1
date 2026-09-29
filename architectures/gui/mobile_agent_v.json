@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mobile-agent-v-2025",
+  "architecture_name": "Mobile-Agent-V",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Mobile-Agent-V: A Video-Guided Approach for Effortless and Efficient Operational Knowledge Injection in Mobile Automation",
+    "authors": [
+      "Junyang Wang",
+      "Haiyang Xu",
+      "Xi Zhang",
+      "Ming Yan",
+      "Ji Zhang",
+      "Fei Huang",
+      "Jitao Sang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version reviewed 2026-08-26",
+      "published_date": "2025-02-24",
+      "source_url": "https://arxiv.org/abs/2502.17110",
+      "pdf_url": "https://arxiv.org/pdf/2502.17110",
+      "doi": "10.48550/arXiv.2502.17110"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "demonstration video memory",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 4.4.4 Impact of Knowledge Injection Method",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Recorded task videos provide retained operational evidence for mobile automation."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "video-derived operational knowledge",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A video agent extracts operational guidance that is reused during task execution."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): A fixed demonstration video and its extracted guidance are consumed during execution. Sliding windows and ordinary action history do not constitute persistent memory updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

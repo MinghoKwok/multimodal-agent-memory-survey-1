@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "impact-cycle-2026",
+  "architecture_name": "IMPACT-CYCLE",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "IMPACT-CYCLE: A Contract-Based Multi-Agent System for Claim-Level Supervisory Correction of Long-Video Semantic Memory",
+    "authors": [
+      "Weitong Kong",
+      "Di Wen",
+      "Kunyu Peng",
+      "David Schneider",
+      "Zeyun Zhong",
+      "Alexander Jaus",
+      "Zdravko Marinov",
+      "Jiale Wei",
+      "Ruiping Liu",
+      "Junwei Zheng",
+      "Yufan Chen",
+      "Lei Qi",
+      "Rainer Stiefelhagen"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2026-04-22",
+      "source_url": "https://arxiv.org/abs/2604.20136",
+      "pdf_url": "https://arxiv.org/pdf/2604.20136",
+      "doi": "10.48550/arXiv.2604.20136"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "retained keyframe set {I_t} selected from the long video by motion-driven temporal segmentation",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Section III-B, Semantic Memory Construction",
+          "page": "Eq. 4",
+          "figure_or_table": "Eq. 1-4",
+          "paraphrase": "K in {3,...,5} keyframes per video are selected from raw video V by motion-driven temporal segmentation and retained as the visual evidence base. In every verification round r the role-specialized agents are re-supplied with the keyframe images together with the current graph state G^(r-1) (Eq. 4), so the retained pixel-level evidence is queried repeatedly across rounds rather than consumed once."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "shared semantic memory: frame-level scene-graph slices G_t (entities N_t, relations E_t, attributes A_t), typed claim set C, and claim dependency graph D",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Section III-A, System Overview; Section III-B, Claim Decomposition; Section III-F, Dependency-Closure Re-verification",
+          "page": "Eq. 1-3, Eq. 13",
+          "figure_or_table": "Eq. 1-3, Eq. 13",
+          "paraphrase": "The memory M = (G, C, D, Pi) stores a scene graph as a union of frame-level slices G_t holding entities, relations and attributes (Eq. 1-2), decomposed into atomic typed claims of four kinds (existence, label, attribute, subject-predicate-object relation, Eq. 3), plus a directed dependency graph D whose edge c -> c' is added when a revision to c structurally constrains c' via shared entity identity, shared relation endpoints, or overlapping temporal extent. Access is by structural traversal: after an edit to claim set Q only the dependency closure Gamma(Q) is re-verified (Eq. 13). Claims are grounded to keyframe index t, so the structured record links back to the retained keyframe evidence."
+        }
+      ]
+    },
+    {
+      "path_id": "path_3",
+      "memory_component": "provenance log Pi of timestamped, attributed agent decisions and human edits",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Section III-A, System Overview; Section III-E, Constrained Correction",
+          "page": "",
+          "figure_or_table": "",
+          "paraphrase": "Every agent decision and human edit is written to Pi as a timestamped, attributed entry when a revision is committed to G. The paper states Pi does not enter the belief computation directly but supports auditability, rollback, and supervisor inspection, so it is a persistent record consumed by later memory maintenance rather than by the belief update itself."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Section III-D, Role-Aware Evidence Aggregation; Section III-E, Constrained Correction",
+          "page": "Eq. 7-10",
+          "figure_or_table": "Table I (role weights lambda)",
+          "paraphrase": "During deployment the three verification agents emit directional evidence that is aggregated with fixed role- and claim-type-dependent weights into S+, S-, S0 (Eq. 7-9); the stored per-claim belief is then revised as p^(r)(c) = (eps + S+(c)) / (2 eps + S+(c) + S-(c)) (Eq. 10). The belief attached to each persistent claim changes across verification rounds while the aggregation weights lambda, calibrated once on held-out development data, remain fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Section III-E, Constrained Correction; Section III-F, Dependency-Closure Re-verification",
+          "page": "Eq. 13",
+          "figure_or_table": "",
+          "paraphrase": "A candidate correction o-hat is written into the scene graph in place only when its score Q(o-hat | c) exceeds a fixed revision threshold theta and exceeds the current graph value; otherwise the claim is escalated. Accepted edits (agent or human) mutate the persistent claim set and scene graph, and the dependency closure Gamma(Q) of the edited claims is then re-verified, so the stored memory state is corrected at inference time under a fixed acceptance rule."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v1, Sections III-A to III-F): the operative memory (scene graph, typed claims, per-claim beliefs) is revised during deployment by evidence-weighted belief update (Eq. 10) and threshold-gated constrained correction, while the governing policy - the role/claim-type weight table lambda (Table I), the revision threshold theta, and the dependency-closure re-verification rule - is calibrated before deployment and held constant. Human overrides are logged in Pi but the paper states no mechanism by which they change any reusable write, maintenance, or retrieval policy, so T3 is not assigned.",
+    "Threshold values (theta) and the exact claim primary-key/index structure are not disclosed in the paper; retrieval_activation for path_2 records both structural traversal (explicit, Eq. 13) and frame/type indexing (stated only implicitly).",
+    "path_3 (provenance log) is retained as an operative path because it supports rollback and supervisor inspection, but the paper explicitly notes it does not feed the belief computation; if the project restricts operative paths to those reaching model-side downstream computation, this path should be dropped (it does not change the derived families, hybrid status, or tier).",
+    "The paper introduces no new benchmark; it evaluates on the existing VidOR dataset. No benchmark record was created."
+  ]
+}

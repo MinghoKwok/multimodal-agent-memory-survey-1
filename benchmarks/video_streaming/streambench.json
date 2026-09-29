@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "streambench-2025",
+  "benchmark_name": "StreamBench",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "Streaming Video Understanding and Multi-round Interaction with Memory-enhanced Knowledge",
+    "authors": [
+      "Haomiao Xiong",
+      "Zongxin Yang",
+      "Jiazuo Yu",
+      "Yunzhi Zhuge",
+      "Lu Zhang",
+      "Jiawen Zhu",
+      "Huchuan Lu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2025-01-23",
+      "source_url": "https://arxiv.org/abs/2501.13468",
+      "pdf_url": "https://arxiv.org/pdf/2501.13468",
+      "doi": "10.48550/arXiv.2501.13468"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_continuity_and_event_recall",
+    "fine_grained_visual_detail_retention",
+    "spatial_state_and_object_memory",
+    "memory_update_and_staleness",
+    "conflict_and_evidence_reliability"
+  ],
+  "tasks": [
+    "question_answering",
+    "memory_retrieval",
+    "agent_action"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "Benchmark overview / main evaluation table",
+      "paraphrase": "training-free hierarchical streaming-video memory with explicit short / long / dialogue split and a parallel scheduling strategy for real-time multi-turn use; introduces StreamBench"
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update.",
+    "2026-09-17 scope review: Explicit short-term and long-term memory-search tasks introduce query delays; multi-round conversation tasks require earlier interaction records. Limit coverage to memory-search and conversation-history tasks. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "egomem-2025",
+  "architecture_name": "EgoMem",
+  "primary_modality": "audio_speech",
+  "secondary_modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "provenance": {
+    "paper_title": "EgoMem: Lifelong Memory Agent for Full-duplex Omnimodal Models",
+    "authors": [
+      "Yiqun Yao",
+      "Naitong Yu",
+      "Xiang Li",
+      "Xin Jiang",
+      "Xuezhi Fang",
+      "Wenjia Ma",
+      "Xuying Meng",
+      "Jing Li",
+      "Aixin Sun",
+      "Yequan Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-01-30",
+      "source_url": "https://arxiv.org/abs/2509.11914",
+      "pdf_url": "https://arxiv.org/pdf/2509.11914",
+      "doi": "10.48550/arXiv.2509.11914"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "per-user facts",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 5.1. Retrieval Evaluation",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Extracted user-fact entries; per-user face and voice embeddings. online face/voice identification routes to the per-user fact store; relevant context retrieved during dialog."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "preferences",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 5.1. Retrieval Evaluation",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Extracted user-fact entries; per-user face and voice embeddings. online face/voice identification routes to the per-user fact store; relevant context retrieved during dialog."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Face Verification. We leverage an open-sourced pipeline",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, EgoMem applies LLM-mediated memory editing to per-user facts; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_conflict_resolution",
+      "evidence": [
+        {
+          "section": "Full paper: Face Verification. We leverage an open-sourced pipeline",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, EgoMem applies LLM-based resolution of conflicting records to per-user facts; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (per-user facts) changes through LLM-mediated memory editing, LLM-based resolution of conflicting records; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

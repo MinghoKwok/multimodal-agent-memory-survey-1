@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "embodiedrag-2024",
+  "architecture_name": "EmbodiedRAG",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EmbodiedRAG: Dynamic 3D Scene Graph Retrieval for Efficient and Scalable Robot Task Planning",
+    "authors": [
+      "Meghan Booker",
+      "Grayson Byrd",
+      "Bethany Kemp",
+      "Aurora Schmidt",
+      "Corban Rivera"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2024-10-31",
+      "source_url": "https://arxiv.org/abs/2410.23968",
+      "pdf_url": "https://arxiv.org/pdf/2410.23968",
+      "doi": "10.48550/arXiv.2410.23968"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Time-varying 3D scene graph of entities, inter-entity edges and per-entity attributes, with each entity embedded as a retrievable document",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 4.3 3DSG as a retrievable document store; Sec. 4.5 self-query retrieval; Sec. 6 hardware experiments",
+          "page": "HTML Sec. 4.3-4.5, Sec. 6",
+          "figure_or_table": "Figure 1 (system pipeline); Table 2 (hardware trials)",
+          "paraphrase": "The robot maintains a 3DSG with entities O_t, edges E_t, entity attributes C^attr_{j,t} and edge attributes C^edge_{m,t} that semantically represents the observed state of the environment. Each entity is treated as a document whose page content is the object class / open-vocabulary label and whose metadata are its attributes; entity documents are embedded into a vector store (Chroma/FAISS). Retrieval is thresholded top-k similarity over entity abstractions, and the induced subgraph over the retrieved entities restores their relational structure, so the graph edges are traversed rather than merely stored. The self-query stage passes the planner's current thought tau_t instead of the raw task through an LLM to produce a structured query plus metadata filter, adding a planner-directed retrieval route. Serialized subgraphs handed to the planner contain only labels and filtered attributes; no RGB-D frame or image is linked back from a node, so the perceptual source is not recoverable from memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper (arXiv HTML v1): Sec. 4.3 on-the-fly 3DSG construction; Sec. 6 Spot hardware deployment with ConceptGraphs",
+          "page": "HTML Sec. 4.3, Sec. 6",
+          "figure_or_table": "Table 2 (hardware trials)",
+          "paraphrase": "As the robot is deployed in the environment, 3DSG construction begins and each newly perceived entity is embedded as a document and inserted into the retrievable store, so the memory grows and its content changes while the same memory is being queried for planning. The hardware experiment on the Spot quadruped with an RGB-D camera and ConceptGraphs shows an entity (the egg) that was recently populated into the full 3DSG being planned over. Actions change the environment, which in turn updates or adds documents. The insertion rule and the thresholded top-k retrieval procedure are fixed throughout; only memory content changes."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (arXiv HTML v1, Sec. 4.3-4.5, Sec. 6): assigned T2 because the operative memory artifact (the 3DSG entity-document store) is populated and revised during deployment as perception proceeds, under a fixed insertion and retrieval rule.",
+    "The self-query mechanism was explicitly NOT counted as T3. It rewrites the retrieval QUERY from the planner's thought at each step; the retrieval algorithm (thresholded top-k similarity plus metadata filtering) and the write rule are unchanged, and nothing about them persists to later tasks. The paper states the system contains no learned components at all (LLM prompting, off-the-shelf embeddings, ReAct-style reasoning, fixed thresholds), so there is no policy artifact that deployment feedback could modify.",
+    "Residual uncertainty: the on-the-fly graph growth is demonstrated in the real-robot deployment (Sec. 6), while the 40-task AI2Thor evaluation (Sec. 5) operates over simulator-derived scene graphs, where it is less explicit how much of the graph is populated incrementally during a run. The T2 assignment rests on the hardware deployment description and the paper's stated design for time-varying graphs."
+  ]
+}

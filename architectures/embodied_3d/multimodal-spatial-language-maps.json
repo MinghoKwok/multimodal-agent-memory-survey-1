@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "multimodal-spatial-language-maps-2025",
+  "architecture_name": "Multimodal Spatial Language Maps",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Multimodal spatial language maps for robot navigation and manipulation",
+    "authors": [
+      "Chenguang Huang",
+      "Oier Mees",
+      "Andy Zeng",
+      "Wolfram Burgard"
+    ],
+    "latest_version": {
+      "version_label": "publisher version accessed 2026-08-25",
+      "published_date": "2025-01-01",
+      "source_url": "https://journals.sagepub.com/doi/10.1177/02783649251351658",
+      "pdf_url": "",
+      "doi": ""
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "semantic map / spatial language map",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autonomous exploration fuses foundation-model features with 3D reconstruction. LLMs translate commands into spatial goals localized in the map."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "semantic map / spatial language map",
+      "leaf": "experience_conditioned_parametric_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Autonomous exploration fuses foundation-model features with 3D reconstruction. LLMs translate commands into spatial goals localized in the map."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): The map is constructed during an exploration/formation phase and then queried for downstream tasks; the paper explicitly does not center dynamic updating. Unsupported optimization, merge, and eviction leaves were removed. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

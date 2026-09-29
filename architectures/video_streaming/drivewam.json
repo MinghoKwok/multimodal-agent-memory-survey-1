@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "drivewam-2026",
+  "architecture_name": "DriveWAM Selective KV Memory",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "actions",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "DriveWAM: Video Generative Priors Enable Scalable World-Action Modeling for Autonomous Driving",
+    "authors": [
+      "Chen Shi",
+      "Jinrui Xu",
+      "Shaoshuai Shi",
+      "Kehua Sheng",
+      "Bo Zhang",
+      "Li Jiang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed on 2026-08-30",
+      "published_date": "2026-05-27",
+      "source_url": "https://arxiv.org/abs/2605.28544",
+      "pdf_url": "https://arxiv.org/pdf/2605.28544",
+      "doi": "10.48550/arXiv.2605.28544"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "bounded modality-aware KV memory pools for video latent tokens and action tokens carried across autoregressive chunks",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Selective KV Memory; Sec. 4.2 implementation",
+          "page": "HTML Sec. 3.3 / 4.2",
+          "figure_or_table": "Figure 3 (retained video tokens); Eq. 6-8; Table 5",
+          "paraphrase": "Video and action key/value tensors from the diffusion transformer are kept in two separate bounded pools (video budget 448 tokens, action budget 160 tokens) that persist across chunks of a long driving rollout. They are read back by ordinary self-attention when the next chunk is generated. Only KV tensors of VAE-encoded latents are retained; original frames are not recoverable from the pool."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Selective KV Memory",
+          "page": "HTML Sec. 3.3",
+          "figure_or_table": "Eq. 8",
+          "paraphrase": "After each generated chunk the memory pool is rewritten as H^{k+1}_m <- TopB(H^k_m) union deltaH^{k+1}_m, i.e. the new chunk's KV entries are appended to the persistent pool under a fixed rule during inference."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.3 Selective KV Memory",
+          "page": "HTML Sec. 3.3",
+          "figure_or_table": "Eq. 6-8; Figure 3; Table 5",
+          "paraphrase": "Cached tokens are scored by s_j = lambda * relevance (attention mass from current queries) - (1-lambda) * redundancy (cosine similarity to other cached keys), with lambda = 0.07; tokens below the retention budget are discarded at inference time. Figure 3 shows repeated road/sky/building tokens being evicted while moving vehicles and lane geometry are retained; Table 5 reports 3.07 GB -> 0.25 GB over a 300 s rollout."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (Sec. 3.3): the persistent KV memory pool changes during deployment through append plus relevance-redundancy eviction, but the retention rule and its hyperparameter (lambda = 0.07) are fixed and training-free, so no memory policy evolves from deployment feedback. All model learning (flow-matching objective, Eq. 4) is offline and was not counted as T3.",
+    "The curated PhysicalAI-Autonomous-Vehicles subset (Sec. 4.1, Appendix A: 100k train / 1k test clips) is a data curation of an existing dataset for driving-policy evaluation, not a memory benchmark, so no benchmark record was created."
+  ]
+}

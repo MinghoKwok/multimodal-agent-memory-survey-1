@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "reveal-vlp-2023",
+  "architecture_name": "REVEAL (Retrieval-Augmented Visual-Language Pre-Training)",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "REVEAL: Retrieval-Augmented Visual-Language Pre-Training with Multi-Source Multimodal Knowledge Memory",
+    "authors": [
+      "Ziniu Hu",
+      "Ahmet Iscen",
+      "Chen Sun",
+      "Zirui Wang",
+      "Kai-Wei Chang",
+      "Yizhou Sun",
+      "Cordelia Schmid",
+      "David A. Ross",
+      "Alireza Fathi"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2 (CVPR 2023 camera-ready), reviewed 2026-08-30",
+      "published_date": "2023-04-03",
+      "source_url": "https://arxiv.org/abs/2212.05221",
+      "pdf_url": "https://arxiv.org/pdf/2212.05221",
+      "doi": "10.48550/arXiv.2212.05221"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "large-scale multi-source knowledge memory of compressed value embeddings (WIT image-text passages, CC12M web images with alt-text, VQA-v2 pairs, WikiData triplets)",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3.2 Memory (unified encoder + Perceiver compression); Sec. 3.3 Retriever; Sec. 3.4 Generator with attentive fusion; Sec. 4.2 knowledge sources; Sec. 4.3 indexing",
+          "page": "CVPR/arXiv PDF pp. 3-5",
+          "figure_or_table": "Figure 2(b) memory value compression; Figure 2(c) retriever; Figure 3 attentive fusion; Table 1 knowledge-source statistics",
+          "paraphrase": "Every knowledge item -- including raw image-text pairs -- is run through a single unified encoder that emits (i) one d-dimensional key vector used only for MIPS lookup and (ii) a value embedding compressed by a Perceiver to c=32 latent tokens. The compressed value token sequences are the persisted artifact: at query time the top-K (K=10 pre-training, K=50 fine-tuning) value token sequences are concatenated to the query and consumed directly by the generator through an attentive-fusion cross-attention module whose attention mask carries the retrieval score. The stored representation is therefore a persistent multimodal latent state consumed downstream, not merely a retrieval index; the key embedding alone would not constitute an independent path."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Full-text (arXiv HTML v2) reviewed. Tier: T1. The only memory mutation the paper describes is asynchronous re-encoding of the memory every 1000 pre-training steps (Sec. 3.2), plus re-encoding 10% of retrieved items for gradient flow. That is pre-deployment training-time refresh and does not raise the tier. Sec. 5.3 shows the memory can be swapped for new knowledge without retraining model parameters, but this is an offline corpus replacement performed by the operator, not an inference-time or feedback-driven update, so it is not T2 and not T3. During downstream inference the memory is fixed and only queried top-K.",
+    "source_accessibility = retained_not_accessible: memory entries are derived from raw image-text corpora, but what the memory persists is a 32-token compressed Perceiver latent; the paper does not describe reading back the source image or full passage from a memory entry (Sec. 3.2 explicitly motivates compression by the impracticality of storing full token sequences).",
+    "Non-text modality condition (b) satisfied: raw images from WIT and CC12M are encoded into memory values and retrieved images are what supply the visual world knowledge used for OK-VQA / A-OKVQA / captioning.",
+    "Note: architectures/image/reveal.json in this repository is a DIFFERENT paper (REVEAL: Reference-Grounded Reasoning for Multimodal Manipulation Detection, arXiv 2605.28459). This record uses architecture_id reveal-vlp-2023 to avoid collision; the reviewer merging this batch should confirm the id and filename do not clash."
+  ]
+}

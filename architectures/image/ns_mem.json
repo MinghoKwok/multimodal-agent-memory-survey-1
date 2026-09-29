@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "ns-mem-2026",
+  "architecture_name": "NS-Mem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Advancing Multimodal Agent Reasoning with Long-Term Neuro-Symbolic Memory",
+    "authors": [
+      "Rongjie Jiang",
+      "Jianwei Wang",
+      "Gengda Zhao",
+      "Chengyang Luo",
+      "Kai Wang",
+      "Wenjie Zhang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-03-16",
+      "source_url": "https://arxiv.org/abs/2603.15280",
+      "pdf_url": "https://arxiv.org/pdf/2603.15280",
+      "doi": "10.48550/arXiv.2603.15280"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "symbolic",
+      "memory_component": "episodic, semantic and logic-rule layers",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Agents in Single Modality. Memory man-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Explicit structures and logic rules support deterministic queries."
+        }
+      ]
+    },
+    {
+      "path_id": "neural",
+      "memory_component": "paired neural memory",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Neural representations support similarity retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Agents in Single Modality. Memory man-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "SK-Gen abstracts experience into structured knowledge. For NS-Mem, this specifically supports abstraction of episodes into reusable experience of episodic, semantic and logic-rule layers."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "SK-Gen incrementally updates neural and symbolic layers. For NS-Mem, this specifically supports fixed-rule insertion or replacement of episodic, semantic and logic-rule layers."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: Memory-Augmented Agents in Single Modality. Memory man-",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Recurring experience is consolidated. For NS-Mem, this specifically supports merging or deduplication of overlapping entries of episodic, semantic and logic-rule layers."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Similarity-thresholded reinforcement increases or decreases symbolic edge weights, removing a relation when its accumulated weight reaches zero. For NS-Mem, this specifically supports evidence-weighted revision of stored belief or confidence of episodic, semantic and logic-rule layers."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Update",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Exponential-moving-average updates revise goal and step index vectors as new experience is integrated. For NS-Mem, this specifically supports relinking or reindexing of stored items of episodic, semantic and logic-rule layers."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory",
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (episodic, semantic and logic-rule layers) changes through abstraction of episodes into reusable experience, fixed-rule insertion or replacement, merging or deduplication of overlapping entries, evidence-weighted revision of stored belief or confidence, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

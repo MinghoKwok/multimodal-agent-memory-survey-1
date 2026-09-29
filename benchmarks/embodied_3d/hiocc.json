@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "hiocc-2026",
+  "benchmark_name": "HIOcc",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "GEM-Occ: From Visual Geometry Evidence to Embodied Semantic Occupancy Memory",
+    "authors": [
+      "Hu Zhu",
+      "Bohan Li",
+      "Xianda Guo",
+      "Hongsi Liu",
+      "Baorui Peng",
+      "Mingqi Yuan",
+      "Xin Jin",
+      "Wenjun Zeng",
+      "Chang Wen Chen"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-07-06",
+      "source_url": "https://arxiv.org/abs/2607.05543",
+      "pdf_url": "https://arxiv.org/pdf/2607.05543",
+      "doi": "10.48550/arXiv.2607.05543"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "spatial_state_and_object_memory",
+    "temporal_order_and_change",
+    "conflict_and_evidence_reliability"
+  ],
+  "tasks": [
+    "mapping",
+    "navigation_and_localization"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Local, room-level, and building-level occupancy regimes test long-horizon persistent spatial memory."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17: scope flag aligned with the existing Table 2 dagger; other source annotations were not re-reviewed in this update.",
+    "2026-09-17 scope review: Online room and building occupancy settings evaluate accumulated spatial representations and revisiting consistency. Local occupancy prediction alone is a perception task. Memory relevance concerns online mapping; detailed protocol verification is limited to the abstract. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

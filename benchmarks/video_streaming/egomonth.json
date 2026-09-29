@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "egomonth-2026",
+  "benchmark_name": "EgoMonth",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "image"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "EgoMonth: A Month-Level Egocentric Video Benchmark for Long-Term Spatiotemporal Memory",
+    "authors": [
+      "Weitao Chen",
+      "Hu Jiaxin",
+      "Xie Tianyidan",
+      "Yang Li",
+      "Yuyi Qian",
+      "Banghao Xu",
+      "Ziheng Tang",
+      "Shenyi Wang",
+      "Mingyue Yu",
+      "Duo Li",
+      "Jiacheng Shi",
+      "Gao Wang",
+      "Zhan Xu",
+      "Zhicheng Qiu",
+      "Xuanfu Li",
+      "Jian Yang",
+      "Lanjun Wang",
+      "Zili Yi"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-08-13",
+      "source_url": "https://arxiv.org/abs/2608.13113",
+      "pdf_url": "https://arxiv.org/pdf/2608.13113",
+      "doi": "10.48550/arXiv.2608.13113"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "long_range_evidence",
+    "temporal_order_and_change",
+    "spatial_state_and_object_memory",
+    "experience_abstraction"
+  ],
+  "tasks": [
+    "question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Month-scale continuous egocentric experience tests schema consolidation, episodic indexing, and cascading reasoning."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

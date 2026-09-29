@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "darwinian-memory-2026",
+  "architecture_name": "Darwinian Memory",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Darwinian Memory: A Training-Free Self-Regulating Memory System for GUI Agent Evolution",
+    "authors": [
+      "Hongze Mi",
+      "Yibo Feng",
+      "WenJie Lu",
+      "Song Cao",
+      "Jinyuan Li",
+      "Yanming Li",
+      "Xuelin Zhang",
+      "Haotian Luo",
+      "Songyang Peng",
+      "He Cui",
+      "Tengfei Tian",
+      "Jun Fang",
+      "Hua Chai",
+      "Naiqiang Tan"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-01-30",
+      "source_url": "https://arxiv.org/abs/2601.22528",
+      "pdf_url": "https://arxiv.org/pdf/2601.22528",
+      "doi": "10.48550/arXiv.2601.22528"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "reusable trajectory units",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Complex trajectories are decomposed into reusable units for compositional GUI execution."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "survival-value ecosystem",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Each unit carries utility and risk state that controls future survival, pruning, and plan inhibition."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Observed utility updates the survival values of reusable memory units. For Darwinian Memory, this specifically supports evidence-weighted revision of stored belief or confidence of reusable trajectory units."
+        }
+      ]
+    },
+    {
+      "leaf": "discrete_memory_eviction",
+      "evidence": [
+        {
+          "section": "Full paper: 3. Method",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Low-value trajectories are actively pruned and high-risk plans inhibited. For Darwinian Memory, this specifically supports explicit deletion or eviction of stored items of reusable trajectory units."
+        }
+      ]
+    },
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Darwinian Memory applies progressive decay of stored importance or retention to reusable trajectory units; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "During operation, Darwinian Memory applies fixed-rule correction of stored state to reusable trajectory units; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): Runtime feedback changes fixed per-entry counters, Bayesian scores, strikes, and retention state. Because the governing formulas do not evolve, this is T2 rather than T3. Training-time learning, when present, was not counted as T3."
+  ]
+}

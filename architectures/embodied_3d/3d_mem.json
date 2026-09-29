@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "3d-mem-2024",
+  "architecture_name": "3D-Mem",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "3D-Mem: 3D Scene Memory for Embodied Exploration and Reasoning",
+    "authors": [
+      "Yuncong Yang",
+      "Han Yang",
+      "Jiachen Zhou",
+      "Peihao Chen",
+      "Hongxin Zhang",
+      "Yilun Du",
+      "Chuang Gan"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2024-11-23",
+      "source_url": "https://arxiv.org/abs/2411.17735",
+      "pdf_url": "https://arxiv.org/pdf/2411.17735",
+      "doi": "10.48550/arXiv.2411.17735"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "memory-and-frontier-snapshot-images",
+      "memory_component": "Memory Snapshots and Frontier Snapshots",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: 4.2. Episodic-Memory Embodied Q&A",
+          "page": "PDF p. 7",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Selected raw multi-view RGB-D observations are retained as Memory Snapshots to preserve object and background detail."
+        },
+        {
+          "section": "Full paper: 10.1. Implementation Details for A-EQA",
+          "page": "PDF p. 11",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Frontier Snapshots retain an image, navigable location, and the unexplored region it represents, and are directly supplied to the VLM."
+        }
+      ]
+    },
+    {
+      "path_id": "snapshot-object-and-frontier-structure",
+      "memory_component": "object-to-snapshot assignments and frontier state",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1.1. Memory Snapshot Formulation",
+          "page": "PDF p. 4",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Objects with categories and 3D locations are assigned to co-visible image snapshots; each snapshot links an object cluster to an observation."
+        },
+        {
+          "section": "Full paper: 3.2.3. Memory Retrieval with Prefiltering",
+          "page": "PDF p. 5",
+          "figure_or_table": "Figure 3",
+          "paraphrase": "A VLM ranks object categories for the instruction and filters snapshots that contain none of the selected categories."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1.1. Memory Snapshot Formulation",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "At every exploration step, fixed procedures add detected objects, recluster affected snapshots, and add, modify, or remove frontier snapshots. For 3D-Mem, this specifically supports fixed-rule insertion or replacement of Memory Snapshots and Frontier Snapshots."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Full paper: 3.1.1. Memory Snapshot Formulation",
+          "page": "PDF p. 4",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "Snapshots that select the same frame candidate are merged after object clustering to maintain a compact set. For 3D-Mem, this specifically supports merging or deduplication of overlapping entries of Memory Snapshots and Frontier Snapshots."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Structured object/frontier state remains linked to retained snapshot images that the VLM directly inspects.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 4): During inference, the operative memory component (Memory Snapshots and Frontier Snapshots) changes through fixed-rule insertion or replacement, merging or deduplication of overlapping entries; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

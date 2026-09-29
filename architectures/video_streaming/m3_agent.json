@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "m3-agent-2025",
+  "architecture_name": "M3-Agent",
+  "primary_modality": "video_streaming",
+  "secondary_modalities": [
+    "audio_speech",
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Seeing, Listening, Remembering, and Reasoning: A Multimodal Agent with Long-Term Memory",
+    "authors": [
+      "Lin Long",
+      "Yichen He",
+      "Wentao Ye",
+      "Yiyuan Pan",
+      "Yuan Lin",
+      "Hang Li",
+      "Junbo Zhao",
+      "Wei Li"
+    ],
+    "latest_version": {
+      "version_label": "arXiv revision dated 2025-10-09",
+      "published_date": "2025-10-09",
+      "source_url": "https://arxiv.org/abs/2508.09736",
+      "pdf_url": "https://arxiv.org/pdf/2508.09736",
+      "doi": "10.48550/arXiv.2508.09736"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "entity-multimodal-features",
+      "memory_component": "face and voice features associated with entities",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "retained_not_accessible",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "Entity nodes associate face and voice information with textual knowledge in a multimodal graph."
+        }
+      ]
+    },
+    {
+      "path_id": "episodic-semantic-graph",
+      "memory_component": "entity-centric episodic and semantic knowledge",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Online memorization generates concrete events and abstract knowledge, incrementally links them to entities, and control performs iterative retrieval over the graph."
+        }
+      ]
+    },
+    {
+      "path_id": "multimodal-observation-nodes",
+      "memory_component": "stored image and audio observations linked to persistent entities",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 9",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "The system incrementally stores image and audio observations as entity-linked nodes that can be recovered during iterative graph retrieval."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "Semantic memories abstract durable attributes, relationships, and world knowledge from observed clips. For M3-Agent, this specifically supports abstraction of episodes into reusable experience of face and voice features associated with entities."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "New face, voice, event, and knowledge entries are incrementally connected around persistent entity identities. For M3-Agent, this specifically supports relinking or reindexing of stored items of face and voice features associated with entities."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 9",
+          "figure_or_table": "",
+          "paraphrase": "Fixed similarity thresholds and match-or-create rules determine whether incoming memories update an existing node or create a new one. For M3-Agent, this specifically supports fixed-rule insertion or replacement of face and voice features associated with entities."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 10",
+          "figure_or_table": "",
+          "paraphrase": "Repeated matches and reactivation update memory weights, which are subsequently used in voting and retrieval. For M3-Agent, this specifically supports evidence-weighted revision of stored belief or confidence of face and voice features associated with entities."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Entity nodes bind modality-specific face and voice features to explicit episodic and semantic knowledge.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 9): During inference, the operative memory component (face and voice features associated with entities) changes through abstraction of episodes into reusable experience, relinking or reindexing of stored items, fixed-rule insertion or replacement, evidence-weighted revision of stored belief or confidence; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vismem-2026",
+  "architecture_name": "VisMem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VisMem: Latent Vision Memory Unlocks Potential of Vision-Language Models",
+    "authors": [
+      "Xinlei Yu",
+      "Chengming Xu",
+      "Guibin Zhang",
+      "Zhangquan Chen",
+      "Yudong Zhang",
+      "Yongbo He",
+      "Peng-Tao Jiang",
+      "Jiangning Zhang",
+      "Xiaobin Hu",
+      "Shuicheng Yan"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2026-02-05",
+      "source_url": "https://arxiv.org/abs/2511.11007v2",
+      "pdf_url": "https://arxiv.org/pdf/2511.11007v2",
+      "doi": "10.48550/arXiv.2511.11007"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "short-and-long-latent-vision-memory",
+      "memory_component": "short-term perceptual and long-term semantic latent tokens",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store",
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Special invocation tokens route a context-conditioned query to short- or long-term memory formers, whose generated latent vision tokens are inserted into the autoregressive stream."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 2",
+          "figure_or_table": "",
+          "paraphrase": "Trained short- and long-term formers generate new latent memory tokens from visual evidence and current hidden-state queries during inference. For VisMem, this specifically supports a trained but frozen update module of short-term perceptual and long-term semantic latent tokens."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "Both tiers use the same operative latent-token representation.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): Offline RL trains the memory invocation and formation policy. Deployment uses frozen formers to update latent memory tokens, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

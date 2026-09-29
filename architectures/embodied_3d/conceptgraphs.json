@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "conceptgraphs-2023",
+  "architecture_name": "ConceptGraphs",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "depth",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ConceptGraphs: Open-Vocabulary 3D Scene Graphs for Perception and Planning",
+    "authors": [
+      "Qiao Gu",
+      "Alihusein Kuwajerwala",
+      "Sacha Morin",
+      "Krishna Murthy Jatavallabhula",
+      "Bipasha Sen",
+      "Aditya Agarwal",
+      "Corban Rivera",
+      "William Paul",
+      "Kirsty Ellis",
+      "Rama Chellappa",
+      "Chuang Gan",
+      "Celso Miguel de Melo",
+      "Joshua B. Tenenbaum",
+      "Antonio Torralba",
+      "Florian Shkurti",
+      "Liam Paull"
+    ],
+    "latest_version": {
+      "version_label": "arXiv current version served on review date",
+      "published_date": "2023-09-28",
+      "source_url": "https://arxiv.org/abs/2309.16650",
+      "pdf_url": "https://arxiv.org/pdf/2309.16650",
+      "doi": "10.48550/arXiv.2309.16650"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "object-geometric-state",
+      "memory_component": "3D object map",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Each object node contains a fused 3D point cloud and semantic feature vector, incrementally associated from posed RGB-D frames."
+        }
+      ]
+    },
+    {
+      "path_id": "semantic-scene-graph",
+      "memory_component": "open-vocabulary 3D scene graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: 6 We discard the (often noisy) tags produced by the image tagging model,",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "Object captions, locations, and inferred spatial relationships form nodes and edges used for language-grounded planning."
+        },
+        {
+          "section": "Full paper: 6 We discard the (often noisy) tags produced by the image tagging model,",
+          "page": "PDF p. 4",
+          "figure_or_table": "",
+          "paraphrase": "The graph is exposed as structured object descriptions so a planner can select relevant objects and their 3D poses."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "rule_based_update",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory lifecycle",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "A fixed association-and-fusion pipeline incorporates each incoming RGB-D frame by updating matched objects or adding new ones. For ConceptGraphs, this specifically supports fixed-rule insertion or replacement of 3D object map."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Geometric object state and the semantic-relational graph are linked in common object nodes and jointly support planning.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (3D object map) changes through fixed-rule insertion or replacement; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

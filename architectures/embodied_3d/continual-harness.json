@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "continual-harness-2026",
+  "architecture_name": "Continual Harness",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Continual Harness: Online Adaptation for Self-Improving Foundation Agents",
+    "authors": [
+      "Seth Karten",
+      "Joel Zhang",
+      "Tersoo Upaa Jr",
+      "Ruirong Feng",
+      "Wenzhe Li",
+      "Chengshuai Shi",
+      "Chi Jin",
+      "Kiran Vodrahalli"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1 reviewed 2026-08-28",
+      "published_date": "2026-05-11",
+      "source_url": "https://arxiv.org/abs/2605.09998",
+      "pdf_url": "https://arxiv.org/pdf/2605.09998",
+      "doi": "10.48550/arXiv.2605.09998"
+    },
+    "reviewed_on": "2026-08-28",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "persistent_harness_memory",
+      "memory_component": "persistent textual facts and strategy memory",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§2.2–3.1",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Rendered frames, textual game state, actions, and outcomes are summarized into persistent harness memory that the agent consults during later embodied gameplay."
+        }
+      ]
+    },
+    {
+      "path_id": "executable_skill_library",
+      "memory_component": "persistent executable skills and subagent procedures",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: §§2.2–3.1; Appendix",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The harness exposes editable skills and subagent procedures whose descriptions and executable bodies are revised from recent multimodal trajectory failures and invoked on later steps."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: §§2.2–3.1",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "At fixed online intervals, the Refiner applies create, read, update, and delete edits to the persistent harness prompt, subagents, skills, and memory."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: §3.1",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Recent gameplay trajectories are summarized into failure signatures and reusable behavioral guidance before the harness is revised."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: §§2.2–3.1; §4.2",
+          "page": "HTML full text",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Every fixed number of online steps, feedback over recent rendered-frame trajectories revises persistent skill descriptions and procedures in place; the agent immediately retrieves and executes the revised harness on subsequent steps without reset."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Textual strategy memory and executable skill procedures are jointly supplied to the online agent.",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict T3 is supported by an uninterrupted online loop in which recent multimodal failures revise persistent skills and procedures that are then used at later steps."
+  ]
+}

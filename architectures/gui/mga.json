@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "mga-2025",
+  "architecture_name": "MGA",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "MGA: Memory-Driven GUI Agent for Observation-Centric Interaction",
+    "authors": [
+      "Weihua Cheng",
+      "Ersheng Ni",
+      "Wenlong Wang",
+      "Yifei Sun",
+      "Junming Liu",
+      "Wangyu Shen",
+      "Yirong Chen",
+      "Botian Shi",
+      "Ding Wang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2025-10-28",
+      "source_url": "https://arxiv.org/abs/2510.24168",
+      "pdf_url": "https://arxiv.org/pdf/2510.24168",
+      "doi": "10.48550/arXiv.2510.24168"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "dynamic observation-centric structured memory",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: MGA: Memory-Driven GUI Agent for Observation-Centric Interaction",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Each decision uses the current screenshot, task-agnostic spatial information, and dynamically updated structured memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 10",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MGA applies LLM-mediated memory editing to dynamic observation-centric structured memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "episodic_or_hierarchical_summarization",
+      "evidence": [
+        {
+          "section": "Full paper: Memory",
+          "page": "PDF p. 10",
+          "figure_or_table": "",
+          "paraphrase": "During operation, MGA applies episodic or hierarchical summarization to dynamic observation-centric structured memory; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    },
+    {
+      "leaf": "rule_based_state_correction",
+      "evidence": [
+        {
+          "section": "Full paper: MGA: Memory-Driven GUI Agent for Observation-Centric Interaction",
+          "page": "PDF p. 3",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Independent context-rich state records limit propagation of stale trajectory errors. For MGA, this specifically supports fixed-rule correction of stored state of dynamic observation-centric structured memory."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 10): During inference, the operative memory component (dynamic observation-centric structured memory) changes through LLM-mediated memory editing, episodic or hierarchical summarization, fixed-rule correction of stored state; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}

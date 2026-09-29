@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "finacumen-2026",
+  "architecture_name": "FinAcumen (Financial Memory + Financial Tools harness)",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "FinAcumen: Financial Multimodal Reasoning via Self-Evolving Experience Memory Harness",
+    "authors": [
+      "Pianran Guo",
+      "Pengcheng Zhou",
+      "Yuchen Jian",
+      "Shuhua Chen",
+      "Zhongliang Yang",
+      "Linna Zhou"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 reviewed on 2026-08-30",
+      "published_date": "2026-08-23",
+      "source_url": "https://arxiv.org/abs/2606.17642",
+      "pdf_url": "https://arxiv.org/pdf/2606.17642",
+      "doi": "10.48550/arXiv.2606.17642"
+    },
+    "reviewed_on": "2026-08-30",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Financial Memory (FM) bank of distilled Findings and Cautions entries harvested from multimodal financial reasoning trajectories",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Sec. 3 (framework), Sec. 4.1-4.2 (memory construction and selective retrieval), Appendix B (Algorithm 1)",
+          "page": "HTML Sec. 3-4; Appendix B",
+          "figure_or_table": "Eq. 2-4; Algorithm 1; Figure 3 (bank saturation ~1800 entries)",
+          "paraphrase": "Each FM entry holds the original question, the gold answer, distilled 'Findings' (successful patterns) and 'Cautions' (failure-derived guard rules), plus a pre-computed text embedding. Entries are produced by a summary agent that scores and summarises sampled trajectories over chart/table/text financial problems (Eq. 2). Retrieval embeds the incoming query with the shared encoder, keeps entries whose cosine similarity exceeds tau = 0.65 (Eq. 3-4), then deduplicates and injects the top-k into the prompt. No chart image or table artifact is stored in the entry, so the visual source is not recoverable from memory."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review: despite the title's 'Self-Evolving', the paper states that at test time the memory bank M* is frozen and read-only (Sec. 3, Sec. 4.1); experience accumulation happens in a separate offline phase over training trajectories, and the retrieval policy (threshold tau = 0.65, depth k_max) is static during deployment. There is no inference-time write, edit, eviction or reorganisation, so tier is T1, not T2 or T3. Figure 3's monotonic saturation at ~1800 entries is consistent with a fixed offline bank.",
+    "Scope rationale: the memory bank itself is textual (question text, gold answer, findings, cautions and text embeddings), but its entries are distilled from trajectories over chart, figure and table questions solved with a visual-decoding tool, and the retrieved memory conditions a frozen 8B VLM reasoning over chart images downstream. This satisfies criterion (b), which requires non-text participation in memory formation or downstream use rather than storage of the source artifact itself, and follows the corpus treatment of comparable text-record memories with source_accessibility 'none'.",
+    "primary_modality is image because financial charts and figures in FinMMR, FinMME and FinTMMBench provide the operative non-text evaluation setting. No new benchmark is introduced; Sec. 5.1 and Table 6 use BizBench SEC-NUM, FinMMR, FinTMMBench and FinMME."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "stamp-gui-2026",
+  "architecture_name": "STAMP",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "STAMP: Training Explicit Memory for Mobile GUI Agents in Controllable and Scalable Virtual Environments",
+    "authors": [
+      "Junyang Wang",
+      "Haiyang Xu",
+      "Xi Zhang",
+      "Zhaoqing Zhu",
+      "Ming Yan",
+      "Jieping Ye",
+      "Jitao Sang"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-28",
+      "source_url": "https://arxiv.org/abs/2605.29324",
+      "pdf_url": "https://arxiv.org/pdf/2605.29324",
+      "doi": "10.48550/arXiv.2605.29324"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "explicit",
+      "memory_component": "selected GUI observations",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Memory in GUI Agent",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Stamp-GUI learns what and when to memorize from screenshot-heavy trajectories."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Full paper: Model",
+          "page": "PDF p. 7",
+          "figure_or_table": "",
+          "paraphrase": "During operation, STAMP applies LLM-mediated memory editing to selected GUI observations; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 7): Online RL is a training protocol. During deployed inference the trained model emits and carries a Memory field under a fixed policy, so this is T2. Training-time learning, when present, was not counted as T3."
+  ]
+}

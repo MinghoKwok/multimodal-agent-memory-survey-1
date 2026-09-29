@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "embodiedworldbench-2026",
+  "benchmark_name": "EmbodiedWorldBench",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text",
+    "audio_speech"
+  ],
+  "scope_status": "memory_adjacent",
+  "paper": {
+    "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+    "authors": [
+      "Jiayi Tian",
+      "Shiao Liu",
+      "Yuting Xu",
+      "Jia Lu",
+      "Zihao Guan",
+      "Honglin Han",
+      "Di Yang",
+      "Minqi Gu",
+      "Yifei Qian",
+      "Tianlin Zhang",
+      "Yanqing Zhu",
+      "Zeqian Ye",
+      "Menglin Yang",
+      "Fei Wang",
+      "Xu Hu",
+      "Xiuxian Li",
+      "Wei Zhang",
+      "Shihui Su",
+      "Yiyan Ji",
+      "Jingbo Wang",
+      "Ziteng Feng",
+      "Jiaheng Liu",
+      "Zhaoxiang Zhang",
+      "Xiaolong Wu",
+      "Zixiao Tang",
+      "Zhining Gu",
+      "Yang Cai",
+      "Linbo Zheng",
+      "Jingjing Ma",
+      "Mingyang Yin",
+      "Zedong Chu",
+      "Wenbin Tang",
+      "Mu Xu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v3 reviewed on 2026-08-29",
+      "published_date": "2026-07-17",
+      "source_url": "https://arxiv.org/abs/2607.10350",
+      "pdf_url": "https://arxiv.org/pdf/2607.10350",
+      "doi": "10.48550/arXiv.2607.10350"
+    },
+    "reviewed_on": "2026-08-29"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_evidence",
+    "long_range_evidence",
+    "memory_update_and_staleness",
+    "spatial_state_and_object_memory",
+    "task_state_and_progress_tracking",
+    "memory_mediated_action",
+    "multi_event_evidence_integration"
+  ],
+  "tasks": [
+    "agent_action",
+    "continual_learning"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; EmbodiedWorldBench benchmark definition and evaluation",
+      "page": "",
+      "figure_or_table": "Benchmark overview and main evaluation tables",
+      "paraphrase": "More than 200 executable tasks across 16 indoor, outdoor, and hybrid scenes test navigation, object search, dialogue, dynamic events, trace-grounded scoring, and later-split reuse of promoted runtime knowledge."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": [
+    "2026-09-17 scope review: Embodied tasks evaluate an agent with memory through navigation, object search, dialogue and replanning in changing scenes. The task benchmark is broader than memory diagnosis; the paper's separate memory evaluation uses other datasets. The legacy scope_status field is not a Table 2 exclusion rule; see data/benchmark_scope_review.json."
+  ]
+}

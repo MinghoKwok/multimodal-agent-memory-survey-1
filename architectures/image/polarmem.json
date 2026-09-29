@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "polarmem-2026",
+  "architecture_name": "PolarMem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "PolarMem: A Training-Free Polarized Latent Graph Memory for Verifiable Vision-Language Models",
+    "authors": [
+      "Zhisheng Chen",
+      "Tingyu Wu",
+      "Zijie Zhou",
+      "Zhengwei Xie",
+      "Jinhan Li",
+      "Ziyan Weng",
+      "Liang Lin",
+      "Jingwei Song",
+      "Zikai Xiao",
+      "Yingwei Zhang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v2",
+      "published_date": "2026-05-30",
+      "source_url": "https://arxiv.org/abs/2602.00415v2",
+      "pdf_url": "https://arxiv.org/pdf/2602.00415v2",
+      "doi": "10.48550/arXiv.2602.00415"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual-evidence-nodes",
+      "memory_component": "visual nodes and local evidence tokens",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "graph_relational_store",
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Polarized Latent Graph Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "",
+          "paraphrase": "Visual nodes retain holistic visual semantics and local visual evidence; retrieved visual nodes are assembled as visual evidence tokens for the frozen VLM."
+        }
+      ]
+    },
+    {
+      "path_id": "polarized-concept-graph",
+      "memory_component": "HAS, NOT_HAS, and uncertain concept states",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal",
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Polarized Latent Graph Memory",
+          "page": "PDF p. 5",
+          "figure_or_table": "Algorithm 1",
+          "paraphrase": "The heterogeneous graph stores verified presence and explicit absence as separate edge types; lexicographic retrieval filters logical conflicts before semantic ranking."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Symbolic positive and negative constraints are attached to visual nodes that can be returned as evidence.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 5): The full-paper lifecycle review found visual nodes and local evidence tokens fixed during downstream inference; query-conditioned access, preprocessing, or training-time changes were not counted as persistent deployed updates. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "evo-medagent-2026",
+  "architecture_name": "Evo-MedAgent",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Evo-MedAgent: Beyond One-Shot Diagnosis with Agents That Remember, Reflect, and Improve",
+    "authors": [
+      "Weixiang Shen",
+      "Bailiang Jian",
+      "Jun Li",
+      "Che Liu",
+      "Johannes Moll",
+      "Xiaobin Hu",
+      "Daniel Rueckert",
+      "Hongwei Bran Li",
+      "Jiazhen Pan"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-04-15",
+      "source_url": "https://arxiv.org/abs/2604.14475",
+      "pdf_url": "https://arxiv.org/pdf/2604.14475",
+      "doi": "10.48550/arXiv.2604.14475"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "retrospective clinical episodes",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Architecture",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Past multimodal cases are stored as retrospective episodes for similar-case retrieval."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "procedural heuristics and tool reliability",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "modular_adapter_store_bank"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Architecture",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Priority-tagged diagnostic rules and per-tool trust scores guide future diagnostic reasoning."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Architecture",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Reflection converts completed cases into reusable diagnostic heuristics. For Evo-MedAgent, this specifically supports abstraction of episodes into reusable experience of retrospective clinical episodes."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Architecture",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Observed tool outcomes update per-tool trustworthiness. For Evo-MedAgent, this specifically supports evidence-weighted revision of stored belief or confidence of retrospective clinical episodes."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "retrieval_policy_evolution",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Architecture",
+          "page": "PDF pp. 3–4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Test-time outcomes persistently recalibrate tool trust and heuristic priority, changing which reusable evidence and procedures are selected in later cases. The persistent later-use effect is deployment-feedback evolution of the reusable retrieval policy or procedure."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 3–4): After each deployed/test case, outcome feedback patches persistent procedural and governance experience used to select evidence on later cases, satisfying strict T3. The qualifying feedback occurs during deployment/inference and affects later use."
+  ]
+}

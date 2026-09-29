@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "prism-2026",
+  "architecture_name": "PRISM",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "Scaling Short-Term Memory of Visuomotor Policies for Long-Horizon Tasks",
+    "authors": [
+      "Rutav Shah",
+      "Rajat Kumar Jenamani",
+      "Xiaohan Zhang",
+      "Lingfeng Sun",
+      "Roberto Martín-Martín",
+      "Yuke Zhu",
+      "Deva Ramanan",
+      "Karl Schmeckpeper"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-06-15",
+      "source_url": "https://arxiv.org/abs/2606.16178",
+      "pdf_url": "https://arxiv.org/pdf/2606.16178",
+      "doi": "10.48550/arXiv.2606.16178"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "latent_history",
+      "memory_component": "hierarchically compressed visuomotor history",
+      "leaf": "persistent_multimodal_latent_state",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full paper: Short-Term Memory",
+          "page": "PDF pp. 4–8",
+          "figure_or_table": "",
+          "paraphrase": "Gated attention filters hierarchically compressed history tokens for action prediction."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Full paper: Short-Term Memory",
+          "page": "PDF pp. 4–8",
+          "figure_or_table": "",
+          "paraphrase": "During operation, PRISM applies a trained but frozen update module to hierarchically compressed visuomotor history; the memory state changes while the governing update policy remains fixed."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "internalized_latent_and_parametric_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF pp. 4–8): A gated hierarchical memory carries compressed history across later visuomotor inference steps. Under the explicit recurrent-state rule this is T2, not ordinary prompt history. Training-time learning, when present, was not counted as T3."
+  ]
+}

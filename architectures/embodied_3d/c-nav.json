@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "c-nav-2025",
+  "architecture_name": "C-Nav",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "text",
+    "image"
+  ],
+  "provenance": {
+    "paper_title": "C-NAV: Towards Self-Evolving Continual Object Navigation in Open World",
+    "authors": [
+      "Ming-Ming Yu",
+      "Fei Zhu",
+      "Wenzhuo Liu",
+      "Yirong Yang",
+      "Qunbo Wang",
+      "Wenjun Wu",
+      "Jing Liu"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version served on 2026-08-25",
+      "published_date": "2026-04-06",
+      "source_url": "https://arxiv.org/abs/2510.20685",
+      "pdf_url": "https://arxiv.org/pdf/2510.20685",
+      "doi": "10.48550/arXiv.2510.20685"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Replayable feature representations rather than raw full trajectories",
+      "leaf": "modality_specific_encodings_and_geometric_state",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Adaptive sampling selects representative experiences to store.; Feature replay stores compact temporal features for the action decoder.; Feature distillation preserves multimodal encoder consistency without replaying all data.. spatial query over the map conditioned on current observation and instruction."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "Diverse and informative navigation experiences",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval",
+        "structure_based_traversal",
+        "latent_parametric_activation"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "Full-paper method / memory representation and retrieval",
+          "page": "PDF p. 6",
+          "figure_or_table": "Figure 1 / method overview",
+          "paraphrase": "Adaptive sampling selects representative experiences to store.; Feature replay stores compact temporal features for the action decoder.; Feature distillation preserves multimodal encoder consistency without replaying all data.. spatial query over the map conditioned on current observation and instruction."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are deliberately linked or jointly consumed by downstream reasoning, generation, or control.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 6): Replay-buffer mutation and sampling occur during training. The deployed navigation memory/policy is fixed, so the strict inference-time tier is T1. No persistent inference-time T2 update or deployment-feedback policy evolution was found."
+  ]
+}

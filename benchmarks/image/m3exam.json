@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "benchmark",
+  "benchmark_id": "m3exam-2026",
+  "benchmark_name": "M3Exam",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "scope_status": "core_memory_benchmark",
+  "paper": {
+    "title": "M3Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions",
+    "authors": [
+      "Zhengjun Huang",
+      "Wenxuan Liu",
+      "Zhoujin Tian",
+      "Wei Chen",
+      "Junle Chen",
+      "Yuqian Wu",
+      "Fangyuan Zhang",
+      "Qintian Guo",
+      "Xiaofang Zhou"
+    ],
+    "latest_version": {
+      "version_label": "latest arXiv version accessed 2026-08-25",
+      "published_date": "2026-06-05",
+      "source_url": "https://arxiv.org/abs/2606.07402",
+      "pdf_url": "https://arxiv.org/pdf/2606.07402",
+      "doi": "10.48550/arXiv.2606.07402"
+    },
+    "reviewed_on": "2026-08-25"
+  },
+  "evaluated_memory_capabilities": [
+    "cross_modal_grounding",
+    "long_range_evidence",
+    "experience_abstraction"
+  ],
+  "tasks": [
+    "question_answering"
+  ],
+  "evidence": [
+    {
+      "section": "Abstract; benchmark/task definition",
+      "page": "",
+      "figure_or_table": "",
+      "paraphrase": "Realistic user-agent file interactions test cross-modal grounding, cross-session reasoning, and implicit-information inference."
+    }
+  ],
+  "review_status": "verified",
+  "adjudication_notes": []
+}

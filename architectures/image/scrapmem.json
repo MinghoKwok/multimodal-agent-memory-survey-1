@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "scrapmem-2026",
+  "architecture_name": "ScrapMem",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ScrapMem: Multimodal Scrapbook Memory for Long-Horizon Agents",
+    "authors": [
+      "Jiale Chang",
+      "Yuxiang Ren"
+    ],
+    "latest_version": {
+      "version_label": "latest source version accessed 2026-08-25",
+      "published_date": "2026-05-05",
+      "source_url": "https://arxiv.org/abs/2605.03804",
+      "pdf_url": "https://arxiv.org/pdf/2605.03804",
+      "doi": "10.48550/arXiv.2605.03804"
+    },
+    "reviewed_on": "2026-08-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "path_1",
+      "memory_component": "Scrapbook Pages",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval",
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Full paper: Method: ScrapMem",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Scrapbook pages retain perceptual snippets while progressively reducing their optical fidelity."
+        }
+      ]
+    },
+    {
+      "path_id": "path_2",
+      "memory_component": "episodic memory graph",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store"
+      ],
+      "retrieval_activation": [
+        "structure_based_traversal"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "Full paper: Method: ScrapMem",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "A causal-temporal episodic graph links retained scraps into searchable events."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "progressive_memory_decay",
+      "evidence": [
+        {
+          "section": "Full paper: Memory Systems for Personalized Agents",
+          "page": "PDF p. 2",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "Optical forgetting lowers page resolution as memories age. For ScrapMem, this specifically supports progressive decay of stored importance or retention of Scrapbook Pages."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_relinking_and_reindexing",
+      "evidence": [
+        {
+          "section": "Full paper: Method: ScrapMem",
+          "page": "PDF p. 4",
+          "figure_or_table": "Figure 1",
+          "paraphrase": "New scraps are integrated into the causal-temporal episode graph. For ScrapMem, this specifically supports relinking or reindexing of stored items of Scrapbook Pages."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Distinct operative representation paths are explicitly linked for downstream retrieval, reasoning, or control.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Strict-tier full-paper review (PDF p. 2): During inference, the operative memory component (Scrapbook Pages) changes through progressive decay of stored importance or retention, relinking or reindexing of stored items; the governing policy remains fixed, and any learning reported by the paper occurs before deployment. Training-time learning, when present, was not counted as T3."
+  ]
+}
