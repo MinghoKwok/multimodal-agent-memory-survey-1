@@ -1,12 +1,22 @@
-# Seeing, Maintaining, and Learning
+<h1 align="center">Seeing, Maintaining, and Learning</h1>
 
-### The Evolution of Multimodal Agent Memory
+<h3 align="center">The Evolution of Multimodal Agent Memory</h3>
 
-**How multimodal agents represent experience, maintain memory, and learn from feedback.**
+<p align="center">
+  <strong>How multimodal agents represent experience, maintain memory, and learn from feedback.</strong>
+</p>
 
-**296 architecture records · 83 benchmark and evaluation resources · 5 modality categories**
+<p align="center">
+  <strong>296 architecture records · 83 benchmark and evaluation resources · 5 modality categories</strong>
+</p>
 
-[About the Survey](#about-the-survey) · [Highlights](#highlights) · [Taxonomy](#taxonomy) · [Browse Papers](#image)
+<p align="center">
+  <a href="#about-the-survey">About the Survey</a> ·
+  <a href="#highlights">Highlights</a> ·
+  <a href="#taxonomy">Taxonomy</a> ·
+  <a href="#image">Browse Papers</a>
+</p>
+
 ## About the Survey
 
 Multimodal agents see, hear, and act in changing environments. To use past experience in future decisions, they need to preserve relevant information, keep it current, and learn from feedback. This survey examines **how multimodal experience becomes reusable memory and how memory systems evolve during use**.
