@@ -3,6 +3,10 @@
 <h3 align="center">The Evolution of Multimodal Agent Memory</h3>
 
 <p align="center">
+  <img src="banner.png" alt="Seeing, Maintaining, and Learning: the evolution of multimodal agent memory, from multimodal experience through memory representation and management to more capable agents" width="100%">
+</p>
+
+<p align="center">
   <strong>How multimodal agents represent experience, maintain memory, and learn from feedback.</strong>
 </p>
 
