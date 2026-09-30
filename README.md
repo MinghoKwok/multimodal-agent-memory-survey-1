@@ -4,63 +4,34 @@
 
 **How multimodal agents represent experience, maintain memory, and learn from feedback.**
 
+**296 architecture records · 83 benchmark and evaluation resources · 5 modality categories**
+
 [About the Survey](#about-the-survey) · [Highlights](#highlights) · [Taxonomy](#taxonomy) · [Browse Papers](#image)
 
 ## About the Survey
 
-Multimodal agents encounter images, videos, speech, interfaces, and physical environments. Memory allows them to retain information from these experiences and use it in later reasoning, generation, and action. This survey examines **how experience becomes memory, how memory changes during use, and how feedback can improve the policies that manage it**.
+Multimodal agents see, hear, and act in changing environments. To use past experience in future decisions, they need to preserve relevant information, keep it current, and learn from feedback. This survey examines **how multimodal experience becomes reusable memory and how memory systems evolve during use**.
 
-We organize this landscape along two complementary axes: **Formation and Representation** describes how multimodal experience is encoded and stored; **Memory Management** distinguishes static memory, dynamic memory updated under a stable policy, and self-evolving memory whose management policy changes through feedback.
-
-This repository accompanies the survey with a curated reading list and annotated records. Browse by modality below, or use the [taxonomy](#taxonomy) to compare memory mechanisms across settings.
+This repository accompanies the survey with a curated reading list and annotated records spanning image, video and streaming, audio and speech, GUI, and embodied and 3D settings.
 
 ## Highlights
 
-- **A unified view across modalities.** Connect memory research in **image, video and streaming, audio and speech, GUI, and embodied and 3D** settings through a shared taxonomy.
-- **From retaining experience to evolving memory policies.** Distinguish **T1 Static Memory**, **T2 Dynamic Memory**, and **T3 Self-Evolving Memory** by whether memory remains fixed, memory state changes under a stable policy, or the management policy itself evolves.
-- **296 architecture records.** Explore how systems preserve source evidence, construct explicit representations, internalize experience in latent states or parameters, and combine these approaches.
-- **83 benchmark and evaluation resources.** Find dedicated memory tests alongside broader task and component evaluations, with scope notes to clarify what each resource evaluates.
+- **A two-axis taxonomy.** Compare systems by **Formation and Representation**—how experience is encoded and stored—and **Memory Management**—what changes during use.
+- **Static, dynamic, and self-evolving memory.** Distinguish reuse of fixed memory, updates to memory under a **stable policy**, and feedback-driven evolution of the **memory management policy itself**.
+- **Architectures and evaluation in one place.** Browse methods alongside relevant benchmarks within each modality, with source links and annotations to support comparison across settings.
 
 ## Table of Contents
 
 - [About the Survey](#about-the-survey)
 - [Highlights](#highlights)
-- [Scope & Terminology](#scope--terminology)
 - [Taxonomy](#taxonomy)
-  - [Axis I: Formation and Representation](#axis-i-formation-and-representation)
-  - [Axis II: Memory Management](#axis-ii-memory-management)
-- [Image](#image)
-  - [Architecture Papers](#image-architecture-papers)
-  - [Benchmark Papers](#image-benchmark-papers)
-- [Video and Streaming](#video-and-streaming)
-  - [Architecture Papers](#video-and-streaming-architecture-papers)
-  - [Benchmark Papers](#video-and-streaming-benchmark-papers)
-- [Audio and Speech](#audio-and-speech)
-  - [Architecture Papers](#audio-and-speech-architecture-papers)
-  - [Benchmark Papers](#audio-and-speech-benchmark-papers)
-- [GUI](#gui)
-  - [Architecture Papers](#gui-architecture-papers)
-  - [Benchmark Papers](#gui-benchmark-papers)
-- [Embodied and 3D](#embodied-and-3d)
-  - [Architecture Papers](#embodied-and-3d-architecture-papers)
-  - [Benchmark Papers](#embodied-and-3d-benchmark-papers)
+- [Scope & Terminology](#scope--terminology)
+- [🖼️ Image](#image)
+- [🎬 Video and Streaming](#video-and-streaming)
+- [🎧 Audio and Speech](#audio-and-speech)
+- [🖥️ GUI](#gui)
+- [🤖 Embodied and 3D](#embodied-and-3d)
 - [Repository Guide](#repository-guide)
-
-## Scope & Terminology
-
-**Multimodal agent memory** retains information from experience for later reasoning, generation, or action. The architecture inventory includes systems in which persistent memory is operationally important and at least one non-text modality contributes to memory formation, storage, retrieval, maintenance, policy learning, or use. Memory may persist across steps within an episode or across interactions and tasks. Generic multimodal models and incidental context windows alone are outside this scope.
-
-| Term | Meaning in this repository |
-| --- | --- |
-| Architecture | An independently classifiable system, method, or framework with an operative memory mechanism. Architecture counts are not necessarily counts of distinct papers. |
-| Primary modality | The modality supplying the central persistent experience and primary evaluation setting. Each record appears in one modality folder; other operative modalities are recorded as secondary metadata. |
-| Memory state | Stored content, organization, access indices, metadata, or a deliberately retained recurrent state. |
-| Memory management policy | The reusable rules, instructions, procedures, or learned components governing how memory is written, maintained, or retrieved. |
-| Benchmark / evaluation resource | A resource used to evaluate memory or a relevant task or component. A paper may contribute both an architecture and a benchmark. |
-
-The benchmark lists cover the **83 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
-
-Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
 
 ## Taxonomy
 
@@ -86,7 +57,25 @@ The two axes describe **how experience is represented** and **what changes durin
 
 T2 operations include **update**, **consolidation**, **revision and conflict resolution**, **reorganization**, and **forgetting**. T3 policy evolution can target **writing**, **maintenance**, or **retrieval**. Offline training alone does not establish T3; changes to stored content or statistics under a stable policy remain T2.
 
-## Image
+## Scope & Terminology
+
+**Multimodal agent memory** retains information from experience for later reasoning, generation, or action. The architecture inventory includes systems in which persistent memory is operationally important and at least one non-text modality contributes to memory formation, storage, retrieval, maintenance, policy learning, or use. Memory may persist across steps within an episode or across interactions and tasks. Generic multimodal models and incidental context windows alone are outside this scope.
+
+| Term | Meaning in this repository |
+| --- | --- |
+| Architecture | An independently classifiable system, method, or framework with an operative memory mechanism. Architecture counts are not necessarily counts of distinct papers. |
+| Primary modality | The modality supplying the central persistent experience and primary evaluation setting. Each record appears in one modality folder; other operative modalities are recorded as secondary metadata. |
+| Memory state | Stored content, organization, access indices, metadata, or a deliberately retained recurrent state. |
+| Memory management policy | The reusable rules, instructions, procedures, or learned components governing how memory is written, maintained, or retrieved. |
+| Benchmark / evaluation resource | A resource used to evaluate memory or a relevant task or component. A paper may contribute both an architecture and a benchmark. |
+
+The benchmark lists cover the **83 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
+
+Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
+
+<a id="image"></a>
+
+## 🖼️ Image
 
 [Image README](architectures/image/README.md) · 63 architecture records · 20 benchmark/evaluation resources
 
@@ -181,7 +170,9 @@ T2 operations include **update**, **consolidation**, **revision and conflict res
 
 [Back to contents](#table-of-contents)
 
-## Video and Streaming
+<a id="video-and-streaming"></a>
+
+## 🎬 Video and Streaming
 
 [Video and Streaming README](architectures/video_streaming/README.md) · 84 architecture records · 23 benchmark/evaluation resources
 
@@ -300,7 +291,9 @@ T2 operations include **update**, **consolidation**, **revision and conflict res
 
 [Back to contents](#table-of-contents)
 
-## Audio and Speech
+<a id="audio-and-speech"></a>
+
+## 🎧 Audio and Speech
 
 [Audio and Speech README](architectures/audio_speech/README.md) · 8 architecture records · 10 benchmark/evaluation resources
 
@@ -330,7 +323,9 @@ T2 operations include **update**, **consolidation**, **revision and conflict res
 
 [Back to contents](#table-of-contents)
 
-## GUI
+<a id="gui"></a>
+
+## 🖥️ GUI
 
 [GUI README](architectures/gui/README.md) · 41 architecture records · 7 benchmark/evaluation resources
 
@@ -390,7 +385,9 @@ T2 operations include **update**, **consolidation**, **revision and conflict res
 
 [Back to contents](#table-of-contents)
 
-## Embodied and 3D
+<a id="embodied-and-3d"></a>
+
+## 🤖 Embodied and 3D
 
 [Embodied and 3D README](architectures/embodied_3d/README.md) · 100 architecture records · 23 benchmark/evaluation resources
 
