@@ -2,12 +2,31 @@
 
 ### The Evolution of Multimodal Agent Memory
 
-A reading list and annotated corpus of **multimodal agent memory**, organized by modality and a two-axis taxonomy: **Formation and Representation** and **Memory Management**.
+**How multimodal agents represent experience, maintain memory, and learn from feedback.**
 
-The current inventory contains **296 architecture records** and **83 benchmark and evaluation resources**. Browse the papers below or open a modality’s README for a focused list.
+[About the Survey](#about-the-survey) · [Highlights](#highlights) · [Taxonomy](#taxonomy) · [Browse Papers](#image)
+
+## About the Survey
+
+Multimodal agents encounter images, videos, speech, interfaces, and physical environments. Memory allows them to retain information from these experiences and use it in later reasoning, generation, and action. This survey examines **how experience becomes memory, how memory changes during use, and how feedback can improve the policies that manage it**.
+
+> **Our core perspective:** Memory supports agents in learning from accumulated experience, while the memory system itself can evolve through feedback-driven updates to how it writes, maintains, and retrieves that experience.
+
+We organize this landscape along two complementary axes: **Formation and Representation** describes how multimodal experience is encoded and stored; **Memory Management** distinguishes static memory, dynamic memory updated under a stable policy, and self-evolving memory whose management policy changes through feedback.
+
+This repository accompanies the survey with a curated reading list and annotated records. Browse by modality below, or use the [taxonomy](#taxonomy) to compare memory mechanisms across settings.
+
+## Highlights
+
+- **A unified view across modalities.** Connect memory research in **image, video and streaming, audio and speech, GUI, and embodied and 3D** settings through a shared taxonomy.
+- **From retaining experience to evolving memory policies.** Distinguish **T1 Static Memory**, **T2 Dynamic Memory**, and **T3 Self-Evolving Memory** by whether memory remains fixed, memory state changes under a stable policy, or the management policy itself evolves.
+- **296 architecture records.** Explore how systems preserve source evidence, construct explicit representations, internalize experience in latent states or parameters, and combine these approaches.
+- **83 benchmark and evaluation resources.** Find dedicated memory tests alongside broader task and component evaluations, with scope notes to clarify what each resource evaluates.
 
 ## Table of Contents
 
+- [About the Survey](#about-the-survey)
+- [Highlights](#highlights)
 - [Scope & Terminology](#scope--terminology)
 - [Taxonomy](#taxonomy)
   - [Axis I: Formation and Representation](#axis-i-formation-and-representation)
