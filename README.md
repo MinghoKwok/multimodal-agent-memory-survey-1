@@ -10,8 +10,6 @@
 
 Multimodal agents encounter images, videos, speech, interfaces, and physical environments. Memory allows them to retain information from these experiences and use it in later reasoning, generation, and action. This survey examines **how experience becomes memory, how memory changes during use, and how feedback can improve the policies that manage it**.
 
-> **Our core perspective:** Memory supports agents in learning from accumulated experience, while the memory system itself can evolve through feedback-driven updates to how it writes, maintains, and retrieves that experience.
-
 We organize this landscape along two complementary axes: **Formation and Representation** describes how multimodal experience is encoded and stored; **Memory Management** distinguishes static memory, dynamic memory updated under a stable policy, and self-evolving memory whose management policy changes through feedback.
 
 This repository accompanies the survey with a curated reading list and annotated records. Browse by modality below, or use the [taxonomy](#taxonomy) to compare memory mechanisms across settings.
