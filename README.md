@@ -7,7 +7,6 @@
 **296 architecture records · 83 benchmark and evaluation resources · 5 modality categories**
 
 [About the Survey](#about-the-survey) · [Highlights](#highlights) · [Taxonomy](#taxonomy) · [Browse Papers](#image)
-
 ## About the Survey
 
 Multimodal agents see, hear, and act in changing environments. To use past experience in future decisions, they need to preserve relevant information, keep it current, and learn from feedback. This survey examines **how multimodal experience becomes reusable memory and how memory systems evolve during use**.
